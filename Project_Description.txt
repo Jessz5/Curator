@@ -1,0 +1,26 @@
+Team gme
+https://github.com/CSE410HCI/gme
+https://app.zenhub.com/workspaces/gme-6026ab1d09e4aa00101a1a8d/board?repos=337266177
+Alternate Dispute Approach: Coin flip to break disputes
+Project Description:
+    Our website will allow users to use their Spotify accounts to share music snippets between their friends and followers, and talk to other users
+directly about their music tastes. Users will be able to like their friends music, comment on their music snippets, and add found music to their
+liked songs on Spotify. The user accounts will tie to a particular Spotify account and act in tandem with the Spotify web API to keep track of
+user information; and the user will be recommended other user accounts to follow based on those accounts liking the same music they do.
+    This will provide external account options such as profile pictures, posting, deleting content, sharing directly, and direct messaging. It
+also will allow users to follow or block as needed to moderate what content they want to consume on the site; and to make sure the content they
+see is relevant to their tastes. It will also, of course, support typical user account control features such as password resetting and account
+deletion. 
+
+Typical User Approach:
+    A typical user for our website would be somebody with a Spotify account with minimal technical background. They would be able to use our
+website to immediately start sharing the music they've liked on spotify after linking their account, as well as browse other accounts who've
+liked the same songs as them. A user will be able to post only be able to post snippets of music, of course, but they also have the capability
+of following the song snippet back to Spotify in order to hear the full track. Commenting and liking will be allowed as well in order to provide
+users with feedback from followers for every post.
+    The typical flow for a user with all of this in mind is as follows. They'll reach the website and be prompted to make an account, at which
+point they link their newly made profile with their Spotify account. Once linked, they will be prompted to add a few song snippets from their
+liked music playlists and, when completed, they would have the full functionality of the website available to them. They would be able to 
+navigate through recommended users to follow based on them liking the same songs and see song snippets from them to comment on/like; or
+alternatively they would be able to navigate to their own profile in order to post more songs under their account name. If they had any friends
+or users in particular they wanted to follow they could type in their profile names to search for them, and follow them from there. 
