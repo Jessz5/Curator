@@ -66,19 +66,38 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
+
+          <Navbar toggleModal={e => toggleModal(this, e)} />
+
           <div className="maincontent" id="mainContent">
             <Switch>
+            <Route path="/settings">
+              <div className="settings">
+                <p>Settings</p>
+                <Profile userid={sessionStorage.getItem("user")} />
+              </div>
+            </Route>
+            <Route path="/friends">
+              <div>
+                <p>Friends</p>
+                <FriendForm userid={sessionStorage.getItem("user")} />
+                <FriendList userid={sessionStorage.getItem("user")} />
+              </div>
+            </Route>
             <Route path={["/posts","/"]}>
               <div>
                 <p>Social Media Test Harness</p>
+                <LoginForm refreshPosts={this.doRefreshPosts}  />
+                <PostForm refresh={this.state.refreshPosts}/>
               </div>
             </Route>
             </Switch>
           </div>
         </header>
-        <body className="Dark-Body">
-        <p>This is in the body</p>
-        </body>
+
+        <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
+          This is a modal dialog!
+        </Modal>
       </div>
       </Router>
     );
