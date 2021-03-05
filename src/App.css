@@ -7,8 +7,8 @@
 }
 
 .App-header {
-  background-color: #010423;
-  min-height: 50vh;
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: flex-center;
@@ -179,6 +179,23 @@
   justify-content: center;
 }
 
+.sidenav{
+  /* need to specify some position other than static, so height can apply.
+     Fixed works since it will stay fixed to the side - 0 from both left and top. */
+  position:fixed;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100px;
+
+  /* internally to this container, we want to use flex positioning of the menu elements */
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: blue;
+}
 
 .sidenav ul{
    list-style-type: none;
