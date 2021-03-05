@@ -15,6 +15,7 @@ import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
 import SpotifyLink from "./Component/SpotifyLink.jsx";
+import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
 
 import {
   BrowserRouter as Router, Route, Switch
@@ -102,6 +103,16 @@ class App extends React.Component {
               </div>
             </Route>
             
+            <Route path="/forgotPassword">
+              <div>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <ForgotPasswordForm className="fPassword"/>
+                </body>
+              </div>
+            </Route>
 
             <Route path={["/posts","/"]}>
               <div>
