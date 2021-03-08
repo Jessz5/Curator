@@ -1,5 +1,5 @@
 import "../App.css";
-import "../Darkpages.css";
+import "../darkpages.css";
 import React from "react";
 
 class ForgotPasswordForm extends React.Component {
@@ -7,13 +7,11 @@ class ForgotPasswordForm extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.submitHandler} className="fPasswordForm">
-            <label className="fPasswordLabel">
-              Enter your email address and we'll send you a recovery link:
-              <br />
-            </label>
-            <input type="text" email="email"></input>
-            </form>
+            <div className="fPasswordDiv">
+                <form onSubmit={this.submitHandler} className="fPasswordForm">
+                <input className="fPasswordInput" type="text" email="email"></input>
+                </form>
+            </div>
         );
     }
 }

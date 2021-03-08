@@ -6,7 +6,7 @@
 
 import React from "react";
 import "./App.css";
-import "./Darkpages.css";
+import "./darkpages.css";
 import PostForm from "./Component/PostForm.jsx";
 import FriendList from "./Component/FriendList.jsx";
 import LoginForm from "./Component/LoginForm.jsx";
@@ -109,7 +109,8 @@ class App extends React.Component {
                   <p>Curator Logo Placeholder</p>
                 </header>
                 <body className="Dark-Body">
-                  <ForgotPasswordForm className="fPassword"/>
+                  <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                  <ForgotPasswordForm/>
                 </body>
               </div>
             </Route>

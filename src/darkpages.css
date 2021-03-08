@@ -39,22 +39,27 @@
   margin:0;
 }
 
-.fPasswordForm{
-  position: relative;
-  top: 30%;
-}
-
 .fPasswordLabel{
-  position: absolute;
-  margin-left: 10px;
-  margin-right: 10em;
-  width: 15em;
   font-size: 35px;
-  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
 }
 
-.fPassword{
+.fPasswordDiv{
+  justify-content: center;
   position: absolute;
-  height: 50%;
+  height: 15em;
+  width: 10em;
+}
+
+.fPasswordForm{
+  position: absolute;
+  top: 40%;
+  width: 15em;
+}
+
+.fPasswordInput{
+  width: 15em;
 }
 

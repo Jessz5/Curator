@@ -1,6 +1,6 @@
 
 import "../App.css";
-import "../Darkpages.css";
+import "../darkpages.css";
 import React from "react";
 
 class SpotifyLink extends React.Component {
