@@ -1,0 +1,87 @@
+.search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+
+.curator-logo {
+    width: 280px;
+    height: 68px;
+    font-size: 120%;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: black;
+    border-bottom: 5px double #1DB954;
+}
+
+.home-button {
+    transform: scale(2);
+    position: absolute;
+    left: 400px;
+    top: 60px;
+}
+
+.search-button {
+    transform: scale(2);
+    position: absolute;
+    left: 700px;
+    top: 60px;
+}
+
+.bookmark-button {
+    transform: scale(2);
+    position: absolute;
+    left: 1000px;
+    top: 60px;
+}
+
+.account-button {
+    transform: scale(2);
+    position: absolute;
+    left: 1300px;
+    top: 60px;
+}
+
+.search-container {
+    margin-top: 40px;
+    margin-left: 360px;
+    border-radius: 15px;
+    padding: 20px;
+    width: 880px;
+    height: 5px;
+    border: 2px solid black;
+}
+
+.search-text {
+    text-align: left;
+    position: absolute;
+    left: 380px;
+    top: 165px;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 1300px;
+    top: 152px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+.cancel {
+    color:blue;
+}
+
+.search-description {
+    margin-top: 100px;
+    margin-left: 100px;
+    color: gray;
+}
+
