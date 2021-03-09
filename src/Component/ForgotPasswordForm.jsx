@@ -7,11 +7,9 @@ class ForgotPasswordForm extends React.Component {
 
     render() {
         return(
-            <div className="fPasswordDiv">
                 <form onSubmit={this.submitHandler} className="fPasswordForm">
-                <input className="fPasswordInput" type="text" email="email"></input>
+                <input className="fPasswordInput" type="text" email="email" placeholder="example@email.com"></input>
                 </form>
-            </div>
         );
     }
 }

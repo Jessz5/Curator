@@ -49,17 +49,32 @@
 .fPasswordDiv{
   justify-content: center;
   position: absolute;
-  height: 15em;
-  width: 10em;
+  height: 10em;
 }
 
 .fPasswordForm{
   position: absolute;
-  top: 40%;
-  width: 15em;
+  width: 100%;
 }
 
 .fPasswordInput{
-  width: 15em;
+  width: 80%;
+  height: 25px;
+  font-size: 20px;
+}
+
+.fPasswordButtonDiv{
+  position: absolute;
+  top: 43%;
+}
+
+.PasswordEmailButton{
+  background-color:  #1DB954;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50px;
 }
 

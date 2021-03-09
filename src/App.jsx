@@ -16,6 +16,7 @@ import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
 import SpotifyLink from "./Component/SpotifyLink.jsx";
 import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
+import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
 
 import {
   BrowserRouter as Router, Route, Switch
@@ -109,8 +110,13 @@ class App extends React.Component {
                   <p>Curator Logo Placeholder</p>
                 </header>
                 <body className="Dark-Body">
-                  <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
-                  <ForgotPasswordForm/>
+                  <div className="fPasswordDiv">
+                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                    <ForgotPasswordForm/>
+                  </div>
+                  <div className="fPasswordButtonDiv">
+                    <ForgotPasswordButton/>
+                  </div>
                 </body>
               </div>
             </Route>
