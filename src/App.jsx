@@ -22,6 +22,17 @@ import SignUpForm from "./Component/SignUpForm";
 import Logo from "./Component/Logo";
 import Feed from "./Component/Feed";
 import GridLayout from './Component/GridLayout';
+
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import AccountIcon from '@material-ui/icons/AccountCircle';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import "./searchpage.css";
+
 import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
@@ -77,8 +88,9 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
+
           <Navbar toggleModal={e => toggleModal(this, e)} />
-          
+
           <div className="maincontent" id="mainContent">
             <Switch>
             <Route path="/settings">
@@ -98,6 +110,67 @@ class App extends React.Component {
             </Route>
 
             <Route path="/linkSpotify">
+
+            <Route path="/search">
+                <div className="search-page">
+                    <header className= "curator-logo">
+                        <h1>Curator</h1>
+                    </header>
+                    <div className="home-button">
+                        <IconButton>
+                            <HomeIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="search-button">
+                        <IconButton>
+                            <SearchIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="bookmark-button">
+                        <IconButton>
+                            <BookmarkIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="account-button">
+                        <IconButton>
+                            <AccountIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="search-container">
+                        <div className="search-text">
+                            <InputBase
+                                type="text"
+                                id="myInput"
+                                inputRef={el => this.myInput = el}
+                                placeholder="Search..."
+                                startAdornment={<SearchIcon/>}
+                            />
+                        </div>
+                    </div>
+                    {/*"document.getElementById('myInput').value = ' '"*/}
+                    <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
+                    <ToggleButtonGroup>
+                        <ToggleButton>
+                            <p>Top</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Songs</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Accounts</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Tags</p>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                    <div className="search-description">
+                      <h2>Search Curator</h2>
+                      <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
+                    </div>
+                </div>
+            </Route>
+
+            <Route path={["/posts","/"]}>
               <div>
                 <header className="Dark-Header">
                   <p>Curator Logo Placeholder</p>
@@ -108,7 +181,7 @@ class App extends React.Component {
                 </body>
               </div>
             </Route>
-            
+
             <Route path="/forgotPassword">
               <div>
                 <header className="Dark-Header">
@@ -125,7 +198,7 @@ class App extends React.Component {
                 </body>
               </div>
             </Route>
-            <Route exact path="/" component={LogInBanner}/> 
+            <Route exact path="/" component={LogInBanner}/>
             <Route path = "/UserPost">
               <Navbar/>
               <GridLayout/>
