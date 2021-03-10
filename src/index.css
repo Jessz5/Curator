@@ -7,7 +7,69 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/*code {*/
+  /*font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",*/
+    /*monospace;*/
+/*}*/
+
+
+.Dark-Header {
+  background-color: #010423;
+  height: 20vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  color: white;
+  margin: 0;
+  padding: 0;
+  border-bottom: 5px solid #1DB954;
 }
+
+.Dark-Body {
+  background-color: #010423;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  color:white;
+}
+
+.SpotifyText{
+  font: quicksand;
+  font-size: calc(15px + 2vmin);
+  position: absolute;
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  margin:0;
+}
+.SpotifyButton{
+  font-size: calc(15px + 2vmin);
+  position: absolute;
+  top: 40%;
+  margin:0;
+}
+
+.fPasswordForm{
+  position: relative;
+  top: 30%;
+}
+
+.fPasswordLabel{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10em;
+  width: 15em;
+  font-size: 35px;
+  top: 10%;
+}
+
+.fPassword{
+  position: absolute;
+  height: 50%;
+}
+

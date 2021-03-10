@@ -1,0 +1,84 @@
+
+.App {
+
+
+}
+.Logo{
+    background-color: #010423;
+    height: 20vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: calc(25px + 4vmin);
+    color: white;
+    margin: 0;
+    padding: 0;
+    border-bottom: 5px solid #1DB954;
+
+}
+
+.Followers{
+    position: absolute;
+    margin-left: 900px;
+    margin-right: 9em;
+    width: 15em;
+    font-size: 35px;
+    top: 20%;
+}
+
+.Following{
+
+    position: absolute;
+    margin-left: 1200px;
+    margin-right: 9em;
+    width: 15em;
+    font-size: 35px;
+    top: 20%;
+}
+.Tracks{
+
+    position: absolute;
+    margin-left: 550px;
+    margin-right: 9em;
+    width: 15em;
+    font-size: 35px;
+    top: 20%;
+
+}
+
+.My-tracks{
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*width: 0em;*/
+    font-size: 20px;
+    top: 59%;
+    text-align: center;
+
+}
+.playlist{
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*width: 0em;*/
+    font-size: 20px;
+    top: 85%;
+    text-align: center;
+
+}
+.profile_photo{
+
+    position: fixed;
+}
+
+.SettingsList{
+    /*position: absolute;*/
+    /*margin-left: 350px;*/
+    /*margin-right: 10px;*/
+    /*!*width: 0em;*!*/
+    /*font-size: 20px;*/
+    /*top: 25%;*/
+    /*text-align: center;*/
+
+}

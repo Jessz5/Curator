@@ -3,9 +3,10 @@
   This is the level that will handle the routing of requests, and also the one that will manage communication between
   sibling components at a lower level.  It holds the basic structural components of navigation, content, and a modal dialog.
 */
-
 import React from "react";
 import "./App.css";
+import userAccount from "./Component/userAccount.jsx";
+import settings from "./Component/settings.jsx";
 import "./darkpages.css";
 import PostForm from "./Component/PostForm.jsx";
 import FriendList from "./Component/FriendList.jsx";
@@ -76,7 +77,6 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
-
           <Navbar toggleModal={e => toggleModal(this, e)} />
           
           <div className="maincontent" id="mainContent">
@@ -125,20 +125,18 @@ class App extends React.Component {
                 </body>
               </div>
             </Route>
-
             <Route exact path="/" component={LogInBanner}/> 
-
             <Route path = "/UserPost">
               <Navbar/>
               <GridLayout/>
             </Route>
-
             <Route path = "/LogInBanner" component={LogInBanner}/>
-
             <Route path = "/SignUpForm" component={SignUpForm}/>
+               <Route path="/userAccount" component = {userAccount} />
+              <Route path="/userSettings" component = {settings} />
             </Switch>
-          </div>
         </header>
+      </div>
         <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
           This is a modal dialog!
         </Modal>
