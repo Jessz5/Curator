@@ -5,13 +5,17 @@
 */
 
 import React from "react";
-
+import "./App.css";
+import "./darkpages.css";
 import PostForm from "./Component/PostForm.jsx";
 import FriendList from "./Component/FriendList.jsx";
 import Profile from "./Component/Profile.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
+import SpotifyLink from "./Component/SpotifyLink.jsx";
+import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
+import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
 import LogInBanner from "./Component/LogInBanner";
 import SignUpForm from "./Component/SignUpForm";
 import Logo from "./Component/Logo";
@@ -70,15 +74,75 @@ class App extends React.Component {
       // expressions, and would otherwise capture all the routes.  Ask me how I
       // know this.
       <Router basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route path = "/LogInBanner" component={LogInBanner}/>
-        <Route path = "/SignUpForm" component={SignUpForm}/>
-        <Route path = "/UserPost">
-          <Navbar/>
-          <GridLayout/>
-        </Route>
-        <Route exact path="/" component={LogInBanner}/> 
-      </Switch>
+      <div className="App">
+        <header className="App-header">
+
+          <Navbar toggleModal={e => toggleModal(this, e)} />
+          
+          <div className="maincontent" id="mainContent">
+            <Switch>
+            <Route path="/settings">
+              <div className="settings">
+                <p>Settings</p>
+                <Profile userid={sessionStorage.getItem("user")} />
+              </div>
+            </Route>
+
+
+            <Route path="/friends">
+              <div>
+                <p>Friends</p>
+                <FriendForm userid={sessionStorage.getItem("user")} />
+                <FriendList userid={sessionStorage.getItem("user")} />
+              </div>
+            </Route>
+
+            <Route path="/linkSpotify">
+              <div>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
+                  <SpotifyLink/>
+                </body>
+              </div>
+            </Route>
+            
+            <Route path="/forgotPassword">
+              <div>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <div className="fPasswordDiv">
+                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                    <ForgotPasswordForm/>
+                  </div>
+                  <div className="fPasswordButtonDiv">
+                    <ForgotPasswordButton/>
+                  </div>
+                </body>
+              </div>
+            </Route>
+
+            <Route exact path="/" component={LogInBanner}/> 
+
+            <Route path = "/UserPost">
+              <Navbar/>
+              <GridLayout/>
+            </Route>
+
+            <Route path = "/LogInBanner" component={LogInBanner}/>
+
+            <Route path = "/SignUpForm" component={SignUpForm}/>
+            </Switch>
+          </div>
+        </header>
+        <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
+          This is a modal dialog!
+        </Modal>
+        </div>
       </Router>
     );
   }
