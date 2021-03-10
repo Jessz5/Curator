@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
 .App {
   text-align: center;
 }
@@ -7,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #010423 !important;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -17,18 +19,34 @@
   color: white;
 }
 
-.deletePost{
-  width:100%;
-
+.deletePost {
+  width: 100%;
 }
-.deleteIcon{
-  float:right;
-}
-
-.settings{
-  width:100%;
+.deleteIcon {
+  float: right;
 }
 
+.settings {
+  width: 100%;
+}
+.filler label:nth-child(1) {
+  position: relative;
+  left: 199px;
+}
+label.login1 {
+  position: relative;
+  left: 199px;
+  top: 32px;
+}
+input[type="submit"] {
+  position: relative;
+  left: -121px;
+  top: 110px;
+  background: #1db954;
+  color: white;
+  font-family: initial;
+  font-size: 16px;
+}
 .link-button {
   background-color: transparent;
   border: none;
@@ -36,28 +54,40 @@
   display: inline;
   margin: 0;
   padding: 0;
-  outline:none;
+  outline: none;
 }
-
+.Spotify_login {
+  background: #1db954;
+  border-radius: 16px;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  width: 319px;
+  height: 41.61px;
+  border: 0px;
+  position: relative;
+  top: 120px;
+  left: 558px;
+  font-size: 18px;
+  font-weight: 700;
+}
 .link-button:hover,
 .link-button:focus,
 .link-button:active {
   text-decoration: none;
-  outline:none;
+  outline: none;
 }
 
 .no-suggestions {
   color: #999;
   padding: 0.5rem;
-
 }
 
 .autocomplete input {
-    width: calc(300px + 1rem);
+  width: calc(300px + 1rem);
 }
 
-.autocomplete{
-    min-height: 165px;
+.autocomplete {
+  min-height: 165px;
 }
 
 .suggestions {
@@ -70,9 +100,8 @@
   padding-left: 0;
   width: calc(300px + 1rem);
 
-  display:inline-block;
-  position:relative;
-
+  display: inline-block;
+  position: relative;
 }
 
 .suggestions li {
@@ -91,9 +120,8 @@
   border-bottom: 1px solid #999;
 }
 
-.profileform label{
-   display:block;
-
+.profileform label {
+  display: block;
 }
 
 .App-link {
@@ -104,10 +132,10 @@
   text-align: left;
   background: blue;
   border-radius: 20px;
-  padding:30px;
-  margin:10px;
+  padding: 30px;
+  margin: 10px;
 
-  width:60%;
+  width: 60%;
   display: inline-flex;
 }
 
@@ -115,40 +143,39 @@
   text-align: left;
   background: blue;
   border-radius: 20px;
-  padding:30px;
-  margin:10px;
-  width:60%;
+  padding: 30px;
+  margin: 10px;
+  width: 60%;
   display: inline-flex;
 }
 
-.comments{
-    background:white;
-    width:90%;
-    display:block;
-    border-radius: 20px;
-    padding:10px;
-    margin:10px;
-    color:black;
+.comments {
+  background: white;
+  width: 90%;
+  display: block;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  color: black;
 }
 
 .commentlist {
   text-align: left;
   background: lightblue;
-  color:black;
+  color: black;
   border-radius: 20px;
-  padding:10px;
-  margin:10px;
+  padding: 10px;
+  margin: 10px;
   font-size: 12px;
-  width:90%;
-  display:block;
+  width: 90%;
+  display: block;
 }
 
-.hide{
-  display:none;
+.hide {
+  display: none;
 }
 
-
-.maincontent{
+.maincontent {
   display: flex;
   flex-direction: column;
 
@@ -156,90 +183,98 @@
   flex-grow: 1;
 }
 
-.posts{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.postbody{
-  width:100%;
-  display:flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.comment-block{
-  width:100%;
-  display:flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.sidenav{
-  /* need to specify some position other than static, so height can apply.
-     Fixed works since it will stay fixed to the side - 0 from both left and top. */
-  position:fixed;
-  left:0px;
-  top:0px;
-  height:100%;
-  width:100px;
-
-  /* internally to this container, we want to use flex positioning of the menu elements */
-  display:flex;
+.posts {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
-  background-color: blue;
 }
 
-.sidenav ul{
-   list-style-type: none;
-   padding:10px;
-   margin:0px;
-   margin-top: 40px;
+.postbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.sidenav-icon{
-  width:40px;
-  height:40px;
-
-  margin-bottom:15px;
+.comment-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.comment-indicator{
-  text-align:right;
-  width:100%;
-  display:block;
-  float:right;
+.sidenav {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  left: 103px;
+  top: 8px;
+
+}
+
+li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 110px;
+  text-decoration: none;
+}
+
+.sidenav-icon {
+  width: 40px;
+  height: 40px;
+
+  margin-bottom: 15px;
+}
+
+.comment-indicator {
+  text-align: right;
+  width: 100%;
+  display: block;
+  float: right;
   margin-top: 10px;
 }
 
-.comment-icon{
-  width:40px;
-  height:40px;
-  float:right;
+.comment-icon {
+  width: 40px;
+  height: 40px;
+  float: right;
 }
 
-.comment-indicator-text{
+.comment-indicator-text {
   background-color: lightblue;
   color: black;
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
-  width:120px;
-  padding:5px;
-  float:right;
-  margin-left:10px;
+  width: 120px;
+  padding: 5px;
+  float: right;
+  margin-left: 10px;
   text-align: center;
 }
 
-.hide{
-  display:none;
+.hide {
+  display: none;
 }
 
 /* The Modal (background) */
@@ -252,8 +287,8 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -265,7 +300,24 @@
   width: 50%; /* Could be more or less, depending on screen size */
   height: 200px;
 }
-
+#LoginBody {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 1310px;
+  background: #010423;
+}
+#SignUpBody {
+  position: relative;
+  top: -30px;
+  width: 100%;
+  height: 1310px;
+  background: #010423;
+}
+.SignUpForm {
+  position: relative;
+  top: 122px;
+}
 /* The Close Button */
 .close {
   color: #aaa;
@@ -280,4 +332,12 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* This is the begining of $GME css*/
+#Nav_logo {
+  position: fixed;
+  top: 105px;
+  left: 20px;
+  z-index: 2;
 }
