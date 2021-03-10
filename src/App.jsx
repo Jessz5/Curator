@@ -5,17 +5,23 @@
 */
 
 import React from "react";
-import "./App.css";
+
 import PostForm from "./Component/PostForm.jsx";
 import FriendList from "./Component/FriendList.jsx";
-import LoginForm from "./Component/LoginForm.jsx";
 import Profile from "./Component/Profile.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
+import LogInBanner from "./Component/LogInBanner";
+import SignUpForm from "./Component/SignUpForm";
+import Logo from "./Component/Logo";
+import Feed from "./Component/Feed";
+import GridLayout from './Component/GridLayout';
 import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
+import UserPost from "./Component/UserPost";
+
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
@@ -64,41 +70,15 @@ class App extends React.Component {
       // expressions, and would otherwise capture all the routes.  Ask me how I
       // know this.
       <Router basename={process.env.PUBLIC_URL}>
-      <div className="App">
-        <header className="App-header">
-
-          <Navbar toggleModal={e => toggleModal(this, e)} />
-
-          <div className="maincontent" id="mainContent">
-            <Switch>
-            <Route path="/settings">
-              <div className="settings">
-                <p>Settings</p>
-                <Profile userid={sessionStorage.getItem("user")} />
-              </div>
-            </Route>
-            <Route path="/friends">
-              <div>
-                <p>Friends</p>
-                <FriendForm userid={sessionStorage.getItem("user")} />
-                <FriendList userid={sessionStorage.getItem("user")} />
-              </div>
-            </Route>
-            <Route path={["/posts","/"]}>
-              <div>
-                <p>Social Media Test Harness</p>
-                <LoginForm refreshPosts={this.doRefreshPosts}  />
-                <PostForm refresh={this.state.refreshPosts}/>
-              </div>
-            </Route>
-            </Switch>
-          </div>
-        </header>
-
-        <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
-          This is a modal dialog!
-        </Modal>
-      </div>
+      <Switch>
+        <Route path = "/LogInBanner" component={LogInBanner}/>
+        <Route path = "/SignUpForm" component={SignUpForm}/>
+        <Route path = "/UserPost">
+          <Navbar/>
+          <GridLayout/>
+        </Route>
+        <Route exact path="/" component={LogInBanner}/> 
+      </Switch>
       </Router>
     );
   }
