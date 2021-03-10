@@ -134,9 +134,11 @@ class App extends React.Component {
             <Route path = "/SignUpForm" component={SignUpForm}/>
                <Route path="/userAccount" component = {userAccount} />
               <Route path="/userSettings" component = {settings} />
-            </Switch>
+           </Switch>
+            </div>
         </header>
       </div>
+      <div>
         <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
           This is a modal dialog!
         </Modal>
