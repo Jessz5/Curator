@@ -3,30 +3,19 @@
   This is the level that will handle the routing of requests, and also the one that will manage communication between
   sibling components at a lower level.  It holds the basic structural components of navigation, content, and a modal dialog.
 */
+
 import React from "react";
 import "./App.css";
-import userAccount from "./Component/userAccount.jsx";
-import settings from "./Component/settings.jsx";
-import "./darkpages.css";
 import PostForm from "./Component/PostForm.jsx";
 import FriendList from "./Component/FriendList.jsx";
+import LoginForm from "./Component/LoginForm.jsx";
 import Profile from "./Component/Profile.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
-import SpotifyLink from "./Component/SpotifyLink.jsx";
-import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
-import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
-import LogInBanner from "./Component/LogInBanner";
-import SignUpForm from "./Component/SignUpForm";
-import Logo from "./Component/Logo";
-import Feed from "./Component/Feed";
-import GridLayout from './Component/GridLayout';
 import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
-import UserPost from "./Component/UserPost";
-
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
@@ -77,8 +66,9 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
+
           <Navbar toggleModal={e => toggleModal(this, e)} />
-          
+
           <div className="maincontent" id="mainContent">
             <Switch>
             <Route path="/settings">
@@ -87,8 +77,6 @@ class App extends React.Component {
                 <Profile userid={sessionStorage.getItem("user")} />
               </div>
             </Route>
-
-
             <Route path="/friends">
               <div>
                 <p>Friends</p>
@@ -96,51 +84,21 @@ class App extends React.Component {
                 <FriendList userid={sessionStorage.getItem("user")} />
               </div>
             </Route>
-
-            <Route path="/linkSpotify">
+            <Route path={["/posts","/"]}>
               <div>
-                <header className="Dark-Header">
-                  <p>Curator Logo Placeholder</p>
-                </header>
-                <body className="Dark-Body">
-                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                  <SpotifyLink/>
-                </body>
+                <p>Social Media Test Harness</p>
+                <LoginForm refreshPosts={this.doRefreshPosts}  />
+                <PostForm refresh={this.state.refreshPosts}/>
               </div>
             </Route>
-            
-            <Route path="/forgotPassword">
-              <div>
-                <header className="Dark-Header">
-                  <p>Curator Logo Placeholder</p>
-                </header>
-                <body className="Dark-Body">
-                  <div className="fPasswordDiv">
-                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
-                    <ForgotPasswordForm/>
-                  </div>
-                  <div className="fPasswordButtonDiv">
-                    <ForgotPasswordButton/>
-                  </div>
-                </body>
-              </div>
-            </Route>
-            <Route exact path="/" component={LogInBanner}/> 
-            <Route path = "/UserPost">
-              <Navbar/>
-              <GridLayout/>
-            </Route>
-            <Route path = "/LogInBanner" component={LogInBanner}/>
-            <Route path = "/SignUpForm" component={SignUpForm}/>
-               <Route path="/userAccount" component = {userAccount} />
-              <Route path="/userSettings" component = {settings} />
             </Switch>
+          </div>
         </header>
-      </div>
+
         <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
           This is a modal dialog!
         </Modal>
-        </div>
+      </div>
       </Router>
     );
   }

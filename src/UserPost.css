@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+.A-dot {
+    height: 286px;
+width: 286px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+position: relative;
+top: 30px;
+left: 50px;
+  }
+  #post{
+    position: relative;
+    top: 140px;
+    left: 299px;
+    width: 384px;
+    height: 414.74px;
+    background: rgba(196, 196, 196, 0.3);
+    border-radius: 10px;
+  }
+  #heart{
+    position: absolute;
+    top: 362px;
+    left: 30px;
+  }
+  #comment{
+    position: absolute;
+left: 321px;
+top: 362px;
+}
+  h6{
+      margin: unset;
+  }
+  .SongInfo{
+    position: absolute;
+top: 363px;
+left: 180px;
+  }
+  #SongName{
+    position: relative;
+    top: -13px;
+    font-style: ;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    left: -9px;
+  }
+  #ArtistName{
+    position: relative;
+    left: -6px;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  #dots{
+    position: absolute;
+    top: 7px;
+    left: 331px;
+  }

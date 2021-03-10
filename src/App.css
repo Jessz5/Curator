@@ -1,357 +1,343 @@
-/*.App {*/
-  /*text-align: center;*/
-/*}*/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
-/*.App-logo {*/
-  /*height: 40vmin;*/
-/*}*/
+.App {
+  text-align: center;
+}
 
-/*.App-header {*/
-  /*background-color: #282c34;*/
-  /*min-height: 100vh;*/
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*align-items: flex-center;*/
-  /*justify-content: center;*/
-  /*font-size: calc(10px + 2vmin);*/
-  /*color: white;*/
-/*}*/
+.App-logo {
+  height: 40vmin;
+}
 
-/*.deletePost{*/
-  /*width:100%;*/
+.App-header {
+  background-color: #010423 !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
 
-/*}*/
-/*.deleteIcon{*/
-  /*float:right;*/
-/*}*/
+.deletePost {
+  width: 100%;
+}
+.deleteIcon {
+  float: right;
+}
 
-/*.settings{*/
-  /*width:100%;*/
-/*}*/
+.settings {
+  width: 100%;
+}
+.filler label:nth-child(1) {
+  position: relative;
+  left: 199px;
+}
+label.login1 {
+  position: relative;
+  left: 199px;
+  top: 32px;
+}
+input[type="submit"] {
+  position: relative;
+  left: -121px;
+  top: 110px;
+  background: #1db954;
+  color: white;
+  font-family: initial;
+  font-size: 16px;
+}
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.Spotify_login {
+  background: #1db954;
+  border-radius: 16px;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  width: 319px;
+  height: 41.61px;
+  border: 0px;
+  position: relative;
+  top: 120px;
+  left: 558px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.link-button:hover,
+.link-button:focus,
+.link-button:active {
+  text-decoration: none;
+  outline: none;
+}
 
-/*.link-button {*/
-  /*background-color: transparent;*/
-  /*border: none;*/
-  /*cursor: pointer;*/
-  /*display: inline;*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*outline:none;*/
-/*}*/
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
 
-/*.link-button:hover,*/
-/*.link-button:focus,*/
-/*.link-button:active {*/
-  /*text-decoration: none;*/
-  /*outline:none;*/
-/*}*/
+.autocomplete input {
+  width: calc(300px + 1rem);
+}
 
-/*.no-suggestions {*/
-  /*color: #999;*/
-  /*padding: 0.5rem;*/
+.autocomplete {
+  min-height: 165px;
+}
 
-/*}*/
+.suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
 
-/*.autocomplete input {*/
-    /*width: calc(300px + 1rem);*/
-/*}*/
+  display: inline-block;
+  position: relative;
+}
 
-/*.autocomplete{*/
-    /*min-height: 165px;*/
-/*}*/
+.suggestions li {
+  padding: 0.5rem;
+}
 
-/*.suggestions {*/
-  /*border: 1px solid #999;*/
-  /*border-top-width: 0;*/
-  /*list-style: none;*/
-  /*margin-top: 0;*/
-  /*max-height: 143px;*/
-  /*overflow-y: auto;*/
-  /*padding-left: 0;*/
-  /*width: calc(300px + 1rem);*/
+.suggestion-active,
+.suggestions li:hover {
+  background-color: #008f68;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+}
 
-  /*display:inline-block;*/
-  /*position:relative;*/
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
 
-/*}*/
+.profileform label {
+  display: block;
+}
 
-/*.suggestions li {*/
-  /*padding: 0.5rem;*/
-/*}*/
+.App-link {
+  color: #09d3ac;
+}
 
-/*.suggestion-active,*/
-/*.suggestions li:hover {*/
-  /*background-color: #008f68;*/
-  /*color: #fae042;*/
-  /*cursor: pointer;*/
-  /*font-weight: 700;*/
-/*}*/
+.postlist {
+  text-align: left;
+  background: blue;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 10px;
 
-/*.suggestions li:not(:last-of-type) {*/
-  /*border-bottom: 1px solid #999;*/
-/*}*/
+  width: 60%;
+  display: inline-flex;
+}
 
-/*.profileform label{*/
-   /*display:block;*/
+.userlist {
+  text-align: left;
+  background: blue;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 10px;
+  width: 60%;
+  display: inline-flex;
+}
 
-/*}*/
+.comments {
+  background: white;
+  width: 90%;
+  display: block;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  color: black;
+}
 
-/*.App-link {*/
-  /*color: #09d3ac;*/
-/*}*/
+.commentlist {
+  text-align: left;
+  background: lightblue;
+  color: black;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 12px;
+  width: 90%;
+  display: block;
+}
 
-/*.postlist {*/
-  /*text-align: left;*/
-  /*background: blue;*/
-  /*border-radius: 20px;*/
-  /*padding:30px;*/
-  /*margin:10px;*/
+.hide {
+  display: none;
+}
 
-  /*width:60%;*/
-  /*display: inline-flex;*/
-/*}*/
+.maincontent {
+  display: flex;
+  flex-direction: column;
 
-/*.userlist {*/
-  /*text-align: left;*/
-  /*background: blue;*/
-  /*border-radius: 20px;*/
-  /*padding:30px;*/
-  /*margin:10px;*/
-  /*width:60%;*/
-  /*display: inline-flex;*/
-/*}*/
+  justify-content: center;
+  flex-grow: 1;
+}
 
-/*.comments{*/
-    /*background:white;*/
-    /*width:90%;*/
-    /*display:block;*/
-    /*border-radius: 20px;*/
-    /*padding:10px;*/
-    /*margin:10px;*/
-    /*color:black;*/
-/*}*/
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-/*.commentlist {*/
-  /*text-align: left;*/
-  /*background: lightblue;*/
-  /*color:black;*/
-  /*border-radius: 20px;*/
-  /*padding:10px;*/
-  /*margin:10px;*/
-  /*font-size: 12px;*/
-  /*width:90%;*/
-  /*display:block;*/
-/*}*/
+.postbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
 
-/*.hide{*/
-  /*display:none;*/
-/*}*/
+.comment-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
 
+.sidenav {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+}
 
-/*.maincontent{*/
-  /*display: flex;*/
-  /*flex-direction: column;*/
+.sidenav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  left: 103px;
+  top: 8px;
 
-  /*justify-content: center;*/
-  /*flex-grow: 1;*/
-/*}*/
+}
 
-/*.posts{*/
-    /*display:flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*justify-content: flex-start;*/
-/*}*/
+li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 110px;
+  text-decoration: none;
+}
 
-/*.postbody{*/
-  /*width:100%;*/
-  /*display:flex;*/
-  /*flex-direction: column;*/
-  /*align-items: flex-start;*/
-  /*justify-content: center;*/
-/*}*/
+.sidenav-icon {
+  width: 40px;
+  height: 40px;
 
-/*.comment-block{*/
-  /*width:100%;*/
-  /*display:flex;*/
-  /*flex-direction: column;*/
-  /*align-items: flex-start;*/
-  /*justify-content: center;*/
-/*}*/
+  margin-bottom: 15px;
+}
 
-/*!*.sidenav{*!*/
-  /*!*!* need to specify some position other than static, so height can apply.*!*/
-     /*!*Fixed works since it will stay fixed to the side - 0 from both left and top. *!*!*/
-  /*!*position:fixed;*!*/
-  /*!*left:0px;*!*/
-  /*!*top:0px;*!*/
-  /*!*height:100%;*!*/
-  /*!*width:100px;*!*/
+.comment-indicator {
+  text-align: right;
+  width: 100%;
+  display: block;
+  float: right;
+  margin-top: 10px;
+}
 
-  /*!*!* internally to this container, we want to use flex positioning of the menu elements *!*!*/
-  /*!*display:flex;*!*/
-  /*!*flex-direction: column;*!*/
-  /*!*align-items: center;*!*/
-  /*!*justify-content: flex-start;*!*/
+.comment-icon {
+  width: 40px;
+  height: 40px;
+  float: right;
+}
 
-  /*!*background-color: blue;*!*/
-/*!*}*!*/
+.comment-indicator-text {
+  background-color: lightblue;
+  color: black;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 120px;
+  padding: 5px;
+  float: right;
+  margin-left: 10px;
+  text-align: center;
+}
 
-/*!*.sidenav ul{*!*/
-   /*!*list-style-type: none;*!*/
-   /*!*padding:10px;*!*/
-   /*!*margin:0px;*!*/
-   /*!*margin-top: 40px;*!*/
-/*!*}*!*/
+.hide {
+  display: none;
+}
 
-/*!*.sidenav-icon{*!*/
-  /*!*width:40px;*!*/
-  /*!*height:40px;*!*/
+/* The Modal (background) */
+.modal {
+  display: block;
+  position: fixed; /* Stay in place */
+  z-index: 0; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
 
-  /*!*margin-bottom:15px;*!*/
-/*!*}*!*/
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 1px 10px 20px 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: 200px;
+}
+#LoginBody {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 1310px;
+  background: #010423;
+}
+#SignUpBody {
+  position: relative;
+  top: -30px;
+  width: 100%;
+  height: 1310px;
+  background: #010423;
+}
+.SignUpForm {
+  position: relative;
+  top: 122px;
+}
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  line-height: 42px;
+  font-size: 35px;
+  font-weight: bold;
+}
 
-/*.comment-indicator{*/
-  /*text-align:right;*/
-  /*width:100%;*/
-  /*display:block;*/
-  /*float:right;*/
-  /*margin-top: 10px;*/
-/*}*/
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-/*.comment-icon{*/
-  /*width:40px;*/
-  /*height:40px;*/
-  /*float:right;*/
-/*}*/
-
-/*.comment-indicator-text{*/
-  /*background-color: lightblue;*/
-  /*color: black;*/
-  /*border-radius: 10px;*/
-  /*font-size: 16px;*/
-  /*font-weight: bold;*/
-  /*width:120px;*/
-  /*padding:5px;*/
-  /*float:right;*/
-  /*margin-left:10px;*/
-  /*text-align: center;*/
-/*}*/
-
-/*.hide{*/
-  /*display:none;*/
-/*}*/
-
-/*!* The Modal (background) *!*/
-/*.modal {*/
-  /*display: block;*/
-  /*position: fixed; !* Stay in place *!*/
-  /*z-index: 0; !* Sit on top *!*/
-  /*left: 0;*/
-  /*top: 0;*/
-  /*width: 100%; !* Full width *!*/
-  /*height: 100%; !* Full height *!*/
-  /*overflow: auto; !* Enable scroll if needed *!*/
-  /*background-color: rgb(0,0,0); !* Fallback color *!*/
-  /*background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!*/
-/*}*/
-
-/*!* Modal Content/Box *!*/
-/*.modal-content {*/
-  /*background-color: #fefefe;*/
-  /*margin: 15% auto; !* 15% from the top and centered *!*/
-  /*padding: 1px 10px 20px 20px;*/
-  /*border: 1px solid #888;*/
-  /*width: 50%; !* Could be more or less, depending on screen size *!*/
-  /*height: 200px;*/
-/*}*/
-
-/*!* The Close Button *!*/
-/*.close {*/
-  /*color: #aaa;*/
-  /*float: right;*/
-  /*line-height: 42px;*/
-  /*font-size: 35px;*/
-  /*font-weight: bold;*/
-/*}*/
-
-/*.close:hover,*/
-/*.close:focus {*/
-  /*color: black;*/
-  /*text-decoration: none;*/
-  /*cursor: pointer;*/
-/*}*/
-
-/*.App {*/
-
-
-/*}*/
-/*.Logo{*/
-  /*background-color: #010423;*/
-  /*height: 20vh;*/
-  /*position: relative;*/
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*justify-content: center;*/
-  /*font-size: calc(25px + 4vmin);*/
-  /*color: white;*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*border-bottom: 5px solid #1DB954;*/
-
-/*}*/
-
-/*.Followers{*/
-
-  /*position: absolute;*/
-  /*margin-left: 900px;*/
-  /*margin-right: 9em;*/
-  /*width: 15em;*/
-  /*font-size: 35px;*/
-  /*top: 20%;*/
-/*}*/
-
-/*.Following{*/
-
-  /*position: absolute;*/
-  /*margin-left: 1200px;*/
-  /*margin-right: 9em;*/
-  /*width: 15em;*/
-  /*font-size: 35px;*/
-  /*top: 20%;*/
-/*}*/
-/*.Tracks{*/
-
-  /*position: absolute;*/
-  /*margin-left: 550px;*/
-  /*margin-right: 9em;*/
-  /*width: 15em;*/
-  /*font-size: 35px;*/
-  /*top: 20%;*/
-
-/*}*/
-
-/*.My-tracks{*/
-  /*position: absolute;*/
-  /*margin-left: 10px;*/
-  /*margin-right: 10px;*/
-  /*!*width: 0em;*!*/
-  /*font-size: 20px;*/
-  /*top: 59%;*/
-  /*text-align: center;*/
-
-/*}*/
-/*.playlist{*/
-  /*position: absolute;*/
-  /*margin-left: 10px;*/
-  /*margin-right: 10px;*/
-  /*!*width: 0em;*!*/
-  /*font-size: 20px;*/
-  /*top: 85%;*/
-  /*text-align: center;*/
-
-/*}*/
-/*.profile_photo{*/
-
-  /*position: fixed;*/
-/*}*/
+/* This is the begining of $GME css*/
+#Nav_logo {
+  position: fixed;
+  top: 105px;
+  left: 20px;
+  z-index: 2;
+}
