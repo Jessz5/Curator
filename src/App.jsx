@@ -17,6 +17,10 @@ import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 
+var client_id = '1b71fce4cd2040b6bc601f0901189e58'; // Spotify App Client ID
+var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
+var redirect_uri = 'http://localhost:8888/callback'; // Or Your redirect uri
+
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
 // for showing and hiding the component
