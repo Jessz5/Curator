@@ -3,19 +3,41 @@
   This is the level that will handle the routing of requests, and also the one that will manage communication between
   sibling components at a lower level.  It holds the basic structural components of navigation, content, and a modal dialog.
 */
-
 import React from "react";
 import "./App.css";
+import userAccount from "./Component/userAccount.jsx";
+import settings from "./Component/settings.jsx";
+import "./darkpages.css";
 import PostForm from "./Component/PostForm.jsx";
 import FriendList from "./Component/FriendList.jsx";
-import LoginForm from "./Component/LoginForm.jsx";
 import Profile from "./Component/Profile.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
+import SpotifyLink from "./Component/SpotifyLink.jsx";
+import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
+import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
+import LogInBanner from "./Component/LogInBanner";
+import SignUpForm from "./Component/SignUpForm";
+import Logo from "./Component/Logo";
+import Feed from "./Component/Feed";
+import GridLayout from './Component/GridLayout';
+
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import AccountIcon from '@material-ui/icons/AccountCircle';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import "./searchpage.css";
+
 import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
+import UserPost from "./Component/UserPost";
+
 
 var client_id = '1b71fce4cd2040b6bc601f0901189e58'; // Spotify App Client ID
 var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
@@ -81,6 +103,8 @@ class App extends React.Component {
                 <Profile userid={sessionStorage.getItem("user")} />
               </div>
             </Route>
+
+
             <Route path="/friends">
               <div>
                 <p>Friends</p>
@@ -88,21 +112,114 @@ class App extends React.Component {
                 <FriendList userid={sessionStorage.getItem("user")} />
               </div>
             </Route>
+
+            <Route path="/linkSpotify">
+
+            <Route path="/search">
+                <div className="search-page">
+                    <header className= "curator-logo">
+                        <h1>Curator</h1>
+                    </header>
+                    <div className="home-button">
+                        <IconButton>
+                            <HomeIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="search-button">
+                        <IconButton>
+                            <SearchIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="bookmark-button">
+                        <IconButton>
+                            <BookmarkIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="account-button">
+                        <IconButton>
+                            <AccountIcon/>
+                        </IconButton>
+                    </div>
+                    <div className="search-container">
+                        <div className="search-text">
+                            <InputBase
+                                type="text"
+                                id="myInput"
+                                inputRef={el => this.myInput = el}
+                                placeholder="Search..."
+                                startAdornment={<SearchIcon/>}
+                            />
+                        </div>
+                    </div>
+                    {/*"document.getElementById('myInput').value = ' '"*/}
+                    <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
+                    <ToggleButtonGroup>
+                        <ToggleButton>
+                            <p>Top</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Songs</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Accounts</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Tags</p>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                    <div className="search-description">
+                      <h2>Search Curator</h2>
+                      <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
+                    </div>
+                </div>
+            </Route>
+
             <Route path={["/posts","/"]}>
               <div>
-                <p>Social Media Test Harness</p>
-                <LoginForm refreshPosts={this.doRefreshPosts}  />
-                <PostForm refresh={this.state.refreshPosts}/>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
+                  <SpotifyLink/>
+                </body>
               </div>
             </Route>
-            </Switch>
-          </div>
-        </header>
 
+            <Route path="/forgotPassword">
+              <div>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <div className="fPasswordDiv">
+                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                    <ForgotPasswordForm/>
+                  </div>
+                  <div className="fPasswordButtonDiv">
+                    <ForgotPasswordButton/>
+                  </div>
+                </body>
+              </div>
+            </Route>
+            <Route exact path="/" component={LogInBanner}/>
+            <Route path = "/UserPost">
+              <Navbar/>
+              <GridLayout/>
+            </Route>
+            <Route path = "/LogInBanner" component={LogInBanner}/>
+            <Route path = "/SignUpForm" component={SignUpForm}/>
+               <Route path="/userAccount" component = {userAccount} />
+              <Route path="/userSettings" component = {settings} />
+           </Switch>
+            </div>
+        </header>
+      </div>
+      <div>
         <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
           This is a modal dialog!
         </Modal>
-      </div>
+        </div>
       </Router>
     );
   }
