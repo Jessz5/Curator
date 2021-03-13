@@ -207,6 +207,7 @@ class App extends React.Component {
             <Route path = "/SignUpForm" component={SignUpForm}/>
                <Route path="/userAccount" component = {userAccount} />
               <Route path="/userSettings" component = {settings} />
+            </Route>
            </Switch>
             </div>
         </header>
