@@ -157,6 +157,18 @@ class App extends React.Component {
               </div>
             </Route>
 
+            <Route path="/linkSpotify">
+                <div>
+                    <header className="Dark-Header">
+                        <p>Curator Logo Placeholder</p>
+                    </header>
+                    <body className= "Dark-Body">
+                        <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
+                        <SpotifyLink/>
+                    </body>
+                </div>
+            </Route>
+
             <Route path="/search">
                 <div className="search-page">
                 <div className="Nav_Wrapper">
