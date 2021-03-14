@@ -2,6 +2,66 @@ import React from "react";
 import "../App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 export default class SignUpForm extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          username: "",
+          firstname: "",
+          lastname: "",
+          password: "",
+          verify: ""
+        };
+      }
+
+   // change handlers keep the state current with the values as you type them, so
+    // the signup handler can read from the state to hit the API layer
+    myChangeHandler = event => {
+      this.setState({
+        username: event.target.value
+      });
+    };
+
+    firstnameChangeHandler = event => {
+      this.setState({
+        firstname: event.target.value
+      });
+    };
+
+    lastnameChangeHandler = event => {
+      this.setState({
+        lastname: event.target.value
+      });
+    };
+
+    passwordChangeHandler = event => {
+      this.setState({
+        password: event.target.value
+      });
+    };
+
+    verifyPasswordChangeHandler = event => {
+      this.setState({
+        verify: event.target.value
+      });
+    };
+
+   // when the user hits submit, process the signup through the API
+   signUp = event => {
+
+      //make the api call to the authentication page
+      fetch(process.env.REACT_APP_API_PATH+"/auth/signup", {
+        method: "post",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: this.state.username,
+          password: this.state.password
+        })
+      })
+    };
+
   render() {
     return (
       <div id="SignUpBody">
@@ -51,7 +111,7 @@ export default class SignUpForm extends React.Component {
               <input type="username"></input>
             </div>
 
-            <button id="Submit_Button">Sign Up</button>
+            <button id="Submit_Button" onclick={this.signUp}>Sign Up</button>
           </form>
         </div>
       </div>
