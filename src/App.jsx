@@ -96,23 +96,34 @@ class App extends React.Component {
 
           <div className="maincontent" id="mainContent">
             <Switch>
-            <Route path="/settings">
-              <div className="settings">
-                <p>Settings</p>
-                <Profile userid={sessionStorage.getItem("user")} />
-              </div>
-            </Route>
-
-
-            <Route path="/friends">
-              <div>
-                <p>Friends</p>
-                <FriendForm userid={sessionStorage.getItem("user")} />
-                <FriendList userid={sessionStorage.getItem("user")} />
-              </div>
-            </Route>
-
             <Route path="/linkSpotify">
+              <div>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
+                  <SpotifyLink/>
+                </body>
+              </div>
+            </Route>
+
+            <Route path="/forgotPassword">
+              <div>
+                <header className="Dark-Header">
+                  <p>Curator Logo Placeholder</p>
+                </header>
+                <body className="Dark-Body">
+                  <div className="fPasswordDiv">
+                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                    <ForgotPasswordForm/>
+                  </div>
+                  <div className="fPasswordButtonDiv">
+                    <ForgotPasswordButton/>
+                  </div>
+                </body>
+              </div>
+            </Route>
 
             <Route path="/search">
                 <div className="search-page">
@@ -173,46 +184,21 @@ class App extends React.Component {
                 </div>
             </Route>
 
-            <Route path={["/posts","/"]}>
-              <div>
-                <header className="Dark-Header">
-                  <p>Curator Logo Placeholder</p>
-                </header>
-                <body className="Dark-Body">
-                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                  <SpotifyLink/>
-                </body>
-              </div>
-            </Route>
 
-            <Route path="/forgotPassword">
-              <div>
-                <header className="Dark-Header">
-                  <p>Curator Logo Placeholder</p>
-                </header>
-                <body className="Dark-Body">
-                  <div className="fPasswordDiv">
-                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
-                    <ForgotPasswordForm/>
-                  </div>
-                  <div className="fPasswordButtonDiv">
-                    <ForgotPasswordButton/>
-                  </div>
-                </body>
-              </div>
-            </Route>
-            <Route exact path="/" component={LogInBanner}/>
+
+            <Route exact path="/" component={LogInBanner}/> 
+
             <Route path = "/UserPost">
               <Navbar/>
               <GridLayout/>
             </Route>
+
             <Route path = "/LogInBanner" component={LogInBanner}/>
             <Route path = "/SignUpForm" component={SignUpForm}/>
-               <Route path="/userAccount" component = {userAccount} />
-              <Route path="/userSettings" component = {settings} />
-            </Route>
+            <Route path="/userAccount" component = {userAccount} />
+            <Route path="/userSettings" component = {settings} />
            </Switch>
-            </div>
+          </div>
         </header>
       </div>
       <div>
