@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 body {
   font-family: "Quicksand", sans-serif;
-  overflow: hidden;
 }
 .BannerOn {
   position: relative;
@@ -16,6 +15,7 @@ body {
   top: 7px;
   color: #ffffff;
 }
+
 label {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
@@ -73,7 +73,7 @@ input {
 .SignUpForm {
   position: relative;
 top: 11px;
-left: 470px !important;
+left: 430px !important;
 width: 480px;
 }
 #signupform{
@@ -111,7 +111,7 @@ a {
 }
 .verify {
   position: relative;
-left: -50px;
+left: -24px;
 top: 18px;
 }
 .lastname {
@@ -124,6 +124,12 @@ left: 2px;
   top: -81px;
   left: 2px;
 }
+.MuiGrid-spacing-xs-1 {
+  width: calc(100% + 8px);
+  margin: -4px;
+  position: relative;
+  left: -139px;
+}
 .First_Name {
   position: relative;
   top: -53px;
@@ -135,15 +141,15 @@ left: 2px;
   top: -4px;
 }
 #Logo{
-  left: 78%;
-position: relative;
+  position: relative;
+  left: 329px;
 }
 input {
   border: 0px;
 }
 form {
   position: relative;
-  left: 25%;
+  left: -191px;
   top: 170px;
 }
 #logo {
@@ -154,18 +160,24 @@ form {
 }
 #Submit_Button {
   top: 48px;
-position: relative;
-width: 319px;
-height: 39px;
-background: #1db954;
-border-radius: 35px;
-border: 0px;
-left: 91px;
-font-family: "Quicksand", sans-serif;
-color: white;
-font-size: 18px;
+  position: relative;
+  width: 319px;
+  height: 39px;
+  background: #1db954;
+  border-radius: 35px;
+  border: 0px;
+  left: 46px;
+  font-family: "Quicksand", sans-serif;
+  color: white;
+  font-size: 18px;
 }
-
+.ForgotPasswordLink{
+  color: #1db954;
+text-decoration: underline;
+position: relative;
+top: 150px;
+left: 210px;
+}
 #verify {
   left: 169px;
 }

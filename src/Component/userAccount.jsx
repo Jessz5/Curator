@@ -8,11 +8,10 @@ import './user_account_style.css'
 class userAccount extends Component {
     render() {
         return (
-            <div className="App">
+            <div className="App_Settings">
                 <header className="Header_app">
-                    <h1 className={"Logo"}><center>Curator-Logo</center></h1>
-                    <img src={profile_photo} alt="profile" width="200" height="200" />
-                    <h2> Hey Rory! Welcome! <br/> User Bio </h2>
+                    <img id="profile_picture"src={profile_photo} alt="profile" width="200" height="200" />
+                    <h2 id="profile_info"> Hey Rory! Welcome! <br/> User Bio </h2>
 
                 </header>
                 <header className="Content">
