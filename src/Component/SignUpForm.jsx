@@ -1,65 +1,78 @@
+
 import React from "react";
 import "../App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+
 export default class SignUpForm extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-          username: "",
-          firstname: "",
-          lastname: "",
-          password: "",
-          verify: ""
+            username: "",
+            firstName: "",
+            lastName: "",
+            password: "",
+            verify: ""
         };
-      }
+    }
 
-   // change handlers keep the state current with the values as you type them, so
+    // change handlers keep the state current with the values as you type them, so
     // the signup handler can read from the state to hit the API layer
     myChangeHandler = event => {
-      this.setState({
-        username: event.target.value
-      });
+        this.setState({
+            username: event.target.value
+        });
     };
 
-    firstnameChangeHandler = event => {
-      this.setState({
-        firstname: event.target.value
-      });
+    firstNameChangeHandler = event => {
+        this.setState({
+            firstName: event.target.value
+        });
     };
 
-    lastnameChangeHandler = event => {
-      this.setState({
-        lastname: event.target.value
-      });
+    lastNameChangeHandler = event => {
+        this.setState({
+            lastName: event.target.value
+        });
     };
 
     passwordChangeHandler = event => {
-      this.setState({
-        password: event.target.value
-      });
+        this.setState({
+            password: event.target.value
+        });
     };
 
     verifyPasswordChangeHandler = event => {
-      this.setState({
-        verify: event.target.value
-      });
+        this.setState({
+            verify: event.target.value
+        });
     };
 
-   // when the user hits submit, process the signup through the API
-   signUp = event => {
+    // when the user hits submit, process the signup through the API
+    signUp = event => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-      //make the api call to the authentication page
-      fetch(process.env.REACT_APP_API_PATH+"/auth/signup", {
-        method: "post",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: this.state.username,
-          password: this.state.password
-        })
-      })
+        var raw = JSON.stringify(
+            {"email":this.state.username,
+                "password":this.state.password});
+
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+
+        //make the api call to the authentication page
+        fetch("http://localhost:3001/api/auth/signup", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+
     };
 
   render() {
