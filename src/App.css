@@ -34,17 +34,17 @@
 }
 label.login1 {
   position: relative;
-  left: 199px;
-  top: 32px;
+left: 360px;
+top: 32px;
 }
 input[type="submit"] {
   position: relative;
-  left: -121px;
-  top: 110px;
-  background: #1db954;
-  color: white;
-  font-family: initial;
-  font-size: 16px;
+left: 43px;
+top: 110px;
+background: #1db954;
+color: white;
+font-family: initial;
+font-size: 16px;
 }
 .link-button {
   background-color: transparent;
@@ -57,7 +57,7 @@ input[type="submit"] {
 }
 .Spotify_login {
   background: #1db954;
-  border-radius: 16px;
+  border-radius: 36px;
   color: white;
   font-family: "Quicksand", sans-serif;
   width: 319px;
@@ -65,7 +65,7 @@ input[type="submit"] {
   border: 0px;
   position: relative;
   top: 120px;
-  left: 558px;
+  left: 5px;
   font-size: 18px;
   font-weight: 700;
 }
@@ -339,4 +339,97 @@ li {
   top: 105px;
   left: 20px;
   z-index: 2;
+}
+#Post_Logo{
+  position: relative;
+  top: 37px;
+  left: -550px;
+}
+svg#Account_Logo{
+  position: relative !important;
+top: -180px;
+}
+.Nav_Wrapper {
+  position: relative;
+  top: -40px;
+}
+.album{
+  position: relative;
+left: -49px;
+}
+.Nav_Wrapper_Account{
+  position: relative;
+top: -295px;
+}
+.MuiInputBase-root {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: text;
+  display: inline-flex;
+  position: relative;
+  font-size: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.1876em;
+  letter-spacing: 0.00938em;
+  top: -28px;
+}
+.Content{
+  position: relative;
+top: -471px;
+left: -220px;
+color: black;
+}
+#profile_picture {
+  position: relative;
+left: -540px;
+top: -130px;
+}
+#profile_info{
+  position: relative;
+top: -160px;
+left: -532px;
+color: black;
+font-size: 27px;
+}
+#Tracks_Icon{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 0em;
+  font-size: 20px;
+  top: 54%;
+  text-align: center;
+  color: black;
+  left: 70px;
+}
+#Playlist_Icon{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 0em;
+  font-size: 20px;
+  top: 54%;
+  text-align: center;
+  color: black;
+  left: 70px;
+}
+.playlist{
+  position: absolute;
+margin-left: 90px;
+margin-right: 10px;
+width: 6em;
+font-size: 22px;
+top: 95%;
+text-align: center;
+color: black;
+}
+.My-tracks {
+  margin-left: 90px;
+  font-size: 20px;
+  top: 59%;
+  text-align: center;
+  color: black;
+  position: absolute;
 }

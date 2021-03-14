@@ -38,6 +38,10 @@ export default class LogInBanner extends React.Component {
           <Link to="/UserPost">
           <input type="submit" value="Log In"/>
           </Link>
+          <div className="ForgotPasswordLink">
+          <Link to ="/forgotpassword">Forgot your password? Click here!</Link>
+          </div>
+          
         </form> 
         </div>
     ;}
