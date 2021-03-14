@@ -21,6 +21,7 @@ import SignUpForm from "./Component/SignUpForm";
 import Logo from "./Component/Logo";
 import Feed from "./Component/Feed";
 import GridLayout from './Component/GridLayout';
+import RedirectHandler from './Component/RedirectHandler';
 
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
@@ -40,7 +41,7 @@ var querystring = require('querystring');
 
 var client_id = '1b71fce4cd2040b6bc601f0901189e58'; //Spotify App Client ID
 var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
-var redirect_uri = 'http://localhost:3000/'; // Or Your redirect uri
+var redirect_uri = 'http://localhost:3000/spotifyAuth'; // Or Your redirect uri
 var scope = 'user-read-private user-read-email'; //The scope defining the client information we want from Spotify
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
@@ -74,8 +75,7 @@ class App extends React.Component {
     this.state = {
       openModal: false,
       refreshPosts: false,
-      authSpotify: true,   //Handles redirect to spotify if true
-      authLink: this.authorizeSpotify()
+      authLink: this.authorizeSpotify(),
     };
 
     // in the event we need a handle back to the parent from a child component,
@@ -108,7 +108,7 @@ class App extends React.Component {
       )
   }
 
-  //Creates a new HTTP request and connects to Spotify for authorization
+  //Creates a link to the spotify website to store in authLink
   authorizeSpotify() {
     console.log('Entering Authorize Spotify')
     return this.getLoginURL()
@@ -143,6 +143,8 @@ class App extends React.Component {
                 </body>
               </div>
             </Route>
+
+            <Route path="/spotifyAuth" component={RedirectHandler}/>
 
             <Route path="/forgotPassword">
               <div>
