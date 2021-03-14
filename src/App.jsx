@@ -14,7 +14,6 @@ import Profile from "./Component/Profile.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
-import SpotifyLink from "./Component/SpotifyLink.jsx";
 import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
 import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
 import LogInBanner from "./Component/LogInBanner";
@@ -32,15 +31,17 @@ import AccountIcon from '@material-ui/icons/AccountCircle';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import "./searchpage.css";
-
-import {
-  BrowserRouter as Router, Route, Switch
-} from 'react-router-dom';
 import UserPost from "./Component/UserPost";
+import {
+  BrowserRouter as Router, Redirect, Route, Switch
+} from 'react-router-dom';
 
-var client_id = '1b71fce4cd2040b6bc601f0901189e58'; // Spotify App Client ID
+var querystring = require('querystring');
+
+var client_id = '1b71fce4cd2040b6bc601f0901189e58'; //Spotify App Client ID
 var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
-var redirect_uri = 'http://localhost:8888/callback'; // Or Your redirect uri
+var redirect_uri = 'http://localhost:3000/'; // Or Your redirect uri
+var scope = 'user-read-private user-read-email'; //The scope defining the client information we want from Spotify
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
@@ -51,6 +52,18 @@ function toggleModal(app) {
   });
 }
 
+//Function for generating a random string up to a given length, used to represent the state in SpotifyAPI communication
+var generateRandomString = function(length) {
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (var i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+};
+
+
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
@@ -60,13 +73,16 @@ class App extends React.Component {
     super(props);
     this.state = {
       openModal: false,
-      refreshPosts: false
+      refreshPosts: false,
+      authSpotify: true,   //Handles redirect to spotify if true
+      authLink: this.authorizeSpotify()
     };
 
     // in the event we need a handle back to the parent from a child component,
     // we can create a reference to this and pass it down.
     this.mainContent = React.createRef();
     this.doRefreshPosts = this.doRefreshPosts.bind(this);
+    this.authorizeSpotify = this.authorizeSpotify.bind(this);
   }
 
   // doRefreshPosts is called after the user logs in, to display relevant posts.
@@ -75,6 +91,27 @@ class App extends React.Component {
     this.setState({
       refreshPosts:true
     });
+  }
+
+  //This will generate a URL to send to Spotify, asking for authorization
+  getLoginURL() {
+    var state = generateRandomString(16);
+
+    return 'https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        state: state
+        } 
+      )
+  }
+
+  //Creates a new HTTP request and connects to Spotify for authorization
+  authorizeSpotify() {
+    console.log('Entering Authorize Spotify')
+    return this.getLoginURL()
   }
 
   render() {
@@ -91,9 +128,6 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
-
-          <Navbar toggleModal={e => toggleModal(this, e)} />
-
           <div className="maincontent" id="mainContent">
             <Switch>
             <Route path="/linkSpotify">
@@ -103,7 +137,9 @@ class App extends React.Component {
                 </header>
                 <body className="Dark-Body">
                   <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                  <SpotifyLink/>
+                  <a className = "linkText" href = {this.state.authLink}>
+                    Link to Spotify
+                  </a>
                 </body>
               </div>
             </Route>
@@ -161,7 +197,6 @@ class App extends React.Component {
                             />
                         </div>
                     </div>
-                    {/*"document.getElementById('myInput').value = ' '"*/}
                     <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
                     <ToggleButtonGroup>
                         <ToggleButton>
@@ -183,16 +218,11 @@ class App extends React.Component {
                     </div>
                 </div>
             </Route>
-
-
-
             <Route exact path="/" component={LogInBanner}/> 
-
             <Route path = "/UserPost">
               <Navbar/>
               <GridLayout/>
             </Route>
-
             <Route path = "/LogInBanner" component={LogInBanner}/>
             <Route path = "/SignUpForm" component={SignUpForm}/>
             <Route path="/userAccount" component = {userAccount} />
@@ -201,11 +231,6 @@ class App extends React.Component {
           </div>
         </header>
       </div>
-      <div>
-        <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
-          This is a modal dialog!
-        </Modal>
-        </div>
       </Router>
     );
   }
