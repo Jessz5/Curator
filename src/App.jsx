@@ -78,6 +78,7 @@ class App extends React.Component {
       openModal: false,
       refreshPosts: false,
       authLink: this.authorizeSpotify(),
+      client_secret: client_secret
     };
 
     // in the event we need a handle back to the parent from a child component,
