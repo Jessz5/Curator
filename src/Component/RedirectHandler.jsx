@@ -1,6 +1,6 @@
 import "../App.css";
 import React from "react";
-import { Redirect, useLocation } from 'react-router';
+import {Redirect} from 'react-router';
 var querystring = require('querystring');
 
 
@@ -27,7 +27,7 @@ class RedirectHandler extends React.Component {
     //This method uses the authtoken and secret client ID to generate a request to the token endpoint.
     assemblePath(){
     let xhr = new XMLHttpRequest();
-    xhr.open("POST",'https://accounts.spotify.com/api/token/' +
+    xhr.open("POST",'https://accounts.spotify.com/api/token' +
     querystring.stringify({
         client_id: this.props.client_id,
         client_secret: this.props.client_secret,
@@ -43,13 +43,7 @@ class RedirectHandler extends React.Component {
     }
 
     render(){
-        return <a className = "refreshLink" href = { 'https://accounts.spotify.com/api/token/' + querystring.stringify({
-            client_id: this.props.client_id,
-            client_secret: this.props.client_secret,
-            grant_type: 'authorization_code',
-            code: this.state.authToken.code,
-            redirect_uri: "http://localhost:3000/",
-          })}>Link</a>
+        return <Redirect to="/"/>
     }
 
 }
