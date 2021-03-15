@@ -5,8 +5,23 @@ import my_tracks from './my_tracks.jpg'
 import playlist from './playlist.png'
 import './user_account_style.css'
 
+
+
 class userAccount extends Component {
     render() {
+
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        var postRequest= event =>{
+            fetch("http://localhost:3001/api/users?email=manaswini%40example.com", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    };
+
         return (
             <div className="App_Settings">
                 <header className="Header_app">
