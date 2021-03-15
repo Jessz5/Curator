@@ -147,7 +147,8 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/spotifyAuth" component={RedirectHandler}/>
+            <Route path="/spotifyAuth" 
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
 
             <Route path="/forgotPassword">
               <div>

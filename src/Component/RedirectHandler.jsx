@@ -1,13 +1,15 @@
+import "../App.css";
 import React from "react";
-import { Redirect } from 'react-router';
+import { Redirect, useLocation } from 'react-router';
 var querystring = require('querystring');
+
 
 
 class RedirectHandler extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            authToken: querystring.parse(this.props.location.search, { ignoreQueryPrefix: true }), //Get the auth code from the redirect uri query
+            authToken: querystring.parse(this.props.location.search.slice(1), { ignoreQueryPrefix: false }), //Get the auth code from the redirect uri query
         }
 
         let req = new XMLHttpRequest();
@@ -16,23 +18,38 @@ class RedirectHandler extends React.Component {
         
       }
 
+    //This method parses the authentication token into a key-value pair for easy look-up
+    parseAuth(){
+        var str = " "
+        return str
+    }
+
     //This method uses the authtoken and secret client ID to generate a request to the token endpoint.
     assemblePath(){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET",'https://accounts.spotify.com/api/token/' +
+    xhr.open("POST",'https://accounts.spotify.com/api/token/' +
     querystring.stringify({
-        code: this.state.authToken,
-        client_secret: this.state.client_secret,
+        client_id: this.props.client_id,
+        client_secret: this.props.client_secret,
+        grant_type: 'authorization_code',
+        code: this.state.authToken.code,
         redirect_uri: "http://localhost:3000/",
-        grant_type: 'authorization_code'
-      }))
+      }), true)
     xhr.setRequestHeader('Authorization', 'Bearer ' + this.state.authToken)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Connection", "close");
 
     return xhr
     }
 
     render(){
-        return <Redirect to="/"/>
+        return <a className = "refreshLink" href = { 'https://accounts.spotify.com/api/token/' + querystring.stringify({
+            client_id: this.props.client_id,
+            client_secret: this.props.client_secret,
+            grant_type: 'authorization_code',
+            code: this.state.authToken.code,
+            redirect_uri: "http://localhost:3000/",
+          })}>Link</a>
     }
 
 }
