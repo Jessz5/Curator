@@ -7,9 +7,9 @@ export default class LogInBanner extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            password: "",
-            sessiontoken: ""
+          username: "",
+          password: "",
+          sessiontoken: ""
         };
     }
     myChangeHandler = event => {
