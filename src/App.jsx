@@ -55,16 +55,6 @@ function toggleModal(app) {
   });
 }
 
-//Function for generating a random string up to a given length, used to represent the state in SpotifyAPI communication
-var generateRandomString = function(length) {
-  var text = '';
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (var i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
-};
 
 
 // the App class defines the main rendering method and state information for the app
@@ -98,15 +88,12 @@ class App extends React.Component {
 
   //This will generate a URL to send to Spotify, asking for authorization
   getLoginURL() {
-    var state = generateRandomString(16);
-
     return 'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
-        response_type: 'code',
+        response_type: 'token',
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
-        state: state
         } 
       )
   }

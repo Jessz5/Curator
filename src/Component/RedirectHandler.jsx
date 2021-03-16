@@ -9,38 +9,25 @@ class RedirectHandler extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            authToken: querystring.parse(this.props.location.search.slice(1), { ignoreQueryPrefix: false }), //Get the auth code from the redirect uri query
+            authToken: querystring.parse(this.props.location.search.slice(1)), //Get the auth code from the redirect uri query
         }
 
-        let req = new XMLHttpRequest();
-        req = this.assemblePath()
-        req.send()
+        const fetchOptions = {
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': `Bearer BQA9fGzf4lizUPyIAYeMF4-7lNLIM54fF3Es9HxJr2j1hSfbErOjj52A26dSB1ltciWg3cCB8mZZ_upWBakwLLX_1uZI-rQ0oPrvCuJjTpFeNKTSP9GLRhDv1yjb_wrTtfE79o5x_sddbPr3nYLJSmoemXIKtC6X1U6qzd841KIiY--Jekbn6EAT`
+            })
+        };
+        
+        fetch('https://api.spotify.com/v1/me', fetchOptions).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            console.log(json);
+        }).catch(function (error) {
+            console.log(error);
+        });
         
       }
-
-    //This method parses the authentication token into a key-value pair for easy look-up
-    parseAuth(){
-        var str = " "
-        return str
-    }
-
-    //This method uses the authtoken and secret client ID to generate a request to the token endpoint.
-    assemblePath(){
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST",'https://accounts.spotify.com/api/token' +
-    querystring.stringify({
-        client_id: this.props.client_id,
-        client_secret: this.props.client_secret,
-        grant_type: 'authorization_code',
-        code: this.state.authToken.code,
-        redirect_uri: "http://localhost:3000/",
-      }), true)
-    xhr.setRequestHeader('Authorization', 'Bearer ' + this.state.authToken)
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.setRequestHeader("Connection", "close");
-
-    return xhr
-    }
 
     render(){
         return <Redirect to="/"/>
