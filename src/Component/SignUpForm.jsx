@@ -2,6 +2,78 @@ import React from "react";
 import "../App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 export default class SignUpForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        username: "",
+        firstName: "",
+        lastName: "",
+        password: "",
+        verify: ""
+    };
+  }
+
+  // change handlers keep the state current with the values as you type them, so
+  // the signup handler can read from the state to hit the API layer
+  myChangeHandler = event => {
+    this.setState({
+      username: event.target.value
+    });
+  };
+
+  firstNameChangeHandler = event => {
+    this.setState({
+      firstName: event.target.value
+    });
+  };
+
+  lastNameChangeHandler = event => {
+    this.setState({
+      lastName: event.target.value
+    });
+  };
+
+  passwordChangeHandler = event => {
+    this.setState({
+      password: event.target.value
+    });
+  };
+
+  verifyPasswordChangeHandler = event => {
+    this.setState({
+      verify: event.target.value
+    });
+  };
+
+
+  signUp = event => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(
+        {"email":this.state.username,
+          "password":this.state.password
+        });
+
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+
+    //make the api call to the authentication page
+    fetch("http://localhost:3001/api/auth/signup", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+
+  };
+
+
   render() {
     return (
       <div id="SignUpBody">
@@ -29,29 +101,29 @@ export default class SignUpForm extends React.Component {
           <form id ="signupform">
             <div className="Username">
               <label id="username"> Username</label>
-              <input type="text"></input>
+              <input type="text" onChange={this.myChangeHandler} />
             </div>
 
             <div className="First_Name">
               <label id="firstname">First Name</label>
-              <input type="text"></input>
+              <input type="text" onChange={this.firstNameChangeHandler} />
             </div>
 
             <div className="lastname">
               <label id="lastname">LastName</label>
-              <input type="text"></input>
+              <input type="text" onChange={this.lastNameChangeHandler} />
             </div>
 
             <div className="password">
               <label id="Password">Password</label>
-              <input type="password"></input>
+              <input type="password" onChange={this.passwordChangeHandler} />
             </div>
             <div className="verify">
               <label id="verify">Verify Password</label>
-              <input type="username"></input>
+              <input type="password" onChange={this.verifyPasswordChangeHandler} />
             </div>
 
-            <button id="Submit_Button">Sign Up</button>
+            <button onClick={this.signUp}>Sign Up</button>
           </form>
         </div>
       </div>

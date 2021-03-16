@@ -7,7 +7,28 @@ import './user_account_style.css'
 
 class userAccount extends Component {
     render() {
+
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+sessionStorage.getItem("token")
+                  },
+            redirect: 'follow'
+        };
+
+        var getRequest= event =>{
+            //fetch(process.env.REACT_APP_API_PATH+"/users/"+sessionStorage.getItem("user")
+            //fetch("http://localhost:3001/api/users?email=manaswini%40example.com", requestOptions)
+            //fetch the user data
+            fetch("http://localhost:3001/api/users/"+sessionStorage.getItem("user"), requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    };
+
         return (
+
             <div className="App_Settings">
                 <header className="Header_app">
                     <img id="profile_picture"src={profile_photo} alt="profile" width="200" height="200" />
@@ -31,7 +52,7 @@ class userAccount extends Component {
                     <img src={playlist} alt="profile" width="150" height="150" />
                     <p>My Playlist's</p>
                 </header>
-
+                <button onClick={this.getRequest}>Get Info</button>
             </div>
         );
     }
