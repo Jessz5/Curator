@@ -28,7 +28,7 @@ class Navbar extends React.Component {
       </div>
       <ul id="side-menu-items">
         <li className="pm admin student">
-          <Link to="/posts">
+          <Link to="/search">
             <img
               src={postIcon}
               className="sidenav-icon"
@@ -38,7 +38,7 @@ class Navbar extends React.Component {
           </Link>
         </li>
         <li className="pm admin">
-          <Link to="/friends">
+          <Link to="/UserPost">
             <img
               src={friendIcon}
               className="sidenav-icon"
@@ -58,17 +58,14 @@ class Navbar extends React.Component {
           </Link>
         </li>
         <li className="pm admin">
-          <button
-            className="link-button"
-            onClick={e => this.props.toggleModal(e)}
-          >
+          <Link to = "/userAccount"> 
             <img
               src={ProfileIcon}
               className="sidenav-icon"
               alt="Settings"
               title="Settings"
             />
-          </button>
+          </Link>
         </li>
       </ul>
     </div>
