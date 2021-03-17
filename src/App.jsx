@@ -38,7 +38,7 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import "./searchpage.css";
 import UserPost from "./Component/UserPost";
-import {Link} from 'react-router-dom';
+
 
 var querystring = require('querystring');
 
@@ -172,7 +172,6 @@ class App extends React.Component {
                             />
                         </div>
                     </div>
-                    {/*"document.getElementById('myInput').value = ' '"*/}
                     <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
                     <ToggleButtonGroup>
                         <ToggleButton>
