@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "../SignUp.css";
-
+import Gear from "../assets/settings.png";
 export default class LogInBanner extends React.Component {
     render() {
       
@@ -45,6 +45,14 @@ export default class LogInBanner extends React.Component {
           </div>
           
         </form> 
+        <Link to = "/StyleGuide">
+        <img
+            src={Gear}
+            className="settings_img"
+            alt="error"
+            title="Error Examples"
+          />
+        </Link>
         </div>
     ;}
   }
