@@ -6,7 +6,7 @@
 import React from "react";
 
 import {
-  BrowserRouter as Router, Route, Switch
+  BrowserRouter as Router, Redirect, Route, Switch
 } from 'react-router-dom';
 
 import "./App.css";
@@ -19,7 +19,6 @@ import Profile from "./Component/Profile.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
 import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
-import SpotifyLink from "./Component/SpotifyLink.jsx";
 import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
 import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
 import LogInBanner from "./Component/LogInBanner";
@@ -27,6 +26,8 @@ import SignUpForm from "./Component/SignUpForm";
 import Logo from "./Component/Logo";
 import Feed from "./Component/Feed";
 import GridLayout from './Component/GridLayout';
+import RedirectHandler from './Component/RedirectHandler';
+
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
@@ -37,8 +38,14 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import "./searchpage.css";
 import UserPost from "./Component/UserPost";
-import {Link} from 'react-router-dom';
 
+
+var querystring = require('querystring');
+
+var client_id = '1b71fce4cd2040b6bc601f0901189e58'; //Spotify App Client ID
+var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
+var redirect_uri = 'http://localhost:3000/spotifyAuth'; // Or Your redirect uri
+var scope = 'user-read-private user-read-email'; //The scope defining the client information we want from Spotify
 
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
@@ -50,6 +57,8 @@ function toggleModal(app) {
   });
 }
 
+
+
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
@@ -59,13 +68,16 @@ class App extends React.Component {
     super(props);
     this.state = {
       openModal: false,
-      refreshPosts: false
+      refreshPosts: false,
+      authLink: this.authorizeSpotify(),
+      client_secret: client_secret
     };
 
     // in the event we need a handle back to the parent from a child component,
     // we can create a reference to this and pass it down.
     this.mainContent = React.createRef();
     this.doRefreshPosts = this.doRefreshPosts.bind(this);
+    this.authorizeSpotify = this.authorizeSpotify.bind(this);
   }
 
   // doRefreshPosts is called after the user logs in, to display relevant posts.
@@ -74,6 +86,24 @@ class App extends React.Component {
     this.setState({
       refreshPosts:true
     });
+  }
+
+  //This will generate a URL to send to Spotify, asking for authorization
+  getLoginURL() {
+    return 'https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'token',
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        } 
+      )
+  }
+
+  //Creates a link to the spotify website to store in authLink
+  authorizeSpotify() {
+    console.log('Entering Authorize Spotify')
+    return this.getLoginURL()
   }
 
   render() {
@@ -99,10 +129,15 @@ class App extends React.Component {
                 </header>
                 <body className="Dark-Body">
                   <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                  <SpotifyLink/>
+                  <a className = "linkText" href = {this.state.authLink}>
+                    Link to Spotify
+                  </a>
                 </body>
               </div>
             </Route>
+
+            <Route path="/spotifyAuth" 
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
 
             <Route path="/forgotPassword">
               <div>
@@ -137,7 +172,6 @@ class App extends React.Component {
                             />
                         </div>
                     </div>
-                    {/*"document.getElementById('myInput').value = ' '"*/}
                     <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
                     <ToggleButtonGroup>
                         <ToggleButton>
@@ -187,11 +221,6 @@ class App extends React.Component {
           </div>
         </header>
       </div>
-      <div>
-        <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
-          This is a modal dialog!
-        </Modal>
-        </div>
       </Router>
     );
   }

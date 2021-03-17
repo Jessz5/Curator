@@ -1,8 +1,4 @@
 
-.App {
-
-
-}
 .Logo{
     background-color: #010423;
     height: 20vh;
@@ -70,15 +66,4 @@
 .profile_photo{
 
     position: fixed;
-}
-
-.SettingsList{
-    /*position: absolute;*/
-    /*margin-left: 350px;*/
-    /*margin-right: 10px;*/
-    /*!*width: 0em;*!*/
-    /*font-size: 20px;*/
-    /*top: 25%;*/
-    /*text-align: center;*/
-
 }
