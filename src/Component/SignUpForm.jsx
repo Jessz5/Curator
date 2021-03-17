@@ -16,7 +16,7 @@ export default class SignUpForm extends React.Component {
       </div>
         <div className="BannerOn">
         <div id="login">
-          <Link to="/LogInBanner">Log In</Link>
+          <Link id="Login_Link"to="/LogInBanner">Log In</Link>
             </div>
         </div>
         <div className="BannerOff">

@@ -42,13 +42,13 @@
 }
 
 .search-container {
-    margin-top: 40px;
-    margin-left: 360px;
-    border-radius: 15px;
-    padding: 20px;
-    width: 880px;
-    height: 5px;
-    border: 2px solid black;
+    margin-top: 130px;
+margin-left: 360px;
+border-radius: 15px;
+padding: 20px;
+width: 880px;
+height: 5px;
+border: 2px solid black;
 }
 
 .search-text {
@@ -76,7 +76,9 @@
 }
 
 .cancel {
-    color:blue;
+    color: blue;
+    left: 1300px;
+    top: 129px;
 }
 
 .search-description {

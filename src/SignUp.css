@@ -11,7 +11,7 @@ body {
   font-weight: bold;
   font-size: 40px;
   line-height: 50px;
-  left: 561px;
+  left: 79%;
   top: 7px;
   color: #ffffff;
 }
@@ -36,7 +36,7 @@ label {
   font-size: 40px;
   line-height: 50px;
   opacity: 0.61;
-  left: 501px;
+  left: 72%;
   top: 7px;
   color: #9c9da9;
 }
@@ -73,7 +73,7 @@ input {
 .SignUpForm {
   position: relative;
 top: 11px;
-left: 430px !important;
+left: 32.5%;
 width: 480px;
 }
 #signupform{
@@ -85,18 +85,18 @@ a {
 }
 .header {
   position: relative;
-  top: 36px;
-  left: 24px;
-  max-width: 50%;
+top: 36px;
+left: 3%;
+max-width: 50%;
 }
 #LoginHeader {
   position: relative;
   top: 0px;
   left: 0px;
   background: #010423;
-  height: 752px;
   width: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
 #login {
   position: relative;
@@ -142,7 +142,7 @@ left: 2px;
 }
 #Logo{
   position: relative;
-  left: 329px;
+left: 47%;
 }
 input {
   border: 0px;

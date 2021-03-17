@@ -36,7 +36,6 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import AccountIcon from '@material-ui/icons/AccountCircle';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-
 import "./searchpage.css";
 import UserPost from "./Component/UserPost";
 import {Link} from 'react-router-dom';
@@ -47,6 +46,7 @@ var client_id = '1b71fce4cd2040b6bc601f0901189e58'; //Spotify App Client ID
 var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
 var redirect_uri = 'http://localhost:3000/spotifyAuth'; // Or Your redirect uri
 var scope = 'user-read-private user-read-email'; //The scope defining the client information we want from Spotify
+
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
@@ -155,6 +155,69 @@ class App extends React.Component {
                 </body>
               </div>
             </Route>
+
+            <Route path="/search">
+                <div className="search-page">
+                <div className="Nav_Wrapper">
+                <Navbar/>
+              </div>
+                    <div className="search-container">
+                        <div className="search-text">
+                            <InputBase
+                                type="text"
+                                id="myInput"
+                                inputRef={el => this.myInput = el}
+                                placeholder="Search..."
+                                startAdornment={<SearchIcon/>}
+                            />
+                        </div>
+                    </div>
+                    {/*"document.getElementById('myInput').value = ' '"*/}
+                    <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
+                    <ToggleButtonGroup>
+                        <ToggleButton>
+                            <p>Top</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Songs</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Accounts</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Tags</p>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                    <div className="search-description">
+                      <h2>Search Curator</h2>
+                      <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
+                    </div>
+                </div>
+            </Route>
+
+
+
+            <Route exact path="/" component={LogInBanner}/> 
+
+            <Route path = "/UserPost">
+              <div className="Nav_Wrapper">
+              <Navbar/>
+              </div>
+              <GridLayout/>
+            </Route>
+
+            <Route path = "/LogInBanner" component={LogInBanner}/>
+            <Route path = "/SignUpForm" component={SignUpForm}/>
+            <Route path="/userAccount">
+            <div className="Nav_Wrapper_Account">
+              <Navbar/>
+              </div>
+            <UserAccount/>
+            </Route>  
+            <Route path="/userSettings">
+              <Settings/>
+               </Route>
+             
            </Switch>
           </div>
         </header>
