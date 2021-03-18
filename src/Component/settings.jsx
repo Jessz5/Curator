@@ -4,6 +4,7 @@ import './user_account_style.css'
 import EditUserBio from './editUserBio'
 import emailNotifications from './emailNotifications.jsx'
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 
 const StyledButton = styled.button`
@@ -14,36 +15,177 @@ const StyledButton = styled.button`
    font-weight: bold;
 `;
 class settings extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            firstname: "",
+            lastname: "",
+            favoritesong: "",
+            status : "",
+            responseMessage: ""
+        };
+        this.fieldChangeHandler.bind(this);
+    }
+
+    fieldChangeHandler(field, e) {
+        console.log("field change");
+        this.setState({
+            [field]: e.target.value
+        });
+    }
+
+    prefChangeHandler(field, e) {
+        console.log("pref field change " + field);
+        console.log(this.state.favoritecolor);
+        const prefs1 = JSON.parse(JSON.stringify(this.state.favoritecolor));
+        console.log(prefs1);
+        prefs1.value = e.target.value;
+        console.log(prefs1);
+
+        this.setState({
+            [field]: prefs1
+        });
+    }
+    componentDidMount() {
+        console.log("In profile");
+        console.log(this.props);
+
+        // first fetch the user data to allow update of username
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+ sessionStorage.getItem("user"), {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    if (result) {
+                        console.log(result);
+
+                        this.setState({
+                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
+                            // try and make the form component uncontrolled, which plays havoc with react
+                            username: result.username || "",
+                            firstname: result.firstName || "",
+                            lastname: result.lastName || "",
+                            status: result.status || ""
+
+                        });
+                    }
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+        //
+        // fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+sessionStorage.getItem("user"), {
+        //     method: "PATCH",
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Authorization': 'Bearer '+sessionStorage.getItem("token")
+        //     },
+        //     body: JSON.stringify({
+        //
+        //         status: this.state.status,
+        //
+        //
+        //     })
+        // })
+        //     .then(res => res.json())
+        //     .then(
+        //         result => {
+        //             this.setState({
+        //                 responseMessage: result.Status
+        //             });
+        //         },
+        //         error => {
+        //             alert("error!");
+        //         }
+        //     );
+
+
+    }
+    submitHandler = event => {
+        //keep the form from actually submitting
+        event.preventDefault();
+
+        //make the api call to the user controller
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+sessionStorage.getItem("user"), {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            },
+            body: JSON.stringify({
+
+                username: this.state.username,
+                firstName: this.state.firstname,
+                lastName: this.state.lastname,
+                status: this.state.status,
+            })
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    this.setState({
+                        responseMessage: result.Status
+                    });
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+
+    };
+
+
+
     render() {
         return (
-            <div className="App">
-                <header className="Header_app">
-                    <h1 className={"Logo"}><center>Curator-Logo</center></h1>
-                    <img src={profile_photo} alt="profile" width="200" height="200" />
-                    <h2> Hey Rory!</h2>
-                    <h3>User Settings </h3>
+        <form onSubmit={this.submitHandler} className="profileform">
+            <label>
+                Username
+                <input
+                    type="text"
+                    onChange={e => this.fieldChangeHandler("username", e)}
+                    value={this.state.username}
+                />
+            </label>
+            <label>
+                First Name
+                <input
+                    type="text"
+                    onChange={e => this.fieldChangeHandler("firstname", e)}
+                    value={this.state.firstname}
+                />
+            </label>
+            <label>
+                Last Name
+                <input
+                    type="text"
+                    onChange={e => this.fieldChangeHandler("lastname", e)}
+                    value={this.state.lastname}
+                />
+            </label>
+            <label>
+                Edit User Bio
+                <input
+                    type="text"
+                    onChange={e => this.fieldChangeHandler("status", e)}
+                    value={this.state.status}
+                />
+            </label>
 
-                </header>
-                <header className="SettingsList">
-                    <StyledButton onClick={emailNotifications}>Privacy</StyledButton><br />
-                    <br />
-                    <StyledButton onClick={EditUserBio}>Edit User Bio</StyledButton><br />
-                    <br />
-                    <StyledButton onClick={emailNotifications}>Login Activity</StyledButton><br />
-                    <br />
-                    <StyledButton onClick={emailNotifications}>Account Status</StyledButton><br />
-                    <br />
-                    <StyledButton onClick={emailNotifications}>Manage Songs</StyledButton><br />
-                    <br />
-                    <StyledButton onClick={emailNotifications}>Email Notifications</StyledButton><br />
+            <input type="submit" value="submit" />
+            <Link to="/userAccount">
+                <button>User Account</button>
+            </Link>
+        </form>
 
-
-                </header>
-
-
-
-            </div>
-        );
+    );
     }
 
 }
