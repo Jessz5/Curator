@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { escapeLeadingUnderscores } from "typescript";
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -54,21 +55,25 @@ export default class SignUpForm extends React.Component {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({"email":this.state.username,"password":this.state.password});
+    //If the password and username fields are populated, stringify and send POST request, else alert user and do nothing.
+    if(this.state.password != "" && this.state.username != ""){
+      var raw = JSON.stringify({"email":this.state.username,"password":this.state.password});
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
 
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
+      fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/signup", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
 
-    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/signup", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-
-
+    }
+    else{
+      alert("Please populate the password and email fields");
+    }
   };
 
   render() {
