@@ -47,25 +47,6 @@ export default class SignUpForm extends React.Component {
       verify: event.target.value
     });
   };
-  // componentDidMount() {
-  //   var myHeaders = new Headers();
-  //   myHeaders.append("Content-Type", "application/json");
-  //
-  //   var raw = JSON.stringify({"email":this.state.username,"password":this.state.password});
-  //
-  //   var requestOptions = {
-  //     method: 'POST',
-  //     headers: myHeaders,
-  //     body: raw,
-  //     redirect: 'follow'
-  //   };
-  //
-  //   fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/signup", requestOptions)
-  //       .then(response => response.text())
-  //       .then(result => console.log(result))
-  //       .catch(error => console.log('error', error));
-  //
-  // }
 
 
 
@@ -109,7 +90,6 @@ export default class SignUpForm extends React.Component {
         </div>
         <div className="BannerOff">
           <div id="sign_up">
-          {/*<Link to="/SignUpForm">Sign Up</Link>*/}
           </div>
         </div>
         </div>

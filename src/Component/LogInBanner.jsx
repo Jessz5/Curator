@@ -102,7 +102,6 @@ export default class LogInBanner extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button className="Spotify_login">Log In With Spotify</button>
                 <form className="filler" onSubmit={this.submitHandler}>
                     <label className="login">
                         <input id="UserName" className="login" type="text" placeholder="Username"
