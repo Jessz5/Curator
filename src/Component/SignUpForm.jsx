@@ -104,16 +104,11 @@ export default class SignUpForm extends React.Component {
               <label id="username"> Email</label>
               <input type="text" onChange={this.myChangeHandler} />
             </div>
-
-
-
             <div className="password">
               <label id="Password">Password</label>
-              <input type="password"></input>
-            </div>
-            <div className="verify">
+              <input type="text" onChange={this.passwordChangeHandler}></input>
               <label id="verify">Verify Password</label>
-              <input type="username"></input>
+              <input type="text" onChange={this.verifyPasswordChangeHandler}></input>
             </div>
             <button onClick={this.signUp}>Sign Up</button>
           </form>
