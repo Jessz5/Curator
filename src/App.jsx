@@ -38,6 +38,7 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import "./searchpage.css";
 import UserPost from "./Component/UserPost";
+import StyleGuide from "./Component/StyleGuide.jsx";
 
 
 var querystring = require('querystring');
@@ -207,6 +208,7 @@ class App extends React.Component {
 
             <Route path = "/LogInBanner" component={LogInBanner}/>
             <Route path = "/SignUpForm" component={SignUpForm}/>
+            <Route path = "/StyleGuide" component={StyleGuide}/>
             <Route path="/userAccount">
             <div className="Nav_Wrapper_Account">
               <Navbar/>

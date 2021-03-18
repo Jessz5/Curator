@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
 .App {
   text-align: center;
@@ -59,6 +60,28 @@ font-size: 16px;
   margin: 0;
   padding: 0;
   outline: none;
+}
+p{
+  max-width: 75%;
+padding-left: 12%;
+font-family: 'EB Garamond', serif;
+}
+.desktop_img{
+  width: 500px;
+}
+.button_img{
+  width: 500px;
+}
+#download{
+  color: #1db954;
+  text-decoration: underline;
+  
+}
+.fonts{
+  color: black;
+  float: unset;
+  margin: unset;
+  padding: unset;
 }
 .Spotify_login {
   background: #1db954;
@@ -227,7 +250,15 @@ justify-content: flex-start;
 background-color: white;
 z-index: 2;
 }
+.settings_img{
+  position: relative;
+top: -290px;
+left: 560px;
+}
+#Style_Guide_Container{
+  color: black;
 
+}
 .sidenav ul {
   list-style-type: none;
   margin: 0;
@@ -441,8 +472,4 @@ color: black;
   text-align: center;
   color: black;
   position: absolute;
-}
-
-.refreshLink {
-  color: black;
 }
