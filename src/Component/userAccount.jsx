@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-// import './App.css';
 import profile_photo from './profile_photo.jpg'
 import my_tracks from './my_tracks.jpg'
 import playlist from './playlist.png'
 import './user_account_style.css'
 import settings from "./settings";
 import {Link} from "react-router-dom";
-import HomeIcon from "../App";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 
 class userAccount extends Component {

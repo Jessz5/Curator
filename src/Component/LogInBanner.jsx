@@ -31,7 +31,7 @@ export default class LogInBanner extends React.Component {
 
         //make the api call to the authentication page
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/login", {
-            method: "",
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -104,7 +104,6 @@ export default class LogInBanner extends React.Component {
                 </div>
                 <button className="Spotify_login">Log In With Spotify</button>
                 <form className="filler" onSubmit={this.submitHandler}>
-                    {/*<button onClick={this.submitHandler}>Retrieve data</button>*/}
                     <label className="login">
                         <input id="UserName" className="login" type="text" placeholder="Username"
                                onChange={this.myChangeHandler}/>

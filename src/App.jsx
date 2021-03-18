@@ -13,27 +13,18 @@ import "./App.css";
 import UserAccount from "./Component/userAccount.jsx";
 import Settings from "./Component/settings.jsx";
 import "./darkpages.css";
-import PostForm from "./Component/PostForm.jsx";
-import FriendList from "./Component/FriendList.jsx";
-import Profile from "./Component/Profile.jsx";
-import FriendForm from "./Component/FriendForm.jsx";
-import Modal from "./Component/Modal.jsx";
 import Navbar from "./Component/Navbar.jsx";
 import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
 import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
 import LogInBanner from "./Component/LogInBanner";
 import SignUpForm from "./Component/SignUpForm";
-import Logo from "./Component/Logo";
-import Feed from "./Component/Feed";
+
 import GridLayout from './Component/GridLayout';
 import RedirectHandler from './Component/RedirectHandler';
 
 import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
+
 import SearchIcon from '@material-ui/icons/Search';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import AccountIcon from '@material-ui/icons/AccountCircle';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import "./searchpage.css";
@@ -155,18 +146,6 @@ class App extends React.Component {
                   </div>
                 </body>
               </div>
-            </Route>
-
-            <Route path="/linkSpotify">
-                <div>
-                    <header className="Dark-Header">
-                        <p>Curator Logo Placeholder</p>
-                    </header>
-                    <body className= "Dark-Body">
-                        <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                        <SpotifyLink/>
-                    </body>
-                </div>
             </Route>
 
             <Route path="/search">
