@@ -10,8 +10,10 @@ class RedirectHandler extends React.Component {
         super(props);
         this.state={
             authToken: querystring.parse(props.location.hash.slice(1)), //Get the auth code from the redirect uri query
-            jsonData: [{id: 1, name: "This is test1"},{id: 2, name: "This is test2"},{id: 3, name: "This is test3"}]
+            jsonData: [{id: 1, name: "This is test1"}]
         };
+
+        sessionStorage.setItem("spotToken", this.state.authToken);
 
         const fetchOptions = {
             method: 'GET',
@@ -35,7 +37,12 @@ class RedirectHandler extends React.Component {
     }
 
     render(){
-        return <Redirect to="/userSettings"/>
+        return <Redirect
+        to={{
+        pathname: "/userSettings",
+        state: { authToken: this.state.authToken }
+      }}
+    />
     }
 
 }

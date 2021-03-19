@@ -103,9 +103,18 @@ class App extends React.Component {
   }
 
   //Callback function for json returned from Spotify Authentication
-  onAuthentication(object) {this.state.spotobj = object;
-   this.state.spotify_email = this.state.spotobj[0][0];
-   console.log("Ran onAuthentication")};
+  onAuthentication(object) {
+    if(object){
+    this.state.spotobj = object;
+    this.state.spotify_email = this.state.spotobj.email;
+    this.state.spotify_username = this.state.spotobj.display_name;
+    console.log("Ran onAuthentication Results:");
+    console.log(this.state.spotify_email);
+    console.log(this.state.spotify_username)}
+    else{
+      return null;
+    }
+  };
 
   render() {
 
@@ -215,9 +224,8 @@ class App extends React.Component {
               </div>
             <UserAccount/>
             </Route>  
-            <Route path="/userSettings">
-              <Settings/>
-               </Route>
+            <Route path="/userSettings" 
+                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) } />
              
            </Switch>
           </div>
