@@ -76,30 +76,30 @@ export default class SignUpForm extends React.Component {
 
   render() {
     return (
-    <div id="LoginHeader">
-      <div className="Dark-Header">
-          <Logo/>
-      </div>
-      <div className="LoginSignupBody">
-        <div className="BannerOn">
-          <Link to="/LogInBanner">Log In</Link>
+        <div id="LoginHeader">
+          <div className="Dark-Header">
+            <Logo/>
+          </div>
+          <div className="LoginSignupBody">
+            <div className="BannerOn">
+              <Link to="/LogInBanner">Log In</Link>
+            </div>
+            <div className="BannerOff">
+              <Link to="/SignUpForm">Sign Up</Link>
+            </div>
+          </div>
+          <div className="FormBody">
+            <form id ="filler">
+              <label id="username"> Username</label>
+              <input className="Username" type="text" onChange={this.myChangeHandler} />
+              <label id="Password">Password</label>
+              <input className="password" type="password" onChange={this.passwordChangeHandler} />
+              <label id="verify">Verify Password</label>
+              <input className="verify" type="password" onChange={this.verifyPasswordChangeHandler} />
+              <button className="SignupButton" onClick={this.signUp}>Sign Up</button>
+            </form>
+          </div>
         </div>
-        <div className="BannerOff">
-          <Link to="/SignUpForm">Sign Up</Link>
-        </div>
-      </div>
-      <div className="FormBody">
-        <form id ="filler">
-          <label id="username"> Username</label>
-          <input className="Username" type="text" onChange={this.myChangeHandler} />
-          <label id="Password">Password</label>
-          <input className="password" type="password" onChange={this.passwordChangeHandler} />
-          <label id="verify">Verify Password</label>
-          <input className="verify" type="password" onChange={this.verifyPasswordChangeHandler} />
-          <button className="SignupButton" onClick={this.signUp}>Sign Up</button>
-        </form>
-      </div>
-    </div>
     );
   }
 }

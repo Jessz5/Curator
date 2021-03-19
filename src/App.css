@@ -482,3 +482,11 @@ color: black;
   position: absolute;
 
 }
+.settings_list{
+  position: relative;
+  left: 140px;
+  top: -130px;
+}
+/*.redirect{*/
+  /*align-items: center;*/
+/*}*/

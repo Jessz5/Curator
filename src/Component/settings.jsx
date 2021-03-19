@@ -145,6 +145,7 @@ class settings extends Component {
 
     render() {
         return (
+            <header className="settings_list">
         <form onSubmit={this.submitHandler} className="profileform">
             <label>
                 Username
@@ -178,12 +179,11 @@ class settings extends Component {
                     value={this.state.status}
                 />
             </label>
-
             <input type="submit" value="submit" />
-            <Link to="/userAccount">
-                <button>User Account</button>
-            </Link>
         </form>
+
+            </header>
+
 
     );
     }
