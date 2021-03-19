@@ -18,9 +18,9 @@ import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
 import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
 import LogInBanner from "./Component/LogInBanner";
 import SignUpForm from "./Component/SignUpForm";
-
 import GridLayout from './Component/GridLayout';
 import RedirectHandler from './Component/RedirectHandler';
+import Logo from './Component/Logo';
 
 import InputBase from '@material-ui/core/InputBase';
 
@@ -117,11 +117,11 @@ class App extends React.Component {
             <Route path="/linkSpotify">
               <div>
                 <header className="Dark-Header">
-                  <p>Curator Logo Placeholder</p>
+                <Logo/>
                 </header>
                 <body className="Dark-Body">
                   <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                  <a className = "linkText" href = {this.state.authLink}>
+                  <a className = "spotLinkText" href = {this.state.authLink}>
                     Link to Spotify
                   </a>
                 </body>
@@ -133,9 +133,9 @@ class App extends React.Component {
 
             <Route path="/forgotPassword">
               <div>
-                <header className="Dark-Header">
-                  <p>Curator Logo Placeholder</p>
-                </header>
+              <header className="Dark-Header">
+                <Logo/>
+              </header>
                 <body className="Dark-Body">
                   <div className="fPasswordDiv">
                     <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>

@@ -2,8 +2,6 @@
   background-color: #010423;
   height: 20vh;
   position: relative;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   font-size: calc(20px + 2vmin);
   color: white;
@@ -21,6 +19,7 @@
   position: relative;
   color:white;
 }
+
 
 .SpotifyText{
   font: quicksand;
@@ -102,3 +101,6 @@
   margin:0;
 }
 
+.spotLinkText{
+  color: green;
+}

@@ -10,9 +10,9 @@
 }
 .header{
   position: relative;
-top: 36px;
-left: 4%;
-max-width: 50%;
+  top: 36px;
+  left: 4%;
+  max-width: 50%;
 }
 .App-header {
   min-height: 100vh;
@@ -63,8 +63,7 @@ font-size: 16px;
 }
 p{
   max-width: 75%;
-padding-left: 12%;
-font-family: 'EB Garamond', serif;
+  font-family: 'EB Garamond', serif;
 }
 .desktop_img{
   width: 500px;
