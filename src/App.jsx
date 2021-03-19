@@ -72,6 +72,7 @@ class App extends React.Component {
     this.mainContent = React.createRef();
     this.doRefreshPosts = this.doRefreshPosts.bind(this);
     this.authorizeSpotify = this.authorizeSpotify.bind(this);
+    this.onAuthentication = this.onAuthentication.bind(this);
   }
 
   // doRefreshPosts is called after the user logs in, to display relevant posts.
@@ -90,6 +91,7 @@ class App extends React.Component {
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
+        spotobj: [{id: 1, name: ""}]
         } 
       )
   }
@@ -101,8 +103,9 @@ class App extends React.Component {
   }
 
   //Callback function for json returned from Spotify Authentication
-  onAuthentication(object) {() => {this.setState({ spotobj: object })}};
-  
+  onAuthentication(object) {this.state.spotobj = object;
+   this.state.spotify_email = this.state.spotobj[0][0];
+   console.log("Ran onAuthentication")};
 
   render() {
 

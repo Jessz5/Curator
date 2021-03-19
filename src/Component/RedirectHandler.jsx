@@ -35,7 +35,7 @@ class RedirectHandler extends React.Component {
     }
 
     render(){
-        return <Redirect to="/userPost"/>
+        return <Redirect to="/userSettings"/>
     }
 
 }

@@ -80,31 +80,6 @@ class settings extends Component {
                     alert("error!");
                 }
             );
-        //
-        // fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+sessionStorage.getItem("user"), {
-        //     method: "PATCH",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer '+sessionStorage.getItem("token")
-        //     },
-        //     body: JSON.stringify({
-        //
-        //         status: this.state.status,
-        //
-        //
-        //     })
-        // })
-        //     .then(res => res.json())
-        //     .then(
-        //         result => {
-        //             this.setState({
-        //                 responseMessage: result.Status
-        //             });
-        //         },
-        //         error => {
-        //             alert("error!");
-        //         }
-        //     );
 
 
     }

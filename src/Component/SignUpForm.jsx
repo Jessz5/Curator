@@ -65,7 +65,7 @@ export default class SignUpForm extends React.Component {
       fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/signup", requestOptions)
           .then(response => response.text())
           .then(result => console.log(result))
-          .then(this.props.history.push("/linkSpotify"))
+          .then(this.props.history.push("/logInBanner"))
           .catch(error => console.log('error', error));
     }
     else{
