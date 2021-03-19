@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -43,27 +43,32 @@ export default class SignUpForm extends React.Component {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify(
-        {"email":this.state.username,
-          "password":this.state.password
-        });
+    //If the email and password fields are properly populated, continue processing, else return error
+    if(this.state.username != "" && this.state.password != "" && this.state.password == this.state.verify){
+      var raw = JSON.stringify(
+          {"email":this.state.username,
+            "password":this.state.password
+          });
 
 
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
 
 
-    //make the api call to the authentication page
-    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/signup", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-
-
+      //make the api call to the authentication page
+      fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/auth/signup", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .then(this.props.history.push("/linkSpotify"))
+          .catch(error => console.log('error', error));
+    }
+    else{
+      alert("Please make sure the username and password fields are properly filled in");
+    }
   };
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "../SignUp.css";
+import {Redirect} from 'react-router';
 
 
 export default class LogInBanner extends React.Component {
@@ -12,6 +13,7 @@ export default class LogInBanner extends React.Component {
           sessiontoken: ""
         };
     }
+
     myChangeHandler = event => {
         this.setState({
             username: event.target.value
@@ -119,11 +121,7 @@ export default class LogInBanner extends React.Component {
         }
         else{
                 return (
-                <Link to = "/UserPost">
-                    <input type="submit" value="Welcome" />
-
-                </Link>
-
+                <Redirect to = "/userPost"/>
                 )
         }
     }
