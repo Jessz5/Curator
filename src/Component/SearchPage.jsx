@@ -1,12 +1,4 @@
 import React, {Component} from 'react';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import AccountIcon from '@material-ui/icons/AccountCircle';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import '../searchpage.css';
 
 import {Link} from 'react-router-dom';
@@ -41,32 +33,6 @@ export default class SearchPage extends React.Component {
                 <path d="M230.742 29.12C232.022 29.12 233.088 29.4827 233.942 30.208C234.838 30.9333 235.286 31.7867 235.286 32.768C235.286 34.0907 234.944 35.0933 234.262 35.776C233.579 36.416 232.768 36.736 231.83 36.736C231.19 36.736 230.464 36.5867 229.654 36.288C229.526 36.2453 229.227 36.16 228.758 36.032C228.331 35.904 227.862 35.84 227.35 35.84C226.24 35.84 225.174 36.1813 224.15 36.864C223.126 37.5467 222.272 38.592 221.59 40C220.95 41.3653 220.63 43.008 220.63 44.928V60.096C220.63 61.2053 220.267 62.144 219.542 62.912C218.816 63.6373 217.899 64 216.79 64C215.68 64 214.763 63.6373 214.038 62.912C213.312 62.144 212.95 61.2053 212.95 60.096V33.664C212.95 32.5547 213.312 31.6373 214.038 30.912C214.763 30.144 215.68 29.76 216.79 29.76C217.899 29.76 218.816 30.144 219.542 30.912C220.267 31.6373 220.63 32.5547 220.63 33.664V34.496C221.611 32.7467 223.019 31.424 224.854 30.528C226.688 29.5893 228.651 29.12 230.742 29.12Z" fill="black"/>
             </svg>
 
-            <div className="home-button">
-                <IconButton>
-                    <Link to = "/UserPost">
-                        <HomeIcon/>
-                    </Link>
-                </IconButton>
-            </div>
-            <div className="search-button">
-                <IconButton>
-                    <Link to="/search">
-                        <SearchIcon/>
-                    </Link>
-                </IconButton>
-            </div>
-            <div className="bookmark-button">
-                <IconButton>
-                    <BookmarkIcon/>
-                </IconButton>
-            </div>
-            <div className="account-button">
-                <IconButton>
-                    <Link to = "/userAccount">
-                        <AccountIcon/>
-                    </Link>
-                </IconButton>
-            </div>
         </div>
         <div className="search-container">
             <form>
@@ -74,21 +40,6 @@ export default class SearchPage extends React.Component {
                 <button class="btn cancel" onclick={this.clearInput}>Cancel</button>
             </form>
          </div>
-            {/*"document.getElementById('myInput').value = ' '"*/}
-            <ToggleButtonGroup>
-                <ToggleButton>
-                    <p>Top</p>
-                </ToggleButton>
-                <ToggleButton>
-                    <p>Songs</p>
-                </ToggleButton>
-                <ToggleButton>
-                    <p>Accounts</p>
-                </ToggleButton>
-                <ToggleButton>
-                    <p>Tags</p>
-                </ToggleButton>
-            </ToggleButtonGroup>
             <div className="search-description">
               <h2>Search Curator</h2>
               <p>Find your favorite song clips, accounts, friends, and interesting posts</p>

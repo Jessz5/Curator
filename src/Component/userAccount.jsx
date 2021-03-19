@@ -21,7 +21,7 @@ class userAccount extends Component {
             //fetch(process.env.REACT_APP_API_PATH+"/users/"+sessionStorage.getItem("user")
             //fetch("http://localhost:3001/api/users?email=manaswini%40example.com", requestOptions)
             //fetch the user data
-            fetch("http://localhost:3001/api/users/"+sessionStorage.getItem("user"), requestOptions)
+            fetch(process.env.REACT_APP_API_PATH+"/users/"+sessionStorage.getItem("user"), requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));

@@ -29,8 +29,8 @@ export default class FriendForm extends React.Component {
   }
 
   componentDidMount() {
-    //make the api call to the user API to get the user with all of their attached preferences
-    fetch("http://localhost:3001/api/users/", {
+    //gets all users information that's in the system
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -43,8 +43,8 @@ export default class FriendForm extends React.Component {
         result => {
           if (result) {
             let names = [];
-
-            //result[0].forEach(element => {if (element.username){names.push(element)}});
+            console.log(result[0]);
+            result[0].forEach(element => {if (element.username){names.push(element)}});
 
             this.setState({
               users: names,
@@ -67,8 +67,8 @@ export default class FriendForm extends React.Component {
     console.log(this.state.friendid);
 
 
-    //make the api call to the user controller
-    fetch("http://localhost:3001/api/connections", {
+    //this creates the user connection
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/connections/", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
