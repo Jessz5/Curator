@@ -93,7 +93,7 @@ font-family: 'EB Garamond', serif;
   border: 0px;
   position: relative;
   top: 120px;
-  left: 39.5%;
+  left: 5px;
   font-size: 18px;
   font-weight: 700;
   display: flex;
@@ -382,8 +382,8 @@ background: #010423;
 }
 #Post_Logo{
   position: relative;
-top: 37px;
-left: -40%;
+  top: 37px;
+  left: -550px;
 }
 svg#Account_Logo{
   position: relative !important;
@@ -472,4 +472,14 @@ color: black;
   text-align: center;
   color: black;
   position: absolute;
+}
+
+.button-css{
+  margin-left: 10px;
+  font-size: 20px;
+  top: 40%;
+  text-align: center;
+  color: black;
+  position: absolute;
+
 }
