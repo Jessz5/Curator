@@ -50,7 +50,6 @@ function toggleModal(app) {
 }
 
 
-
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
@@ -62,7 +61,10 @@ class App extends React.Component {
       openModal: false,
       refreshPosts: false,
       authLink: this.authorizeSpotify(),
-      client_secret: client_secret
+      client_secret: client_secret,
+      spotify_username: "",
+      spotify_email: "",
+      spotobj: []
     };
 
     // in the event we need a handle back to the parent from a child component,
@@ -98,6 +100,10 @@ class App extends React.Component {
     return this.getLoginURL()
   }
 
+  //Callback function for json returned from Spotify Authentication
+  onAuthentication(object) {() => {this.setState({ spotobj: object })}};
+  
+
   render() {
 
     return (
@@ -129,7 +135,7 @@ class App extends React.Component {
             </Route>
 
             <Route path="/spotifyAuth" 
-                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} onAuthentication={this.onAuthentication}/> ) } />
 
             <Route path="/forgotPassword">
               <div>
