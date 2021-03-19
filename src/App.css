@@ -10,9 +10,9 @@
 }
 .header{
   position: relative;
-top: 36px;
-left: 4%;
-max-width: 50%;
+  top: 36px;
+  left: 4%;
+  max-width: 50%;
 }
 .App-header {
   min-height: 100vh;
@@ -63,8 +63,7 @@ font-size: 16px;
 }
 p{
   max-width: 75%;
-padding-left: 12%;
-font-family: 'EB Garamond', serif;
+  font-family: 'EB Garamond', serif;
 }
 .desktop_img{
   width: 500px;
@@ -93,7 +92,7 @@ font-family: 'EB Garamond', serif;
   border: 0px;
   position: relative;
   top: 120px;
-  left: 39.5%;
+  left: 5px;
   font-size: 18px;
   font-weight: 700;
   display: flex;
@@ -382,8 +381,8 @@ background: #010423;
 }
 #Post_Logo{
   position: relative;
-top: 37px;
-left: -40%;
+  top: 37px;
+  left: -550px;
 }
 svg#Account_Logo{
   position: relative !important;
@@ -472,4 +471,14 @@ color: black;
   text-align: center;
   color: black;
   position: absolute;
+}
+
+.button-css{
+  margin-left: 10px;
+  font-size: 20px;
+  top: 40%;
+  text-align: center;
+  color: black;
+  position: absolute;
+
 }

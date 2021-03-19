@@ -108,3 +108,5 @@ export default class LogInBanner extends React.Component {
         else{return (<Redirect to = "/userPost"/>)}
     }
 }
+
+

@@ -2,8 +2,6 @@
   background-color: #010423;
   height: 20vh;
   position: relative;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   font-size: calc(20px + 2vmin);
   color: white;
@@ -21,6 +19,7 @@
   position: relative;
   color:white;
 }
+
 
 .SpotifyText{
   font: quicksand;
@@ -89,3 +88,19 @@
   border-radius: 50px;
 }
 
+.SignupButton{
+  background-color:  #1DB954;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50px;
+  position: absolute;
+  top: 40%;
+  margin:0;
+}
+
+.spotLinkText{
+  color: green;
+}
