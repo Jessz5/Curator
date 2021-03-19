@@ -80,31 +80,7 @@ class settings extends Component {
                     alert("error!");
                 }
             );
-        //
-        // fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+sessionStorage.getItem("user"), {
-        //     method: "PATCH",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer '+sessionStorage.getItem("token")
-        //     },
-        //     body: JSON.stringify({
-        //
-        //         status: this.state.status,
-        //
-        //
-        //     })
-        // })
-        //     .then(res => res.json())
-        //     .then(
-        //         result => {
-        //             this.setState({
-        //                 responseMessage: result.Status
-        //             });
-        //         },
-        //         error => {
-        //             alert("error!");
-        //         }
-        //     );
+      
 
 
     }
@@ -145,6 +121,7 @@ class settings extends Component {
 
     render() {
         return (
+            <header className="settings_list">
         <form onSubmit={this.submitHandler} className="profileform">
             <label>
                 Username
@@ -178,13 +155,9 @@ class settings extends Component {
                     value={this.state.status}
                 />
             </label>
-
             <input type="submit" value="submit" />
-            <Link to="/userAccount">
-                <button>User Account</button>
-            </Link>
         </form>
-
+            </header>
     );
     }
 
