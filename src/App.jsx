@@ -22,12 +22,10 @@ import GridLayout from './Component/GridLayout';
 import RedirectHandler from './Component/RedirectHandler';
 import Logo from './Component/Logo';
 
-import InputBase from '@material-ui/core/InputBase';
-
-import SearchIcon from '@material-ui/icons/Search';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import SearchPage from "./Component/SearchPage.jsx";
 import "./searchpage.css";
+import FriendList from "./Component/FriendList.jsx";
+import FriendForm from "./Component/FriendForm.jsx";
 import UserPost from "./Component/UserPost";
 import StyleGuide from "./Component/StyleGuide.jsx";
 
@@ -166,47 +164,17 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/search">
-                <div className="search-page">
+            <Route path = "/search">
                 <div className="Nav_Wrapper">
-                <Navbar/>
-              </div>
-                    <div className="search-container">
-                        <div className="search-text">
-                            <InputBase
-                                type="text"
-                                id="myInput"
-                                inputRef={el => this.myInput = el}
-                                placeholder="Search..."
-                                startAdornment={<SearchIcon/>}
-                            />
-                        </div>
-                    </div>
-                    <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
-                    <ToggleButtonGroup>
-                        <ToggleButton>
-                            <p>Top</p>
-                        </ToggleButton>
-                        <ToggleButton>
-                            <p>Songs</p>
-                        </ToggleButton>
-                        <ToggleButton>
-                            <p>Accounts</p>
-                        </ToggleButton>
-                        <ToggleButton>
-                            <p>Tags</p>
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                    <div className="search-description">
-                      <h2>Search Curator</h2>
-                      <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
-                    </div>
+                    <Navbar/>
                 </div>
+                <SearchPage/>
             </Route>
 
+            <Route path="/findFriends" component={FriendForm}/>
+            <Route path="/allFriends" component={FriendList}/>
 
-
-            <Route exact path="/" component={LogInBanner}/> 
+            <Route exact path="/" component={LogInBanner}/>
 
             <Route path = "/UserPost">
               <div className="Nav_Wrapper">
