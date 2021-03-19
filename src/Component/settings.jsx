@@ -3,6 +3,7 @@ import profile_photo from './profile_photo.jpg'
 import './user_account_style.css'
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import Navbar from "./Navbar";
 
 
 const StyledButton = styled.button`
@@ -145,41 +146,44 @@ class settings extends Component {
     render() {
         return (
             <header className="settings_list">
-        <form onSubmit={this.submitHandler} className="profileform">
-            <label>
-                Username
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("username", e)}
-                    value={this.state.username}
-                />
-            </label>
-            <label>
-                First Name
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("firstname", e)}
-                    value={this.state.firstname}
-                />
-            </label>
-            <label>
-                Last Name
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("lastname", e)}
-                    value={this.state.lastname}
-                />
-            </label>
-            <label>
-                Edit User Bio
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("status", e)}
-                    value={this.state.status}
-                />
-            </label>
-            <input type="submit" value="submit" />
-        </form>
+                <Navbar/>
+                <p className="spotifyInfo">{this.state.spotify_email}</p>
+                <p className="spotifyInfo">{this.state.spotify_username}</p>
+                <form onSubmit={this.submitHandler} className="profileform">
+                    <label>
+                        Username
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("username", e)}
+                            value={this.state.username}
+                        />
+                    </label>
+                    <label>
+                        First Name
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("firstname", e)}
+                            value={this.state.firstname}
+                        />
+                    </label>
+                    <label>
+                        Last Name
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("lastname", e)}
+                            value={this.state.lastname}
+                        />
+                    </label>
+                    <label>
+                        Edit User Bio
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("status", e)}
+                            value={this.state.status}
+                        />
+                    </label>
+                    <input type="submit" value="submit" />
+                </form>
             </header>
     );
     }

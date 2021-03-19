@@ -193,8 +193,8 @@ class App extends React.Component {
             <UserAccount/>
             </Route>  
             <Route path="/userSettings" 
-                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) } />
-             
+                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) }>
+            </Route>
            </Switch>
           </div>
         </header>
