@@ -5,7 +5,7 @@ import EditUserBio from './editUserBio'
 import emailNotifications from './emailNotifications.jsx'
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-
+import NavBar from "./Navbar";
 
 const StyledButton = styled.button`
   background-color: #1DB954;
@@ -80,31 +80,7 @@ class settings extends Component {
                     alert("error!");
                 }
             );
-        //
-        // fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+sessionStorage.getItem("user"), {
-        //     method: "PATCH",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer '+sessionStorage.getItem("token")
-        //     },
-        //     body: JSON.stringify({
-        //
-        //         status: this.state.status,
-        //
-        //
-        //     })
-        // })
-        //     .then(res => res.json())
-        //     .then(
-        //         result => {
-        //             this.setState({
-        //                 responseMessage: result.Status
-        //             });
-        //         },
-        //         error => {
-        //             alert("error!");
-        //         }
-        //     );
+      
 
 
     }
@@ -145,7 +121,10 @@ class settings extends Component {
 
     render() {
         return (
+
+
             <header className="settings_list">
+                <NavBar />
         <form onSubmit={this.submitHandler} className="profileform">
             <label>
                 Username
@@ -181,7 +160,6 @@ class settings extends Component {
             </label>
             <input type="submit" value="submit" />
         </form>
-
             </header>
 
 

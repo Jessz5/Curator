@@ -6,7 +6,7 @@
 import React from "react";
 
 import {
-    BrowserRouter as Router, Redirect, Route, Switch
+  BrowserRouter as Router, Redirect, Route, Switch
 } from 'react-router-dom';
 
 import "./App.css";
@@ -46,9 +46,9 @@ var scope = 'user-read-private user-read-email'; //The scope defining the client
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
 // for showing and hiding the component
 function toggleModal(app) {
-    app.setState({
-        openModal: !app.state.openModal
-    });
+  app.setState({
+    openModal: !app.state.openModal
+  });
 }
 
 
@@ -56,172 +56,169 @@ function toggleModal(app) {
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
-    // the only state held at the app level is whether or not the modal dialog
-    // is currently displayed - it is hidden by default when the app is started.
-    constructor(props) {
-        super(props);
-        this.state = {
-            openModal: false,
-            refreshPosts: false,
-            authLink: this.authorizeSpotify(),
-            client_secret: client_secret
-        };
+  // the only state held at the app level is whether or not the modal dialog
+  // is currently displayed - it is hidden by default when the app is started.
+  constructor(props) {
+    super(props);
+    this.state = {
+      openModal: false,
+      refreshPosts: false,
+      authLink: this.authorizeSpotify(),
+      client_secret: client_secret
+    };
 
-        // in the event we need a handle back to the parent from a child component,
-        // we can create a reference to this and pass it down.
-        this.mainContent = React.createRef();
-        this.doRefreshPosts = this.doRefreshPosts.bind(this);
-        this.authorizeSpotify = this.authorizeSpotify.bind(this);
-    }
+    // in the event we need a handle back to the parent from a child component,
+    // we can create a reference to this and pass it down.
+    this.mainContent = React.createRef();
+    this.doRefreshPosts = this.doRefreshPosts.bind(this);
+    this.authorizeSpotify = this.authorizeSpotify.bind(this);
+  }
 
-    // doRefreshPosts is called after the user logs in, to display relevant posts.
-    // there are probably more elegant ways to solve this problem, but this is... a way
-    doRefreshPosts() {
-        this.setState({
-            refreshPosts:true
-        });
-    }
+  // doRefreshPosts is called after the user logs in, to display relevant posts.
+  // there are probably more elegant ways to solve this problem, but this is... a way
+  doRefreshPosts() {
+    this.setState({
+      refreshPosts:true
+    });
+  }
 
-    //This will generate a URL to send to Spotify, asking for authorization
-    getLoginURL() {
-        return 'https://accounts.spotify.com/authorize?' +
-            querystring.stringify({
-                    response_type: 'token',
-                    client_id: client_id,
-                    scope: scope,
-                    redirect_uri: redirect_uri,
-                }
-            )
-    }
+  //This will generate a URL to send to Spotify, asking for authorization
+  getLoginURL() {
+    return 'https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'token',
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        }
+      )
+  }
 
-    //Creates a link to the spotify website to store in authLink
-    authorizeSpotify() {
-        console.log('Entering Authorize Spotify')
-        return this.getLoginURL()
-    }
+  //Creates a link to the spotify website to store in authLink
+  authorizeSpotify() {
+    console.log('Entering Authorize Spotify')
+    return this.getLoginURL()
+  }
 
-    render() {
+  render() {
 
-        return (
+    return (
 
-            // the app is wrapped in a router component, that will render the
-            // appropriate content based on the URL path.  Since this is a
-            // single page app, it allows some degree of direct linking via the URL
-            // rather than by parameters.  Note that the "empty" route "/", which has
-            // the same effect as /posts, needs to go last, because it uses regular
-            // expressions, and would otherwise capture all the routes.  Ask me how I
-            // know this.
-            <Router basename={process.env.PUBLIC_URL}>
-                <div className="App">
-                    <header className="App-header">
-                        <div className="maincontent" id="mainContent">
-                            <Switch>
-                                <Route path="/linkSpotify">
-                                    <div>
-                                        <header className="Dark-Header">
-                                            <Logo/>
-                                        </header>
-                                        <body className="Dark-Body">
-                                        <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
-                                        <a className = "spotLinkText" href = {this.state.authLink}>
-                                            Link to Spotify
-                                        </a>
-                                        </body>
-                                    </div>
-                                </Route>
+      // the app is wrapped in a router component, that will render the
+      // appropriate content based on the URL path.  Since this is a
+      // single page app, it allows some degree of direct linking via the URL
+      // rather than by parameters.  Note that the "empty" route "/", which has
+      // the same effect as /posts, needs to go last, because it uses regular
+      // expressions, and would otherwise capture all the routes.  Ask me how I
+      // know this.
+      <Router basename={process.env.PUBLIC_URL}>
+      <div className="App">
+        <header className="App-header">
+          <div className="maincontent" id="mainContent">
+            <Switch>
+            <Route path="/linkSpotify">
+              <div>
+                <header className="Dark-Header">
+                <Logo/>
+                </header>
+                <body className="Dark-Body">
+                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
+                  <a className = "spotLinkText" href = {this.state.authLink}>
+                    Link to Spotify
+                  </a>
+                </body>
+              </div>
+            </Route>
 
-                                <Route path="/spotifyAuth"
-                                       render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
+            <Route path="/spotifyAuth"
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
 
-                                <Route path="/forgotPassword">
-                                    <div>
-                                        <header className="Dark-Header">
-                                            <Logo/>
-                                        </header>
-                                        <body className="Dark-Body">
-                                        <div className="fPasswordDiv">
-                                            <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
-                                            <ForgotPasswordForm/>
-                                        </div>
-                                        <div className="fPasswordButtonDiv">
-                                            <ForgotPasswordButton/>
-                                        </div>
-                                        </body>
-                                    </div>
-                                </Route>
+            <Route path="/forgotPassword">
+              <div>
+              <header className="Dark-Header">
+                <Logo/>
+              </header>
+                <body className="Dark-Body">
+                  <div className="fPasswordDiv">
+                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                    <ForgotPasswordForm/>
+                  </div>
+                  <div className="fPasswordButtonDiv">
+                    <ForgotPasswordButton/>
+                  </div>
+                </body>
+              </div>
+            </Route>
 
-                                <Route path="/search">
-                                    <div className="search-page">
-                                        <div className="Nav_Wrapper">
-                                            <Navbar/>
-                                        </div>
-                                        <div className="search-container">
-                                            <div className="search-text">
-                                                <InputBase
-                                                    type="text"
-                                                    id="myInput"
-                                                    inputRef={el => this.myInput = el}
-                                                    placeholder="Search..."
-                                                    startAdornment={<SearchIcon/>}
-                                                />
-                                            </div>
-                                        </div>
-                                        <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
-                                        <ToggleButtonGroup>
-                                            <ToggleButton>
-                                                <p>Top</p>
-                                            </ToggleButton>
-                                            <ToggleButton>
-                                                <p>Songs</p>
-                                            </ToggleButton>
-                                            <ToggleButton>
-                                                <p>Accounts</p>
-                                            </ToggleButton>
-                                            <ToggleButton>
-                                                <p>Tags</p>
-                                            </ToggleButton>
-                                        </ToggleButtonGroup>
-                                        <div className="search-description">
-                                            <h2>Search Curator</h2>
-                                            <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
-                                        </div>
-                                    </div>
-                                </Route>
-
-                                <Route path="/findFriends" component={FriendForm}/>
-                                <Route path="/allFriends" component={FriendList}/>
-
-                                <Route exact path="/" component={LogInBanner}/>
-
-                                <Route path = "/UserPost">
-                                    <div className="Nav_Wrapper">
-                                        <Navbar/>
-                                    </div>
-                                    <GridLayout/>
-                                </Route>
-
-                                <Route path = "/LogInBanner" component={LogInBanner}/>
-                                <Route path = "/SignUpForm" component={SignUpForm}/>
-                                <Route path = "/StyleGuide" component={StyleGuide}/>
-                                <Route path="/userAccount">
-                                    <div className="Nav_Wrapper_Account">
-                                        <Navbar/>
-                                    </div>
-                                    <UserAccount/>
-                                </Route>
-                                <Route path="/userSettings">
-                                    <div className="Nav_Wrapper_Account">
-                                        <Navbar/>
-                                    </div>
-                                    <Settings/>
-                                </Route>
-                            </Switch>
+            <Route path="/search">
+                <div className="search-page">
+                <div className="Nav_Wrapper">
+                <Navbar/>
+              </div>
+                    <div className="search-container">
+                        <div className="search-text">
+                            <InputBase
+                                type="text"
+                                id="myInput"
+                                inputRef={el => this.myInput = el}
+                                placeholder="Search..."
+                                startAdornment={<SearchIcon/>}
+                            />
                         </div>
-                    </header>
+                    </div>
+                    <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
+                    <ToggleButtonGroup>
+                        <ToggleButton>
+                            <p>Top</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Songs</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Accounts</p>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <p>Tags</p>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                    <div className="search-description">
+                      <h2>Search Curator</h2>
+                      <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
+                    </div>
                 </div>
-            </Router>
-        );
-    }
+            </Route>
+
+            <Route path="/findFriends" component={FriendForm}/>
+            <Route path="/allFriends" component={FriendList}/>
+
+            <Route exact path="/" component={LogInBanner}/>
+
+            <Route path = "/UserPost">
+              <div className="Nav_Wrapper">
+              <Navbar/>
+              </div>
+              <GridLayout/>
+            </Route>
+
+            <Route path = "/LogInBanner" component={LogInBanner}/>
+            <Route path = "/SignUpForm" component={SignUpForm}/>
+            <Route path = "/StyleGuide" component={StyleGuide}/>
+            <Route path="/userAccount">
+            <div className="Nav_Wrapper_Account">
+              <Navbar/>
+              </div>
+            <UserAccount/>
+            </Route>
+            <Route path="/userSettings">
+                    <Settings/>
+                </Route>
+           </Switch>
+          </div>
+        </header>
+      </div>
+      </Router>
+    );
+  }
 }
 
 // export the app for use in index.js

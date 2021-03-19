@@ -88,17 +88,47 @@ export default class SignUpForm extends React.Component {
               <Link to="/SignUpForm">Sign Up</Link>
             </div>
           </div>
-          <div className="FormBody">
-            <form id ="filler">
-              <label id="username"> Username</label>
-              <input className="Username" type="text" onChange={this.myChangeHandler} />
-              <label id="Password">Password</label>
-              <input className="password" type="password" onChange={this.passwordChangeHandler} />
-              <label id="verify">Verify Password</label>
-              <input className="verify" type="password" onChange={this.verifyPasswordChangeHandler} />
+          <header className="Signup_CSS">
+
+            <form>
+              <label>
+                <div className="fields">
+                Username
+                </div>
+              <input
+                  className="Username"
+                     type="text"
+                  onChange={this.myChangeHandler}
+              />
+                <br /><br /><br />
+              </label>
+              <label>
+                <div className="fields">
+                Password
+                </div>
+              <input
+                  className="password"
+                  type="password"
+                  onChange={this.passwordChangeHandler}
+              />
+              <br /><br /><br />
+            </label>
+              <label>
+                <div className="fields">
+                  Verify Password
+                </div>
+                <input
+                    className="password"
+                    type="password"
+                    onChange={this.verifyPasswordChangeHandler}
+                />
+                <br /><br /><br />
+              </label>
+              <div className="button_signup">
               <button className="SignupButton" onClick={this.signUp}>Sign Up</button>
+              </div>
             </form>
-          </div>
+          </header>
         </div>
     );
   }

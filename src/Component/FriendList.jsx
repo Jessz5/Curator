@@ -17,9 +17,9 @@ export default class FriendList extends React.Component {
   }
 
   loadFriends() {
-
-    fetch(process.env.REACT_APP_API_PATH+"/connections?userID="+sessionStorage.getItem("user"), {
-      method: "get",
+    //gets all the connections(friends) related to the user
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
+      method: "GET",
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer '+sessionStorage.getItem("token")
@@ -45,8 +45,8 @@ export default class FriendList extends React.Component {
   }
 
   updateConnection(id, status){
-    //make the api call to the user controller
-    fetch(process.env.REACT_APP_API_PATH+"/connections/"+id, {
+    //patch updates/modify an existing connection
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections/"+id, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
