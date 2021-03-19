@@ -210,9 +210,11 @@ class App extends React.Component {
             <UserAccount/>
             </Route>
             <Route path="/userSettings">
-              <Settings/>
-               </Route>
-
+                    <div className="Nav_Wrapper_Account">
+                        <Navbar/>
+                    </div>
+                    <Settings/>
+                </Route>
            </Switch>
           </div>
         </header>
