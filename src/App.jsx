@@ -48,7 +48,6 @@ function toggleModal(app) {
 }
 
 
-
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
@@ -60,7 +59,10 @@ class App extends React.Component {
       openModal: false,
       refreshPosts: false,
       authLink: this.authorizeSpotify(),
-      client_secret: client_secret
+      client_secret: client_secret,
+      spotify_username: "",
+      spotify_email: "",
+      spotobj: []
     };
 
     // in the event we need a handle back to the parent from a child component,
@@ -68,6 +70,7 @@ class App extends React.Component {
     this.mainContent = React.createRef();
     this.doRefreshPosts = this.doRefreshPosts.bind(this);
     this.authorizeSpotify = this.authorizeSpotify.bind(this);
+    this.onAuthentication = this.onAuthentication.bind(this);
   }
 
   // doRefreshPosts is called after the user logs in, to display relevant posts.
@@ -86,7 +89,8 @@ class App extends React.Component {
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
-        }
+        spotobj: [{id: 1, name: ""}]
+        } 
       )
   }
 
@@ -95,6 +99,20 @@ class App extends React.Component {
     console.log('Entering Authorize Spotify')
     return this.getLoginURL()
   }
+
+  //Callback function for json returned from Spotify Authentication
+  onAuthentication(object) {
+    if(object){
+    this.state.spotobj = object;
+    this.state.spotify_email = this.state.spotobj.email;
+    this.state.spotify_username = this.state.spotobj.display_name;
+    console.log("Ran onAuthentication Results:");
+    console.log(this.state.spotify_email);
+    console.log(this.state.spotify_username)}
+    else{
+      return null;
+    }
+  };
 
   render() {
 
@@ -126,8 +144,8 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/spotifyAuth"
-                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
+            <Route path="/spotifyAuth" 
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} onAuthentication={this.onAuthentication}/> ) } />
 
             <Route path="/forgotPassword">
               <div>
@@ -173,13 +191,10 @@ class App extends React.Component {
               <Navbar/>
               </div>
             <UserAccount/>
+            </Route>  
+            <Route path="/userSettings" 
+                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) }>
             </Route>
-            <Route path="/userSettings">
-                    <div className="Nav_Wrapper_Account">
-                        <Navbar/>
-                    </div>
-                    <Settings/>
-                </Route>
            </Switch>
           </div>
         </header>

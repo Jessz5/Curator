@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import profile_photo from './profile_photo.jpg'
 import './user_account_style.css'
-import EditUserBio from './editUserBio'
-import emailNotifications from './emailNotifications.jsx'
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import Navbar from "./Navbar";
 
 
 const StyledButton = styled.button`
@@ -23,10 +22,29 @@ class settings extends Component {
             lastname: "",
             favoritesong: "",
             status : "",
-            responseMessage: ""
+            responseMessage: "",
+            spotify_email: "",
+            spotify_username: "",
+            fetchOptions: {
+                method: 'GET',
+                headers: new Headers({
+                    'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`
+                })
+            } 
         };
         this.fieldChangeHandler.bind(this);
-    }
+        this.getSpotifyInfo();
+ 
+    } 
+
+    getSpotifyInfo(){
+        fetch('https://api.spotify.com/v1/me', this.state.fetchOptions)
+        .then(function (response) {
+        return response.json();})
+        .then(json => {this.setState({spotify_email: json.email, spotify_username: json.display_name})})
+        .then( function (json) {console.log(json);})
+        .catch(function (error) {console.log(error);});
+      };
 
     fieldChangeHandler(field, e) {
         console.log("field change");
@@ -80,10 +98,10 @@ class settings extends Component {
                     alert("error!");
                 }
             );
-      
-
-
-    }
+            
+            //Next Fetch the SpotifyInfo from the SpotifyAPI
+            this.getSpotifyInfo();
+        }
     submitHandler = event => {
         //keep the form from actually submitting
         event.preventDefault();
@@ -117,46 +135,55 @@ class settings extends Component {
 
     };
 
-
+    //Method for testing if Spotify Username and Email are available
+    checkSpotifyinfo(){
+        if(1 == 1){
+            console.log(this.props.match.spotify_email);
+            return "Hey"
+        }
+    }
 
     render() {
         return (
             <header className="settings_list">
-        <form onSubmit={this.submitHandler} className="profileform">
-            <label>
-                Username
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("username", e)}
-                    value={this.state.username}
-                />
-            </label>
-            <label>
-                First Name
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("firstname", e)}
-                    value={this.state.firstname}
-                />
-            </label>
-            <label>
-                Last Name
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("lastname", e)}
-                    value={this.state.lastname}
-                />
-            </label>
-            <label>
-                Edit User Bio
-                <input
-                    type="text"
-                    onChange={e => this.fieldChangeHandler("status", e)}
-                    value={this.state.status}
-                />
-            </label>
-            <input type="submit" value="submit" />
-        </form>
+                <Navbar/>
+                <p className="spotifyInfo">{this.state.spotify_email}</p>
+                <p className="spotifyInfo">{this.state.spotify_username}</p>
+                <form onSubmit={this.submitHandler} className="profileform">
+                    <label>
+                        Username
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("username", e)}
+                            value={this.state.username}
+                        />
+                    </label>
+                    <label>
+                        First Name
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("firstname", e)}
+                            value={this.state.firstname}
+                        />
+                    </label>
+                    <label>
+                        Last Name
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("lastname", e)}
+                            value={this.state.lastname}
+                        />
+                    </label>
+                    <label>
+                        Edit User Bio
+                        <input
+                            type="text"
+                            onChange={e => this.fieldChangeHandler("status", e)}
+                            value={this.state.status}
+                        />
+                    </label>
+                    <input type="submit" value="submit" />
+                </form>
             </header>
     );
     }
