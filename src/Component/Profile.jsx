@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 
+
 export default class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ export default class Profile extends React.Component {
     };
     this.fieldChangeHandler.bind(this);
   }
+  REACT_APP_API_KEY = 'my-secret-api-key';
 
   fieldChangeHandler(field, e) {
     console.log("field change");

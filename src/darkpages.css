@@ -1,0 +1,106 @@
+.Dark-Header {
+  background-color: #010423;
+  height: 20vh;
+  position: relative;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  color: white;
+  margin: 0;
+  padding: 0;
+  border-bottom: 5px solid #1DB954;
+}
+
+.Dark-Body {
+  background-color: #010423;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  color:white;
+}
+
+
+.SpotifyText{
+  font: quicksand;
+  font-size: calc(15px + 2vmin);
+  position: absolute;
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  margin:0;
+}
+.SpotifyButton{
+  background-color:  #1DB954;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50px;
+  position: absolute;
+  top: 40%;
+  margin:0;
+}
+
+
+.fPasswordDiv{
+  justify-content: center;
+  position: absolute;
+  height: 10em;
+}
+
+.fPasswordLabel{
+  font-size: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  bottom: 0%;
+}
+
+
+.fPasswordForm{
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.fPasswordInput{
+  width: 80%;
+  height: 25px;
+  font-size: 20px;
+}
+
+.fPasswordButtonDiv{
+  position: absolute;
+  top: 43%;
+}
+
+.PasswordEmailButton{
+  background-color:  #1DB954;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50px;
+}
+
+.SignupButton{
+  background-color:  #1DB954;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50px;
+  position: absolute;
+  top: 40%;
+  margin:0;
+}
+
+.spotLinkText{
+  color: green;
+}

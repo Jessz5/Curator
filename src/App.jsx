@@ -3,19 +3,40 @@
   This is the level that will handle the routing of requests, and also the one that will manage communication between
   sibling components at a lower level.  It holds the basic structural components of navigation, content, and a modal dialog.
 */
-
 import React from "react";
-import "./App.css";
-import PostForm from "./Component/PostForm.jsx";
-import FriendList from "./Component/FriendList.jsx";
-import LoginForm from "./Component/LoginForm.jsx";
-import Profile from "./Component/Profile.jsx";
-import FriendForm from "./Component/FriendForm.jsx";
-import Modal from "./Component/Modal.jsx";
-import Navbar from "./Component/Navbar.jsx";
+
 import {
-  BrowserRouter as Router, Route, Switch
+  BrowserRouter as Router, Redirect, Route, Switch
 } from 'react-router-dom';
+
+import "./App.css";
+import UserAccount from "./Component/userAccount.jsx";
+import Settings from "./Component/settings.jsx";
+import "./darkpages.css";
+import Navbar from "./Component/Navbar.jsx";
+import ForgotPasswordForm from "./Component/ForgotPasswordForm.jsx";
+import ForgotPasswordButton from "./Component/ForgotPasswordButton.jsx";
+import LogInBanner from "./Component/LogInBanner";
+import SignUpForm from "./Component/SignUpForm";
+import GridLayout from './Component/GridLayout';
+import RedirectHandler from './Component/RedirectHandler';
+import Logo from './Component/Logo';
+
+import SearchPage from "./Component/SearchPage.jsx";
+import "./searchpage.css";
+import FriendList from "./Component/FriendList.jsx";
+import FriendForm from "./Component/FriendForm.jsx";
+import UserPost from "./Component/UserPost";
+import StyleGuide from "./Component/StyleGuide.jsx";
+
+
+var querystring = require('querystring');
+
+var client_id = '1b71fce4cd2040b6bc601f0901189e58'; //Spotify App Client ID
+var client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
+var redirect_uri = 'http://localhost:3000/spotifyAuth'; // Or Your redirect uri
+var scope = 'user-read-private user-read-email'; //The scope defining the client information we want from Spotify
+
 
 // toggleModal will both show and hide the modal dialog, depending on current state.  Note that the
 // contents of the modal dialog are set separately before calling toggle - this is just responsible
@@ -26,6 +47,7 @@ function toggleModal(app) {
   });
 }
 
+
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
@@ -35,13 +57,20 @@ class App extends React.Component {
     super(props);
     this.state = {
       openModal: false,
-      refreshPosts: false
+      refreshPosts: false,
+      authLink: this.authorizeSpotify(),
+      client_secret: client_secret,
+      spotify_username: "",
+      spotify_email: "",
+      spotobj: []
     };
 
     // in the event we need a handle back to the parent from a child component,
     // we can create a reference to this and pass it down.
     this.mainContent = React.createRef();
     this.doRefreshPosts = this.doRefreshPosts.bind(this);
+    this.authorizeSpotify = this.authorizeSpotify.bind(this);
+    this.onAuthentication = this.onAuthentication.bind(this);
   }
 
   // doRefreshPosts is called after the user logs in, to display relevant posts.
@@ -51,6 +80,39 @@ class App extends React.Component {
       refreshPosts:true
     });
   }
+
+  //This will generate a URL to send to Spotify, asking for authorization
+  getLoginURL() {
+    return 'https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'token',
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        spotobj: [{id: 1, name: ""}]
+        } 
+      )
+  }
+
+  //Creates a link to the spotify website to store in authLink
+  authorizeSpotify() {
+    console.log('Entering Authorize Spotify')
+    return this.getLoginURL()
+  }
+
+  //Callback function for json returned from Spotify Authentication
+  onAuthentication(object) {
+    if(object){
+    this.state.spotobj = object;
+    this.state.spotify_email = this.state.spotobj.email;
+    this.state.spotify_username = this.state.spotobj.display_name;
+    console.log("Ran onAuthentication Results:");
+    console.log(this.state.spotify_email);
+    console.log(this.state.spotify_username)}
+    else{
+      return null;
+    }
+  };
 
   render() {
 
@@ -66,38 +128,76 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
-
-          <Navbar toggleModal={e => toggleModal(this, e)} />
-
           <div className="maincontent" id="mainContent">
             <Switch>
-            <Route path="/settings">
-              <div className="settings">
-                <p>Settings</p>
-                <Profile userid={sessionStorage.getItem("user")} />
-              </div>
-            </Route>
-            <Route path="/friends">
+            <Route path="/linkSpotify">
               <div>
-                <p>Friends</p>
-                <FriendForm userid={sessionStorage.getItem("user")} />
-                <FriendList userid={sessionStorage.getItem("user")} />
+                <header className="Dark-Header">
+                <Logo/>
+                </header>
+                <body className="Dark-Body">
+                  <p className="SpotifyText">Connect your account to Spotify in order to access full account features:</p>
+                  <a className = "spotLinkText" href = {this.state.authLink}>
+                    Link to Spotify
+                  </a>
+                </body>
               </div>
             </Route>
-            <Route path={["/posts","/"]}>
+
+            <Route path="/spotifyAuth" 
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} onAuthentication={this.onAuthentication}/> ) } />
+
+            <Route path="/forgotPassword">
               <div>
-                <p>Social Media Test Harness</p>
-                <LoginForm refreshPosts={this.doRefreshPosts}  />
-                <PostForm refresh={this.state.refreshPosts}/>
+              <header className="Dark-Header">
+                <Logo/>
+              </header>
+                <body className="Dark-Body">
+                  <div className="fPasswordDiv">
+                    <p className="fPasswordLabel">Enter your email address and we'll send you a recovery link:</p>
+                    <ForgotPasswordForm/>
+                  </div>
+                  <div className="fPasswordButtonDiv">
+                    <ForgotPasswordButton/>
+                  </div>
+                </body>
               </div>
             </Route>
-            </Switch>
+
+            <Route path = "/search">
+                <div className="Nav_Wrapper">
+                    <Navbar/>
+                </div>
+                <SearchPage/>
+            </Route>
+
+            <Route path="/findFriends" component={FriendForm}/>
+            <Route path="/allFriends" component={FriendList}/>
+
+            <Route exact path="/" component={LogInBanner}/>
+
+            <Route path = "/UserPost">
+              <div className="Nav_Wrapper">
+              <Navbar/>
+              </div>
+              <GridLayout/>
+            </Route>
+
+            <Route path = "/LogInBanner" component={LogInBanner}/>
+            <Route path = "/SignUpForm" component={SignUpForm}/>
+            <Route path = "/StyleGuide" component={StyleGuide}/>
+            <Route path="/userAccount">
+            <div className="Nav_Wrapper_Account">
+              <Navbar/>
+              </div>
+            <UserAccount/>
+            </Route>  
+            <Route path="/userSettings" 
+                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) }>
+            </Route>
+           </Switch>
           </div>
         </header>
-
-        <Modal show={this.state.openModal} onClose={e => toggleModal(this, e)}>
-          This is a modal dialog!
-        </Modal>
       </div>
       </Router>
     );
