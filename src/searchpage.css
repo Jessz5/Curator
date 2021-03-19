@@ -42,13 +42,13 @@
 }
 
 .search-container {
-    margin-top: 130px;
-margin-left: 360px;
-border-radius: 15px;
-padding: 20px;
-width: 880px;
-height: 5px;
-border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 460px;
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    /*border: 2px solid black;*/
 }
 
 .search-text {
@@ -67,8 +67,8 @@ border: 2px solid black;
     cursor: pointer;
     display: inline-block;
     position: absolute;
-    left: 1300px;
-    top: 152px;
+    left: 600px;
+    top: -6px;
 }
 
 .btn:hover {
@@ -76,9 +76,7 @@ border: 2px solid black;
 }
 
 .cancel {
-    color: blue;
-    left: 1300px;
-    top: 129px;
+    color:blue;
 }
 
 .search-description {
