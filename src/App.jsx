@@ -28,6 +28,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import "./searchpage.css";
+import FriendList from "./Component/FriendList.jsx";
+import FriendForm from "./Component/FriendForm.jsx";
 import UserPost from "./Component/UserPost";
 import StyleGuide from "./Component/StyleGuide.jsx";
 
@@ -88,7 +90,7 @@ class App extends React.Component {
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
-        } 
+        }
       )
   }
 
@@ -128,7 +130,7 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/spotifyAuth" 
+            <Route path="/spotifyAuth"
                    render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
 
             <Route path="/forgotPassword">
@@ -186,9 +188,10 @@ class App extends React.Component {
                 </div>
             </Route>
 
+            <Route path="/findFriends" component={FriendForm}/>
+            <Route path="/allFriends" component={FriendList}/>
 
-
-            <Route exact path="/" component={LogInBanner}/> 
+            <Route exact path="/" component={LogInBanner}/>
 
             <Route path = "/UserPost">
               <div className="Nav_Wrapper">
@@ -205,11 +208,11 @@ class App extends React.Component {
               <Navbar/>
               </div>
             <UserAccount/>
-            </Route>  
+            </Route>
             <Route path="/userSettings">
               <Settings/>
                </Route>
-             
+
            </Switch>
           </div>
         </header>
