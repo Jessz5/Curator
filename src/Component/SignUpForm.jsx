@@ -51,7 +51,7 @@ export default class SignUpForm extends React.Component {
               <input type="username"></input>
             </div>
 
-            <button id="Submit_Button">Sign Up</button>
+            <button className="SignupButton" id="Submit_Button">Sign Up</button>
           </form>
         </div>
       </div>

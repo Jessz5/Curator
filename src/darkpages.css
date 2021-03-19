@@ -89,3 +89,16 @@
   border-radius: 50px;
 }
 
+.SignupButton{
+  background-color:  #1DB954;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50px;
+  position: absolute;
+  top: 40%;
+  margin:0;
+}
+
