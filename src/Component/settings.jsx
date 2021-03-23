@@ -25,16 +25,13 @@ class settings extends Component {
             responseMessage: "",
             spotify_email: "",
             spotify_username: "",
-            fetchOptions: {
-                method: 'GET',
-                headers: new Headers({
-                    'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`
-                })
-            } 
+            fetchOptions: {method: '', headers: ''}
         };
         this.fieldChangeHandler.bind(this);
-        this.getSpotifyInfo();
- 
+        if(this,props.location && this.props.location.state && this.props.location.state.authToken){
+            this.state.fetchOptions = {method: "GET", headers: new Headers({'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`})};
+        }
+        
     } 
 
     getSpotifyInfo(){
@@ -191,3 +188,4 @@ class settings extends Component {
 }
 
 export default settings;
+
