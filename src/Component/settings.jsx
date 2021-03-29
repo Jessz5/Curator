@@ -4,6 +4,7 @@ import './user_account_style.css'
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Navbar from "./Navbar";
+import { ThreeSixtyRounded } from '@material-ui/icons';
 
 
 const StyledButton = styled.button`
@@ -25,16 +26,13 @@ class settings extends Component {
             responseMessage: "",
             spotify_email: "",
             spotify_username: "",
-            fetchOptions: {
-                method: 'GET',
-                headers: new Headers({
-                    'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`
-                })
-            } 
+            fetchOptions: {method: '', headers: ''}
         };
         this.fieldChangeHandler.bind(this);
-        this.getSpotifyInfo();
- 
+        if(this,props.location && this.props.location.state && this.props.location.state.authToken){
+            this.state.fetchOptions = {method: "GET", headers: new Headers({'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`})};
+        }
+        
     } 
 
     getSpotifyInfo(){

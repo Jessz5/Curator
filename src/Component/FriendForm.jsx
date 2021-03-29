@@ -91,7 +91,8 @@ export default class FriendForm extends React.Component {
         error => {
           alert("error!");
         }
-      );
+      )
+      .then(this.props.history.push("/allFriends"));
   };
 
   render() {
