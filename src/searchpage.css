@@ -4,43 +4,6 @@
     position: relative;
 }
 
-.curator-logo {
-    width: 280px;
-    height: 68px;
-    font-size: 120%;
-    font-family: 'Trebuchet MS', sans-serif;
-    color: black;
-    border-bottom: 5px double #1DB954;
-}
-
-.home-button {
-    transform: scale(2);
-    position: absolute;
-    left: 400px;
-    top: 60px;
-}
-
-.search-button {
-    transform: scale(2);
-    position: absolute;
-    left: 700px;
-    top: 60px;
-}
-
-.bookmark-button {
-    transform: scale(2);
-    position: absolute;
-    left: 1000px;
-    top: 60px;
-}
-
-.account-button {
-    transform: scale(2);
-    position: absolute;
-    left: 1300px;
-    top: 60px;
-}
-
 .search-container {
     margin-top: 20px;
     margin-left: 460px;
@@ -48,14 +11,6 @@
     padding: 30px;
     width: 880px;
     height: 5px;
-    /*border: 2px solid black;*/
-}
-
-.search-text {
-    text-align: left;
-    position: absolute;
-    left: 380px;
-    top: 165px;
 }
 
 .btn {
@@ -76,12 +31,16 @@
 }
 
 .cancel {
-    color:blue;
+    color:#33cc66;
 }
 
-.search-description {
-    margin-top: 100px;
-    margin-left: 100px;
+.search-curator {
+    margin-top: 150px;
+    margin-left: 50px;
     color: gray;
 }
-
+.search-description {
+    margin-top: 20px;
+    margin-left: 320px;
+    color: gray;
+}

@@ -43,11 +43,12 @@ label.login1 {
 left: 360px;
 top: 32px;
 }
+/*Friend Form Css (Submit Button)*/
 input[type="submit"] {
   position: relative;
-left: 43px;
-top: 110px;
-background: #1db954;
+left: 210px;
+top: -200px;
+background: #33cc66;
 color: white;
 font-family: initial;
 font-size: 16px;
@@ -140,8 +141,8 @@ p{
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #008f68;
-  color: #fae042;
+  background-color: #ffffff;
+  color: #33cc66;
   cursor: pointer;
   font-weight: 700;
 }
@@ -150,8 +151,10 @@ p{
   border-bottom: 1px solid #999;
 }
 
+/*Friend Form Css (Find a Friend!)*/
 .profileform label {
-  display: block;
+  top: -100px;
+  left: 210px;
 }
 
 .App-link {
@@ -171,7 +174,7 @@ p{
 
 .userlist {
   text-align: left;
-  background: blue;
+  background: #33cc66;
   border-radius: 20px;
   padding: 30px;
   margin: 10px;

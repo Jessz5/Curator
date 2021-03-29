@@ -105,7 +105,7 @@ export default class LogInBanner extends React.Component {
                     </form>
                 </div>
             </div>);}
-        else{return (<Redirect to = "/userPost"/>)}
+        else{return (<Redirect to = "/linkSpotify"/>)}
     }
 }
 

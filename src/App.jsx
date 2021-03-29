@@ -22,11 +22,7 @@ import GridLayout from './Component/GridLayout';
 import RedirectHandler from './Component/RedirectHandler';
 import Logo from './Component/Logo';
 
-import InputBase from '@material-ui/core/InputBase';
-
-import SearchIcon from '@material-ui/icons/Search';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import SearchPage from "./Component/SearchPage.jsx";
 import "./searchpage.css";
 import FriendList from "./Component/FriendList.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
@@ -52,7 +48,6 @@ function toggleModal(app) {
 }
 
 
-
 // the App class defines the main rendering method and state information for the app
 class App extends React.Component {
 
@@ -64,7 +59,10 @@ class App extends React.Component {
       openModal: false,
       refreshPosts: false,
       authLink: this.authorizeSpotify(),
-      client_secret: client_secret
+      client_secret: client_secret,
+      spotify_username: "",
+      spotify_email: "",
+      spotobj: []
     };
 
     // in the event we need a handle back to the parent from a child component,
@@ -72,6 +70,7 @@ class App extends React.Component {
     this.mainContent = React.createRef();
     this.doRefreshPosts = this.doRefreshPosts.bind(this);
     this.authorizeSpotify = this.authorizeSpotify.bind(this);
+    this.onAuthentication = this.onAuthentication.bind(this);
   }
 
   // doRefreshPosts is called after the user logs in, to display relevant posts.
@@ -90,7 +89,8 @@ class App extends React.Component {
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
-        }
+        spotobj: [{id: 1, name: ""}]
+        } 
       )
   }
 
@@ -99,6 +99,20 @@ class App extends React.Component {
     console.log('Entering Authorize Spotify')
     return this.getLoginURL()
   }
+
+  //Callback function for json returned from Spotify Authentication
+  onAuthentication(object) {
+    if(object){
+    this.state.spotobj = object;
+    this.state.spotify_email = this.state.spotobj.email;
+    this.state.spotify_username = this.state.spotobj.display_name;
+    console.log("Ran onAuthentication Results:");
+    console.log(this.state.spotify_email);
+    console.log(this.state.spotify_username)}
+    else{
+      return null;
+    }
+  };
 
   render() {
 
@@ -130,8 +144,8 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/spotifyAuth"
-                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} /> ) } />
+            <Route path="/spotifyAuth" 
+                   render={(props) => ( <RedirectHandler {...props} client_id={client_id} client_secret={client_secret} onAuthentication={this.onAuthentication}/> ) } />
 
             <Route path="/forgotPassword">
               <div>
@@ -150,42 +164,11 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/search">
-                <div className="search-page">
+            <Route path = "/search">
                 <div className="Nav_Wrapper">
-                <Navbar/>
-              </div>
-                    <div className="search-container">
-                        <div className="search-text">
-                            <InputBase
-                                type="text"
-                                id="myInput"
-                                inputRef={el => this.myInput = el}
-                                placeholder="Search..."
-                                startAdornment={<SearchIcon/>}
-                            />
-                        </div>
-                    </div>
-                    <button class="btn cancel" type="reset" onclick="this.myInput.value = ''">Cancel</button>
-                    <ToggleButtonGroup>
-                        <ToggleButton>
-                            <p>Top</p>
-                        </ToggleButton>
-                        <ToggleButton>
-                            <p>Songs</p>
-                        </ToggleButton>
-                        <ToggleButton>
-                            <p>Accounts</p>
-                        </ToggleButton>
-                        <ToggleButton>
-                            <p>Tags</p>
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                    <div className="search-description">
-                      <h2>Search Curator</h2>
-                      <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
-                    </div>
+                    <Navbar/>
                 </div>
+                <SearchPage/>
             </Route>
 
             <Route path="/findFriends" component={FriendForm}/>
@@ -208,10 +191,10 @@ class App extends React.Component {
               <Navbar/>
               </div>
             <UserAccount/>
+            </Route>  
+            <Route path="/userSettings" 
+                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) }>
             </Route>
-            <Route path="/userSettings">
-                    <Settings/>
-                </Route>
            </Switch>
           </div>
         </header>
