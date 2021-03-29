@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../UserPost.css";
+import Navbar from "./Navbar.jsx";
 export default class UserPost extends React.Component {
   render() {
     return (
-      <div id="post">
-          <div className="userProfile">
-
-          </div>
+      <div id="PostGrid">
+          <Navbar/> 
           <svg id="dots"xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
   <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 </svg>

@@ -1,495 +1,589 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 .App {
+  height: 100%;
+  width: 100%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 33vw 33vw 34vw;
+  grid-template-rows: 33vh 33vh 34vh;
+  background-color: #010423;
+  width: 100vw;
+  height: 100vh;
+}
+
+#LoginLogo {
+  grid-row: 1 / 3;
+  grid-column: 2/3;
+  position: relative;
+  left: 10vw;
+}
+.LoginSignupBody {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-.header{
-  position: relative;
-  top: 36px;
-  left: 4%;
-  max-width: 50%;
-}
-.App-header {
-  min-height: 100vh;
   display: flex;
+  flex-direction: unset;
+  justify-content: unset;
+  height: 100px;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  position: relative;
+  left: 12%;
+  top: -3%;
+}
+.FormBody {
+  height: unset;
+  padding-top: unset;
+  margin: 0 auto;
+  width: 50%;
+}
+label {
+  display: flow-root;
   flex-direction: row;
-  align-items: flex-center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.deletePost {
-  width: 100%;
-}
-.deleteIcon {
-  float: right;
-}
-
-.settings {
-  width: 100%;
-}
-.filler label:nth-child(1) {
-  position: relative;
-  left: 199px;
-}
-label.login1 {
-  position: relative;
-left: 360px;
-top: 32px;
-}
-/*Friend Form Css (Submit Button)*/
-input[type="submit"] {
-  position: relative;
-left: 210px;
-top: -200px;
-background: #33cc66;
-color: white;
-font-family: initial;
-font-size: 16px;
-}
-.link-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  outline: none;
-}
-p{
-  max-width: 85%;
-font-family: "EB Garamond",serif;
-position: relative;
-left: 7%;
-}
-.desktop_img{
-  width: 500px;
-}
-.button_img{
-  width: 500px;
-}
-#download{
-  color: #1db954;
-  text-decoration: underline;
-  
-}
-.fonts{
-  color: black;
-  float: unset;
-  margin: unset;
-  padding: unset;
-}
-.Spotify_login {
-  background: #1db954;
-  border-radius: 36px;
-  color: white;
-  font-family: "Quicksand", sans-serif;
+  text-align: right;
+  line-height: 26px;
+  margin-bottom: 32px;
   width: 319px;
   height: 41.61px;
+}
+form {
+  position: relative;
+  left: 7vw;
+}
+input[type="text"] {
+  width: 319px;
+  height: 41.61px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  background: #f2f2f2;
+  border-radius: 26px;
   border: 0px;
-  position: relative;
-  top: 120px;
-  left: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
 }
-.link-button:hover,
-.link-button:focus,
-.link-button:active {
-  text-decoration: none;
-  outline: none;
+input[type="password"] {
+  width: 319px;
+  height: 41.61px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  background: #f2f2f2;
+  border-radius: 26px;
+  border: 0px;
 }
-
-.no-suggestions {
-  color: #999;
-  padding: 0.5rem;
+.item4 {
+  grid-column: 2/3;
+  grid-row: 2/ 4;
 }
-
-.autocomplete input {
-  width: calc(300px + 1rem);
-}
-
-.autocomplete {
-  min-height: 165px;
-}
-
-.suggestions {
-  border: 1px solid #999;
-  border-top-width: 0;
-  list-style: none;
-  margin-top: 0;
-  max-height: 143px;
-  overflow-y: auto;
-  padding-left: 0;
-  width: calc(300px + 1rem);
-
-  display: inline-block;
-  position: relative;
-}
-
-.suggestions li {
-  padding: 0.5rem;
-}
-
-.suggestion-active,
-.suggestions li:hover {
-  background-color: #ffffff;
-  color: #33cc66;
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
-}
-
-/*Friend Form Css (Find a Friend!)*/
-.profileform label {
-  top: -100px;
-  left: 210px;
-}
-
-.App-link {
-  color: #09d3ac;
-}
-
-.postlist {
-  text-align: left;
-  background: blue;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 10px;
-
-  width: 60%;
-  display: inline-flex;
-}
-
-.userlist {
-  text-align: left;
-  background: #33cc66;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 10px;
-  width: 60%;
-  display: inline-flex;
-}
-
-.comments {
-  background: white;
-  width: 90%;
-  display: block;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px;
-  color: black;
-}
-
-.commentlist {
-  text-align: left;
-  background: lightblue;
-  color: black;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 12px;
-  width: 90%;
-  display: block;
-}
-
-.hide {
-  display: none;
-}
-
-.maincontent {
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.posts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.postbody {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.comment-block {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.sidenav {
-  position: fixed;
-left: 5%;
-top: 0px;
-height: 60px;
-width: 100%;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-background-color: white;
-z-index: 2;
-}
-.settings_img{
-  position: relative;
-top: -290px;
-left: 560px;
-}
-#Style_Guide_Container{
-  color: black;
-
-}
-.sidenav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-  left: 103px;
-  top: 8px;
-
-}
-
-li {
-  float: left;
-  display: block;
+.MainButton {
+  width: 325px;
+  height: 44.61px;
+  border-radius: 26px;
+  border: 0px;
+  background: #1db954;
   color: white;
-  text-align: center;
-  padding: 14px 110px;
-  text-decoration: none;
+  font-family: Quicksand;
+  font-size: 18px;
 }
-
-.sidenav-icon {
-  width: 40px;
-  height: 40px;
-
-  margin-bottom: 15px;
+#LogInButton {
+  position: relative;
+  left: 1.2%;
 }
-
-.comment-indicator {
-  text-align: right;
-  width: 100%;
-  display: block;
-  float: right;
-  margin-top: 10px;
-}
-
-.comment-icon {
-  width: 40px;
-  height: 40px;
-  float: right;
-}
-
-.comment-indicator-text {
-  background-color: lightblue;
-  color: black;
-  border-radius: 10px;
-  font-size: 16px;
+a#LogInTitle.Title.On {
+  font-family: Quicksand;
+  font-style: normal;
   font-weight: bold;
-  width: 120px;
-  padding: 5px;
-  float: right;
-  margin-left: 10px;
-  text-align: center;
-}
-
-.hide {
-  display: none;
-}
-
-/* The Modal (background) */
-.modal {
-  display: block;
-  position: fixed; /* Stay in place */
-  z-index: 0; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 1px 10px 20px 20px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-  height: 200px;
-}
-#LoginBody {
+  font-size: 40px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
   position: relative;
-  top: 0px;
-  width: 100%;
-  height: 1310px;
-  background: #010423;
+  left: -2.6vw;
 }
-#SignUpBody {
-  position: relative;
-width: 100%;
-height: 100%;
-background: #010423;
-}
-.SignUpForm {
-  position: relative;
-  top: 122px;
-}
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  line-height: 42px;
-  font-size: 35px;
+a#SignInTitle.Title.Off {
+  font-family: Quicksand;
+  font-style: normal;
   font-weight: bold;
+  font-size: 40px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  opacity: 0.61;
+  position: relative;
+  left: 1.3vw;
+}
+a#LogInTitle.TitleOff {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  position: relative;
+  left: -2.6vw;
+}
+  a#SignInTitle.TitleOn {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  position: relative;
+  left: 1.3vw;
+}
+#LoginHeader {
+  width: max-content;
+position: relative;
+left: -1vw;
+margin-left: auto;
+margin-right: auto;
+top: -64px;
+}
+.button_signup {
+  position: relative;
+  top: 28px;
+  left: 0.5vw;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+
+
+@media only screen and (max-width: 1440px) {
+  .App {
+    height: 100%;
+    width: 100%;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 33vw 33vw 34vw;
+    grid-template-rows: 33vh 33vh 34vh;
+    background-color: #010423;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #LoginLogo {
+    grid-row: 1 / 3;
+    grid-column: 2/3;
+    position: relative;
+    left: 8vw;
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  label {
+    display: flow-root;
+    flex-direction: row;
+    text-align: right;
+    line-height: 26px;
+    margin-bottom: 32px;
+    width: 319px;
+    height: 41.61px;
+  }
+  form {
+    position: relative;
+  left: 5.1vw;
+  }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .item4 {
+    grid-column: 2/3;
+    grid-row: 2/ 4;
+  }
+  .MainButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+  #LogInButton {
+    position: relative;
+    left: 1.2%;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 1.3vw;
+  }
+  a#LogInTitle.TitleOff {
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 50px;
+text-decoration: unset;
+color: #ffffff;
+position: relative;
+left: -2.6vw;
+opacity: .61;
+  }
+    a#SignInTitle.TitleOn {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: 1.3vw;
+  }
+  #LoginHeader {
+    width: max-content;
+  position: relative;
+  left: 1.1vw;
+  margin-left: auto;
+  margin-right: auto;
+  top: -64px;
+  }
+  .button_signup {
+    position: relative;
+    top: 28px;
+    left: 0.5vw;
+  }
+}
+@media only screen and (max-width: 1025px) and (min-width: 786px)  {
+  .App {
+    height: 100%;
+    width: 100%;
+  }
+  .grid-container {
+    display: grid;
+grid-template-columns: 244px 244px 244px 244px;
+background-color: #010423;
+width: 100vw;
+height: 100vh;
+  }
+
+  #LoginLogo {
+    grid-row: 1 / 3;
+    grid-column: 2/3;
+    position: relative;
+    left: 3%;
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  label {
+    display: flow-root;
+    flex-direction: row;
+    text-align: right;
+    line-height: 26px;
+    margin-bottom: 32px;
+    width: 319px;
+    height: 41.61px;
+  }
+  form {
+    position: relative;
+    left: 19%;
+  }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .item4 {
+    grid-column: 2/4;
+    grid-row: 2/ 4;
+  }
+  .MainButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+  #LogInButton {
+    position: relative;
+    left: 2.4%;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 1.3vw;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: 1.3vw;
+  }
+  #LoginHeader {
+    width: max-content;
+    position: relative;
+    left: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    top: -64px;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .App {
+    height: 100%;
+    width: 100%;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 33vw 33vw 34vw;
+    grid-template-rows: 33vh 33vh 34vh;
+    background-color: #010423;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #LoginLogo {
+    grid-row: 1 / 3;
+    grid-column: 2/3;
+    position: relative;
+left: -35%;
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  label {
+    display: flow-root;
+    flex-direction: row;
+    text-align: right;
+    line-height: 26px;
+    margin-bottom: 32px;
+    width: 319px;
+    height: 41.61px;
+  }
+  form {
+    position: relative;
+left: 20%;
+  }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .item4 {
+    grid-column: 1/3;
+    grid-row: 2/2;
+    position: relative;
+    top: 20px;
+    left: -9%;
+  }
+  #LoginHeader{
+    position: relative;
+left: 31%;
+width: max-content;
+top: -32px;
+  }
+  .MainButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+  #LogInButton {
+    position: relative;
+    left: 1.2%;
+  }
+  a#LogInTitle.TitleOn {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 50px;
+text-decoration: unset;
+color: #ffffff;
+opacity: 0.61;
+position: relative;
+left: 32px;
+  }
+  a#LogInTitle.TitleOff {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+    a#SignInTitle.TitleOn {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: 1.3vw;
+  }
 }
 
-/* This is the begining of $GME css*/
-#Nav_logo {
-  position: fixed;
-  top: 105px;
-  left: 20px;
-  z-index: 2;
-}
-#Post_Logo{
-  position: relative;
-  top: 37px;
-  left: -550px;
-}
-svg#Account_Logo{
-  position: relative !important;
-top: -180px;
-}
-.Nav_Wrapper {
-  position: relative;
-  top: -40px;
-}
-.album{
-  position: relative;
-left: -49px;
-}
-.Nav_Wrapper_Account{
-  position: relative;
-top: -295px;
-}
-.MuiInputBase-root {
-  color: rgba(0, 0, 0, 0.87);
-  cursor: text;
-  display: inline-flex;
-  position: relative;
-  font-size: 1rem;
-  box-sizing: border-box;
-  align-items: center;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  line-height: 1.1876em;
-  letter-spacing: 0.00938em;
-  top: -28px;
-}
-.Content{
-  position: relative;
-top: -471px;
-left: -220px;
-color: black;
-}
-#profile_picture {
-  position: relative;
-left: -540px;
-top: -130px;
-}
-#profile_info{
-  position: relative;
-top: -160px;
-left: -532px;
-color: black;
-font-size: 27px;
-}
-#Tracks_Icon{
-  position: absolute;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 0em;
-  font-size: 20px;
-  top: 54%;
-  text-align: center;
-  color: black;
-  left: 70px;
-}
-#Playlist_Icon{
-  position: absolute;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 0em;
-  font-size: 20px;
-  top: 54%;
-  text-align: center;
-  color: black;
-  left: 70px;
-}
-.playlist{
-  position: absolute;
-margin-left: 90px;
-margin-right: 10px;
-width: 6em;
-font-size: 22px;
-top: 95%;
-text-align: center;
-color: black;
-}
-.My-tracks {
-  margin-left: 90px;
-  font-size: 20px;
-  top: 59%;
-  text-align: center;
-  color: black;
-  position: absolute;
-}
 
-.button-css{
-  margin-left: 10px;
-  font-size: 20px;
-  top: 40%;
-  text-align: center;
-  color: black;
-  position: absolute;
 
-}
 
-.settings_list{
-  position: relative;
-  left: 140px;
-  top: -130px;
-}
+
