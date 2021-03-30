@@ -84,6 +84,7 @@ class App extends React.Component {
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
+        show_dialog: true,
         spotobj: [{id: 1, name: ""}]
         } 
       )
@@ -165,7 +166,7 @@ class App extends React.Component {
             <UserAccount/>
             </Route>  
             <Route path="/userSettings" 
-                   render={(props) => ( <Settings {...props} spotify_email={this.state.spotify_email} spotify_username={this.state.spotify_username}/> ) }>
+                   render={(props) => ( <Settings {...props}/> ) }>
             </Route>
            </Switch>
           </div>

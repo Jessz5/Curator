@@ -7,18 +7,14 @@ import {Redirect} from 'react-router';
 class LinkSpotify extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
-
-        };
-        console.log("hi");
+        this.state={};
     }
     render(){
-        if(document.cookie != "")
+        if((document.cookie.includes("spotToken" + sessionStorage.getItem("user"))))
         {
             return <Redirect
             to={{
-            pathname: "/userSettings",
-            state: { authToken: this.state.authToken }
+            pathname: "/userSettings"
           }}
         />
         }

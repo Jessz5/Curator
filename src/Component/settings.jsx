@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 import Navbar from "./Navbar";
 import { ThreeSixtyRounded } from '@material-ui/icons';
 
-
 const StyledButton = styled.button`
   background-color: #1DB954;
   font-size: 25px;
@@ -26,11 +25,19 @@ class settings extends Component {
             responseMessage: "",
             spotify_email: "",
             spotify_username: "",
+            spotToken: "",
             fetchOptions: {method: '', headers: ''}
         };
         this.fieldChangeHandler.bind(this);
-        if(this,props.location && this.props.location.state && this.props.location.state.authToken){
-            this.state.fetchOptions = {method: "GET", headers: new Headers({'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`})};
+
+        //If there's cookies to extract
+        if(document.cookie != ''){
+            //Try to find the cookie matching the current user
+            try{
+                this.state.spotToken = document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || ''
+                this.state.fetchOptions = {method: "GET", headers: new Headers({'Authorization': `Bearer ${this.state.spotToken}`})};
+            }
+            catch{console.log("No matching cookie for current user")};
         }
         
     } 

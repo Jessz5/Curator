@@ -13,13 +13,12 @@ class RedirectHandler extends React.Component {
             jsonData: [{id: 1, name: "This is test1", aToken: ""}]
         };
 
-        document.cookie = "spotToken=" + this.state.authToken.access_token;
+        document.cookie = "spotToken" + sessionStorage.getItem("user") + "=" + this.state.authToken.access_token;
     }
     render(){
         return <Redirect
         to={{
-        pathname: "/userSettings",
-        state: { authToken: this.state.authToken }
+        pathname: "/userSettings"
       }}
     />
     }
