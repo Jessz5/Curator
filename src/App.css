@@ -135,11 +135,11 @@ a#LogInTitle.TitleOff {
 }
 #LoginHeader {
   width: max-content;
-position: relative;
-left: -1vw;
-margin-left: auto;
-margin-right: auto;
-top: -64px;
+  position: relative;
+  left: 0vw;
+  margin-left: auto;
+  margin-right: auto;
+  top: -64px;
 }
 .button_signup {
   position: relative;
@@ -286,11 +286,12 @@ opacity: .61;
   }
   #LoginHeader {
     width: max-content;
-  position: relative;
-  left: 1.1vw;
-  margin-left: auto;
-  margin-right: auto;
-  top: -64px;
+position: relative;
+left: 1vw;
+margin-left: auto;
+margin-right: auto;
+top: -64px;
+    
   }
   .button_signup {
     position: relative;

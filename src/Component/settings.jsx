@@ -129,7 +129,29 @@ class settings extends Component {
             );
 
     };
+  deleteHandler = event => {
 
+        event.preventDefault();
+        //make the api call to the user controller
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+ this.state.id, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            }
+        })
+            .then(
+                result => {
+                    console.log("deleted");
+                },
+                error => {
+                    alert("error!"+error);
+                }
+            );
+
+
+    };
     render() {
         return (
             <header className="settings_list">
@@ -171,6 +193,7 @@ class settings extends Component {
                     </label>
                     <input type="submit" value="submit" />
                 </form>
+                <input type="submit" value="Delete account" onClick={this.deleteHandler} />
             </header>
     );
     }
