@@ -80,16 +80,6 @@ class settings extends Component {
                 result => {
                     if (result) {
                         console.log(result);
-
-                        this.setState({
-                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
-                            // try and make the form component uncontrolled, which plays havoc with react
-                            username: result.username || "",
-                            firstname: result.firstName || "",
-                            lastname: result.lastName || "",
-                            status: result.status || ""
-
-                        });
                     }
                 },
                 error => {
@@ -132,14 +122,6 @@ class settings extends Component {
             );
 
     };
-
-    //Method for testing if Spotify Username and Email are available
-    checkSpotifyinfo(){
-        if(1 == 1){
-            console.log(this.props.match.spotify_email);
-            return "Hey"
-        }
-    }
 
     render() {
         return (
