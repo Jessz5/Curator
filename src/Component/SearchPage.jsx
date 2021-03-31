@@ -7,7 +7,8 @@ export default class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: ""
+      search: "",
+      userPost: {embed: "", likes: 0, comments: []}
     };
   }
 
@@ -37,7 +38,7 @@ export default class SearchPage extends React.Component {
                  <h2>Search Curator</h2>
              </div>
              <div className="search-description">
-                <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
+                <p>Find your favorite songs right off of Spotify by searching for a track above!</p>
              </div>
         </div>
     );
