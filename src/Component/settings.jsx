@@ -4,15 +4,8 @@ import './user_account_style.css'
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Navbar from "./Navbar";
-import { ThreeSixtyRounded } from '@material-ui/icons';
 
-const StyledButton = styled.button`
-  background-color: #1DB954;
-  font-size: 25px;
-  color: white;
-  cursor: pointer;
-   font-weight: bold;
-`;
+
 class settings extends Component {
     constructor(props) {
         super(props);

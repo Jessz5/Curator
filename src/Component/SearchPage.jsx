@@ -10,6 +10,7 @@ export default class SearchPage extends React.Component {
       search: "",
       userPost: {embed: "", likes: 0, comments: []}
     };
+
   }
 
   searchChangeHandler = event => {
@@ -24,13 +25,35 @@ export default class SearchPage extends React.Component {
         });
   }
 
+  searchInput = () => {
+
+    //Construct the API call parameters
+    var searchOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
+        'q': this.state.search,
+        'type':"track",
+        'market':"US",
+        'limit':"5",
+        'offset':""
+      }
+    };
+    //Make the API call to the search page using the given parameters
+    fetch("https://api.spotify.com/v1/search", searchOptions)
+    .then(res => res.json())
+    .then(result => {console.log(result)})
+  }
+
   render() {
     return (
         <div className="search-page">
             <div className="search-container">
                 <form>
                     <input type="text" onChange={this.searchChangeHandler} />
-                    <button class="btn cancel" onclick={this.clearInput}>Cancel</button>
+                    <button className="Search" onClick={this.searchInput}>Search</button>
+                    <button className="btn cancel" onClick={this.clearInput}>Cancel</button>
                 </form>
              </div>
              <h2>Search Curator</h2>
