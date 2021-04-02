@@ -3,8 +3,11 @@ import profile_photo from './profile_photo.jpg'
 import my_tracks from './my_tracks.jpg'
 import playlist from './playlist.png'
 import './user_account_style.css'
+import '../App.css';
 import settings from "./settings";
 import {Link} from "react-router-dom";
+import Navbar from './Navbar';
+import PostForm from './PostForm';
 
 
 class userAccount extends Component {
@@ -116,39 +119,53 @@ class userAccount extends Component {
 
     render() {
         return (
-        <div className="App_Settings">
-
-        <header className="Header_app">
-            <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
+       
+            <div className="PostGrid">
+    <div class="NavContainer">
+      <Navbar/>
+    </div>
+  <div class="Right-offset">
+  <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
             <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
-
-            </label> </h2>
-
-        </header>
-        <header className="Content">
-            <h1 className={"Followers"}>
+ </label> </h2>
+ <div className="myTracks">
+ <img id ="myTracks"src={my_tracks} alt="profile" width="150" height="150" />
+            <p id="myTracksP">My Tracks</p>
+ </div>
+ <div className="myPlaylist">
+ <img id="playlist"src={playlist} alt="profile" width="150" height="150" />
+            <span>My Playlist's</span>
+ </div>
+           
+  </div>
+  <div class="Left-Offset"></div>
+  <div class="Post1">
+  <div className = "StatsContainer"> 
+  <h1 className={"Stats Followers"}>
                 <text>
                     Followers <br/> 100
                 </text>
             </h1>
-            <h1 className={"Following"}>Following <br/> 100</h1>
-            <h1 className={"Tracks"}>Tracks Posted <br/> 20</h1>
-        </header>
-        <header className="My-tracks">
-            <img src={my_tracks} alt="profile" width="150" height="150" />
-            <p>My Tracks</p>
-        </header>
-        <header className="playlist">
-            <img src={playlist} alt="profile" width="150" height="150" />
-            <p>My Playlist's</p>
-        </header>
-            <header className="button-css">
-                <Link to = "/usersettings">
+            <h1 className={"Stats Following"}>Following <br/> 100</h1>
+            <h1 className={"Stats Tracks"}>Tracks Posted <br/> 20</h1>
+  </div>
+  </div>
+
+  <div class="Post2"></div>
+  <div class="Post3">
+  
+  </div>
+  <div class="Post4">
+  
+  </div>
+  <div class="Post5"></div>
+  <div class="Post6">
+  <Link to = "/usersettings">
                     <input type="submit" value="Edit User Settings" />
                 </Link>
-            </header>
-
-        </div>
+  </div>
+    </div>
+      
 
         );
     }

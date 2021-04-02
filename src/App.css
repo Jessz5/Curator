@@ -12,12 +12,172 @@
   width: 100vw;
   height: 100vh;
 }
+.stats{
+  position: relative;
+}
+.StatsContainer{
+  position: relative;
+top: 34px;
+left: -40vw;
+}
+input.login {
+  min-width: 27vw !important;
+max-width: 50vw !important;
+}
+button.MainButton.login{
+  min-width: 27vw !important;
+}
+
+.Followers{
+  position: absolute;
+  margin-left: 900px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+
+.Following{
+
+  position: absolute;
+  margin-left: 1200px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+.Tracks{
+
+  position: absolute;
+  margin-left: 550px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+
+}
+
+.My-tracks{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 59%;
+  text-align: center;
+
+}
+.playlist{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 85%;
+  text-align: center;
+
+}
+.profile_photo{
+
+  position: fixed;
+}
+
+.App_Settings{
+
+  color:black;
+
+}
+
+.spotifyInfo{
+  color: black;
+}
+#SearchTitle{
+  float: left;
+position: relative;
+top: -14px;
+}
+#TopNavbar{
+  position: fixed;
+  width: 100vw;
+  background-color: white;
+  z-index: 3;
+  top: -30px;
+}
+ul {
+text-decoration: none;
+float: left;
+position: relative;
+left: 4vw;
+display: flex;
+flex-direction: row;
+}
+.pm{
+  position: relative;
+  top: 15px;
+  padding-left: 10vw;
+}
+.account{
+  top: 5px;
+}
+.bookmark{
+  top: 9px;
+}
+li {
+  list-style-type: none;
+  padding: 0px;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: inline;
+  float: left;
+  display: block;
+  padding-left: 0%;
+
+}
+li a {
+  display: block;
+  padding: 8px;
+}
+
+.PostGrid{
+  display: grid;
+  grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+  grid-template-rows: 10vh repeat(3, 30vh);
+  gap: 0px 0px;
+  grid-template-areas:
+    "NavContainer NavContainer NavContainer NavContainer"
+    "Right-offset Post1 Post2 Left-Offset"
+    "Right-offset Post3 Post4 Left-Offset"
+    "Right-offset Post5 Post6 Left-Offset";
+}
+.NavContainer { grid-area: NavContainer; }
+.Right-offset { grid-area: Right-offset; }
+.Left-Offset {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+  grid-area: Left-Offset;
+}
+.Post1 { grid-area: Post1; }
+.Post2 { grid-area: Post2; }
+.Post3 { grid-area: Post3; }
+.Post4 { grid-area: Post4; }
+.Post5 { grid-area: Post5; }
+.Post6 { grid-area: Post6; }
 
 #LoginLogo {
   grid-row: 1 / 3;
   grid-column: 2/3;
   position: relative;
   left: 10vw;
+}
+form.filler{
+  position: relative;
+  left: 5.1vw;
 }
 .LoginSignupBody {
   text-align: center;
@@ -72,7 +232,9 @@ input[type="password"] {
 }
 .item4 {
   grid-column: 2/3;
-  grid-row: 2/ 4;
+grid-row: 2/ 4;
+position: relative;
+left: -80px;
 }
 .MainButton {
   width: 325px;
@@ -146,9 +308,122 @@ a#LogInTitle.TitleOff {
   top: 28px;
   left: 0.5vw;
 }
+.stats{
+  width: max-content;
+}
 
+.Followers{
+  position: absolute;
+margin-left: -2%;
+margin-right: 9em;
+width: 15em;
+font-size: 35px;
+top: 20%;
+}
 
+.Following{
+  position: absolute;
+  margin-left: 20%;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+.Tracks{
+  position: absolute;
+  margin-left: 39%;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
 
+.My-tracks{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 59%;
+  text-align: center;
+
+}
+.playlist{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 85%;
+  text-align: center;
+
+}
+.profile_photo{
+
+  position: fixed;
+}
+
+.App_Settings{
+
+  color:black;
+
+}
+
+.spotifyInfo{
+  color: black;
+}
+.search-page {
+  background-color: white;
+  height: 100%;
+  position: relative;
+}
+
+.search-container {
+  border-radius: 15px;
+padding: 30px;
+width: 880px;
+height: 5px;
+position: relative;
+top: 80px;
+left: 18%;
+}
+
+.btn {
+  border: none;
+  background: none;
+  background-color: inherit;
+  padding: 14px 26px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 600px;
+  top: -6px;
+}
+
+.btn:hover {
+  background: #eee;
+}
+
+.cancel {
+  color:#33cc66;
+}
+
+.search-curator {
+  color: gray;
+  margin-top: unset;
+  position: relative;
+  left: -4%;
+  top: -150px;
+  text-align: center;
+}
+.search-description {
+  color: gray;
+  left: 40.8%;
+  position: relative;
+  width: max-content;
+  text-align: center;
+}
 @media only screen and (max-width: 1440px) {
   .App {
     height: 100%;
@@ -162,6 +437,161 @@ a#LogInTitle.TitleOff {
     width: 100vw;
     height: 100vh;
   }
+  form.filler{
+    position: relative;
+left: 5vw;
+  }
+  button.MainButton.login{
+    min-width: 27vw !important;
+  }
+  .StatsContainer{
+    display: flex;
+height: max-content;
+left: -480px;
+position: relative;
+top: 40px;
+  }
+
+.Followers{
+  position: absolute;
+  margin-left: 900px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+
+.Following{
+
+  position: absolute;
+  margin-left: 1200px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+.Tracks{
+
+  position: absolute;
+  margin-left: 550px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+
+}
+
+.My-tracks{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 59%;
+  text-align: center;
+
+}
+.playlist{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 85%;
+  text-align: center;
+
+}
+.profile_photo{
+
+  position: fixed;
+}
+
+.App_Settings{
+
+  color:black;
+
+}
+
+.spotifyInfo{
+  color: black;
+}
+  #TopNavbar{
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    z-index: 3;
+    top: -30px;
+  }
+  #SearchTitle{
+    float: left;
+  position: relative;
+  top: -14px;
+  }
+  ul {
+  text-decoration: none;
+  float: left;
+  position: relative;
+  left: 4vw;
+  display: flex;
+  flex-direction: row;
+  }
+  .pm{
+    position: relative;
+    top: 15px;
+    padding-left: 10vw;
+  }
+  .account{
+    top: 5px;
+  }
+  .bookmark{
+    top: 9px;
+  }
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  
+  }
+  li a {
+    display: block;
+    padding: 8px;
+  }
+  
+  .PostGrid{
+    display: grid;
+    grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+    grid-template-rows: 10vh repeat(3, 30vh);
+    gap: 0px 0px;
+    grid-template-areas:
+      "NavContainer NavContainer NavContainer NavContainer"
+      "Right-offset Post1 Post2 Left-Offset"
+      "Right-offset Post3 Post4 Left-Offset"
+      "Right-offset Post5 Post6 Left-Offset";
+  }
+  .NavContainer { grid-area: NavContainer; }
+  .Right-offset { grid-area: Right-offset; }
+  .Left-Offset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: Left-Offset;
+  }
+  .Post1 { grid-area: Post1; }
+  .Post2 { grid-area: Post2; }
+  .Post3 { grid-area: Post3; }
+  .Post4 { grid-area: Post4; }
+  .Post5 { grid-area: Post5; }
+  .Post6 { grid-area: Post6; }
   
   #LoginLogo {
     grid-row: 1 / 3;
@@ -223,6 +653,7 @@ a#LogInTitle.TitleOff {
   .item4 {
     grid-column: 2/3;
     grid-row: 2/ 4;
+    left: unset;
   }
   .MainButton {
     width: 325px;
@@ -298,11 +729,68 @@ top: -64px;
     top: 28px;
     left: 0.5vw;
   }
+  .search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
 }
-@media only screen and (max-width: 1025px) and (min-width: 786px)  {
+
+.search-container {
+    border-radius: 15px;
+padding: 30px;
+width: 880px;
+height: 5px;
+position: relative;
+top: 80px;
+left: 18%;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: -6px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+.cancel {
+    color:#33cc66;
+}
+
+.search-curator {
+  color: gray;
+  margin-top: unset;
+  position: relative;
+  left: 1%;
+  top: -150px;
+}
+.search-description {
+  color: gray;
+left: -108%;
+position: relative;
+width: max-content;
+}
+
+}
+@media only screen and (max-width: 1025px) and (min-width: 767px)  {
   .App {
     height: 100%;
     width: 100%;
+  }
+  .item2{
+    grid-row: 1;
+  }
+  #searchform{
+    width: 75vw;
   }
   .grid-container {
     display: grid;
@@ -311,12 +799,113 @@ background-color: #010423;
 width: 100vw;
 height: 100vh;
   }
-
-  #LoginLogo {
-    grid-row: 1 / 3;
-    grid-column: 2/3;
+  #TopNavbar{
+    position: fixed;
+width: 100vw;
+background-color: white;
+z-index: 3;
+top: -20px;
+  }
+  ul {
+  text-decoration: none;
+  float: left;
+  position: relative;
+  left: 4vw;
+  display: flex;
+  flex-direction: row;
+  }
+  .pm{
     position: relative;
-    left: 3%;
+    top: 15px;
+    padding-left: 10vw;
+  }
+  .account{
+    top: 5px;
+  }
+  .bookmark{
+    top: 9px;
+  }
+  .Tracks{
+    position: fixed;
+    margin-left: unset;
+    margin-right: 9em;
+    width: max-content;
+    font-size: 35px;
+    top: 13%;
+    left: 35%;
+  }
+  .Followers {
+    position: fixed !important;
+margin-right: unset;
+width: max-content;
+font-size: 35px;
+top: 14.5%;
+left: 64%;
+margin: unset;
+}
+.Following {
+  position: fixed;
+margin-left: unset;
+margin-right: 9em;
+width: max-content;
+font-size: 35px;
+top: 13%;
+left: 82%;
+}
+
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  
+  }
+  li a {
+    display: block;
+    padding: 8px;
+  }
+  .NavLogo{
+    display: none !important;
+  }
+  
+  .PostGrid{
+    display: grid;
+    grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+    grid-template-rows: 10vh repeat(3, 30vh);
+    gap: 0px 0px;
+    grid-template-areas:
+      "NavContainer NavContainer NavContainer NavContainer"
+      "Right-offset Post1 Post2 Left-Offset"
+      "Right-offset Post3 Post4 Left-Offset"
+      "Right-offset Post5 Post6 Left-Offset";
+  }
+  .NavContainer { grid-area: NavContainer; }
+  .Right-offset { grid-area: Right-offset; }
+  .Left-Offset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: Left-Offset;
+  }
+  .Post1 { grid-area: Post1; }
+  .Post2 { grid-area: Post2; }
+  .Post3 { grid-area: Post3; }
+  .Post4 { grid-area: Post4; }
+  .Post5 { grid-area: Post5; }
+  .Post6 { grid-area: Post6; }
+  
+  #LoginLogo {
+    position: relative;
+left: 123%;
   }
   .LoginSignupBody {
     text-align: center;
@@ -332,25 +921,37 @@ height: 100vh;
     left: 12%;
     top: -3%;
   }
+  input.login {
+    min-width: 50vw !important;
+    max-width: 50vw !important;
+  }
+  label {
+    display: flex;
+flex-direction: row;
+text-align: right;
+line-height: 26px;
+margin-bottom: 32px;
+width: 84vw;
+height: 41.61px;
+  }
+  .StatsContainer{display: flex;
+    height: max-content;
+    left: -1196px;
+    position: relative;
+    top: 40px;}
+  .Stats{
+    font-size: 25px !important;
+  }
   .FormBody {
     height: unset;
     padding-top: unset;
     margin: 0 auto;
     width: 50%;
   }
-  label {
-    display: flow-root;
-    flex-direction: row;
-    text-align: right;
-    line-height: 26px;
-    margin-bottom: 32px;
-    width: 319px;
-    height: 41.61px;
-  }
   form {
     position: relative;
-    left: 19%;
-  }
+    left: 0.1vw;
+}
   input[type="text"] {
     width: 319px;
     height: 41.61px;
@@ -361,7 +962,7 @@ height: 100vh;
     border: 0px;
   }
   input[type="password"] {
-    width: 319px;
+    width: unset;
     height: 41.61px;
     flex: 0 0 200px;
     margin-left: 10px;
@@ -371,7 +972,11 @@ height: 100vh;
   }
   .item4 {
     grid-column: 2/4;
-    grid-row: 2/ 4;
+grid-row: 2/ 4;
+position: relative;
+top: -70px;
+left: unset;
+left: -12%;
   }
   .MainButton {
     width: 325px;
@@ -432,34 +1037,176 @@ height: 100vh;
     position: relative;
     left: 1.3vw;
   }
+  button.MainButton.login{
+    min-width: 50vw !important;
+  }
   #LoginHeader {
     width: max-content;
-    position: relative;
-    left: 2vw;
-    margin-left: auto;
-    margin-right: auto;
-    top: -64px;
+position: relative;
+left: -3vw;
+margin-left: auto;
+margin-right: auto;
+top: -64px;
   }
+  .button_signup {
+    position: relative;
+    top: 28px;
+    left: 0.5vw;
+  }
+  .search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+
+.search-container {
+  border-radius: 15px;
+width: 510px;
+height: 5px;
+position: relative;
+top: 80px;
+left: -10%;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: -6px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+.cancel {
+    color:#33cc66;
+}
+
+.search-curator {
+  margin-left: 32%;
+color: gray;
+margin-top: unset;
+width: max-content;
+position: relative;
+top: -120px;
+}
+.search-description {
+  margin-left: unset;
+  color: gray;
+  left: -31%;
+  position: relative;
+}
 }
 @media only screen and (max-width: 414px) {
-  .App {
+ .App {
     height: 100%;
     width: 100%;
+    overflow: hidden;
   }
   .grid-container {
     display: grid;
-    grid-template-columns: 33vw 33vw 34vw;
-    grid-template-rows: 33vh 33vh 34vh;
-    background-color: #010423;
-    width: 100vw;
-    height: 100vh;
+grid-template-columns: 100%;
+background-color: #010423;
+width: 100vw;
+height: 100vh;
   }
-
-  #LoginLogo {
-    grid-row: 1 / 3;
-    grid-column: 2/3;
+  .item2{
+    grid-row: 1;
+  }
+  button.MainButton.login{
+    min-width: 50vw !important;
+  }
+  #TopNavbar{
+    position: fixed;
+width: 100vw;
+background-color: white;
+z-index: 3;
+top: -20px;
+  }
+  ul {
+    text-decoration: none;
+    position: fixed;
+    left: -14vw;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+}
+  .pm{
     position: relative;
-left: -35%;
+top: 5px;
+padding-left: 15vw;
+  }
+  .account{
+    top: 5px;
+  }
+  .bookmark{
+    top: 5px;
+  }
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  
+  }
+  img.sidenav-icon{
+    width:21px;
+    height: 21px;
+  }
+  li a {
+    display: block;
+    padding: 8px;
+  }
+  .NavLogo{
+    display: none !important;
+  }
+  
+  .PostGrid{
+    display: grid;
+    grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+    grid-template-rows: 10vh repeat(3, 30vh);
+    gap: 0px 0px;
+    grid-template-areas:
+      "NavContainer NavContainer NavContainer NavContainer"
+      "Right-offset Post1 Post2 Left-Offset"
+      "Right-offset Post3 Post4 Left-Offset"
+      "Right-offset Post5 Post6 Left-Offset";
+  }
+  .NavContainer { grid-area: NavContainer; }
+  .Right-offset { grid-area: Right-offset; }
+  .Left-Offset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: Left-Offset;
+  }
+  .Post1 { grid-area: Post1; }
+  .Post2 { grid-area: Post2; }
+  .Post3 { grid-area: Post3; }
+  .Post4 { grid-area: Post4; }
+  .Post5 { grid-area: Post5; }
+  .Post6 { grid-area: Post6; }
+  
+  #LoginLogo {
+    position: relative;
+    left: 22vw;
+    
   }
   .LoginSignupBody {
     text-align: center;
@@ -481,20 +1228,77 @@ left: -35%;
     margin: 0 auto;
     width: 50%;
   }
-  label {
-    display: flow-root;
-    flex-direction: row;
-    text-align: right;
-    line-height: 26px;
-    margin-bottom: 32px;
-    width: 319px;
-    height: 41.61px;
+  div.Right-offset{
+    position: relative;
+top: 29px;
+left: -17px;
   }
+  label {
+    display: flex;
+flex-direction: row;
+text-align: right;
+line-height: 26px;
+margin-bottom: 32px;
+width: 84vw;
+height: 41.61px;
+  }
+  #SearchTitle {
+    float: left;
+    position: relative;
+    top: -14px;
+    display: none;
+}
   form {
     position: relative;
-left: 20%;
-  }
+    left: 0.1vw;
+}
+.StatsContainer {
+  display: flex;
+  height: max-content;
+  left: -480px;
+  position: relative;
+  top: 0px;
+  text-align: center;
+}
+.Tracks{
+  position: fixed;
+margin-left: unset;
+margin-right: 9em;
+width: max-content;
+font-size: 16px;
+top: 3.2%;
+left: 39%;
+}
+.Stats{
+  font-family: 14px;
+}
+.Followers {
+  position: fixed !important;
+margin-right: unset;
+width: max-content;
+top: 4.2%;
+left: 64%;
+margin: unset;
+}
+.Following {
+  position: fixed;
+  margin-left: unset;
+  margin-right: 9em;
+  width: max-content;
+  font-size: 16px;
+  top: 3.3%;
+  left: 82%;
+}
+.item
   input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  #seachbar input[type="text"] {
     width: 319px;
     height: 41.61px;
     flex: 0 0 200px;
@@ -506,27 +1310,20 @@ left: 20%;
   input[type="password"] {
     width: 319px;
     height: 41.61px;
-    flex: 0 0 200px;
     margin-left: 10px;
     background: #f2f2f2;
     border-radius: 26px;
     border: 0px;
   }
   .item4 {
-    grid-column: 1/3;
-    grid-row: 2/2;
+    grid-column: 1/1;
+    grid-row: 2/ 4;
     position: relative;
-    top: 20px;
-    left: -9%;
-  }
-  #LoginHeader{
-    position: relative;
-left: 31%;
-width: max-content;
-top: -32px;
+    top: -60px;
+    left: unset;
   }
   .MainButton {
-    width: 325px;
+    width: unset;
     height: 44.61px;
     border-radius: 26px;
     border: 0px;
@@ -535,53 +1332,194 @@ top: -32px;
     font-family: Quicksand;
     font-size: 18px;
   }
-  #LogInButton {
+
+  form.filler {
     position: relative;
-    left: 1.2%;
-  }
-  a#LogInTitle.TitleOn {
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 50px;
-    text-decoration: unset;
-    color: #ffffff;
-  }
-  a#SignInTitle.Title.Off {
-    font-family: Quicksand;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 50px;
-text-decoration: unset;
-color: #ffffff;
-opacity: 0.61;
+left: 8vw;
+}
+  #LogInButton {
+       position: relative;
+    left: 2%;
+}
+  
+input.login {
+  min-width: 80vw;
+}
+img#myTracks{
+  width: 100px;
+height: 100px;
 position: relative;
-left: 32px;
-  }
-  a#LogInTitle.TitleOff {
+top: -170px;
+}
+img#playlist{
+  width: 100px;
+height: 100px;
+position: relative;
+top: -281px;
+left: 62%;
+}
+#myTracksP{
+  float: right;
+position: relative;
+top: -155px;
+left: -131px;
+}
+span{
+  float: right;
+position: relative;
+top: -241px;
+left: 17%;
+}
+#myTracks p{
+  float: right;
+position: relative;
+left: -50%;
+top: -151px;
+}
+div.myTracks{
+
+}
+div.myPlaylist{
+
+}
+  a#LogInTitle.Title.On {
     font-family: Quicksand;
     font-style: normal;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 40px;
     line-height: 50px;
     text-decoration: unset;
     color: #ffffff;
     position: relative;
     left: -2.6vw;
   }
-    a#SignInTitle.TitleOn {
+  a#SignInTitle.Title.Off {
     font-family: Quicksand;
     font-style: normal;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 1.3vw;
+  }
+  img#profile_picture{
+    width: 100px;
+height: 100px;
+position: relative;
+top: -100px;
+left: 40px;
+  }
+  h2#profile_info{
+    position: relative;
+top: -110px;
+font-size: 16px;
+left: 39px;
+width: auto;
+  }
+  .Stats{
+    font-size: 11px;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
     line-height: 50px;
     text-decoration: unset;
     color: #ffffff;
     position: relative;
     left: 1.3vw;
   }
+  #LoginHeader {
+    width: max-content;
+    position: relative;
+    left: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    top: -64px;
+  }
+  .button_signup {
+    position: relative;
+    top: 28px;
+    left: 0.5vw;
+  }
+  .search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+
+.search-container {
+  border-radius: 15px;
+width: 510px;
+height: 5px;
+position: relative;
+top: 80px;
+left: -10%;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: -6px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+button.btn.cancel {
+    display: none;
+}
+input#searchbar{
+  width: 80vw;
+height: 41.61px;
+margin-left: 10px;
+background: #f2f2f2;
+border-radius: 26px;
+border: 0px;
+padding-left: 24px;
+position: relative;
+left: 40px;
+top: -160px;
+}
+
+.search-curator {
+  margin-left: 32%;
+color: gray;
+margin-top: unset;
+width: max-content;
+position: relative;
+top: -120px;
+display: none;
+}
+.search-description {
+  margin-left: unset;
+  color: gray;
+  left: -31%;
+  position: relative;
+}
 }
 
 

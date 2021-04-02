@@ -14,35 +14,6 @@
 
 }
 
-.Followers{
-    position: absolute;
-    margin-left: 900px;
-    margin-right: 9em;
-    width: 15em;
-    font-size: 35px;
-    top: 20%;
-}
-
-.Following{
-
-    position: absolute;
-    margin-left: 1200px;
-    margin-right: 9em;
-    width: 15em;
-    font-size: 35px;
-    top: 20%;
-}
-.Tracks{
-
-    position: absolute;
-    margin-left: 550px;
-    margin-right: 9em;
-    width: 15em;
-    font-size: 35px;
-    top: 20%;
-
-}
-
 .My-tracks{
     position: absolute;
     margin-left: 10px;
