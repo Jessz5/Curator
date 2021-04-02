@@ -44,9 +44,7 @@ export default class SearchPage extends React.Component {
     <div className="Post2"></div>
     <div className="Post3">
              <div className="search-curator">
-                 <h2>Search Curator</h2>
                  <div className="search-description">
-                <p>Find your favorite song clips, accounts, friends, and interesting posts</p>
              </div>
              </div>
              
