@@ -10,37 +10,15 @@ class RedirectHandler extends React.Component {
         super(props);
         this.state={
             authToken: querystring.parse(props.location.hash.slice(1)), //Get the auth code from the redirect uri query
-            jsonData: [{id: 1, name: "This is test1"}]
+            jsonData: [{id: 1, name: "This is test1", aToken: ""}]
         };
 
-        sessionStorage.setItem("spotToken", this.state.authToken);
-
-        const fetchOptions = {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': `Bearer ${this.state.authToken.access_token}`
-            })
-        };
-        
-
-
-        fetch('https://api.spotify.com/v1/me', fetchOptions)
-        .then(function (response) {
-        return response.json();})
-        .then(json => {this.state.jsonData = json; this.onAuth();})
-        .then( function (json) {console.log(json);})
-        .catch(function (error) {console.log(error);});
-      }
-
-    onAuth() {
-        this.props.onAuthentication(this.state.jsonData);
+        document.cookie = "spotToken" + sessionStorage.getItem("user") + "=" + this.state.authToken.access_token;
     }
-
     render(){
         return <Redirect
         to={{
-        pathname: "/userSettings",
-        state: { authToken: this.state.authToken }
+        pathname: "/userSettings"
       }}
     />
     }
