@@ -92,7 +92,6 @@ class App extends React.Component {
 
   //Creates a link to the spotify website to store in authLink
   authorizeSpotify() {
-    console.log('Entering Authorize Spotify')
     return this.getLoginURL()
   }
 

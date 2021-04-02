@@ -8,7 +8,9 @@ export default class SearchPage extends React.Component {
     super(props);
     this.state = {
       search: "",
-      userPost: {embed: "", likes: 0, comments: []}
+      userPost: {embed: "", likes: 0, comments: []},
+      authToken: document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
+      result: {}
     };
 
   }
@@ -25,25 +27,34 @@ export default class SearchPage extends React.Component {
         });
   }
 
-  searchInput = () => {
+  searchInput = event => {
+
+    event.preventDefault();
+
+    let searchURL = new URL('https://api.spotify.com/v1/search');
+    searchURL.search = new URLSearchParams({
+      q: this.state.search,
+      type:"track",
+      market:"US",
+      limit:"5",
+      offset:"0"
+    })
 
     //Construct the API call parameters
     var searchOptions = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
-        'q': this.state.search,
-        'type':"track",
-        'market':"US",
-        'limit':"5",
-        'offset':""
+        'Authorization': 'Bearer ' + this.state.authToken,
       }
     };
     //Make the API call to the search page using the given parameters
-    fetch("https://api.spotify.com/v1/search", searchOptions)
-    .then(res => res.json())
-    .then(result => {console.log(result)})
+    fetch(searchURL, searchOptions)
+    .then(function (response) {
+    return response.json();})
+    .then( function (json) {console.log(json);})
+    .catch(function (error) {console.log(error);});
+
   }
 
   render() {
