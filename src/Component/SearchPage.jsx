@@ -58,20 +58,20 @@ export default class SearchPage extends React.Component {
     fetch(searchURL, searchOptions)
     .then(res => res.json())
     .then(result => {console.log(result); this.setState({
-      img1: result.tracks.items[0].album.images[2].url, 
-      img2: result.tracks.items[1].album.images[2].url,
-      img3: result.tracks.items[2].album.images[2].url,
-      img4: result.tracks.items[3].album.images[2].url,
-      img5: result.tracks.items[4].album.images[2].url,
-      name1: result.tracks.items[0].name,
-      name2: result.tracks.items[1].name,
-      name3: result.tracks.items[2].name,
-      name4: result.tracks.items[3].name,
-      name5: result.tracks.items[4].name,
+          img1: result.tracks.items[0].album.images[2].url, 
+          img2: result.tracks.items[1].album.images[2].url,
+          img3: result.tracks.items[2].album.images[2].url,
+          img4: result.tracks.items[3].album.images[2].url,
+          img5: result.tracks.items[4].album.images[2].url,
+          name1: result.tracks.items[0].name,
+          name2: result.tracks.items[1].name,
+          name3: result.tracks.items[2].name,
+          name4: result.tracks.items[3].name,
+          name5: result.tracks.items[4].name,
         });
+        this.forceUpdate();
       }
     )
-    .then(console.log("Reached end of function"))
   }
 
   render() {
@@ -92,24 +92,24 @@ export default class SearchPage extends React.Component {
                 <p>Find your favorite songs right off of Spotify by searching for a track above!</p>
              </div>
              <div id="one" className="searchResults">
-             <img src={this.img1} alt="Logo" />
-             <span id="first">{this.name1}</span>
+             <img src={this.state.img1} alt="Logo" />
+             <span id="first">{this.state.name1}</span>
              </div>
              <div id="two" className="searchResults">
-             <img src={this.img2} alt="Logo" />
-             <span id="second">{this.name2}</span>
+             <img src={this.state.img2} alt="Logo" />
+             <span id="second">{this.state.name2}</span>
              </div>
              <div id="three" className="searchResults">
-             <img src={this.img3} alt="Logo" />
-             <span id="third">{this.name3}</span>
+             <img src={this.state.img3} alt="Logo" />
+             <span id="third">{this.state.name3}</span>
              </div>
              <div id="four" className="searchResults">
-             <img src={this.img4} alt="Logo" />
-             <span id="forth">{this.name4}</span>
+             <img src={this.state.img4} alt="Logo" />
+             <span id="forth">{this.state.name4}</span>
              </div>
              <div id="five" className="searchResults">
-             <img src={this.img5} alt="Logo" />
-             <span id="fifth">{this.name5}</span>
+             <img src={this.state.img5} alt="Logo" />
+             <span id="fifth">{this.state.name5}</span>
              </div>
         </div>
     );
