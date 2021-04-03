@@ -9,17 +9,12 @@ export default class SearchPage extends React.Component {
     this.state = {
       search: "",
       userPost: {embed: "", likes: 0, comments: []},
-<<<<<<< HEAD
       img1: "", name1: "",
       img2: "", name2: "",
       img3: "", name3: "",
       img4: "", name4: "",
       img5: "", name5: "",
 
-=======
-      authToken: document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
-      result: {}
->>>>>>> 2bdb278cd401e19480f8826c2cb3f9c2c57d72b1
     };
 
   }
@@ -36,29 +31,22 @@ export default class SearchPage extends React.Component {
         });
   }
 
-  searchInput = event => {
-
-    event.preventDefault();
-
-    let searchURL = new URL('https://api.spotify.com/v1/search');
-    searchURL.search = new URLSearchParams({
-      q: this.state.search,
-      type:"track",
-      market:"US",
-      limit:"5",
-      offset:"0"
-    })
+  searchInput = () => {
 
     //Construct the API call parameters
     var searchOptions = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.state.authToken,
+        'Authorization': 'Bearer ' + document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
+        'q': this.state.search,
+        'type':"track",
+        'market':"US",
+        'limit':"5",
+        'offset':""
       }
     };
     //Make the API call to the search page using the given parameters
-<<<<<<< HEAD
     fetch("https://api.spotify.com/v1/search", searchOptions)
     .then(res => res.json())
     .then(result => {console.log(result)})
@@ -74,14 +62,6 @@ export default class SearchPage extends React.Component {
       name4: result.tracks.items[3].name,
       name5: result.tracks.items[4].name,
     });
-=======
-    fetch(searchURL, searchOptions)
-    .then(function (response) {
-    return response.json();})
-    .then( function (json) {console.log(json);})
-    .catch(function (error) {console.log(error);});
-
->>>>>>> 2bdb278cd401e19480f8826c2cb3f9c2c57d72b1
   }
 
   render() {
