@@ -8,7 +8,13 @@ export default class SearchPage extends React.Component {
     super(props);
     this.state = {
       search: "",
-      userPost: {embed: "", likes: 0, comments: []}
+      userPost: {embed: "", likes: 0, comments: []},
+      img1: "", name1: "",
+      img2: "", name2: "",
+      img3: "", name3: "",
+      img4: "", name4: "",
+      img5: "", name5: "",
+
     };
 
   }
@@ -44,6 +50,18 @@ export default class SearchPage extends React.Component {
     fetch("https://api.spotify.com/v1/search", searchOptions)
     .then(res => res.json())
     .then(result => {console.log(result)})
+    this.setState({
+      img1: result.tracks.items[0].album.images[2], 
+      img2: result.tracks.items[1].album.images[2],
+      img3: result.tracks.items[2].album.images[2],
+      img4: result.tracks.items[3].album.images[2],
+      img5: result.tracks.items[4].album.images[2],
+      name1: result.tracks.items[0].name,
+      name2: result.tracks.items[1].name,
+      name3: result.tracks.items[2].name,
+      name4: result.tracks.items[3].name,
+      name5: result.tracks.items[4].name,
+    });
   }
 
   render() {
@@ -62,6 +80,26 @@ export default class SearchPage extends React.Component {
              </div>
              <div className="search-description">
                 <p>Find your favorite songs right off of Spotify by searching for a track above!</p>
+             </div>
+             <div id="one" className="searchResults">
+             <img src={this.img1} alt="Logo" />
+             <span id="first">{this.name1}</span>
+             </div>
+             <div id="two" className="searchResults">
+             <img src={this.img2} alt="Logo" />
+             <span id="second">{this.name2}</span>
+             </div>
+             <div id="three" className="searchResults">
+             <img src={this.img3} alt="Logo" />
+             <span id="third">{this.name3}</span>
+             </div>
+             <div id="four" className="searchResults">
+             <img src={this.img4} alt="Logo" />
+             <span id="forth">{this.name4}</span>
+             </div>
+             <div id="five" className="searchResults">
+             <img src={this.img5} alt="Logo" />
+             <span id="fifth">{this.name5}</span>
              </div>
         </div>
     );
