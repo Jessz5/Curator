@@ -94,22 +94,27 @@ export default class SearchPage extends React.Component {
              <div id="one" className="searchResults">
              <img src={this.state.img1} alt="Logo" />
              <span id="first">{this.state.name1}</span>
+             <button className="Post" onClick={console.log("Pushed")}>Share Song</button>
              </div>
              <div id="two" className="searchResults">
              <img src={this.state.img2} alt="Logo" />
              <span id="second">{this.state.name2}</span>
+             <button className="Post" onClick={console.log("Pushed")}>Share Song</button>
              </div>
              <div id="three" className="searchResults">
              <img src={this.state.img3} alt="Logo" />
              <span id="third">{this.state.name3}</span>
+             <button className="Post" onClick={console.log("Pushed")}>Share Song</button>
              </div>
              <div id="four" className="searchResults">
              <img src={this.state.img4} alt="Logo" />
              <span id="forth">{this.state.name4}</span>
+             <button className="Post" onClick={console.log("Pushed")}>Share Song</button>
              </div>
              <div id="five" className="searchResults">
              <img src={this.state.img5} alt="Logo" />
              <span id="fifth">{this.state.name5}</span>
+             <button className="Post" onClick={console.log("Pushed")}>Share Song</button>
              </div>
         </div>
     );
