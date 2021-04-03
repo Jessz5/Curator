@@ -14,6 +14,8 @@ export default class SearchPage extends React.Component {
       img3: "", name3: "",
       img4: "", name4: "",
       img5: "", name5: "",
+      authToken: document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
+      result: {}
 
     };
 
@@ -31,37 +33,45 @@ export default class SearchPage extends React.Component {
         });
   }
 
-  searchInput = () => {
+  searchInput = event => {
+    event.preventDefault();
+
+    let searchURL = new URL('https://api.spotify.com/v1/search');
+    searchURL.search = new URLSearchParams({
+      q: this.state.search,
+      type:"track",
+      market:"US",
+      limit:"5",
+      offset:"0"
+    })
 
     //Construct the API call parameters
     var searchOptions = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
-        'q': this.state.search,
-        'type':"track",
-        'market':"US",
-        'limit':"5",
-        'offset':""
+        'Authorization': 'Bearer ' + this.state.authToken,
       }
     };
+
     //Make the API call to the search page using the given parameters
-    fetch("https://api.spotify.com/v1/search", searchOptions)
+    fetch(searchURL, searchOptions)
     .then(res => res.json())
-    .then(result => {console.log(result)})
-    this.setState({
-      img1: result.tracks.items[0].album.images[2], 
-      img2: result.tracks.items[1].album.images[2],
-      img3: result.tracks.items[2].album.images[2],
-      img4: result.tracks.items[3].album.images[2],
-      img5: result.tracks.items[4].album.images[2],
+    .then(result => {console.log(result); this.setState({
+      img1: result.tracks.items[0].album.images[2].url, 
+      img2: result.tracks.items[1].album.images[2].url,
+      img3: result.tracks.items[2].album.images[2].url,
+      img4: result.tracks.items[3].album.images[2].url,
+      img5: result.tracks.items[4].album.images[2].url,
       name1: result.tracks.items[0].name,
       name2: result.tracks.items[1].name,
       name3: result.tracks.items[2].name,
       name4: result.tracks.items[3].name,
       name5: result.tracks.items[4].name,
-    });
+        });
+      }
+    )
+    .then(console.log("Reached end of function"))
   }
 
   render() {
