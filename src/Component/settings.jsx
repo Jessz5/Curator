@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 import Navbar from "./Navbar";
 import { ThreeSixtyRounded } from '@material-ui/icons';
 
-
 const StyledButton = styled.button`
   background-color: #1DB954;
   font-size: 25px;
@@ -26,11 +25,19 @@ class settings extends Component {
             responseMessage: "",
             spotify_email: "",
             spotify_username: "",
+            spotToken: "",
             fetchOptions: {method: '', headers: ''}
         };
         this.fieldChangeHandler.bind(this);
-        if(this,props.location && this.props.location.state && this.props.location.state.authToken){
-            this.state.fetchOptions = {method: "GET", headers: new Headers({'Authorization': `Bearer ${this.props.location.state.authToken.access_token}`})};
+
+        //If there's cookies to extract
+        if(document.cookie != ''){
+            //Try to find the cookie matching the current user
+            try{
+                this.state.spotToken = document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || ''
+                this.state.fetchOptions = {method: "GET", headers: new Headers({'Authorization': `Bearer ${this.state.spotToken}`})};
+            }
+            catch{console.log("No matching cookie for current user")};
         }
         
     } 
@@ -80,16 +87,6 @@ class settings extends Component {
                 result => {
                     if (result) {
                         console.log(result);
-
-                        this.setState({
-                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
-                            // try and make the form component uncontrolled, which plays havoc with react
-                            username: result.username || "",
-                            firstname: result.firstName || "",
-                            lastname: result.lastName || "",
-                            status: result.status || ""
-
-                        });
                     }
                 },
                 error => {
@@ -132,15 +129,29 @@ class settings extends Component {
             );
 
     };
+  deleteHandler = event => {
 
-    //Method for testing if Spotify Username and Email are available
-    checkSpotifyinfo(){
-        if(1 == 1){
-            console.log(this.props.match.spotify_email);
-            return "Hey"
-        }
-    }
+        event.preventDefault();
+        //make the api call to the user controller
 
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+ this.state.id, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            }
+        })
+            .then(
+                result => {
+                    console.log("deleted");
+                },
+                error => {
+                    alert("error!"+error);
+                }
+            );
+
+
+    };
     render() {
         return (
             <header className="settings_list">
@@ -182,6 +193,7 @@ class settings extends Component {
                     </label>
                     <input type="submit" value="submit" />
                 </form>
+                <input type="submit" value="Delete account" onClick={this.deleteHandler} />
             </header>
     );
     }
@@ -189,3 +201,4 @@ class settings extends Component {
 }
 
 export default settings;
+

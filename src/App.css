@@ -1,497 +1,1528 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-.header{
-  position: relative;
-  top: 36px;
-  left: 4%;
-  max-width: 50%;
-}
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.deletePost {
+  height: 100%;
   width: 100%;
 }
-.deleteIcon {
-  float: right;
+.grid-container {
+  display: grid;
+  grid-template-columns: 33vw 33vw 34vw;
+  grid-template-rows: 33vh 33vh 34vh;
+  background-color: #010423;
+  width: 100vw;
+  height: 100vh;
 }
-
-.settings {
-  width: 100%;
-}
-.filler label:nth-child(1) {
-  position: relative;
-  left: 199px;
-}
-label.login1 {
-  position: relative;
-left: 360px;
-top: 32px;
-}
-/*Friend Form Css (Submit Button)*/
-input[type="submit"] {
-  position: relative;
-left: 210px;
-top: -200px;
-background: #33cc66;
-color: white;
-font-family: initial;
-font-size: 16px;
-}
-.link-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  outline: none;
-}
-p{
-  max-width: 75%;
-  font-family: 'EB Garamond', serif;
-}
-.desktop_img{
-  width: 500px;
-}
-.button_img{
-  width: 500px;
-}
-#download{
-  color: #1db954;
-  text-decoration: underline;
-  
-}
-.fonts{
-  color: black;
-  float: unset;
-  margin: unset;
-  padding: unset;
-}
-.Spotify_login {
-  background: #1db954;
-  border-radius: 36px;
-  color: white;
-  font-family: "Quicksand", sans-serif;
-  width: 319px;
-  height: 41.61px;
-  border: 0px;
-  position: relative;
-  top: 120px;
-  left: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-.link-button:hover,
-.link-button:focus,
-.link-button:active {
-  text-decoration: none;
-  outline: none;
-}
-
-.no-suggestions {
-  color: #999;
-  padding: 0.5rem;
-}
-
-.autocomplete input {
-  width: calc(300px + 1rem);
-}
-
-.autocomplete {
-  min-height: 165px;
-}
-
-.suggestions {
-  border: 1px solid #999;
-  border-top-width: 0;
-  list-style: none;
-  margin-top: 0;
-  max-height: 143px;
-  overflow-y: auto;
-  padding-left: 0;
-  width: calc(300px + 1rem);
-
-  display: inline-block;
+.stats{
   position: relative;
 }
-
-.suggestions li {
-  padding: 0.5rem;
-}
-
-.suggestion-active,
-.suggestions li:hover {
-  background-color: #ffffff;
-  color: #33cc66;
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
-}
-
-/*Friend Form Css (Find a Friend!)*/
-.profileform label {
-  top: -100px;
-  left: 210px;
-}
-
-.App-link {
-  color: #09d3ac;
-}
-
-.postlist {
-  text-align: left;
-  background: blue;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 10px;
-
-  width: 60%;
-  display: inline-flex;
-}
-
-.userlist {
-  text-align: left;
-  background: #33cc66;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 10px;
-  width: 60%;
-  display: inline-flex;
-}
-
-.comments {
-  background: white;
-  width: 90%;
-  display: block;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px;
-  color: black;
-}
-
-.commentlist {
-  text-align: left;
-  background: lightblue;
-  color: black;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 12px;
-  width: 90%;
-  display: block;
-}
-
-.hide {
-  display: none;
-}
-
-.maincontent {
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.posts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.postbody {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.comment-block {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.sidenav {
-  position: fixed;
-left: 5%;
-top: 0px;
-height: 60px;
-width: 100%;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-background-color: white;
-z-index: 2;
-}
-.settings_img{
+.StatsContainer{
   position: relative;
-top: -290px;
-left: 560px;
+top: 34px;
+left: -40vw;
 }
-#Style_Guide_Container{
-  color: black;
-
+input.login {
+  min-width: 27vw !important;
+max-width: 50vw !important;
 }
-.sidenav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-  left: 103px;
-  top: 8px;
-
+button.MainButton.login{
+  min-width: 27vw !important;
 }
 
-li {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 110px;
-  text-decoration: none;
-}
-
-.sidenav-icon {
-  width: 40px;
-  height: 40px;
-
-  margin-bottom: 15px;
-}
-
-.comment-indicator {
-  text-align: right;
-  width: 100%;
-  display: block;
-  float: right;
-  margin-top: 10px;
-}
-
-.comment-icon {
-  width: 40px;
-  height: 40px;
-  float: right;
-}
-
-.comment-indicator-text {
-  background-color: lightblue;
-  color: black;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  width: 120px;
-  padding: 5px;
-  float: right;
-  margin-left: 10px;
-  text-align: center;
-}
-
-.hide {
-  display: none;
-}
-
-/* The Modal (background) */
-.modal {
-  display: block;
-  position: fixed; /* Stay in place */
-  z-index: 0; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 1px 10px 20px 20px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-  height: 200px;
-}
-#LoginBody {
-  position: relative;
-  top: 0px;
-  width: 100%;
-  height: 1310px;
-  background: #010423;
-}
-#SignUpBody {
-  position: relative;
-width: 100%;
-height: 100%;
-background: #010423;
-}
-.SignUpForm {
-  position: relative;
-  top: 122px;
-}
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  line-height: 42px;
+.Followers{
+  position: absolute;
+  margin-left: 900px;
+  margin-right: 9em;
+  width: 15em;
   font-size: 35px;
-  font-weight: bold;
+  top: 20%;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.Following{
+
+  position: absolute;
+  margin-left: 1200px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+.Tracks{
+
+  position: absolute;
+  margin-left: 550px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+
 }
 
-/* This is the begining of $GME css*/
-#Nav_logo {
-  position: fixed;
-  top: 105px;
-  left: 20px;
-  z-index: 2;
-}
-#Post_Logo{
-  position: relative;
-  top: 37px;
-  left: -550px;
-}
-svg#Account_Logo{
-  position: relative !important;
-top: -180px;
-}
-.Nav_Wrapper {
-  position: relative;
-  top: -40px;
-}
-.album{
-  position: relative;
-left: -49px;
-}
-.Nav_Wrapper_Account{
-  position: relative;
-top: -295px;
-}
-.MuiInputBase-root {
-  color: rgba(0, 0, 0, 0.87);
-  cursor: text;
-  display: inline-flex;
-  position: relative;
-  font-size: 1rem;
-  box-sizing: border-box;
-  align-items: center;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  line-height: 1.1876em;
-  letter-spacing: 0.00938em;
-  top: -28px;
-}
-.Content{
-  position: relative;
-top: -471px;
-left: -220px;
-color: black;
-}
-#profile_picture {
-  position: relative;
-left: -540px;
-top: -130px;
-}
-#profile_info{
-  position: relative;
-top: -160px;
-left: -532px;
-color: black;
-font-size: 27px;
-}
-#Tracks_Icon{
+.My-tracks{
   position: absolute;
   margin-left: 10px;
   margin-right: 10px;
-  width: 0em;
-  font-size: 20px;
-  top: 54%;
-  text-align: center;
-  color: black;
-  left: 70px;
-}
-#Playlist_Icon{
-  position: absolute;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 0em;
-  font-size: 20px;
-  top: 54%;
-  text-align: center;
-  color: black;
-  left: 70px;
-}
-.playlist{
-  position: absolute;
-margin-left: 90px;
-margin-right: 10px;
-width: 6em;
-font-size: 22px;
-top: 95%;
-text-align: center;
-color: black;
-}
-.My-tracks {
-  margin-left: 90px;
+  /*width: 0em;*/
   font-size: 20px;
   top: 59%;
   text-align: center;
-  color: black;
-  position: absolute;
-}
 
-.button-css{
+}
+.playlist{
+  position: absolute;
   margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
   font-size: 20px;
-  top: 40%;
+  top: 85%;
   text-align: center;
+
+}
+.profile_photo{
+
+  position: fixed;
+}
+
+.App_Settings{
+
+  color:black;
+
+}
+
+.spotifyInfo{
   color: black;
-  position: absolute;
-
 }
-
-.settings_list{
+#SearchTitle{
+  float: left;
+position: relative;
+top: -14px;
+}
+#TopNavbar{
+  position: fixed;
+  width: 100vw;
+  background-color: white;
+  z-index: 3;
+  top: -30px;
+}
+ul {
+text-decoration: none;
+float: left;
+position: relative;
+left: 4vw;
+display: flex;
+flex-direction: row;
+}
+.pm{
   position: relative;
-  left: 140px;
-  top: -130px;
+  top: 15px;
+  padding-left: 10vw;
+}
+.account{
+  top: 5px;
+}
+.bookmark{
+  top: 9px;
+}
+li {
+  list-style-type: none;
+  padding: 0px;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: inline;
+  float: left;
+  display: block;
+  padding-left: 0%;
+
+}
+li a {
+  display: block;
+  padding: 8px;
 }
 
-.form{
-  color:white;
+.PostGrid{
+  display: grid;
+  grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+  grid-template-rows: 10vh repeat(3, 30vh);
+  gap: 0px 0px;
+  grid-template-areas:
+    "NavContainer NavContainer NavContainer NavContainer"
+    "Right-offset Post1 Post2 Left-Offset"
+    "Right-offset Post3 Post4 Left-Offset"
+    "Right-offset Post5 Post6 Left-Offset";
 }
+.NavContainer { grid-area: NavContainer; }
+.Right-offset { grid-area: Right-offset; }
+.Left-Offset {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+  grid-area: Left-Offset;
+}
+.Post1 { grid-area: Post1; }
+.Post2 { grid-area: Post2; }
+.Post3 { grid-area: Post3; }
+.Post4 { grid-area: Post4; }
+.Post5 { grid-area: Post5; }
+.Post6 { grid-area: Post6; }
+
+#LoginLogo {
+  grid-row: 1 / 3;
+  grid-column: 2/3;
+  position: relative;
+  left: 10vw;
+}
+form.filler{
+  position: relative;
+  left: 5.1vw;
+}
+.LoginSignupBody {
+  text-align: center;
+  display: flex;
+  flex-direction: unset;
+  justify-content: unset;
+  height: 100px;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  position: relative;
+  left: 12%;
+  top: -3%;
+}
+.FormBody {
+  height: unset;
+  padding-top: unset;
+  margin: 0 auto;
+  width: 50%;
+}
+label {
+  display: flow-root;
+  flex-direction: row;
+  text-align: right;
+  line-height: 26px;
+  margin-bottom: 32px;
+  width: 319px;
+  height: 41.61px;
+}
+form {
+  position: relative;
+  left: 7vw;
+}
+input[type="text"] {
+  width: 319px;
+  height: 41.61px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  background: #f2f2f2;
+  border-radius: 26px;
+  border: 0px;
+}
+input[type="password"] {
+  width: 319px;
+  height: 41.61px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  background: #f2f2f2;
+  border-radius: 26px;
+  border: 0px;
+}
+.item4 {
+  grid-column: 2/3;
+grid-row: 2/ 4;
+position: relative;
+left: -80px;
+}
+.MainButton {
+  width: 325px;
+  height: 44.61px;
+  border-radius: 26px;
+  border: 0px;
+  background: #1db954;
+  color: white;
+  font-family: Quicksand;
+  font-size: 18px;
+}
+#LogInButton {
+  position: relative;
+  left: 1.2%;
+}
+a#LogInTitle.Title.On {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  position: relative;
+  left: -2.6vw;
+}
+a#SignInTitle.Title.Off {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  opacity: 0.61;
+  position: relative;
+  left: 1.3vw;
+}
+a#LogInTitle.TitleOff {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  position: relative;
+  left: -2.6vw;
+}
+  a#SignInTitle.TitleOn {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 50px;
+  text-decoration: unset;
+  color: #ffffff;
+  position: relative;
+  left: 1.3vw;
+}
+#LoginHeader {
+  width: max-content;
+  position: relative;
+  left: 0vw;
+  margin-left: auto;
+  margin-right: auto;
+  top: -64px;
+}
+.button_signup {
+  position: relative;
+  top: 28px;
+  left: 0.5vw;
+}
+.stats{
+  width: max-content;
+}
+
+.Followers{
+  position: absolute;
+margin-left: -2%;
+margin-right: 9em;
+width: 15em;
+font-size: 35px;
+top: 20%;
+}
+
+.Following{
+  position: absolute;
+  margin-left: 20%;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+.Tracks{
+  position: absolute;
+  margin-left: 39%;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+
+.My-tracks{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 59%;
+  text-align: center;
+
+}
+.playlist{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 85%;
+  text-align: center;
+
+}
+.profile_photo{
+
+  position: fixed;
+}
+
+.App_Settings{
+
+  color:black;
+
+}
+
+.spotifyInfo{
+  color: black;
+}
+.search-page {
+  background-color: white;
+  height: 100%;
+  position: relative;
+}
+
+.search-container {
+  border-radius: 15px;
+padding: 30px;
+width: 880px;
+height: 5px;
+position: relative;
+top: 80px;
+left: 18%;
+}
+
+.btn {
+  border: none;
+  background: none;
+  background-color: inherit;
+  padding: 14px 26px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 600px;
+  top: -6px;
+}
+
+.btn:hover {
+  background: #eee;
+}
+
+.cancel {
+  color:#33cc66;
+}
+
+.search-curator {
+  color: gray;
+  margin-top: unset;
+  position: relative;
+  left: -4%;
+  top: -150px;
+  text-align: center;
+}
+.search-description {
+  color: gray;
+  left: 40.8%;
+  position: relative;
+  width: max-content;
+  text-align: center;
+}
+@media only screen and (max-width: 1440px) {
+  .App {
+    height: 100%;
+    width: 100%;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 33vw 33vw 34vw;
+    grid-template-rows: 33vh 33vh 34vh;
+    background-color: #010423;
+    width: 100vw;
+    height: 100vh;
+  }
+  form.filler{
+    position: relative;
+left: 5vw;
+  }
+  button.MainButton.login{
+    min-width: 27vw !important;
+  }
+  .StatsContainer{
+    display: flex;
+height: max-content;
+left: -480px;
+position: relative;
+top: 40px;
+  }
+
+.Followers{
+  position: absolute;
+  margin-left: 900px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+
+.Following{
+
+  position: absolute;
+  margin-left: 1200px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+}
+.Tracks{
+
+  position: absolute;
+  margin-left: 550px;
+  margin-right: 9em;
+  width: 15em;
+  font-size: 35px;
+  top: 20%;
+
+}
+
+.My-tracks{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 59%;
+  text-align: center;
+
+}
+.playlist{
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*width: 0em;*/
+  font-size: 20px;
+  top: 85%;
+  text-align: center;
+
+}
+.profile_photo{
+
+  position: fixed;
+}
+
+.App_Settings{
+
+  color:black;
+
+}
+
+.spotifyInfo{
+  color: black;
+}
+  #TopNavbar{
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    z-index: 3;
+    top: -30px;
+  }
+  #SearchTitle{
+    float: left;
+  position: relative;
+  top: -14px;
+  }
+  ul {
+  text-decoration: none;
+  float: left;
+  position: relative;
+  left: 4vw;
+  display: flex;
+  flex-direction: row;
+  }
+  .pm{
+    position: relative;
+    top: 15px;
+    padding-left: 10vw;
+  }
+  .account{
+    top: 5px;
+  }
+  .bookmark{
+    top: 9px;
+  }
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  
+  }
+  li a {
+    display: block;
+    padding: 8px;
+  }
+  
+  .PostGrid{
+    display: grid;
+    grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+    grid-template-rows: 10vh repeat(3, 30vh);
+    gap: 0px 0px;
+    grid-template-areas:
+      "NavContainer NavContainer NavContainer NavContainer"
+      "Right-offset Post1 Post2 Left-Offset"
+      "Right-offset Post3 Post4 Left-Offset"
+      "Right-offset Post5 Post6 Left-Offset";
+  }
+  .NavContainer { grid-area: NavContainer; }
+  .Right-offset { grid-area: Right-offset; }
+  .Left-Offset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: Left-Offset;
+  }
+  .Post1 { grid-area: Post1; }
+  .Post2 { grid-area: Post2; }
+  .Post3 { grid-area: Post3; }
+  .Post4 { grid-area: Post4; }
+  .Post5 { grid-area: Post5; }
+  .Post6 { grid-area: Post6; }
+  
+  #LoginLogo {
+    grid-row: 1 / 3;
+    grid-column: 2/3;
+    position: relative;
+    left: 8vw;
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  label {
+    display: flow-root;
+    flex-direction: row;
+    text-align: right;
+    line-height: 26px;
+    margin-bottom: 32px;
+    width: 319px;
+    height: 41.61px;
+  }
+  form {
+    position: relative;
+  left: 5.1vw;
+  }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .item4 {
+    grid-column: 2/3;
+    grid-row: 2/ 4;
+    left: unset;
+  }
+  .MainButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+  #LogInButton {
+    position: relative;
+    left: 1.2%;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 1.3vw;
+  }
+  a#LogInTitle.TitleOff {
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 50px;
+text-decoration: unset;
+color: #ffffff;
+position: relative;
+left: -2.6vw;
+opacity: .61;
+  }
+    a#SignInTitle.TitleOn {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: 1.3vw;
+  }
+  #LoginHeader {
+    width: max-content;
+position: relative;
+left: 1vw;
+margin-left: auto;
+margin-right: auto;
+top: -64px;
+    
+  }
+  .button_signup {
+    position: relative;
+    top: 28px;
+    left: 0.5vw;
+  }
+  .search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+
+.search-container {
+    border-radius: 15px;
+padding: 30px;
+width: 880px;
+height: 5px;
+position: relative;
+top: 80px;
+left: 18%;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: -6px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+.cancel {
+    color:#33cc66;
+}
+
+.search-curator {
+  color: gray;
+  margin-top: unset;
+  position: relative;
+  left: 1%;
+  top: -150px;
+}
+.search-description {
+  color: gray;
+left: -108%;
+position: relative;
+width: max-content;
+}
+
+}
+@media only screen and (max-width: 1025px) and (min-width: 767px)  {
+  .App {
+    height: 100%;
+    width: 100%;
+  }
+  .item2{
+    grid-row: 1;
+  }
+  #searchform{
+    width: 75vw;
+  }
+  .grid-container {
+    display: grid;
+grid-template-columns: 244px 244px 244px 244px;
+background-color: #010423;
+width: 100vw;
+height: 100vh;
+  }
+  #TopNavbar{
+    position: fixed;
+width: 100vw;
+background-color: white;
+z-index: 3;
+top: -20px;
+  }
+  ul {
+  text-decoration: none;
+  float: left;
+  position: relative;
+  left: 4vw;
+  display: flex;
+  flex-direction: row;
+  }
+  .pm{
+    position: relative;
+    top: 15px;
+    padding-left: 10vw;
+  }
+  .account{
+    top: 5px;
+  }
+  .bookmark{
+    top: 9px;
+  }
+  .Tracks{
+    position: fixed;
+    margin-left: unset;
+    margin-right: 9em;
+    width: max-content;
+    font-size: 35px;
+    top: 13%;
+    left: 35%;
+  }
+  .Followers {
+    position: fixed !important;
+margin-right: unset;
+width: max-content;
+font-size: 35px;
+top: 14.5%;
+left: 64%;
+margin: unset;
+}
+.Following {
+  position: fixed;
+margin-left: unset;
+margin-right: 9em;
+width: max-content;
+font-size: 35px;
+top: 13%;
+left: 82%;
+}
+
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  
+  }
+  li a {
+    display: block;
+    padding: 8px;
+  }
+  .NavLogo{
+    display: none !important;
+  }
+  
+  .PostGrid{
+    display: grid;
+    grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+    grid-template-rows: 10vh repeat(3, 30vh);
+    gap: 0px 0px;
+    grid-template-areas:
+      "NavContainer NavContainer NavContainer NavContainer"
+      "Right-offset Post1 Post2 Left-Offset"
+      "Right-offset Post3 Post4 Left-Offset"
+      "Right-offset Post5 Post6 Left-Offset";
+  }
+  .NavContainer { grid-area: NavContainer; }
+  .Right-offset { grid-area: Right-offset; }
+  .Left-Offset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: Left-Offset;
+  }
+  .Post1 { grid-area: Post1; }
+  .Post2 { grid-area: Post2; }
+  .Post3 { grid-area: Post3; }
+  .Post4 { grid-area: Post4; }
+  .Post5 { grid-area: Post5; }
+  .Post6 { grid-area: Post6; }
+  
+  #LoginLogo {
+    position: relative;
+left: 123%;
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  input.login {
+    min-width: 50vw !important;
+    max-width: 50vw !important;
+  }
+  label {
+    display: flex;
+flex-direction: row;
+text-align: right;
+line-height: 26px;
+margin-bottom: 32px;
+width: 84vw;
+height: 41.61px;
+  }
+  .StatsContainer{display: flex;
+    height: max-content;
+    left: -1196px;
+    position: relative;
+    top: 40px;}
+  .Stats{
+    font-size: 25px !important;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  form {
+    position: relative;
+    left: 0.1vw;
+}
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: unset;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .item4 {
+    grid-column: 2/4;
+grid-row: 2/ 4;
+position: relative;
+top: -70px;
+left: unset;
+left: -12%;
+  }
+  .MainButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+  #LogInButton {
+    position: relative;
+    left: 2.4%;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 1.3vw;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: 1.3vw;
+  }
+  button.MainButton.login{
+    min-width: 50vw !important;
+  }
+  #LoginHeader {
+    width: max-content;
+position: relative;
+left: -3vw;
+margin-left: auto;
+margin-right: auto;
+top: -64px;
+  }
+  .button_signup {
+    position: relative;
+    top: 28px;
+    left: 0.5vw;
+  }
+  .search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+
+.search-container {
+  border-radius: 15px;
+width: 510px;
+height: 5px;
+position: relative;
+top: 80px;
+left: -10%;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: -6px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+.cancel {
+    color:#33cc66;
+}
+
+.search-curator {
+  margin-left: 32%;
+color: gray;
+margin-top: unset;
+width: max-content;
+position: relative;
+top: -120px;
+}
+.search-description {
+  margin-left: unset;
+  color: gray;
+  left: -31%;
+  position: relative;
+}
+}
+@media only screen and (max-width: 414px) {
+ .App {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .grid-container {
+    display: grid;
+grid-template-columns: 100%;
+background-color: #010423;
+width: 100vw;
+height: 100vh;
+  }
+  .item2{
+    grid-row: 1;
+  }
+  button.MainButton.login{
+    min-width: 50vw !important;
+  }
+  #TopNavbar{
+    position: fixed;
+width: 100vw;
+background-color: white;
+z-index: 3;
+top: -20px;
+  }
+  ul {
+    text-decoration: none;
+    position: fixed;
+    left: -14vw;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+}
+  .pm{
+    position: relative;
+top: 5px;
+padding-left: 15vw;
+  }
+  .account{
+    top: 5px;
+  }
+  .bookmark{
+    top: 5px;
+  }
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  
+  }
+  img.sidenav-icon{
+    width:21px;
+    height: 21px;
+  }
+  li a {
+    display: block;
+    padding: 8px;
+  }
+  .NavLogo{
+    display: none !important;
+  }
+  
+  .PostGrid{
+    display: grid;
+    grid-template-columns: 0.8fr repeat(2, 1.2fr) 0.8fr;
+    grid-template-rows: 10vh repeat(3, 30vh);
+    gap: 0px 0px;
+    grid-template-areas:
+      "NavContainer NavContainer NavContainer NavContainer"
+      "Right-offset Post1 Post2 Left-Offset"
+      "Right-offset Post3 Post4 Left-Offset"
+      "Right-offset Post5 Post6 Left-Offset";
+  }
+  .NavContainer { grid-area: NavContainer; }
+  .Right-offset { grid-area: Right-offset; }
+  .Left-Offset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: Left-Offset;
+  }
+  .Post1 { grid-area: Post1; }
+  .Post2 { grid-area: Post2; }
+  .Post3 { grid-area: Post3; }
+  .Post4 { grid-area: Post4; }
+  .Post5 { grid-area: Post5; }
+  .Post6 { grid-area: Post6; }
+  
+  #LoginLogo {
+    position: relative;
+    left: 22vw;
+    
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  div.Right-offset{
+    position: relative;
+top: 29px;
+left: -17px;
+  }
+  label {
+    display: flex;
+flex-direction: row;
+text-align: right;
+line-height: 26px;
+margin-bottom: 32px;
+width: 84vw;
+height: 41.61px;
+  }
+  #SearchTitle {
+    float: left;
+    position: relative;
+    top: -14px;
+    display: none;
+}
+  form {
+    position: relative;
+    left: 0.1vw;
+}
+.StatsContainer {
+  display: flex;
+  height: max-content;
+  left: -480px;
+  position: relative;
+  top: 0px;
+  text-align: center;
+}
+.Tracks{
+  position: fixed;
+margin-left: unset;
+margin-right: 9em;
+width: max-content;
+font-size: 16px;
+top: 3.2%;
+left: 39%;
+}
+.Stats{
+  font-family: 14px;
+}
+.Followers {
+  position: fixed !important;
+margin-right: unset;
+width: max-content;
+top: 4.2%;
+left: 64%;
+margin: unset;
+}
+.Following {
+  position: fixed;
+  margin-left: unset;
+  margin-right: 9em;
+  width: max-content;
+  font-size: 16px;
+  top: 3.3%;
+  left: 82%;
+}
+.item
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  #seachbar input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: 319px;
+    height: 41.61px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .item4 {
+    grid-column: 1/1;
+    grid-row: 2/ 4;
+    position: relative;
+    top: -60px;
+    left: unset;
+  }
+  .MainButton {
+    width: unset;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+
+  form.filler {
+    position: relative;
+left: 8vw;
+}
+  #LogInButton {
+       position: relative;
+    left: 2%;
+}
+  
+input.login {
+  min-width: 80vw;
+}
+img#myTracks{
+  width: 100px;
+height: 100px;
+position: relative;
+top: -170px;
+}
+img#playlist{
+  width: 100px;
+height: 100px;
+position: relative;
+top: -281px;
+left: 62%;
+}
+#myTracksP{
+  float: right;
+position: relative;
+top: -155px;
+left: -131px;
+}
+span{
+  float: right;
+position: relative;
+top: -241px;
+left: 17%;
+}
+#myTracks p{
+  float: right;
+position: relative;
+left: -50%;
+top: -151px;
+}
+div.myTracks{
+
+}
+div.myPlaylist{
+
+}
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 1.3vw;
+  }
+  img#profile_picture{
+    width: 100px;
+height: 100px;
+position: relative;
+top: -100px;
+left: 40px;
+  }
+  h2#profile_info{
+    position: relative;
+top: -110px;
+font-size: 16px;
+left: 39px;
+width: auto;
+  }
+  .Stats{
+    font-size: 11px;
+  }
+  a#LogInTitle.Title.On {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: -2.6vw;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    position: relative;
+    left: 1.3vw;
+  }
+  #LoginHeader {
+    width: max-content;
+    position: relative;
+    left: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    top: -64px;
+  }
+  .button_signup {
+    position: relative;
+    top: 28px;
+    left: 0.5vw;
+  }
+  .search-page {
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+
+.search-container {
+  border-radius: 15px;
+width: 510px;
+height: 5px;
+position: relative;
+top: 80px;
+left: -10%;
+}
+
+.btn {
+    border: none;
+    background: none;
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: -6px;
+}
+
+.btn:hover {
+    background: #eee;
+}
+
+button.btn.cancel {
+    display: none;
+}
+input#searchbar{
+  width: 80vw;
+height: 41.61px;
+margin-left: 10px;
+background: #f2f2f2;
+border-radius: 26px;
+border: 0px;
+padding-left: 24px;
+position: relative;
+left: 40px;
+top: -160px;
+}
+
+.search-curator {
+  margin-left: 32%;
+color: gray;
+margin-top: unset;
+width: max-content;
+position: relative;
+top: -120px;
+display: none;
+}
+.search-description {
+  margin-left: unset;
+  color: gray;
+  left: -31%;
+  position: relative;
+}
+}
+
+
+
+
+

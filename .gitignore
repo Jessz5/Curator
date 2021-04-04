@@ -16,7 +16,6 @@ build
 
 # OSX
 .DS_Store
-
 # Local environment
 .env
 .env.local
