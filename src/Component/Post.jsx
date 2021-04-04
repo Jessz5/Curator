@@ -3,7 +3,6 @@ import "../App.css";
 import CommentForm from "./CommentForm.jsx";
 import helpIcon from "../assets/delete.png";
 import commentIcon from "../assets/comment.svg";
-
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -12,35 +11,29 @@ export default class Post extends React.Component {
       comments: this.props.post.commentCount
     };
     this.post = React.createRef();
-
   }
-
   showModal = e => {
     this.setState({
       showModal: !this.state.showModal
     });
   };
-
   setCommentCount = newcount => {
     this.setState({
       comments: newcount
     });
   };
-
   getCommentCount() {
     if (!this.state.comments || this.state.comments === "0") {
       return 0;
     }
     return parseInt(this.state.comments);
   }
-
   showHideComments() {
     if (this.state.showModal) {
       return "comments show";
     }
     return "comments hide";
   }
-
   deletePost(postID) {
     //make the api call to post
     fetch(process.env.REACT_APP_API_PATH+"/posts/"+postID, {
@@ -59,12 +52,9 @@ export default class Post extends React.Component {
         }
       );
   }
-
-
   // we only want to display comment information if this is a post that accepts comments
   conditionalDisplay() {
     console.log("Comment count is " + this.props.post.commentCount);
-
     //if (this.props.post.commentCount <= 0) {
     //  return "";
     //  }
@@ -99,9 +89,7 @@ export default class Post extends React.Component {
         </div>
       );
     //}
-
   }
-
   // we only want to expose the delete post functionality if the user is
   // author of the post
   showDelete(){
@@ -118,12 +106,9 @@ export default class Post extends React.Component {
     }
     return "";
   }
-
   render() {
-
     return (
       <div>
-
       <div
         key={this.props.post.id}
         className={[this.props.type, "postbody"].join(" ")}
