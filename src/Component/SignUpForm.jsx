@@ -96,13 +96,13 @@ export default class SignUpForm extends React.Component {
                 <div className="fields">
                 
                 </div>
-              <input className="Username login" type="text" onChange={this.myChangeHandler}/>
+              <input className="Username login" placeholder="Enter Username" type="text" onChange={this.myChangeHandler}/>
               </label>
               <label>
                 <div className="fields">
                 
                 </div>
-              <input className="password login" type="password" onChange={this.passwordChangeHandler}/>
+              <input className="password login" placeholder = " Enter Password" type="password" onChange={this.passwordChangeHandler}/>
             </label>
               <label>
                 <div className="fields">
