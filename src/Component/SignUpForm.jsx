@@ -102,7 +102,6 @@ export default class SignUpForm extends React.Component {
                      placeholder = "Enter Username"
                   onChange={this.myChangeHandler}
               />
-                <br /><br /><br />
               </label>
               <label>
                 <div className="fields">
@@ -114,7 +113,6 @@ export default class SignUpForm extends React.Component {
                   type="password"
                   onChange={this.passwordChangeHandler}
               />
-              <br /><br /><br />
             </label>
               <label>
                 <div className="fields">
@@ -125,7 +123,6 @@ export default class SignUpForm extends React.Component {
                     type="password"
                     onChange={this.verifyPasswordChangeHandler}
                 />
-                <br /><br /><br />
               </label>
               <div className="button_signup">
               <button className="MainButton" onClick={this.signUp}>Sign Up</button>
