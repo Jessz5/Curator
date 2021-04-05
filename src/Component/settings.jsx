@@ -157,9 +157,9 @@ class settings extends Component {
             <header className="settings_list">
                 <Navbar/>
                 <p className="spotifyInfo">{this.state.spotify_email}</p>
-                <p className="spotifyInfo">{this.state.spotify_username}</p>
+                <p className="spotifyInfo">{this.state.spotify_username}</p>             
                 <form onSubmit={this.submitHandler} className="profileform">
-                    <label>
+                    <label className="settingLable"> 
                         Username
                         <input
                             type="text"
@@ -167,7 +167,7 @@ class settings extends Component {
                             value={this.state.username}
                         />
                     </label>
-                    <label>
+                    <label className="settingLable">
                         First Name
                         <input
                             type="text"
@@ -175,7 +175,7 @@ class settings extends Component {
                             value={this.state.firstname}
                         />
                     </label>
-                    <label>
+                    <label className="settingLable">
                         Last Name
                         <input
                             type="text"
@@ -183,7 +183,7 @@ class settings extends Component {
                             value={this.state.lastname}
                         />
                     </label>
-                    <label>
+                    <label className="settingLable">
                         Edit User Bio
                         <input
                             type="text"
@@ -191,9 +191,9 @@ class settings extends Component {
                             value={this.state.status}
                         />
                     </label>
-                    <input type="submit" value="submit" />
+                    <input id="settingButton" className="MainButton" type="submit" value="Submit" />
                 </form>
-                <input type="submit" value="Delete account" onClick={this.deleteHandler} />
+                <input id= "deleteButtonSettings"className ="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler} />
             </header>
     );
     }

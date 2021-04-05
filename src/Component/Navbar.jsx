@@ -47,7 +47,7 @@ class Navbar extends React.Component {
           </Link>
         </li>
         <li className="pm admin bookmark">
-          <Link to="/settings">
+          <Link to="/userSettings">
             <img
               src={settingIcon}
               className="sidenav-icon"
