@@ -119,28 +119,13 @@ class userAccount extends Component {
 
     render() {
         return (
-       
-            <div className="PostGrid">
-    <div class="NavContainer">
-      <Navbar/>
-    </div>
-  <div class="Right-offset">
+  <div className="grid-container-settings">
+  <div className="profileInfo">
   <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
             <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
  </label> </h2>
- <div className="myTracks">
- <img id ="myTracks"src={my_tracks} alt="profile" width="150" height="150" />
-            <p id="myTracksP">My Tracks</p>
- </div>
- <div className="myPlaylist">
- <img id="playlist"src={playlist} alt="profile" width="150" height="150" />
-            <span>My Playlist's</span>
- </div>
-           
   </div>
-  <div class="Left-Offset"></div>
-  <div class="Post1">
-  <div className = "StatsContainer"> 
+  <div className="statsContainer">
   <h1 className={"Stats Followers"}>
                 <text>
                     Followers <br/> 100
@@ -149,23 +134,23 @@ class userAccount extends Component {
             <h1 className={"Stats Following"}>Following <br/> 100</h1>
             <h1 className={"Stats Tracks"}>Tracks Posted <br/> 20</h1>
   </div>
+  <div className="myPlaylist">
+  <div className="myTracks">
+ <img id ="myTracks"src={my_tracks} alt="profile" width="150" height="150" />
+            <p id="myTracksP">My Tracks</p>
+ </div>
+ <div className="MyPlaylist">
+ <img id="playlist"src={playlist} alt="profile" width="150" height="150" />
+            <span>My Playlist's</span>        
   </div>
-
-  <div class="Post2"></div>
-  <div class="Post3">
-  
-  </div>
-  <div class="Post4">
-  
-  </div>
-  <div class="Post5"></div>
-  <div class="Post6">
-  <Link to = "/usersettings">
+  <Link id="settingButton" to = "/usersettings">
                     <input type="submit" value="Edit User Settings" />
                 </Link>
   </div>
-    </div>
-      
+  <div class="navBar">
+      <Navbar/>
+  </div>
+  </div>
 
         );
     }
