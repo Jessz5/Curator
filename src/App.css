@@ -496,16 +496,17 @@ h2#profile_info {
 }
 p.SpotifyText {
   position: relative;
-  left: 31vw;
+  left: 39vw;
   color: white;
   top: 32px;
 }
 a.spotLinkText {
   position: relative;
-  left: 46vw;
+  left: 48vw;
   top: 62px;
   text-decoration-color: #1db954;
   color: #1db954;
+  font-size: 27px;
 }
 #loginLogo {
   position: relative;
@@ -530,7 +531,25 @@ form.profileform {
   top: 28px;
   left: 0.7vw;
 }
+#loginLogo {
+  position: relative;
+  left: 45vw;
+}
 @media only screen and (max-width: 1440px) {
+  p.SpotifyText {
+    position: relative;
+    left: 32vw;
+    color: white;
+    top: 32px;
+}
+a.spotLinkText {
+  position: relative;
+  left: 44vw;
+  top: 62px;
+  text-decoration-color: #1db954;
+  color: #1db954;
+  font-size: 27px;
+}
   .App {
     height: 100vh;
     width: 100vw;
@@ -543,8 +562,8 @@ form.profileform {
   }
   #loginLogo {
     position: relative;
-    left: 31vw;
-  }
+    left: 41vw;
+}
   .spotifyInfo {
     color: black;
     position: relative;
@@ -2524,9 +2543,9 @@ form.profileform {
   }
   a.spotLinkText {
     position: relative;
-    left: 35vw;
+    left: 32vw;
     top: 62px;
     text-decoration-color: #1db954;
     color: #1db954;
-  }
+}
 }
