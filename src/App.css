@@ -1186,6 +1186,15 @@ left: 123%;
     position: relative;
     left: 19%;
 }
+.search-container {
+  border-radius: 15px;
+  padding: 30px;
+  width: 880px;
+  height: 5px;
+  position: relative;
+  top: 80px;
+  left: -2%;
+}
   .profileInfo { 
     grid-area: profileInfo;
   position: relative;
@@ -1305,6 +1314,19 @@ left: 172%;
     top: -250px;
     left: 16%;
 }
+.btn {
+  border: none;
+  background: none;
+      background-color: rgba(0, 0, 0, 0);
+  background-color: inherit;
+  padding: 14px 26px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 520px;
+  top: -6px;
+}
   .MainButton {
     width: 325px;
     height: 44.61px;
@@ -1410,7 +1432,15 @@ left: 172%;
       "navBar navBar";
       background-color: unset;
   }
-  
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 80px;
+    left: 3%;
+}
   .profileInfo { 
     grid-area: profileInfo;
 position: relative;
@@ -1487,6 +1517,10 @@ left: 30px;
     background: #f2f2f2;
     border-radius: 26px;
     border: 0px;
+  }
+  form#searchform{
+    position: relative;
+left: 5%;
   }
   .item4 {
     grid-column: 2/4;
@@ -1753,6 +1787,31 @@ background-color: white;
 z-index: 3;
 top: -20px;
   }
+  #SearchTitle {
+    float: left;
+    position: relative;
+    top: -154px;
+    left: 5%;
+}
+form#searchform {
+  position: relative;
+  left: -4%;
+  top: -148px;
+}
+.btn {
+  border: none;
+  background: none;
+      background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: inherit;
+  padding: 14px 26px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 111px;
+  top: 132px;
+}
   ul {
     text-decoration: none;
     position: fixed;
