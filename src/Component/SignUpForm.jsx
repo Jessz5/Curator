@@ -119,6 +119,7 @@ export default class SignUpForm extends React.Component {
                   Verify Password
                 </div>
                 <input
+                    placeholder="Verify Password"
                     className="password"
                     type="password"
                     onChange={this.verifyPasswordChangeHandler}

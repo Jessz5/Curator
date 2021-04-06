@@ -41,6 +41,12 @@
   top: 70px;
   text-align: center;
 }
+#addSongIcon{
+  width: 44px;
+  position: relative;
+  top: -2px;
+  color: #b91da8;
+}
 
 .myPlaylist {
   grid-area: myPlaylist;
@@ -308,8 +314,8 @@ input[type="password"] {
 }
 #deleteButtonSettings {
   position: relative;
-  left: 50.7vw;
-  top: 82px;
+left: 50.7vw;
+top: 202px;
 }
 #LogInButton {
   position: relative;
@@ -524,7 +530,7 @@ label.settingLable {
 form.profileform {
   position: relative;
   left: 50vw;
-  top: 32px;
+  top: 152px;
 }
 #settingButton {
   position: relative;
@@ -541,6 +547,12 @@ form.profileform {
     left: 32vw;
     color: white;
     top: 32px;
+}
+#addSongIcon{
+  width: 44px;
+  position: relative;
+  top: -2px;
+  color: #b91da8;
 }
 a.spotLinkText {
   position: relative;
@@ -1011,6 +1023,12 @@ a.spotLinkText {
     top: 232px;
     left: 32vw;
   }
+  #addSongIcon{
+    width: 44px;
+    position: relative;
+    top: -2px;
+    color: #b91da8;
+  }
   .App {
     height: 100vh;
     width: 100vw;
@@ -1367,6 +1385,12 @@ a.spotLinkText {
     top: 232px;
     left: 32vw;
   }
+  #addSongIcon{
+    width: 44px;
+    position: relative;
+    top: -2px;
+    color: #b91da8;
+  }
   .App {
     height: 100vh;
     width: 100vw;
@@ -1567,8 +1591,8 @@ a.spotLinkText {
   }
   #deleteButtonSettings {
     position: relative;
-    left: 50.7vw;
-    top: 99px;
+left: 50.7vw;
+top: 171px;
   }
   #LogInButton {
     position: relative;
@@ -1648,8 +1672,8 @@ a.spotLinkText {
   }
   form.profileform {
     position: relative;
-    left: 50vw;
-    top: 41px;
+left: 50vw;
+top: 121px;
   }
   #settingButton {
     position: relative;
@@ -1681,6 +1705,12 @@ a.spotLinkText {
     position: relative;
     top: 232px;
     left: 18vw;
+  }
+  #addSongIcon{
+    width: 44px;
+    position: relative;
+    top: -2px;
+    color: #b91da8;
   }
   p.SpotifyText {
     position: relative;
@@ -1842,7 +1872,7 @@ a.spotLinkText {
   #deleteButtonSettings {
     position: relative;
     left: 50.7vw;
-    top: 99px;
+    top: 232px;
   }
   #LogInButton {
     position: relative;
@@ -1910,7 +1940,12 @@ a.spotLinkText {
   form.profileform {
     position: relative;
     left: 50vw;
-    top: 41px;
+    top: 181px;
+  }
+  #deleteButtonSettings {
+    position: relative;
+    left: 50.7vw;
+    top: 232px;
   }
   #settingButton {
     position: relative;
@@ -1924,6 +1959,12 @@ a.spotLinkText {
     position: relative;
     top: 232px;
     left: 19vw;
+  }
+  #addSongIcon{
+    width: 44px;
+    position: relative;
+    top: -2px;
+    color: #b91da8;
   }
   p.SpotifyText {
     position: relative;
@@ -2068,10 +2109,15 @@ a.spotLinkText {
     padding: 10px;
     border-radius: 25px;
   }
+  form.profileform {
+    position: relative;
+    left: 50vw;
+    top: 181px;
+  }
   #deleteButtonSettings {
     position: relative;
     left: 50.7vw;
-    top: 99px;
+    top: 232px;
   }
   #LogInButton {
     position: relative;
@@ -2135,11 +2181,6 @@ a.spotLinkText {
   }
   #userInformation {
   }
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 41px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
@@ -2151,6 +2192,11 @@ a.spotLinkText {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
+  }
+  #addSongIcon{
+    width: 24px;
+position: relative;
+top: -2px;
   }
   form.filler {
     position: relative;
@@ -2196,7 +2242,7 @@ a.spotLinkText {
   ul {
     text-decoration: none;
     position: fixed;
-    left: -14vw;
+    left: -18vw;
     display: flex;
     flex-direction: row;
     bottom: 0;
@@ -2497,8 +2543,13 @@ a.spotLinkText {
   }
   form.profileform {
     position: relative;
-    left: 10vw;
-    top: 41px;
+    left: 6vw;
+    top: 121px;
+  }
+  #deleteButtonSettings {
+    position: relative;
+left: 6.7vw;
+top: 241px;
   }
   #settingButton {
     position: relative;
@@ -2517,11 +2568,6 @@ a.spotLinkText {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 10.7vw;
-    top: 99px;
   }
   .spotifyInfo {
     color: black;
