@@ -18,7 +18,7 @@ class RedirectHandler extends React.Component {
     render(){
         return <Redirect
         to={{
-        pathname: "/userSettings"
+        pathname: "/UserPost"
       }}
     />
     }

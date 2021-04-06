@@ -18,7 +18,7 @@ export default class CommentForm extends React.Component {
 
     //make the api call to the authentication page
 
-    fetch(process.env.REACT_APP_API_PATH+"/posts", {
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts", {
       method: "post",
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export default class CommentForm extends React.Component {
       <div>
         <form onSubmit={this.submitHandler}>
           <label>
-            Add A Comment to Post {this.props.parent}
+            Add A Comment to Post {"#" + this.props.parent}
             <br />
             <textarea rows="10" cols="70" onChange={this.myChangeHandler} />
           </label>
@@ -66,11 +66,6 @@ export default class CommentForm extends React.Component {
           <br />
           {this.state.postmessage}
         </form>
-        <PostingList
-          ref={this.postListing}
-          parentid={this.props.parent}
-          type="commentlist"
-        />
       </div>
     );
   }

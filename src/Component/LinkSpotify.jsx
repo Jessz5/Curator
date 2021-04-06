@@ -12,11 +12,8 @@ class LinkSpotify extends React.Component {
     render(){
         if((document.cookie.includes("spotToken" + sessionStorage.getItem("user"))))
         {
-            return <Redirect
-            to={{
-            pathname: "/userSettings"
-          }}
-        />
+            window.location.replace(this.props.authlink);
+            return <p>hi</p>
         }
         else{
             return (
