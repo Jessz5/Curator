@@ -37,10 +37,6 @@ export default class UserPost extends React.Component {
           <Navbar/> 
         <div className="SongInfo">
             <PostingList/>
-
-            {this.state.posts.map(name =>
-                <iframe id="test" src={this.embed_song(name)} width="300" height="300" frameBorder="0" allowTransparency="true" allow="encrypted-media" />
-            )}
         </div>
 
 
