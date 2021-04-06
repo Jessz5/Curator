@@ -37,7 +37,7 @@ export default class CommentForm extends React.Component {
         result => {
           // update the count in the UI manually, to avoid a database hit
           this.props.onAddComment(this.props.commentCount + 1);
-          this.postListing.current.loadPosts();
+          //Figure out how to refresh the page to show the new comment on creation
         },
         error => {
           alert("error!");

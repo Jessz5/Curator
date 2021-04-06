@@ -8,7 +8,7 @@ import searchIcon from "../assets/search.svg";
 import homeIcon from "../assets/home.svg";
 import settingIcon from "../assets/bookmark.svg";
 import ProfileIcon from "../assets/ProfilePic.svg";
-import addIcon from "/Users/andres/Desktop/gme/src/assets/addSong.png";
+import addIcon from "../assets/addSong.png";
 
 /* The Navbar class provides navigation through react router links.  Note the callback
    to the parent app class in the last entry... this is an example of calling a function
