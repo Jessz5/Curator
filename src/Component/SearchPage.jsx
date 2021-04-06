@@ -8,12 +8,9 @@ export default class SearchPage extends React.Component {
         super(props);
         this.state = {
             search: "",
-            userPost: {embed: "", likes: 0, comments: []},
-            img1: "#", name1: "", uri1:"",
-            img2: "#", name2: "", uri2:"",
-            img3: "#", name3: "", uri3:"",
-            img4: "#", name4: "", uri4:"",
-            img5: "#", name5: "", uri5:"",
+            imgs: [],
+            names: [],
+            uris: [],
             authToken: document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
             result: {}
 
@@ -59,30 +56,19 @@ export default class SearchPage extends React.Component {
             .then(res => res.json())
             .then(result => {console.log(result); this.setState({
                     result: result,
-                    img1: result.tracks.items[0].album.images[2].url,
-                    img2: result.tracks.items[1].album.images[2].url,
-                    img3: result.tracks.items[2].album.images[2].url,
-                    img4: result.tracks.items[3].album.images[2].url,
-                    img5: result.tracks.items[4].album.images[2].url,
-                    name1: result.tracks.items[0].name,
-                    name2: result.tracks.items[1].name,
-                    name3: result.tracks.items[2].name,
-                    name4: result.tracks.items[3].name,
-                    name5: result.tracks.items[4].name,
-                    uri1: result.tracks.items[0].uri,
-                    uri2: result.tracks.items[1].uri,
-                    uri3: result.tracks.items[2].uri,
-                    uri4: result.tracks.items[3].uri,
-                    uri5: result.tracks.items[4].uri
+                    imgs: result.tracks.items.map(e => e.album.images[2].url),
+                    names: result.tracks.items.map(e => e.name),
+                    uris: result.tracks.items.map(e => e.uri),
                 });
                 }
             )
     }
 
-    find_song1 = event => {
+    find_song = event => {
         event.preventDefault();
 
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", {
+        //Construct the API call parameters
+        var searchOptions = {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -90,9 +76,11 @@ export default class SearchPage extends React.Component {
             },
             body: JSON.stringify({
                 authorID: sessionStorage.getItem("user"),
-                thumbnailURL :this.state.uri1
+                thumbnailURL :this.state.uris[event.currentTarget.value],
             })
-        })
+        };
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", searchOptions)
             .then(res => res.json())
             .then(
                 result => {
@@ -106,111 +94,6 @@ export default class SearchPage extends React.Component {
             );
 
     };
-    find_song2 = event => {
-        event.preventDefault();
-
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer '+ sessionStorage.getItem("token")
-            },
-            body: JSON.stringify({
-                authorID: sessionStorage.getItem("user"),
-                thumbnailURL :this.state.uri2
-            })
-        })
-            .then(res => res.json())
-            .then(
-                result => {
-                    this.setState({
-                        responseMessage: result.Status
-                    });
-                },
-                error => {
-                    alert("error!");
-                }
-            );
-    };
-    find_song3 = event => {
-        event.preventDefault();
-
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer '+ sessionStorage.getItem("token")
-            },
-            body: JSON.stringify({
-                authorID: sessionStorage.getItem("user"),
-                thumbnailURL :this.state.uri3
-            })
-        })
-            .then(res => res.json())
-            .then(
-                result => {
-                    this.setState({
-                        responseMessage: result.Status
-                    });
-                },
-                error => {
-                    alert("error!");
-                }
-            );
-    };
-    find_song4 = event => {
-        event.preventDefault();
-
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer '+ sessionStorage.getItem("token")
-            },
-            body: JSON.stringify({
-                authorID: sessionStorage.getItem("user"),
-                thumbnailURL :this.state.uri4
-            })
-        })
-            .then(res => res.json())
-            .then(
-                result => {
-                    this.setState({
-                        responseMessage: result.Status
-                    });
-                },
-                error => {
-                    alert("error!");
-                }
-            );
-    };
-    find_song5 = event => {
-        event.preventDefault();
-
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer '+ sessionStorage.getItem("token")
-            },
-            body: JSON.stringify({
-                authorID: sessionStorage.getItem("user"),
-                thumbnailURL :this.state.uri5
-            })
-        })
-            .then(res => res.json())
-            .then(
-                result => {
-                    this.setState({
-                        responseMessage: result.Status
-                    });
-                },
-                error => {
-                    alert("error!");
-                }
-            );
-    };
-
 
 
     render() {
@@ -231,29 +114,29 @@ export default class SearchPage extends React.Component {
                     <p>Find your favorite songs right off of Spotify by searching for a track above!</p>
                 </div>
                 <div id="one" className="searchResults">
-                    <img src={this.state.img1} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="first">{this.state.name1}</span>
-                    <button className="Post" onClick={this.find_song1}>Share Song</button>
+                    <img src={this.state.imgs[0]} onerror="this.style.display='none'" alt="Logo" />
+                    <span id="first">{this.state.names[0]}</span>
+                    <button className="Post" value={1} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="two" className="searchResults">
-                    <img src={this.state.img2} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="second">{this.state.name2}</span>
-                    <button className="Post" onClick={this.find_song2}>Share Song</button>
+                    <img src={this.state.imgs[1]} onerror="this.style.display='none'" alt="Logo" />
+                    <span id="second">{this.state.names[1]}</span>
+                    <button className="Post" value={2} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="three" className="searchResults">
-                    <img src={this.state.img3} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="third">{this.state.name3}</span>
-                    <button className="Post" onClick={this.find_song3}>Share Song</button>
+                    <img src={this.state.imgs[2]} onerror="this.style.display='none'" alt="Logo" />
+                    <span id="third">{this.state.names[2]}</span>
+                    <button className="Post" value={3} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="four" className="searchResults">
-                    <img src={this.state.img4} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="forth">{this.state.name4}</span>
-                    <button className="Post" onClick={this.find_song4}>Share Song</button>
+                    <img src={this.state.imgs[3]} onerror="this.style.display='none'" alt="Logo" />
+                    <span id="forth">{this.state.names[3]}</span>
+                    <button className="Post" value={4} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="five" className="searchResults">
-                    <img src={this.state.img5} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="fifth">{this.state.name5}</span>
-                    <button className="Post" onClick={ this.find_song5}>Share Song</button>
+                    <img src={this.state.imgs[4]} onerror="this.style.display='none'" alt="Logo" />
+                    <span id="fifth">{this.state.names[4]}</span>
+                    <button className="Post" value={5} onClick={this.find_song}>Share Song</button>
                 </div>
             </div>
         );
