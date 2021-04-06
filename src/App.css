@@ -1420,7 +1420,7 @@ a.spotLinkText {
   }
   form.filler {
     position: relative;
-    left: 19%;
+    left: 11%;
   }
   .search-container {
     border-radius: 15px;
@@ -2200,7 +2200,7 @@ top: -2px;
   }
   form.filler {
     position: relative;
-    left: 19%;
+left: 14%;
   }
   .DarkBackground {
     background-color: #010423;
@@ -2381,9 +2381,9 @@ top: -2px;
   }
   #LoginHeader {
     position: relative;
-    left: 31%;
-    width: max-content;
-    top: -32px;
+left: -5%;
+width: max-content;
+top: -32px;
   }
   .MainButton {
     width: 325px;
@@ -2413,11 +2413,11 @@ top: -2px;
     font-family: Quicksand;
     font-style: normal;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 40;
     line-height: 50px;
     text-decoration: unset;
     color: #ffffff;
-    opacity: 0.61;
+    opacity: unset;
     position: relative;
     left: 32px;
   }
@@ -2425,14 +2425,393 @@ top: -2px;
     font-family: Quicksand;
     font-style: normal;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 40px;
     line-height: 50px;
     text-decoration: unset;
     color: #ffffff;
+    opacity: 0.61;
     position: relative;
-    left: -2.6vw;
+    left: 32px;
   }
   a#SignInTitle.TitleOn {
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 50px;
+text-decoration: unset;
+color: #ffffff;
+opacity: 0.61;
+position: relative;
+left: 32px;
+  }
+  .pm {
+    position: relative;
+    top: 5px;
+    padding-left: 15vw;
+  }
+  .account {
+    top: 5px;
+  }
+  .bookmark {
+    top: 5px;
+  }
+  .StatsContainer {
+    display: flex;
+    height: max-content;
+    left: -480px;
+    position: relative;
+    top: 0px;
+    text-align: center;
+  }
+  .Tracks {
+    position: relative !important;
+    width: max-content;
+    font-size: 16px;
+    top: -11%;
+    left: -112%;
+  }
+  .Followers {
+    position: relative !important;
+    width: max-content;
+    top: 18.4%;
+    left: -52%;
+    margin: unset;
+  }
+  .Following {
+    position: relative;
+    width: max-content;
+    font-size: 16px;
+    top: 4%;
+    left: -19px;
+  }
+  img#myTracks {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: -170px;
+  }
+  img#playlist {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: -274px;
+    left: 39%;
+  }
+  #myTracksP {
+    float: right;
+    position: relative;
+    top: -155px;
+    left: -330px;
+  }
+  span {
+    float: right;
+    position: relative;
+    top: -241px;
+    left: -24%;
+  }
+  #myTracks p {
+    float: right;
+    position: relative;
+    left: -50%;
+    top: -151px;
+  }
+  img#profile_picture {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: -100px;
+    left: 40px;
+  }
+  h2#profile_info {
+    position: relative;
+    top: -110px;
+    font-size: 16px;
+    left: 39px;
+    width: auto;
+  }
+  .Stats {
+    font-size: 11px !important;
+    text-align: center;
+  }
+  div.Right-offset {
+    position: relative;
+    top: 29px;
+    left: -17px;
+  }
+  img.sidenav-icon {
+    width: 20px;
+    height: 20px;
+  }
+  form.profileform {
+    position: relative;
+    left: 6vw;
+    top: 121px;
+  }
+  #deleteButtonSettings {
+    position: relative;
+left: 6.7vw;
+top: 241px;
+  }
+  #settingButton {
+    position: relative;
+    top: 28px;
+    left: 0.7vw;
+  }
+  .secondaryButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #fff;
+    color: black;
+    font-family: Quicksand;
+    font-size: 18px;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 25px;
+  }
+  .spotifyInfo {
+    color: black;
+    position: relative;
+    top: 2px;
+    left: 38vw;
+  }
+  p.SpotifyText {
+    position: relative;
+    left: 1vw;
+    color: white;
+    top: 32px;
+    font-size: 14px !important;
+    text-align: center;
+  }
+  #loginLogo {
+    position: relative;
+    left: 17vw;
+  }
+  a.spotLinkText {
+    position: relative;
+    left: 32vw;
+    top: 62px;
+    text-decoration-color: #1db954;
+    color: #1db954;
+}
+}
+@media only screen and (max-width: 360px) {
+  .App {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  #addSongIcon{
+    width: 24px;
+position: relative;
+top: -2px;
+  }
+  form.filler {
+    position: relative;
+left: 12%;
+  }
+  .DarkBackground {
+    background-color: #010423;
+    width: 100vw;
+    height: 100vh;
+  }
+  #TopNavbar {
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    z-index: 3;
+    top: -20px;
+  }
+  #SearchTitle {
+    float: left;
+    position: relative;
+    top: -154px;
+    left: 5%;
+  }
+  form#searchform {
+    position: relative;
+    left: -4%;
+    top: -148px;
+  }
+  .btn {
+    border: none;
+    background: none;
+    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: inherit;
+    padding: 14px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 111px;
+    top: 132px;
+  }
+  ul {
+    text-decoration: none;
+    position: fixed;
+    left: -18vw;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+  }
+  li {
+    list-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+    float: left;
+    display: block;
+    padding-left: 0%;
+  }
+  .grid-container-settings {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr;
+    grid-template-rows: 1fr 1.6fr 0.4fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "profileInfo statsContainer"
+      "myPlaylist myPlaylist"
+      "navBar navBar";
+    background-color: unset;
+  }
+
+  .profileInfo {
+    grid-area: profileInfo;
+    position: relative;
+    top: 99px;
+    left: -30px;
+  }
+
+  h2#profile_info {
+    position: relative;
+    top: -110px;
+    font-size: 16px;
+    left: 39px;
+    width: auto;
+    text-align: unset;
+  }
+  .statsContainer {
+    grid-area: statsContainer;
+    position: relative;
+    top: 0px;
+    left: 2%;
+  }
+
+  .myPlaylist {
+    grid-area: myPlaylist;
+    position: relative;
+    left: -10px;
+  }
+
+  .navBar {
+    grid-area: navBar;
+  }
+
+  #LoginLogo {
+    grid-row: 1 / 3;
+    grid-column: 2/3;
+    position: relative;
+    left: 25%;
+  }
+  .LoginSignupBody {
+    text-align: center;
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 12%;
+    top: -3%;
+  }
+  .FormBody {
+    height: unset;
+    padding-top: unset;
+    margin: 0 auto;
+    width: 50%;
+  }
+  label {
+    display: flow-root;
+    flex-direction: row;
+    text-align: right;
+    line-height: 26px;
+    margin-bottom: 32px;
+    width: 319px;
+    height: 41.61px;
+  }
+  form {
+    position: relative;
+    left: 20%;
+  }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="password"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
+  }
+  .MyPlaylist {
+    position: relative;
+    top: 110px;
+  }
+  #settingButton {
+    position: relative;
+    top: 28px;
+    left: 0.7vw;
+  }
+  .item4 {
+    grid-column: 1/3;
+    grid-row: 2/2;
+    position: relative;
+    top: 20px;
+    left: -9%;
+  }
+  #LoginHeader {
+    position: relative;
+    left: -6%;
+    width: max-content;
+    top: -32px;
+}
+  
+  .MainButton {
+    width: 325px;
+    height: 44.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+
+  #LogInButton {
+    position: relative;
+    left: 1.2%;
+  }
+  a#LogInTitle.TitleOn {
     font-family: Quicksand;
     font-style: normal;
     font-weight: bold;
@@ -2440,8 +2819,42 @@ top: -2px;
     line-height: 50px;
     text-decoration: unset;
     color: #ffffff;
+  }
+  a#SignInTitle.Title.Off {
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 50px;
+text-decoration: unset;
+color: #ffffff;
+opacity: unset;
+position: relative;
+left: 32px;
+  }
+  a#LogInTitle.TitleOff {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
     position: relative;
-    left: 1.3vw;
+    left: 32px;
+  }
+  a#SignInTitle.TitleOn {
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 50px;
+text-decoration: unset;
+color: #ffffff;
+opacity: 0.61;
+position: relative;
+left: 32px;
   }
   .pm {
     position: relative;
