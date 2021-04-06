@@ -66,11 +66,6 @@ export default class CommentForm extends React.Component {
           <br />
           {this.state.postmessage}
         </form>
-        <PostingList
-          ref={this.postListing}
-          parentid={this.props.parent}
-          type="commentlist"
-        />
       </div>
     );
   }

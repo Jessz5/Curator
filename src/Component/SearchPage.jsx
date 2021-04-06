@@ -64,6 +64,15 @@ export default class SearchPage extends React.Component {
             )
     }
 
+    embed_song(id) {
+
+        var str1 = id;
+        var str2 = "https://open.spotify.com/embed/track/";
+        var res = str1.slice(14,36);
+        var str3 = str2.concat(res);
+        return str3
+
+    };
     find_song = event => {
         event.preventDefault();
 
@@ -76,7 +85,8 @@ export default class SearchPage extends React.Component {
             },
             body: JSON.stringify({
                 authorID: sessionStorage.getItem("user"),
-                thumbnailURL :this.state.uris[event.currentTarget.value],
+                content: this.embed_song(this.state.uris[event.currentTarget.value]),
+                type: "Post",
             })
         };
 
@@ -116,27 +126,27 @@ export default class SearchPage extends React.Component {
                 <div id="one" className="searchResults">
                     <img src={this.state.imgs[0]} onerror="this.style.display='none'" alt="Logo" />
                     <span id="first">{this.state.names[0]}</span>
-                    <button className="Post" value={1} onClick={this.find_song}>Share Song</button>
+                    <button className="Post" value={0} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="two" className="searchResults">
                     <img src={this.state.imgs[1]} onerror="this.style.display='none'" alt="Logo" />
                     <span id="second">{this.state.names[1]}</span>
-                    <button className="Post" value={2} onClick={this.find_song}>Share Song</button>
+                    <button className="Post" value={1} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="three" className="searchResults">
                     <img src={this.state.imgs[2]} onerror="this.style.display='none'" alt="Logo" />
                     <span id="third">{this.state.names[2]}</span>
-                    <button className="Post" value={3} onClick={this.find_song}>Share Song</button>
+                    <button className="Post" value={2} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="four" className="searchResults">
                     <img src={this.state.imgs[3]} onerror="this.style.display='none'" alt="Logo" />
                     <span id="forth">{this.state.names[3]}</span>
-                    <button className="Post" value={4} onClick={this.find_song}>Share Song</button>
+                    <button className="Post" value={3} onClick={this.find_song}>Share Song</button>
                 </div>
                 <div id="five" className="searchResults">
                     <img src={this.state.imgs[4]} onerror="this.style.display='none'" alt="Logo" />
                     <span id="fifth">{this.state.names[4]}</span>
-                    <button className="Post" value={5} onClick={this.find_song}>Share Song</button>
+                    <button className="Post" value={4} onClick={this.find_song}>Share Song</button>
                 </div>
             </div>
         );

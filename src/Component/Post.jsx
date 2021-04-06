@@ -60,29 +60,25 @@ export default class Post extends React.Component {
       );
   }
 
+  displayFrame(){
+    return <iframe id="test" src={this.props.post.content} width="300" height="300" frameBorder="0" allowTransparency="true" allow="encrypted-media" />
+  }
+
 
   // we only want to display comment information if this is a post that accepts comments
   conditionalDisplay() {
     console.log("Comment count is " + this.props.post.commentCount);
 
-    //if (this.props.post.commentCount <= 0) {
-    //  return "";
-    //  }
-
-    //else {
+    if (this.props.post.commentCount < 0) {
+      return "";
+      }
+    else {
       return (
         <div className="comment-block">
-
           <div className="comment-indicator">
             <div className="comment-indicator-text">
               {this.getCommentCount()} Comments
             </div>
-            <img
-              src={commentIcon}
-              className="comment-icon"
-              onClick={e => this.showModal()}
-              alt="View Comments"
-            />
           </div>
           <div className={this.showHideComments()}>
             <CommentForm
@@ -93,7 +89,7 @@ export default class Post extends React.Component {
           </div>
         </div>
       );
-    //}
+    }
 
   }
 
@@ -118,19 +114,10 @@ export default class Post extends React.Component {
 
     return (
       <div>
-
-      <div
-        key={this.props.post.id}
-        className={[this.props.type, "postbody"].join(" ")}
-      >
-      <div className="deletePost">
-      {this.props.post.author.username} ({this.props.post.createdAt})
-      {this.showDelete()}
-      </div>
-         <br />{" "}
-        {this.props.post.content}
-        {this.conditionalDisplay()}
-      </div>
+        <div key={this.props.post.id}className={[this.props.type, "postbody"].join(" ")}>
+          {this.displayFrame()}
+          {this.conditionalDisplay()}
+        </div>
       </div>
     );
   }
