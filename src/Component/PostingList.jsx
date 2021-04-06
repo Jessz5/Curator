@@ -21,7 +21,7 @@ export default class PostingList extends React.Component {
   }
 
   loadPosts() {
-    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&authorID=" + + sessionStorage.getItem("user");
+    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&authorID=" + sessionStorage.getItem("user");
 
     fetch(url, {
       method: "get",
