@@ -40,6 +40,7 @@ export default class PostingList extends React.Component {
               posts: result[0]
             });
             console.log("Got Posts");
+            console.log(this.state.posts);
           }
         },
         error => {
