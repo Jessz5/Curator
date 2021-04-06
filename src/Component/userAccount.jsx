@@ -17,9 +17,11 @@ class userAccount extends Component {
             lastname: "",
             favoritesong: "",
             status : "",
-            responseMessage: ""
+            responseMessage: "",
+            friendsCount: 0
         };
         this.fieldChangeHandler.bind(this);
+        this.loadFriends.bind(this);
     }
 
     fieldChangeHandler(field, e) {
@@ -41,7 +43,33 @@ class userAccount extends Component {
             [field]: prefs1
         });
     }
+
+    loadFriends() {
+        //gets all the connections(friends) related to the user
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+sessionStorage.getItem("token")
+          }
+         })
+          .then(res => res.json())
+          .then(
+            result => {
+              if (result) {
+                this.setState({
+                    friendsCount: result.length
+                });
+              }
+            },
+            error => {
+              alert("error!");
+            }
+          );
+      }
+
     componentDidMount() {
+        this.loadFriends();
         console.log("In profile");
         console.log(this.props);
 
@@ -131,7 +159,13 @@ class userAccount extends Component {
                     Followers <br/> 100
                 </text>
             </h1>
-            <h1 className={"Following"}>Following <br/> 100</h1>
+            <header className="Following">
+                <Link to = "/allFriends">
+                    <input type="submit" value="Following" />
+                    <br/>
+                    {this.state.friendsCount}
+                </Link>
+            </header>
             <h1 className={"Tracks"}>Tracks Posted <br/> 20</h1>
         </header>
         <header className="My-tracks">
