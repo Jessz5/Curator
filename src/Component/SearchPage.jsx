@@ -54,12 +54,19 @@ export default class SearchPage extends React.Component {
         //Make the API call to the search page using the given parameters
         fetch(searchURL, searchOptions)
             .then(res => res.json())
-            .then(result => {console.log(result); this.setState({
-                    result: result,
-                    imgs: result.tracks.items.map(e => e.album.images[2].url),
-                    names: result.tracks.items.map(e => e.name),
-                    uris: result.tracks.items.map(e => e.uri),
+            .then(result => {console.log(result); 
+                try{
+                    this.setState({
+                        result: result,
+                        imgs: result.tracks.items.map(e => e.album.images[2].url),
+                        names: result.tracks.items.map(e => e.name),
+                        uris: result.tracks.items.map(e => e.uri),
                 });
+                }
+                catch{
+                    console.log("result undefined")
+                }
+
                 }
             )
     }
