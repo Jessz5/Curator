@@ -13,7 +13,8 @@ export default class SearchPage extends React.Component {
             names: [],
             uris: [],
             authToken: document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
-            result: {}
+            result: {},
+            isHidden: true
 
         };
 
@@ -27,13 +28,14 @@ export default class SearchPage extends React.Component {
 
     clearInput = () => {
         this.setState({
-            search: ""
+            search: "",
+            isHidden: true
         });
     }
 
     searchInput = event => {
         event.preventDefault();
-
+        
         let searchURL = new URL('https://api.spotify.com/v1/search');
         searchURL.search = new URLSearchParams({
             q: this.state.search,
@@ -62,6 +64,7 @@ export default class SearchPage extends React.Component {
                         imgs: result.tracks.items.map(e => e.album.images[2].url),
                         names: result.tracks.items.map(e => e.name),
                         uris: result.tracks.items.map(e => e.uri),
+                        isHidden: false
                 });
                 }
                 catch{
@@ -96,6 +99,7 @@ export default class SearchPage extends React.Component {
                 content: this.embed_song(this.state.uris[event.currentTarget.value]),
                 type: "Post",
             })
+            
         };
 
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/", searchOptions)
@@ -110,52 +114,47 @@ export default class SearchPage extends React.Component {
                     alert("error!");
                 }
             );
-
+         
+             
     };
-
-
     render() {
         return (
             <div className="search-page">
                 <div className="search-container">
                     <form>
-                        <input type="text" onChange={this.searchChangeHandler} />
-                        <button className="Search" onClick={this.searchInput}>Search</button>
-                        <button className="btn cancel" onClick={this.clearInput}>Cancel</button>
+                        <input id="searchBar" type="text" placeholder="Search Curator for songs and share" onChange={this.searchChangeHandler} />
+                        <button className="searchButton" onClick={this.searchInput}>Search</button>
+                        <button className="cancel" onClick={this.clearInput}>Cancel</button>
                     </form>
                 </div>
-                <h2>Search Curator</h2>
-                <div className="search-curator">
-                    <h2>Search Curator</h2>
-                </div>
-                <div className="search-description">
-                    <p>Find your favorite songs right off of Spotify by searching for a track above!</p>
-                </div>
+                <div className="resultContainer">
                 <div id="one" className="searchResults">
-                    <img src={this.state.imgs[0]} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="first">{this.state.names[0]}</span>
-                    <button className="Post" value={0} onClick={this.find_song}>Share Song</button>
+                        <img className="songCover" src={this.state.imgs[0]} onerror="this.style.display='none'" alt="" />
+                        <span className="songName">{this.state.names[0]}</span>
+                        <button  style={{display: this.state.isHidden ? 'none': 'block'}} className="Post" value={0} onClick={this.find_song}>Share</button>
+                    </div>
+                    <div id="two" className="searchResults">
+                        <img className="songCover" src={this.state.imgs[1]} onerror="this.style.display='none'" alt="" />
+                        <span className="songName" >{this.state.names[1]}</span>
+                        <button style={{display: this.state.isHidden ? 'none': 'block'}} className="Post" value={1} onClick={this.find_song}>Share</button>
+                    </div>
+                    <div id="three" className="searchResults">
+                        <img className="songCover" src={this.state.imgs[2]} onerror="this.style.display='none'" alt="" />
+                        <span className="songName">{this.state.names[2]}</span>
+                        <button style={{display: this.state.isHidden ? 'none': 'block'}} className="Post" value={2} onClick={this.find_song}>Share</button>
+                    </div>
+                    <div id="four" className="searchResults">
+                        <img className="songCover" src={this.state.imgs[3]} onerror="this.style.display='none'" alt="" />
+                        <span className="songName" >{this.state.names[3]}</span>
+                        <button style={{display: this.state.isHidden ? 'none': 'block'}} className="Post" value={3} onClick={this.find_song}>Share</button>
+                    </div>
+                    <div id="five" className="searchResults">
+                        <img className="songCover" src={this.state.imgs[4]} onerror="this.style.display='none'" alt="" />
+                        <span  className="songName">{this.state.names[4]}</span>
+                        <button style={{display: this.state.isHidden ? 'none': 'block'}} className="Post" value={4} onClick={this.find_song}>Share</button>
+                    </div>
                 </div>
-                <div id="two" className="searchResults">
-                    <img src={this.state.imgs[1]} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="second">{this.state.names[1]}</span>
-                    <button className="Post" value={1} onClick={this.find_song}>Share Song</button>
-                </div>
-                <div id="three" className="searchResults">
-                    <img src={this.state.imgs[2]} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="third">{this.state.names[2]}</span>
-                    <button className="Post" value={2} onClick={this.find_song}>Share Song</button>
-                </div>
-                <div id="four" className="searchResults">
-                    <img src={this.state.imgs[3]} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="forth">{this.state.names[3]}</span>
-                    <button className="Post" value={3} onClick={this.find_song}>Share Song</button>
-                </div>
-                <div id="five" className="searchResults">
-                    <img src={this.state.imgs[4]} onerror="this.style.display='none'" alt="Logo" />
-                    <span id="fifth">{this.state.names[4]}</span>
-                    <button className="Post" value={4} onClick={this.find_song}>Share Song</button>
-                </div>
+                
             </div>
         );
     }
