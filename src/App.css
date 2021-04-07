@@ -2611,10 +2611,16 @@ form.profileform {
   input.commentButton{
   
   }
-  form.comment-form {
+  button.show-comment {
+    float: right;
     position: relative;
-    top: -45px;
-  }
+    left: -32vw;
+}
+form.comment-form {
+  position: relative;
+  top: -45px;
+  left: -60px;
+}
   .search-page {
     background-color: white;
     height: 100vh;
@@ -2757,12 +2763,15 @@ form.profileform {
   }
   ul {
     text-decoration: none;
-    position: fixed;
-    left: -18vw;
+    position: relative;
+    left: -14vw;
     display: flex;
     flex-direction: row;
     bottom: 0;
-  }
+    background-color: white;
+    height: 5vh;
+    top: 95.5vh;
+}
   li {
     list-style-type: none;
     padding: 0px;
@@ -3132,6 +3141,11 @@ form.profileform {
 
   div.searchResults {
   }
+  textarea {
+    resize: none;
+    width: 230px;
+    height: 100px;
+}
 }
 @media only screen and (max-width: 360px) {
   .songCover {
@@ -3139,10 +3153,16 @@ form.profileform {
   form.comment-form {
     position: relative;
     top: -45px;
+    left: -60px;
   }
   input.commentButton{
   
   }
+  button.show-comment {
+    float: right;
+    position: relative;
+    left: -32vw;
+}
   button.Post {
     position: relative;
     display: block;
@@ -3261,12 +3281,15 @@ form.profileform {
   }
   ul {
     text-decoration: none;
-    position: fixed;
-    left: -18vw;
+    position: relative;
+    left: -14vw;
     display: flex;
     flex-direction: row;
     bottom: 0;
-  }
+    background-color: white;
+    height: 5vh;
+    top: 95.5vh;
+}
   li {
     list-style-type: none;
     padding: 0px;
@@ -3625,4 +3648,9 @@ form.profileform {
   .comment-form {
     position: relative;
   }
+  textarea {
+    resize: none;
+    width: 230px;
+    height: 100px;
+}
 }

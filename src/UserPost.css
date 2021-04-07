@@ -57,3 +57,31 @@ h6 {
   top: 7px;
   left: 331px;
 }
+@media only screen and (max-width: 834px){
+  .SongInfo {
+    position: absolute;
+    top: 143px;
+    left: 27vw;
+}
+}
+@media only screen and (max-width: 768px){
+  .SongInfo {
+    position: absolute;
+    top: 143px;
+    left: 27vw;
+}
+}
+@media only screen and (max-width: 414px){
+  .SongInfo {
+    position: absolute;
+top: 143px;
+left: 14vw;
+}
+}
+@media only screen and (max-width: 360px){
+  .SongInfo {
+    position: absolute;
+    top: 143px;
+    left: 14vw;
+}
+}
