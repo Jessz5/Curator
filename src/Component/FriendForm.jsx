@@ -10,11 +10,8 @@ export default class FriendForm extends React.Component {
       friendid: "",
       responseMessage: "",
       users: [],
-      //friends: []
       isFriend: false
     }
-    //this.getCurrentConnections.bind(this);
-    //this.componentDidMount.bind(this);
     this.fieldChangeHandler.bind(this);
   }
 
@@ -32,35 +29,6 @@ export default class FriendForm extends React.Component {
       console.log("Set Friend ID to "+friendID)
   }
 
-//   getCurrentConnections() {
-//     fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/connections/", {
-//       method: "GET",
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': 'Bearer '+sessionStorage.getItem("token")
-//       }
-//       })
-//       .then(res => res.json())
-//       .then(
-//         result => {
-//           if (result) {
-//             let friendNames = [];
-//             console.log(result[0]);
-//             result[0].forEach(element => {{friendNames.push(element)}});
-//             //console.log(names)
-//             this.setState({
-//               friends: friendNames,
-//               responseMessage: result.Status
-//             });
-//             console.log(friendNames);
-//             console.log(this.state.friends)
-//          }
-//        },
-//        error => {
-//          alert("error!");
-//        }
-//      );
-//   }
     checkInput = () => {
         if (this.state.friendid === "") {
             alert("You did not make a selection");
@@ -109,16 +77,6 @@ export default class FriendForm extends React.Component {
             let names = [];
             console.log(result[0]);
             result[0].forEach(element => {if (element.username){names.push(element)}});
-
-
-           //calls getCurrentConnections
-//            this.getCurrentConnections();
-//            console.log(this.state.friends)
-//            for (var i=0; i < names.size; i++){
-//                if (this.state.friends.includes(names[i])) {
-//                  names.splice(i, 1);
-//                 }
-//             }
 
             this.setState({
               users: names,

@@ -18,9 +18,11 @@ class userAccount extends Component {
             favoritesong: "",
             status : "",
             responseMessage: "",
-            friendsCount: 0
+            friendsCount: 0,
+            followersCount: 0
         };
         this.fieldChangeHandler.bind(this);
+        this.loadFollowers.bind(this);
         this.loadFriends.bind(this);
     }
 
@@ -43,7 +45,29 @@ class userAccount extends Component {
             [field]: prefs1
         });
     }
-
+    loadFollowers(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/connections?connectedUserID="+sessionStorage.getItem("user"), {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+sessionStorage.getItem("token")
+          }
+         })
+          .then(res => res.json())
+          .then(
+            result => {
+              if (result) {
+              console.log(result);
+                this.setState({
+                    followersCount: result[1]
+                });
+              }
+            },
+            error => {
+              alert("error!");
+            }
+          );
+    }
     loadFriends() {
         //gets all the connections(friends) related to the user
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
@@ -57,8 +81,9 @@ class userAccount extends Component {
           .then(
             result => {
               if (result) {
+              //console.log(result[1])
                 this.setState({
-                    friendsCount: result.length
+                    friendsCount: result[1]
                 });
               }
             },
@@ -69,6 +94,7 @@ class userAccount extends Component {
       }
 
     componentDidMount() {
+        this.loadFollowers();
         this.loadFriends();
         console.log("In profile");
         console.log(this.props);
@@ -154,17 +180,19 @@ class userAccount extends Component {
 
         </header>
         <header className="Content">
-            <h1 className={"Followers"}>
-                <text>
-                    Followers <br/> 100
-                </text>
-            </h1>
+            <header className="Followers">
+                <Link to = "/allFollowers">
+                    <input type="submit" value="Followers" />
+                </Link>
+               <br/>
+               {this.state.followersCount}
+            </header>
             <header className="Following">
                 <Link to = "/allFriends">
                     <input type="submit" value="Following" />
-                    <br/>
-                    {this.state.friendsCount}
                 </Link>
+                <br/>
+                {this.state.friendsCount}
             </header>
             <h1 className={"Tracks"}>Tracks Posted <br/> 20</h1>
         </header>
