@@ -13,8 +13,12 @@ export default class Post extends React.Component {
     super(props);
     this.state = {
       showModal: false,
+      error: null,
+      isLoaded: false,
       comments: this.props.post.commentCount,
+      posts: [],
       reaction: 0,
+      showComments: false,
     };
     this.post = React.createRef();
   }
@@ -162,11 +166,6 @@ export default class Post extends React.Component {
         }
     };
 
-  showModal = e => {
-    this.setState({
-      showModal: !this.state.showModal
-    });
-  };
   setCommentCount = newcount => {
     this.setState({
       comments: newcount
@@ -178,12 +177,7 @@ export default class Post extends React.Component {
     }
     return parseInt(this.state.comments);
   }
-  showHideComments() {
-    if (this.state.showModal) {
-      return "comments show";
-    }
-    return "comments hide";
-  }
+
   deletePost(postID) {
     //make the api call to post
     fetch(process.env.REACT_APP_API_PATH+"/posts/"+postID, {
@@ -203,8 +197,14 @@ export default class Post extends React.Component {
       );
   }
 
-  displayFrame(){
-    return <iframe id="test" src={this.props.post.content} width="300" height="300" frameBorder="0" allowTransparency="true" allow="encrypted-media" />
+  displayContent(){
+    if(this.props.post.type == "Post"){
+          return <iframe id="test" src={this.props.post.content} width="300" height="300" frameBorder="0" allowTransparency="true" allow="encrypted-media" />
+    }
+    else{
+          return (this.props.post.content)
+    }
+
   }
 
   displayLikeButton(){
@@ -223,35 +223,102 @@ export default class Post extends React.Component {
     return <img src={thumbsDown} onClick={event => this.dislike(event)}/>
   }
 
+  showCommentBlock = () => {
+    
+    if(this.state.showComments == false){
+          this.setState({
+        showComments: true
+      });
+      this.loadCommentPosts();
+    }
+    else{
+      this.setState({
+        showComments: false
+      });
+    }
+
+}
+
+  maybeDisplayComments(){
+    const {error, isLoaded, posts} = this.state;
+    if (error) {
+      return <div> Error: {error.message} </div>;
+    } else if (!isLoaded) {
+      return <div> Loading... </div>;
+    } else if (posts) {
+
+      if (posts.length > 0){
+      return (
+
+        <div className="comments">
+
+          {posts.map(post => (
+            <Post key={post.id} post={post} type={this.props.type} loadPosts={this.loadPosts}/>
+          ))}
+
+        </div>
+
+      );
+    }else{
+      return (<div> No Posts Found </div>);
+    }
+    } else {
+      return <div> Please Log In... </div>;
+    }
+  }
+
   // we only want to display comment information if this is a post that accepts comments
   conditionalDisplay() {
     console.log("Comment count is " + this.props.post.commentCount);
 
-    if (this.props.post.commentCount < 0) {
+    if (!this.state.showComments) {
       return "";
       }
     else {
-      return (
-        <div className="comment-block">
+      if(this.props.post.type != "Post"){
+        return (
+          <div className="comment-block">
+            <div className="comment-indicator">
+              <div className="comment-indicator-text">
+                {this.getCommentCount()} Comments
+              </div>
+            </div>
+            <br />
+            {this.displayLikeButton()}
+            {this.displayDislikeButton()}
+            {this.checkInput()}
+              <CommentForm
+                onAddComment={this.setCommentCount}
+                parent={this.props.post.id}
+                commentCount={this.getCommentCount()}
+              />
+            {this.maybeDisplayComments()}
+            </div>
+        );
+      }
+      else{
+        return(
+          
+          <div className="comment-block">
           <div className="comment-indicator">
             <div className="comment-indicator-text">
               {this.getCommentCount()} Comments
             </div>
           </div>
-           {this.props.post.content}
-           <br />
-           {this.displayLikeButton()}
-           {this.displayDislikeButton()}
-           {this.checkInput()}
-          <div className={this.showHideComments()}>
+          <br />
+          {this.displayLikeButton()}
+          {this.displayDislikeButton()}
+          {this.checkInput()}
             <CommentForm
               onAddComment={this.setCommentCount}
               parent={this.props.post.id}
               commentCount={this.getCommentCount()}
             />
+          {this.maybeDisplayComments()}
           </div>
-        </div>
-      );
+        );
+      }
+
     }
 
   }
@@ -271,11 +338,45 @@ export default class Post extends React.Component {
     }
     return "";
   }
+
+  loadCommentPosts(){
+    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=comment&parentID=" + this.props.post.id;
+
+    fetch(url, {
+      method: "get",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer '+sessionStorage.getItem("token")
+      },
+
+    })
+      .then(res => res.json())
+      .then(
+        result => {
+          if (result) {
+            this.setState({
+              isLoaded: true,
+              posts: result[0]
+            });
+            console.log("Got Comments");
+            console.log(this.state.posts);
+          }
+        },
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+          console.log("ERROR loading Posts")
+        }
+      );
+  }
   render() {
     return (
       <div>
         <div key={this.props.post.id}className={[this.props.type, "postbody"].join(" ")}>
-          {this.displayFrame()}
+          {this.displayContent()}
+          <button className="show-comment" onClick={this.showCommentBlock}>Show/Hide Comments</button>
           {this.conditionalDisplay()}
         </div>
       </div>
