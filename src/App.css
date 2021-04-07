@@ -6,7 +6,14 @@
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
-div.searchResults{
+textarea {
+  resize: none;
+}
+form.comment-form {
+  position: relative;
+  top: -45px;
+}
+input.commentButton{
 
 }
 .grid-container {
@@ -43,7 +50,7 @@ div.searchResults{
   top: 70px;
   text-align: center;
 }
-#addSongIcon{
+#addSongIcon {
   width: 44px;
   position: relative;
   top: -2px;
@@ -138,7 +145,7 @@ button.MainButton.login {
   background-color: white;
   z-index: 3;
   top: -30px;
-  height: 12vh;
+  height: 90px;
 }
 ul {
   text-decoration: none;
@@ -314,28 +321,28 @@ input[type="password"] {
   padding: 10px;
   border-radius: 25px;
 }
-.songCover{
+.songCover {
   position: relative;
   width: 70px;
 }
-button.Post{
-position: relative;
-    display: block;
-    top: -21px;
-    left: 92px;
-    width: 160px;
-height: 41.61px;
-border-radius: 26px;
-border: 0px;
-background: #1db954;
-color: white;
-font-family: Quicksand;
-font-size: 18px;
+button.Post {
+  position: relative;
+  display: block;
+  top: -21px;
+  left: 92px;
+  width: 160px;
+  height: 41.61px;
+  border-radius: 26px;
+  border: 0px;
+  background: #1db954;
+  color: white;
+  font-family: Quicksand;
+  font-size: 18px;
 }
 #deleteButtonSettings {
   position: relative;
-left: 50.7vw;
-top: 202px;
+  left: 50.7vw;
+  top: 202px;
 }
 #LogInButton {
   position: relative;
@@ -463,9 +470,9 @@ h2#profile_info {
   color: black;
 }
 .search-page {
-    background-color: white;
-    height: 100vh;
-    position: relative;
+  background-color: white;
+  height: 100vh;
+  position: relative;
 }
 input[type="text"]#searchBar {
   width: 464px;
@@ -476,12 +483,12 @@ input[type="text"]#searchBar {
   border-radius: 26px;
   border: 0px;
 }
-div.resultContainer{
+div.resultContainer {
   position: relative;
-top: 190px;
-left: 27vw;
+  top: 190px;
+  left: 27vw;
 }
-span.songName{
+span.songName {
   position: relative;
   top: -50px;
   left: 24px;
@@ -489,12 +496,12 @@ span.songName{
 }
 .search-container {
   border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 140px;
-left: 17%;
+  padding: 30px;
+  width: 880px;
+  height: 5px;
+  position: relative;
+  top: 140px;
+  left: 17%;
 }
 
 .btn {
@@ -610,43 +617,52 @@ form.profileform {
     background-color: white;
     height: 100vh;
     position: relative;
-}
-button.Post{
-  position: relative;
-  display: block;
-  top: -21px;
-  left: 92px;
-
-}
-input[type="text"]#searchBar {
-  width: 464px;
-  height: 41.61px;
-  flex: 0 0 200px;
-  margin-left: 10px;
-  background: #f2f2f2;
-  border-radius: 26px;
-  border: 0px;
-}
-div.resultContainer{
-  position: relative;
-top: 190px;
-left: 27vw;
-}
-span.songName{
-  position: relative;
-  top: -50px;
-  left: 24px;
-  font-size: 20px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 140px;
-left: 17%;
-}
+  }
+  button.show-comment{
+    float: right;
+  }
+  input.commentButton{
+  
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
+  button.Post {
+    position: relative;
+    display: block;
+    top: -21px;
+    left: 92px;
+  }
+  input[type="text"]#searchBar {
+    width: 464px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 190px;
+    left: 27vw;
+  }
+  span.songName {
+    position: relative;
+    top: -50px;
+    left: 24px;
+    font-size: 20px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 140px;
+    left: 17%;
+  }
 
   .searchButton {
     width: 160px;
@@ -659,31 +675,31 @@ left: 17%;
     font-size: 18px;
     position: relative;
     left: 2vw;
-}
+  }
   p.SpotifyText {
     position: relative;
     left: 32vw;
     color: white;
     top: 32px;
-}
-#addSongIcon{
-  width: 44px;
-  position: relative;
-  top: -2px;
-  color: #b91da8;
-}
-a.spotLinkText {
-  position: relative;
-  left: 44vw;
-  top: 62px;
-  text-decoration-color: #1db954;
-  color: #1db954;
-  font-size: 27px;
-}
-img.songCover{
-  position: relative;
-  width: 70px;
-}
+  }
+  #addSongIcon {
+    width: 44px;
+    position: relative;
+    top: -2px;
+    color: #b91da8;
+  }
+  a.spotLinkText {
+    position: relative;
+    left: 44vw;
+    top: 62px;
+    text-decoration-color: #1db954;
+    color: #1db954;
+    font-size: 27px;
+  }
+  img.songCover {
+    position: relative;
+    width: 70px;
+  }
   .App {
     height: 100vh;
     width: 100vw;
@@ -697,7 +713,7 @@ img.songCover{
   #loginLogo {
     position: relative;
     left: 41vw;
-}
+  }
   .spotifyInfo {
     color: black;
     position: relative;
@@ -823,7 +839,7 @@ img.songCover{
     background-color: white;
     z-index: 3;
     top: -30px;
-    height: 12vh;
+    height: 90px;
   }
   #SearchTitle {
     float: left;
@@ -1099,20 +1115,20 @@ img.songCover{
 
   .cancel {
     color: #33cc66;
-position: relative;
-top: 2px;
-left: 4vw;
-width: 165px;
-height: 44.61px;
-border-radius: 50px;
-border: 0px;
-background-color: #fff;
-font-family: Quicksand;
-font-size: 18px;
-border: 2px solid #3c6;
-padding: 10px;
-border-radius: 25px;
-}
+    position: relative;
+    top: 2px;
+    left: 4vw;
+    width: 165px;
+    height: 44.61px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #fff;
+    font-family: Quicksand;
+    font-size: 18px;
+    border: 2px solid #3c6;
+    padding: 10px;
+    border-radius: 25px;
+  }
   .search-curator {
     color: gray;
     margin-top: unset;
@@ -1152,8 +1168,17 @@ border-radius: 25px;
   }
 }
 @media only screen and (max-width: 1025px) {
-  .songCover{
-
+  .songCover {
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
+  button.show-comment{
+    float: right;
+  }
+  input.commentButton{
+  
   }
   .cancel {
     color: #33cc66;
@@ -1170,8 +1195,8 @@ border-radius: 25px;
     border: 2px solid #3c6;
     padding: 10px;
     border-radius: 25px;
-}
-  button.Post{
+  }
+  button.Post {
     position: relative;
     display: block;
     top: -21px;
@@ -1181,36 +1206,36 @@ border-radius: 25px;
     background-color: white;
     height: 100vh;
     position: relative;
-}
-input[type="text"]#searchBar {
-  width: 464px;
-  height: 41.61px;
-  flex: 0 0 200px;
-  margin-left: 10px;
-  background: #f2f2f2;
-  border-radius: 26px;
-  border: 0px;
-}
-div.resultContainer{
-  position: relative;
-top: 190px;
-left: 27vw;
-}
-span.songName{
-  position: relative;
-  top: -50px;
-  left: 24px;
-  font-size: 20px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 140px;
-left: 17%;
-}
+  }
+  input[type="text"]#searchBar {
+    width: 464px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 190px;
+    left: 27vw;
+  }
+  span.songName {
+    position: relative;
+    top: -50px;
+    left: 24px;
+    font-size: 20px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 140px;
+    left: 17%;
+  }
 
   .searchButton {
     width: 160px;
@@ -1223,14 +1248,14 @@ left: 17%;
     font-size: 18px;
     position: relative;
     left: 2vw;
-}
+  }
   .spotifyInfo {
     color: black;
     position: relative;
     top: 232px;
     left: 32vw;
   }
-  #addSongIcon{
+  #addSongIcon {
     width: 44px;
     position: relative;
     top: -2px;
@@ -1331,7 +1356,7 @@ left: 17%;
     background-color: white;
     z-index: 3;
     top: -20px;
-    height: 12vh;
+    height: 90px;
   }
   ul {
     text-decoration: none;
@@ -1587,48 +1612,57 @@ left: 17%;
   }
 }
 @media only screen and (max-width: 1024px) {
-  .songCover{
-
+  .songCover {
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
+  button.show-comment{
+    float: right;
+  }
+  input.commentButton{
+  
   }
   .search-page {
     background-color: white;
     height: 100vh;
     position: relative;
-}
-button.Post{
-  position: relative;
-display: block;
-top: -21px;
-left: 92px;
-}
-input[type="text"]#searchBar {
-  width: 464px;
-  height: 41.61px;
-  flex: 0 0 200px;
-  margin-left: 10px;
-  background: #f2f2f2;
-  border-radius: 26px;
-  border: 0px;
-}
-div.resultContainer{
-  position: relative;
-  top: 250px;
-  left: 9vw;
-}
-span.songName{
-  position: relative;
-  top: -50px;
-  left: 24px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 140px;
-left: 17%;
-}
+  }
+  button.Post {
+    position: relative;
+    display: block;
+    top: -21px;
+    left: 92px;
+  }
+  input[type="text"]#searchBar {
+    width: 464px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 250px;
+    left: 9vw;
+  }
+  span.songName {
+    position: relative;
+    top: -50px;
+    left: 24px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 140px;
+    left: 17%;
+  }
 
   .searchButton {
     width: 160px;
@@ -1641,14 +1675,14 @@ left: 17%;
     font-size: 18px;
     position: relative;
     left: 2vw;
-}
+  }
   .spotifyInfo {
     color: black;
     position: relative;
     top: 232px;
     left: 32vw;
   }
-  #addSongIcon{
+  #addSongIcon {
     width: 44px;
     position: relative;
     top: -2px;
@@ -1687,12 +1721,12 @@ left: 17%;
   }
   .search-container {
     border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 210px;
-left: -12%;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 210px;
+    left: -12%;
   }
   .profileInfo {
     grid-area: profileInfo;
@@ -1854,8 +1888,8 @@ left: -12%;
   }
   #deleteButtonSettings {
     position: relative;
-left: 50.7vw;
-top: 171px;
+    left: 50.7vw;
+    top: 171px;
   }
   #LogInButton {
     position: relative;
@@ -1935,8 +1969,8 @@ top: 171px;
   }
   form.profileform {
     position: relative;
-left: 50vw;
-top: 121px;
+    left: 50vw;
+    top: 121px;
   }
   #settingButton {
     position: relative;
@@ -1967,41 +2001,51 @@ top: 121px;
     background-color: white;
     height: 100vh;
     position: relative;
-}
-button.Post{
-  position: relative;
-display: block;
-top: -21px;
-left: 92px;
-}
-input[type="text"]#searchBar {
-  width: 464px;
-  height: 41.61px;
-  flex: 0 0 200px;
-  margin-left: 10px;
-  background: #f2f2f2;
-  border-radius: 26px;
-  border: 0px;
-}
-div.resultContainer{
-  position: relative;
-  top: 250px;
-  left: 9vw;
-}
-span.songName{
-  position: relative;
-  top: -50px;
-  left: 24px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 140px;
-left: 17%;
-}
+  }
+  button.show-comment{
+    float: right;
+  }
+  input.commentButton{
+  
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
+  button.Post {
+    position: relative;
+    display: block;
+    top: -21px;
+    left: 92px;
+  }
+  input[type="text"]#searchBar {
+    width: 464px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 250px;
+    left: 9vw;
+  }
+  span.songName {
+    position: relative;
+    top: -50px;
+    left: 24px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 140px;
+    left: 17%;
+  }
 
   .searchButton {
     width: 160px;
@@ -2014,8 +2058,8 @@ left: 17%;
     font-size: 18px;
     position: relative;
     left: 2vw;
-}
-  #addSongIcon{
+  }
+  #addSongIcon {
     width: 44px;
     position: relative;
     top: -2px;
@@ -2057,12 +2101,12 @@ left: 17%;
   }
   .search-container {
     border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 200px;
-left: -24%;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 200px;
+    left: -24%;
   }
   .profileInfo {
     grid-area: profileInfo;
@@ -2263,43 +2307,52 @@ left: -24%;
   }
 }
 @media only screen and (max-width: 768px) {
-  .songCover{
-
+  .songCover {
   }
   .search-page {
     background-color: white;
     height: 100vh;
     position: relative;
-}
-input[type="text"]#searchBar {
-  width: 344px;
-height: 41.61px;
-flex: 0 0 200px;
-margin-left: 10px;
-background: #f2f2f2;
-border-radius: 26px;
-border: 0px;
-}
-div.resultContainer{
-  position: relative;
-  top: 190px;
-  left: 5vw;
-}
-span.songName{
-  position: relative;
-  top: -50px;
-  left: 24px;
-  font-size: 20px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 830px;
-height: 5px;
-position: relative;
-top: 140px;
-left: -23%;
-}
+  }
+  button.show-comment{
+    float: right;
+  }
+  input.commentButton{
+  
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
+  input[type="text"]#searchBar {
+    width: 344px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 190px;
+    left: 5vw;
+  }
+  span.songName {
+    position: relative;
+    top: -50px;
+    left: 24px;
+    font-size: 20px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 830px;
+    height: 5px;
+    position: relative;
+    top: 140px;
+    left: -23%;
+  }
 
   .searchButton {
     width: 160px;
@@ -2312,14 +2365,14 @@ left: -23%;
     font-size: 18px;
     position: relative;
     left: 2vw;
-}
+  }
   .spotifyInfo {
     color: black;
     position: relative;
     top: 232px;
     left: 19vw;
   }
-  #addSongIcon{
+  #addSongIcon {
     width: 44px;
     position: relative;
     top: -2px;
@@ -2547,116 +2600,122 @@ left: -23%;
   }
 }
 @media only screen and (max-width: 414px) {
-  .songCover{
-
+  .songCover {
   }
-  button.Post{
+  button.Post {
     position: relative;
     display: block;
     top: -21px;
     left: 92px;
   }
+  input.commentButton{
+  
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
   .search-page {
     background-color: white;
     height: 100vh;
     position: relative;
-}
-input[type="text"]#searchBar {
-  width: 180px;
-height: 41.61px;
-flex: 0 0 200px;
-margin-left: 10px;
-background: #f2f2f2;
-border-radius: 26px;
-border: 0px;
-}
-div.resultContainer{
-  position: relative;
-top: 90px;
-left: 13vw;
-}
-div#one.searchResults span.songName{
-  position: relative;
-top: 0px;
-left: -104px;
-font-size: 13px;
-}
-div#two.searchResults span.songName{
-  position: relative;
-  top: 0px;
-  left: -289px;
-  font-size: 13px;
-}
-div#three.searchResults span.songName{
-  position: relative;
-  top: 0px;
-  left: -282px;
-  font-size: 13px;
-}
-div#four.searchResults span.songName{
-  position: relative;
-top: 1px;
-left: -204px;
-font-size: 13px;
-}
-div#five.searchResults span.songName{
-  position: relative;
-  top: 0px;
-  left: -287px;
-  font-size: 13px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: -11px;
-left: -50%;
-z-index: 4;
-}
+  }
+  input[type="text"]#searchBar {
+    width: 180px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 90px;
+    left: 13vw;
+  }
+  div#one.searchResults span.songName {
+    position: relative;
+    top: 0px;
+    left: -104px;
+    font-size: 13px;
+  }
+  div#two.searchResults span.songName {
+    position: relative;
+    top: 0px;
+    left: -289px;
+    font-size: 13px;
+  }
+  div#three.searchResults span.songName {
+    position: relative;
+    top: 0px;
+    left: -282px;
+    font-size: 13px;
+  }
+  div#four.searchResults span.songName {
+    position: relative;
+    top: 1px;
+    left: -204px;
+    font-size: 13px;
+  }
+  div#five.searchResults span.songName {
+    position: relative;
+    top: 0px;
+    left: -287px;
+    font-size: 13px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: -11px;
+    left: -50%;
+    z-index: 4;
+  }
 
   .searchButton {
     width: 100px;
-height: 41.61px;
-border-radius: 26px;
-border: 0px;
-background: #1db954;
-color: white;
-font-family: Quicksand;
-font-size: 14px;
-position: relative;
-left: 4vw;
-}
-.cancel {
-  color: #33cc66;
-  position: relative;
-  top: 2px;
-  left: 7vw;
-  width: 88px;
-  height: 44.61px;
-  border-radius: 50px;
-  border: 0px;
-  background-color: #fff;
-  font-family: Quicksand;
-  font-size: 15px;
-  border: 2px solid #3c6;
-  padding: 10px;
-  border-radius: 25px;
-}
+    height: 41.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 14px;
+    position: relative;
+    left: 4vw;
+  }
+  .cancel {
+    color: #33cc66;
+    position: relative;
+    top: 2px;
+    left: 7vw;
+    width: 88px;
+    height: 44.61px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #fff;
+    font-family: Quicksand;
+    font-size: 15px;
+    border: 2px solid #3c6;
+    padding: 10px;
+    border-radius: 25px;
+  }
   .App {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
   }
-  #addSongIcon{
+  #addSongIcon {
     width: 24px;
-position: relative;
-top: -2px;
+    position: relative;
+    top: -2px;
   }
   form.filler {
     position: relative;
-left: 14%;
+    left: 14%;
   }
   .DarkBackground {
     background-color: #010423;
@@ -2669,7 +2728,7 @@ left: 14%;
     background-color: white;
     z-index: 3;
     top: -20px;
-    height: 12vh;
+    height: 90px;
   }
   #SearchTitle {
     float: left;
@@ -2838,9 +2897,9 @@ left: 14%;
   }
   #LoginHeader {
     position: relative;
-left: -5%;
-width: max-content;
-top: -32px;
+    left: -5%;
+    width: max-content;
+    top: -32px;
   }
   .MainButton {
     width: 325px;
@@ -2892,15 +2951,15 @@ top: -32px;
   }
   a#SignInTitle.TitleOn {
     font-family: Quicksand;
-font-style: normal;
-font-weight: bold;
-font-size: 40px;
-line-height: 50px;
-text-decoration: unset;
-color: #ffffff;
-opacity: 0.61;
-position: relative;
-left: 32px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 32px;
   }
   .pm {
     position: relative;
@@ -3007,8 +3066,8 @@ left: 32px;
   }
   #deleteButtonSettings {
     position: relative;
-left: 6.7vw;
-top: 241px;
+    left: 6.7vw;
+    top: 241px;
   }
   #settingButton {
     position: relative;
@@ -3052,81 +3111,86 @@ top: 241px;
     top: 62px;
     text-decoration-color: #1db954;
     color: #1db954;
-}
-button.Post {
-  position: relative;
-  display: block;
-  top: -34px;
-  left: 92px;
-  width: 130px;
-  height: 31.61px;
-  border-radius: 26px;
-  border: 0px;
-  background: #1db954;
-  color: white;
-  font-family: Quicksand;
-  font-size: 18px;
-}
-.resultContainer > * {
-  padding-bottom: 10px;
-}
+  }
+  button.Post {
+    position: relative;
+    display: block;
+    top: -34px;
+    left: 92px;
+    width: 130px;
+    height: 31.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+  }
+  .resultContainer > * {
+    padding-bottom: 10px;
+  }
 
-div.searchResults{
-  
-}
+  div.searchResults {
+  }
 }
 @media only screen and (max-width: 360px) {
-  .songCover{
-
+  .songCover {
   }
-  button.Post{
+  form.comment-form {
+    position: relative;
+    top: -45px;
+  }
+  input.commentButton{
+  
+  }
+  button.Post {
     position: relative;
     display: block;
     top: -21px;
     left: 92px;
     width: 160px;
-height: 41.61px;
-border-radius: 26px;
-border: 0px;
-background: #1db954;
-color: white;
-font-family: Quicksand;
-font-size: 18px;
+    height: 41.61px;
+    border-radius: 26px;
+    border: 0px;
+    background: #1db954;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
   }
   .search-page {
     background-color: white;
     height: 100vh;
     position: relative;
-}
-input[type="text"]#searchBar {
-  width: 464px;
-  height: 41.61px;
-  flex: 0 0 200px;
-  margin-left: 10px;
-  background: #f2f2f2;
-  border-radius: 26px;
-  border: 0px;
-}
-div.resultContainer{
-  position: relative;
-top: 190px;
-left: 27vw;
-}
-span.songName{
-  position: relative;
-  top: -50px;
-  left: 24px;
-  font-size: 20px;
-}
-.search-container {
-  border-radius: 15px;
-padding: 30px;
-width: 880px;
-height: 5px;
-position: relative;
-top: 140px;
-left: 17%;
-}
+  }
+  input[type="text"]#searchBar {
+    width: 464px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  div.resultContainer {
+    position: relative;
+    top: 190px;
+    left: 27vw;
+  }
+  span.songName {
+    position: relative;
+    top: -50px;
+    left: 24px;
+    font-size: 20px;
+  }
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 140px;
+    left: 17%;
+  }
 
   .searchButton {
     width: 160px;
@@ -3139,20 +3203,20 @@ left: 17%;
     font-size: 18px;
     position: relative;
     left: 2vw;
-}
+  }
   .App {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
   }
-  #addSongIcon{
+  #addSongIcon {
     width: 24px;
-position: relative;
-top: -2px;
+    position: relative;
+    top: -2px;
   }
   form.filler {
     position: relative;
-left: 12%;
+    left: 12%;
   }
   .DarkBackground {
     background-color: #010423;
@@ -3165,7 +3229,10 @@ left: 12%;
     background-color: white;
     z-index: 3;
     top: -20px;
-    height: 12vh;
+    height: 90px;
+  }
+  button.show-comment{
+    float: right;
   }
   #SearchTitle {
     float: left;
@@ -3337,8 +3404,8 @@ left: 12%;
     left: -6%;
     width: max-content;
     top: -32px;
-}
-  
+  }
+
   .MainButton {
     width: 325px;
     height: 44.61px;
@@ -3365,15 +3432,15 @@ left: 12%;
   }
   a#SignInTitle.Title.Off {
     font-family: Quicksand;
-font-style: normal;
-font-weight: bold;
-font-size: 40px;
-line-height: 50px;
-text-decoration: unset;
-color: #ffffff;
-opacity: unset;
-position: relative;
-left: 32px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: unset;
+    position: relative;
+    left: 32px;
   }
   a#LogInTitle.TitleOff {
     font-family: Quicksand;
@@ -3389,15 +3456,15 @@ left: 32px;
   }
   a#SignInTitle.TitleOn {
     font-family: Quicksand;
-font-style: normal;
-font-weight: bold;
-font-size: 40px;
-line-height: 50px;
-text-decoration: unset;
-color: #ffffff;
-opacity: 0.61;
-position: relative;
-left: 32px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: unset;
+    color: #ffffff;
+    opacity: 0.61;
+    position: relative;
+    left: 32px;
   }
   .pm {
     position: relative;
@@ -3504,8 +3571,8 @@ left: 32px;
   }
   #deleteButtonSettings {
     position: relative;
-left: 6.7vw;
-top: 241px;
+    left: 6.7vw;
+    top: 241px;
   }
   #settingButton {
     position: relative;
@@ -3543,8 +3610,7 @@ top: 241px;
     position: relative;
     left: 17vw;
   }
-  div.searchResults{
-  
+  div.searchResults {
   }
   a.spotLinkText {
     position: relative;
@@ -3552,16 +3618,11 @@ top: 241px;
     top: 62px;
     text-decoration-color: #1db954;
     color: #1db954;
+  }
+  .comment-block {
+    float: right;
+  }
+  .comment-form {
+    position: relative;
+  }
 }
-.comment-block{
-  float:right;
-}
-.comment-form{
-  position: relative;
-}
-}
-
-
-
-
-

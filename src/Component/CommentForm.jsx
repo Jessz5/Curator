@@ -62,7 +62,7 @@ export default class CommentForm extends React.Component {
           </label>
           <br />
 
-          <input type="submit" value="submit" />
+          <input className="commentButton" type="submit" value="submit" style={{position: "relative",top: "20px"}}/>
           <br />
           {this.state.postmessage}
         </form>
