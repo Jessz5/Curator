@@ -7,17 +7,9 @@ export default class UserPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts : []
-
-
         };
 
     }
-    componentDidMount() {
-
-
-    };
-
 
     submitHandler = event => {
         //keep the form from actually submitting

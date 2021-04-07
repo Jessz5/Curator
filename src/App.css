@@ -3556,7 +3556,12 @@ top: 241px;
 .comment-block{
   float:right;
 }
+
+.comment-form{
+  position: relative;
 }
+}
+
 
 
 
