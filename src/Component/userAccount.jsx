@@ -137,7 +137,7 @@ class userAccount extends Component {
   <div className="myPlaylist">
   <div className="myTracks">
  <img id ="myTracks"src={my_tracks} alt="profile" width="150" height="150" />
-            <p id="myTracksP">My Tracks</p>
+            <span>My Tracks</span>
  </div>
  <div className="MyPlaylist">
  <img id="playlist"src={playlist} alt="profile" width="150" height="150" />
