@@ -25,6 +25,7 @@ import SearchPage from "./Component/SearchPage.jsx";
 import "./searchpage.css";
 import FriendList from "./Component/FriendList.jsx";
 import FriendForm from "./Component/FriendForm.jsx";
+import ListOfFollowers from "./Component/ListOfFollowers.jsx";
 import UserPost from "./Component/UserPost";
 import StyleGuide from "./Component/StyleGuide.jsx";
 
@@ -148,6 +149,7 @@ class App extends React.Component {
 
             <Route path="/findFriends" component={FriendForm}/>
             <Route path="/allFriends" component={FriendList}/>
+            <Route path="/allFollowers" component={ListOfFollowers}/>
 
             <Route exact path="/" component={LogInBanner}/>
 
