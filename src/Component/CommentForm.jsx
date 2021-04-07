@@ -29,7 +29,7 @@ export default class CommentForm extends React.Component {
         content: this.state.post_text,
         parentID: this.props.parent,
         thumbnailURL: "",
-        type: "post"
+        type: "comment"
       })
     })
       .then(res => res.json())
@@ -54,11 +54,11 @@ export default class CommentForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.submitHandler}>
+        <form className = "comment-form" onSubmit={this.submitHandler}>
           <label>
             Add A Comment to Post {"#" + this.props.parent}
             <br />
-            <textarea rows="10" cols="70" onChange={this.myChangeHandler} />
+            <textarea rows="4" cols="50" onChange={this.myChangeHandler} />
           </label>
           <br />
 
