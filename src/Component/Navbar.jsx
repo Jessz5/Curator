@@ -30,7 +30,7 @@ class Navbar extends React.Component {
         <Link to="/search">
             <img
               id="addSongIcon"
-              src={addIcon}
+              src={searchIcon}
               className="sidenav-icon"
               alt="Friends"
               title="Friends"
