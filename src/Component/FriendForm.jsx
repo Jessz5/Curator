@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import Autocomplete from "./Autocomplete.jsx";
+import {Link} from "react-router-dom";
 
 export default class FriendForm extends React.Component {
   constructor(props) {
@@ -142,6 +143,12 @@ export default class FriendForm extends React.Component {
         </label>
         <input type="submit" value="submit" />
         {this.state.responseMessage}
+        <br /><br /><br />
+        <div>
+          <Link className="secondaryButton" to = "/userAccount">
+                Back to User Account
+          </Link>
+        </div>
       </form>
     );
   }
