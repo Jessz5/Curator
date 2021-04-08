@@ -94,29 +94,39 @@ export default class SignUpForm extends React.Component {
           <form>
               <label>
                 <div className="fields">
-                
+                Username
                 </div>
-              <input className="Username login" type="text" onChange={this.myChangeHandler}/>
+              <input
+                  className="Username"
+                     type="text"
+                     placeholder = "Enter Username"
+                  onChange={this.myChangeHandler}
+              />
               </label>
               <label>
                 <div className="fields">
-                
+                Password
                 </div>
-              <input className="password login" type="password" onChange={this.passwordChangeHandler}/>
+              <input
+                  className="password"
+                  placeholder = "Enter Password"
+                  type="password"
+                  onChange={this.passwordChangeHandler}
+              />
             </label>
               <label>
                 <div className="fields">
-                   
+                  Verify Password
                 </div>
                 <input
-                    className="password login"
+                    placeholder="Verify Password"
+                    className="password"
                     type="password"
-                    placeholder="Verify PassWord"
                     onChange={this.verifyPasswordChangeHandler}
                 />
               </label>
               <div className="button_signup">
-              <button className="MainButton login" onClick={this.signUp}>Sign Up</button>
+              <button className="MainButton" onClick={this.signUp}>Sign Up</button>
               </div>
             </form>
       </div>

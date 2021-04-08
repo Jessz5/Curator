@@ -20,19 +20,9 @@ export default class PostingList extends React.Component {
 
   }
 
-  componentDidUpdate(prevProps) {
-    console.log("PrevProps "+prevProps.refresh);
-    console.log("Props "+this.props.refresh);
-    if (prevProps.refresh !== this.props.refresh){
-      this.loadPosts();
-    }
-  }
-
   loadPosts() {
-    let url = process.env.REACT_APP_API_PATH+"/posts?parentID=";
-    if (this.props && this.props.parentid){
-      url += this.props.parentid;
-    }
+    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user");
+
     fetch(url, {
       method: "get",
       headers: {
@@ -50,6 +40,7 @@ export default class PostingList extends React.Component {
               posts: result[0]
             });
             console.log("Got Posts");
+            console.log(this.state.posts);
           }
         },
         error => {
@@ -63,7 +54,6 @@ export default class PostingList extends React.Component {
   }
 
   render() {
-    //this.loadPosts();
     const {error, isLoaded, posts} = this.state;
     if (error) {
       return <div> Error: {error.message} </div>;

@@ -3,11 +3,8 @@ import profile_photo from './profile_photo.jpg'
 import my_tracks from './my_tracks.jpg'
 import playlist from './playlist.png'
 import './user_account_style.css'
-import '../App.css';
 import settings from "./settings";
 import {Link} from "react-router-dom";
-import Navbar from './Navbar';
-import PostForm from './PostForm';
 
 
 class userAccount extends Component {
@@ -20,9 +17,13 @@ class userAccount extends Component {
             lastname: "",
             favoritesong: "",
             status : "",
-            responseMessage: ""
+            responseMessage: "",
+            friendsCount: 0,
+            followersCount: 0
         };
         this.fieldChangeHandler.bind(this);
+        this.loadFollowers.bind(this);
+        this.loadFriends.bind(this);
     }
 
     fieldChangeHandler(field, e) {
@@ -44,7 +45,57 @@ class userAccount extends Component {
             [field]: prefs1
         });
     }
+    loadFollowers(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/connections?connectedUserID="+sessionStorage.getItem("user"), {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+sessionStorage.getItem("token")
+          }
+         })
+          .then(res => res.json())
+          .then(
+            result => {
+              if (result) {
+              console.log(result);
+                this.setState({
+                    followersCount: result[1]
+                });
+              }
+            },
+            error => {
+              alert("error!");
+            }
+          );
+    }
+    loadFriends() {
+        //gets all the connections(friends) related to the user
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+sessionStorage.getItem("token")
+          }
+         })
+          .then(res => res.json())
+          .then(
+            result => {
+              if (result) {
+              //console.log(result[1])
+                this.setState({
+                    friendsCount: result[1]
+                });
+              }
+            },
+            error => {
+              alert("error!");
+            }
+          );
+      }
+
     componentDidMount() {
+        this.loadFollowers();
+        this.loadFriends();
         console.log("In profile");
         console.log(this.props);
 
@@ -119,53 +170,44 @@ class userAccount extends Component {
 
     render() {
         return (
-       
-            <div className="PostGrid">
-    <div class="NavContainer">
-      <Navbar/>
-    </div>
-  <div class="Right-offset">
-  <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
-            <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
- </label> </h2>
- <div className="myTracks">
- <img id ="myTracks"src={my_tracks} alt="profile" width="150" height="150" />
-            <p id="myTracksP">My Tracks</p>
- </div>
- <div className="myPlaylist">
- <img id="playlist"src={playlist} alt="profile" width="150" height="150" />
-            <span>My Playlist's</span>
- </div>
-           
-  </div>
-  <div class="Left-Offset"></div>
-  <div class="Post1">
-  <div className = "StatsContainer"> 
-  <h1 className={"Stats Followers"}>
-                <text>
-                    Followers <br/> 100
-                </text>
-            </h1>
-            <h1 className={"Stats Following"}>Following <br/> 100</h1>
-            <h1 className={"Stats Tracks"}>Tracks Posted <br/> 20</h1>
-  </div>
-  </div>
+        <div className="App_Settings">
 
-  <div class="Post2"></div>
-  <div class="Post3">
-  
-  </div>
-  <div class="Post4">
-  
-  </div>
-  <div class="Post5"></div>
-  <div class="Post6">
-  <Link to = "/usersettings">
-                    <input type="submit" value="Edit User Settings" />
+        <header className="Header_app">
+            <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
+            <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
+
+            </label> </h2>
+
+        </header>
+        <header className="Content">
+            <header className="Followers">
+                <Link className="secondaryButton" id = "allFollowers" to = "/allFollowers">
+                    Followers
                 </Link>
-  </div>
-    </div>
-      
+               <br/>
+               {this.state.followersCount}
+            </header>
+            <header className="Following">
+                <Link  className ="secondaryButton" to = "/allFriends">
+                    Following
+                </Link>
+                <br/>
+                {this.state.friendsCount}
+            </header>
+        </header>
+        <header className="My-tracks">
+            <img src={my_tracks} alt="profile" width="150" height="150" />
+            <p>My Tracks</p>
+        </header>
+        <header className="playlist">
+            <img src={playlist} alt="profile" width="150" height="150" />
+                <span id="playlistTitle">My Playlist's</span>
+        </header>
+                <Link className="secondaryButton" id="editSettings" to = "/usersettings">
+                Edit User Settings
+                </Link>
+
+        </div>
 
         );
     }

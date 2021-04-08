@@ -18,7 +18,7 @@ export default class CommentForm extends React.Component {
 
     //make the api call to the authentication page
 
-    fetch(process.env.REACT_APP_API_PATH+"/posts", {
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts", {
       method: "post",
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export default class CommentForm extends React.Component {
         content: this.state.post_text,
         parentID: this.props.parent,
         thumbnailURL: "",
-        type: "post"
+        type: "comment"
       })
     })
       .then(res => res.json())
@@ -37,7 +37,8 @@ export default class CommentForm extends React.Component {
         result => {
           // update the count in the UI manually, to avoid a database hit
           this.props.onAddComment(this.props.commentCount + 1);
-          this.postListing.current.loadPosts();
+          //Figure out how to refresh the page to show the new comment on creation
+          this.props.loadPosts();
         },
         error => {
           alert("error!");
@@ -54,23 +55,18 @@ export default class CommentForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.submitHandler}>
+        <form className = "comment-form" onSubmit={this.submitHandler}>
           <label>
-            Add A Comment to Post {this.props.parent}
+            Add A Comment to Post {"#" + this.props.parent}
             <br />
-            <textarea rows="10" cols="70" onChange={this.myChangeHandler} />
+            <textarea rows="4" cols="50" onChange={this.myChangeHandler} />
           </label>
           <br />
 
-          <input type="submit" value="submit" />
+          <input className="commentButton" type="submit" value="submit" style={{position: "relative",top: "20px"}}/>
           <br />
           {this.state.postmessage}
         </form>
-        <PostingList
-          ref={this.postListing}
-          parentid={this.props.parent}
-          type="commentlist"
-        />
       </div>
     );
   }
