@@ -127,7 +127,7 @@ class settings extends Component {
         event.preventDefault();
         //make the api call to the user controller
 
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+ this.state.id, {
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+ sessionStorage.getItem("user"), {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
