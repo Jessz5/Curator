@@ -161,8 +161,7 @@ class App extends React.Component {
             <Route path = "/SignUpForm" component={SignUpForm}/>
             <Route path = "/StyleGuide" component={StyleGuide}/>
             <Route path="/userAccount">
-            <div className="Nav_Wrapper_Account">
-              </div>
+            <Navbar/>
             <UserAccount/>
             </Route>  
             <Route path="/userSettings" 

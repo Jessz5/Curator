@@ -181,15 +181,15 @@ class userAccount extends Component {
         </header>
         <header className="Content">
             <header className="Followers">
-                <Link to = "/allFollowers">
-                    <input type="submit" value="Followers" />
+                <Link className="secondaryButton" id = "allFollowers" to = "/allFollowers">
+                    Followers
                 </Link>
                <br/>
                {this.state.followersCount}
             </header>
             <header className="Following">
-                <Link to = "/allFriends">
-                    <input type="submit" value="Following" />
+                <Link  className ="secondaryButton" to = "/allFriends">
+                    Following
                 </Link>
                 <br/>
                 {this.state.friendsCount}
@@ -202,13 +202,11 @@ class userAccount extends Component {
         </header>
         <header className="playlist">
             <img src={playlist} alt="profile" width="150" height="150" />
-                <span>My Playlist's</span>
+                <span id="playlistTitle">My Playlist's</span>
         </header>
-            <header className="button-css">
-                <Link to = "/usersettings">
-                    <input type="submit" value="Edit User Settings" />
+                <Link className="secondaryButton" id="editSettings" to = "/usersettings">
+                Edit User Settings
                 </Link>
-            </header>
 
         </div>
 

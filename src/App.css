@@ -320,6 +320,7 @@ input[type="password"] {
   border: 2px solid #3c6;
   padding: 10px;
   border-radius: 25px;
+  text-decoration: unset;
 }
 .songCover {
   position: relative;
@@ -612,12 +613,30 @@ form.profileform {
   position: relative;
   left: 2vw;
 }
+a#editSettings.secondaryButton {
+  position: relative;
+  width: 145px;
+  padding: 0 8px 10px 8px;
+  display: inline-block;
+  left: 98px;
+  top: 40px;
+  height: 14.61px;
+}
+
 @media only screen and (max-width: 1440px) {
+  .App{
+    overflow-x: hidden;
+  }
   .search-page {
     background-color: white;
     height: 100vh;
     position: relative;
   }
+  img#profile_picture { 
+    position: relative;
+    top: 30px;
+    left: 170px;
+}
   button.show-comment{
     float: right;
   }
@@ -779,22 +798,24 @@ form.profileform {
     top: 40px;
   }
 
-  .Followers {
+  .Followers{
     position: absolute;
-    margin-left: 900px;
-    margin-right: 9em;
-    width: 15em;
-    font-size: 35px;
-    top: 20%;
+margin-left: unset;
+margin-right: unset;
+width: 15em;
+font-size: 35px;
+left: 53%;
+text-align: center;
   }
 
   .Following {
     position: absolute;
-    margin-left: 1200px;
-    margin-right: 9em;
-    width: 15em;
-    font-size: 35px;
-    top: 20%;
+margin-left: unset;
+margin-right: unset;
+width: 15em;
+font-size: 35px;
+left: 71%;
+text-align: center;
   }
   .Tracks {
     position: absolute;
@@ -802,7 +823,8 @@ form.profileform {
     margin-right: 9em;
     width: 15em;
     font-size: 35px;
-    top: 20%;
+    top: 17%;
+
   }
 
   .My-tracks {
@@ -1011,6 +1033,7 @@ form.profileform {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
+    text-decoration: unset;
   }
   #deleteButtonSettings {
     position: relative;
@@ -1166,6 +1189,15 @@ form.profileform {
     top: 28px;
     left: 0.7vw;
   }
+}
+a#editSettings.secondaryButton {
+  position: relative;
+  width: 145px;
+  padding: 0 8px 10px 8px;
+  display: inline-block;
+  left: 98px;
+  top: 40px;
+  height: 14.61px;
 }
 @media only screen and (max-width: 1025px) {
   .songCover {
@@ -1531,6 +1563,7 @@ form.profileform {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
+    text-decoration: unset;
   }
   #deleteButtonSettings {
     position: relative;
@@ -1618,8 +1651,16 @@ form.profileform {
     position: relative;
     top: -45px;
   }
+  .Header_app{
+    position: relative;
+    top: 110px;
+  }
   button.show-comment{
     float: right;
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
   }
   input.commentButton{
   
@@ -1778,14 +1819,36 @@ form.profileform {
     margin: unset;
   }
   .Following {
-    position: fixed;
-    margin-left: unset;
-    margin-right: 9em;
-    width: max-content;
-    font-size: 35px;
-    top: 13%;
-    left: 82%;
+    position: fixed !important;
+width: max-content;
+font-size: 35px;
+top: 198px;
+left: 83%;
+margin: unset;
   }
+  .My-tracks {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 28%;
+    text-align: center;
+}
+.playlist {
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  top: 43%;
+  text-align: center;
+}
+  img#profile_picture {
+    position: relative;
+    top: 30px;
+    left: 90px;
+    width: 150px;
+    height: 150px;
+}
   #LoginLogo {
     grid-row: 1 / 3;
     grid-column: 2/3;
@@ -1885,6 +1948,7 @@ form.profileform {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
+    text-decoration: unset;
   }
   #deleteButtonSettings {
     position: relative;
@@ -1995,6 +2059,20 @@ form.profileform {
     text-decoration-color: #1db954;
     color: #1db954;
   }
+  a#editSettings.secondaryButton {
+    position: relative;
+    width: 145px;
+    padding: 0 8px 10px 8px;
+    display: inline-block;
+    left: 98px;
+    top: 40px;
+    height: 14.61px;
+}
+h2#profile_info {
+  text-align: center;
+  position: relative;
+  left: -34%;
+}
 }
 @media only screen and (max-width: 834px) {
   .search-page {
@@ -2002,8 +2080,17 @@ form.profileform {
     height: 100vh;
     position: relative;
   }
+  h2#profile_info {
+    text-align: center;
+    position: relative;
+    left: -34%;
+}
   button.show-comment{
     float: right;
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
   }
   input.commentButton{
   
@@ -2088,6 +2175,57 @@ form.profileform {
     width: 100vw;
     height: 100vh;
   }
+  .Tracks {
+    position: fixed;
+margin-left: unset;
+margin-right: 9em;
+width: max-content;
+font-size: 35px;
+top: 17%;
+left: 36%;
+font-size: 23px;
+text-align: center;
+  }
+  .Followers {
+    position: fixed !important;
+margin-right: unset;
+width: max-content;
+font-size: 35px;
+top: 197px;
+left: 64%;
+margin: unset;
+  }
+  .Following {
+    position: fixed !important;
+width: max-content;
+font-size: 35px;
+top: 198px;
+left: 83%;
+margin: unset;
+  }
+  .My-tracks {
+    position: absolute;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 20px;
+top: 38%;
+text-align: center;
+}
+.playlist {
+  position: absolute;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 20px;
+top: 59%;
+text-align: center;
+}
+  img#profile_picture {
+    position: relative;
+    top: 30px;
+    left: 90px;
+    width: 150px;
+    height: 150px;
+}
   .grid-container-settings {
     display: grid;
     grid-template-columns: 0.6fr 1.4fr;
@@ -2221,6 +2359,7 @@ form.profileform {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
+    text-decoration: unset;
   }
   #deleteButtonSettings {
     position: relative;
@@ -2305,17 +2444,33 @@ form.profileform {
     top: 28px;
     left: 0.7vw;
   }
+  a#editSettings.secondaryButton {
+    position: relative;
+width: 145px;
+padding: 0 8px 10px 8px;
+display: inline-block;
+left: 50px;
+top: 40px;
+height: 14.61px;
+}
 }
 @media only screen and (max-width: 768px) {
-  .songCover {
-  }
   .search-page {
     background-color: white;
     height: 100vh;
     position: relative;
   }
+  h2#profile_info {
+    text-align: center;
+    position: relative;
+    left: -31%;
+}
   button.show-comment{
     float: right;
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
   }
   input.commentButton{
   
@@ -2324,8 +2479,14 @@ form.profileform {
     position: relative;
     top: -45px;
   }
+  button.Post {
+    position: relative;
+    display: block;
+    top: -21px;
+    left: 92px;
+  }
   input[type="text"]#searchBar {
-    width: 344px;
+    width: 464px;
     height: 41.61px;
     flex: 0 0 200px;
     margin-left: 10px;
@@ -2335,23 +2496,22 @@ form.profileform {
   }
   div.resultContainer {
     position: relative;
-    top: 190px;
-    left: 5vw;
+    top: 250px;
+    left: 9vw;
   }
   span.songName {
     position: relative;
     top: -50px;
     left: 24px;
-    font-size: 20px;
   }
   .search-container {
     border-radius: 15px;
     padding: 30px;
-    width: 830px;
+    width: 880px;
     height: 5px;
     position: relative;
     top: 140px;
-    left: -23%;
+    left: 17%;
   }
 
   .searchButton {
@@ -2366,12 +2526,6 @@ form.profileform {
     position: relative;
     left: 2vw;
   }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 232px;
-    left: 19vw;
-  }
   #addSongIcon {
     width: 44px;
     position: relative;
@@ -2380,16 +2534,15 @@ form.profileform {
   }
   p.SpotifyText {
     position: relative;
-    left: 11vw;
+    left: 8vw;
     color: white;
     top: 32px;
-    font-size: 20px;
+    font-size: 24px;
   }
   .App {
     height: 100vh;
     width: 100vw;
   }
-
   .grid-container {
     display: grid;
     grid-template-columns: 244px 244px 244px 244px;
@@ -2402,6 +2555,57 @@ form.profileform {
     width: 100vw;
     height: 100vh;
   }
+  .Tracks {
+    position: fixed;
+margin-left: unset;
+margin-right: 9em;
+width: max-content;
+font-size: 35px;
+top: 17%;
+left: 36%;
+font-size: 23px;
+text-align: center;
+  }
+  .Followers {
+    position: fixed !important;
+margin-right: unset;
+width: max-content;
+font-size: 35px;
+top: 197px;
+left: 64%;
+margin: unset;
+  }
+  .Following {
+    position: fixed !important;
+width: max-content;
+font-size: 35px;
+top: 198px;
+left: 83%;
+margin: unset;
+  }
+  .My-tracks {
+    position: absolute;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 20px;
+top: 38%;
+text-align: center;
+}
+.playlist {
+  position: absolute;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 20px;
+top: 59%;
+text-align: center;
+}
+  img#profile_picture {
+    position: relative;
+    top: 30px;
+    left: 90px;
+    width: 150px;
+    height: 150px;
+}
   .grid-container-settings {
     display: grid;
     grid-template-columns: 0.6fr 1.4fr;
@@ -2413,7 +2617,15 @@ form.profileform {
       "navBar navBar";
     background-color: unset;
   }
-
+  .search-container {
+    border-radius: 15px;
+    padding: 30px;
+    width: 880px;
+    height: 5px;
+    position: relative;
+    top: 200px;
+    left: -24%;
+  }
   .profileInfo {
     grid-area: profileInfo;
     position: relative;
@@ -2430,7 +2642,10 @@ form.profileform {
     position: relative;
     left: 30px;
   }
-
+  form.filler {
+    position: relative;
+    left: 20%;
+  }
   .navBar {
     grid-area: navBar;
   }
@@ -2438,7 +2653,7 @@ form.profileform {
     grid-row: 1 / 3;
     grid-column: 2/3;
     position: relative;
-    left: 108%;
+    left: 123%;
   }
   .LoginSignupBody {
     text-align: center;
@@ -2491,12 +2706,16 @@ form.profileform {
     border-radius: 26px;
     border: 0px;
   }
+  form#searchform {
+    position: relative;
+    left: 5%;
+  }
   .item4 {
     grid-column: 2/4;
     grid-row: 2/ 4;
     position: relative;
     top: -140px;
-    left: -113px;
+    left: -65px;
   }
   .MainButton {
     width: 325px;
@@ -2520,11 +2739,7 @@ form.profileform {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
-  }
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 181px;
+    text-decoration: unset;
   }
   #deleteButtonSettings {
     position: relative;
@@ -2591,17 +2806,50 @@ form.profileform {
   label.settingLable {
     text-align: left !important;
   }
-  #userInformation {
+
+  form.profileform {
+    position: relative;
+    left: 50vw;
+    top: 181px;
+  }
+  #deleteButtonSettings {
+    position: relative;
+    left: 50.7vw;
+    top: 232px;
   }
   #settingButton {
     position: relative;
     top: 28px;
     left: 0.7vw;
   }
+  a#editSettings.secondaryButton {
+    position: relative;
+width: 145px;
+padding: 0 8px 10px 8px;
+display: inline-block;
+left: 50px;
+top: 40px;
+height: 14.61px;
+}
 }
 @media only screen and (max-width: 414px) {
   .songCover {
   }
+  a#editSettings.secondaryButton {
+    position: relative;
+    width: 145px;
+    padding: 0 8px 10px 8px;
+    display: inline-block;
+    left: 8px;
+    top: -350px;
+    height: 14.61px;
+}
+span#playlistTitle{
+  float: right;
+position: relative;
+top: 159px;
+left: -54%;
+}
   button.Post {
     position: relative;
     display: block;
@@ -2728,14 +2976,18 @@ form.comment-form {
     width: 100vw;
     height: 100vh;
   }
-  #TopNavbar {
-    position: fixed;
-    width: 100vw;
-    background-color: white;
-    z-index: 3;
-    top: -20px;
-    height: 90px;
-  }
+  .Header_app {
+    position: relative;
+    top: 50px;
+}
+#TopNavbar {
+  position: relative;
+  width: 100vw;
+  background-color: unset;
+  z-index: -1;
+  top: -20px;
+  height: unset;
+}
   #SearchTitle {
     float: left;
     position: relative;
@@ -2771,6 +3023,10 @@ form.comment-form {
     background-color: white;
     height: 5vh;
     top: 95.5vh;
+}
+header.content{
+  position: relative;
+top: -250px;
 }
   li {
     list-style-type: none;
@@ -2999,23 +3255,40 @@ form.comment-form {
   .Followers {
     position: relative !important;
     width: max-content;
-    top: 18.4%;
-    left: -52%;
+    top: -94.6%;
+    left: 75%;
     margin: unset;
   }
   .Following {
-    position: relative;
+    position: relative !important;
     width: max-content;
     font-size: 16px;
-    top: 4%;
-    left: -19px;
-  }
+    top: -84px;
+    left: 191px;
+    font-size: 33px;
+}
   img#myTracks {
     width: 100px;
     height: 100px;
     position: relative;
     top: -170px;
   }
+  .My-tracks {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 28%;
+    text-align: center;
+}
+.playlist {
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  top: 54%;
+  text-align: center;
+}
   img#playlist {
     width: 100px;
     height: 100px;
@@ -3095,6 +3368,7 @@ form.comment-form {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
+    text-decoration: unset;
   }
   .spotifyInfo {
     color: black;
@@ -3150,6 +3424,15 @@ form.comment-form {
 @media only screen and (max-width: 360px) {
   .songCover {
   }
+  a#editSettings.secondaryButton {
+    position: relative;
+    width: 145px;
+    padding: 0 8px 10px 8px;
+    display: inline-block;
+    left: 98px;
+    top: 40px;
+    height: 14.61px;
+}
   form.comment-form {
     position: relative;
     top: -45px;
@@ -3614,6 +3897,7 @@ form.comment-form {
     border: 2px solid black;
     padding: 10px;
     border-radius: 25px;
+    text-decoration: unset;
   }
   .spotifyInfo {
     color: black;
