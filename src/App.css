@@ -2462,8 +2462,9 @@ height: 14.61px;
   }
   h2#profile_info {
     text-align: center;
-    position: relative;
-    left: -31%;
+position: relative;
+left: -31%;
+font-size: 19px;
 }
   button.show-comment{
     float: right;
@@ -2585,11 +2586,11 @@ margin: unset;
   }
   .My-tracks {
     position: absolute;
-margin-left: 10px;
-margin-right: 10px;
-font-size: 20px;
-top: 38%;
-text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 34%;
+    text-align: center;
 }
 .playlist {
   position: absolute;
@@ -2824,12 +2825,12 @@ text-align: center;
   }
   a#editSettings.secondaryButton {
     position: relative;
-width: 145px;
-padding: 0 8px 10px 8px;
-display: inline-block;
-left: 50px;
-top: 40px;
-height: 14.61px;
+    width: 145px;
+    padding: 0 8px 10px 8px;
+    display: inline-block;
+    left: 67px;
+    top: -10px;
+    height: 14.61px;
 }
 }
 @media only screen and (max-width: 414px) {
@@ -3421,9 +3422,25 @@ top: -250px;
     height: 100px;
 }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 337px) {
   .songCover {
   }
+  .Following {
+    position: relative !important;
+    width: max-content;
+    font-size: 16px;
+    top: -84px;
+    left: 160px;
+    font-size: 33px;
+}
+h2#profile_info {
+  position: relative;
+  top: -110px;
+  font-size: 13px;
+  left: -98px;
+  width: auto;
+  text-align: center;
+}
   a#editSettings.secondaryButton {
     position: relative;
     width: 145px;
