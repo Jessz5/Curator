@@ -179,8 +179,8 @@ export default class Post extends React.Component {
   }
 
   deletePost(postID) {
-    //make the api call to post
-    fetch(process.env.REACT_APP_API_PATH+"/posts/"+postID, {
+    //make the api call to post, deleting only the post itself
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts/"+postID, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',
@@ -195,6 +195,25 @@ export default class Post extends React.Component {
           alert("error!"+error);
         }
       );
+
+    //make the api call to delete the comments of the current post as well
+    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?type=comment&parentID=" + this.props.post.id, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer '+sessionStorage.getItem("token")
+      }
+      })
+      .then(
+        result => {
+          this.props.loadPosts();
+        },
+        error => {
+          
+        }
+      );
+
+      
   }
 
   displayContent(){
@@ -253,7 +272,7 @@ export default class Post extends React.Component {
         <div className="comments">
 
           {posts.map(post => (
-            <Post key={post.id} post={post} type={this.props.type} loadPosts={this.loadPosts}/>
+            <Post key={post.id} post={post} type={this.props.type} loadPosts={this.props.loadPosts}/>
           ))}
 
         </div>
@@ -291,6 +310,7 @@ export default class Post extends React.Component {
                 onAddComment={this.setCommentCount}
                 parent={this.props.post.id}
                 commentCount={this.getCommentCount()}
+                loadPosts={this.props.loadPosts}
               />
             {this.maybeDisplayComments()}
             </div>
@@ -313,6 +333,7 @@ export default class Post extends React.Component {
               onAddComment={this.setCommentCount}
               parent={this.props.post.id}
               commentCount={this.getCommentCount()}
+              loadPosts={this.props.loadPosts}
             />
           {this.maybeDisplayComments()}
           </div>
@@ -327,13 +348,10 @@ export default class Post extends React.Component {
   showDelete(){
     if (this.props.post.author.id == sessionStorage.getItem("user")) {
       return(
-      <img
-        src={helpIcon}
+      <button
         className="sidenav-icon deleteIcon"
-        alt="Delete Post"
-        title="Delete Post"
         onClick={e => this.deletePost(this.props.post.id)}
-      />
+      >Delete Post</button>
     );
     }
     return "";
@@ -376,6 +394,7 @@ export default class Post extends React.Component {
       <div>
         <div key={this.props.post.id}className={[this.props.type, "postbody"].join(" ")}>
           {this.displayContent()}
+          {this.showDelete()}
           <button className="show-comment" onClick={this.showCommentBlock}>Show/Hide Comments</button>
           {this.conditionalDisplay()}
         </div>

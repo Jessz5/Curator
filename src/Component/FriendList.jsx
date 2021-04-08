@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import blockIcon from "../assets/block_white_216x216.png";
 import unblockIcon from "../assets/thumbsup.jpg";
+import {Link} from "react-router-dom";
 
 export default class FriendList extends React.Component {
   constructor(props) {
@@ -115,6 +116,9 @@ export default class FriendList extends React.Component {
               </div>
             ))}
           </ul>
+          <Link className="secondaryButton" to = "/findFriends">
+                              Find Friends
+          </Link>
         </div>
       );
     }
