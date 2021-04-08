@@ -194,7 +194,6 @@ class userAccount extends Component {
                 <br/>
                 {this.state.friendsCount}
             </header>
-            <h1 className={"Tracks"}>Tracks Posted <br/> 20</h1>
         </header>
         <header className="My-tracks">
             <img src={my_tracks} alt="profile" width="150" height="150" />

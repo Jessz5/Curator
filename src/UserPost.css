@@ -35,8 +35,8 @@ h6 {
 }
 .SongInfo {
   position: absolute;
-  top: 363px;
-  left: 180px;
+  top: 173px;
+  left: 37vw;
 }
 #SongName {
   position: relative;
@@ -52,6 +52,18 @@ h6 {
   font-size: 14px;
   font-weight: normal;
 }
+div.comment-block{
+  float: right;
+  position: relative;
+  top: 30px;
+}
+button.show-comment{
+  position: absolute;
+}
+.posts > * {
+ padding-bottom: 16px;
+}
+
 #dots {
   position: absolute;
   top: 7px;
@@ -61,7 +73,7 @@ h6 {
   .SongInfo {
     position: absolute;
     top: 143px;
-    left: 27vw;
+    left: 24vw;
 }
 }
 @media only screen and (max-width: 768px){
