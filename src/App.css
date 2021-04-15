@@ -13,6 +13,12 @@ form.comment-form {
   position: relative;
   top: -45px;
 }
+#forgotPasswordLink{
+  color: #1db954;
+  position: relative;
+  left: 41%;
+
+}
 input.commentButton {
 }
 .grid-container {
