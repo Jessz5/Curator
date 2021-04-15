@@ -54,7 +54,8 @@ export default class resetPassword extends React.Component {
             </svg>
             </div>
             <div className="item3"></div>  
-            <div className="item4">          
+            <div className="item4">     
+                 
                     <form className="filler" onSubmit={this.submitHandler}>
                         <label className="login">
                             <input id="UserName" className="login" type="text" placeholder="Enter Token From Email"
