@@ -64,7 +64,7 @@ export default class UserPost extends React.Component {
                     </label>
                     </div>
         <div className="SongInfo">
-            <PostingList filter={this.chosenFilter}/>
+            <PostingList filter={this.state.chosenFilter}/>
         </div>
 
 

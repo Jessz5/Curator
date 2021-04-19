@@ -6,8 +6,10 @@ export default class PostingList extends React.Component {
     super(props);
     this.state = {
       error: null,
+      url: "",
       isLoaded: false,
       posts: [],
+      connections: [],
       listType: props.listType
     };
     this.postingList = React.createRef();
@@ -15,20 +17,59 @@ export default class PostingList extends React.Component {
   }
 
   componentDidMount() {
+  //gets all the connections(friends) related to the user
+  fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+sessionStorage.getItem("token")
+    }
+    })
+    .then(res => res.json())
+    .then(
+      result => {
+        if (result) {
+          this.setState({
+            connections: result[0]
+          });
+          console.log(result);
+        }
+      },
+      error => {
+          console.log("Error During Fetch Friend");
+      }
+    );
 
     this.loadPosts();
 
   }
 
   loadPosts() {
-    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user");
+    if(this.props.filter == 1){
+      this.setState({
+        url: "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
+      });
+      
+    }
+    else if (this.props.filter == 2){
+      this.setState({
+        url: "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
+      });
+    }
+    else{
+      this.setState({
+        url: "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
+      });
+    }
 
-    fetch(url, {
-      method: "get",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer '+sessionStorage.getItem("token")
-      },
+    if(this.state.url != "")
+    {
+      fetch(this.state.url, {
+        method: "get",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+sessionStorage.getItem("token")
+        },
 
     })
       .then(res => res.json())
@@ -51,6 +92,7 @@ export default class PostingList extends React.Component {
           console.log("ERROR loading Posts")
         }
       );
+    }
   }
 
   render() {
