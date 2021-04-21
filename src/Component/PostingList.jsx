@@ -16,7 +16,82 @@ export default class PostingList extends React.Component {
     this.loadPosts = this.loadPosts.bind(this);
   }
 
+  //blocked users
+   loadBlockedUsers() {
+      //gets all the blocked users
+      fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+sessionStorage.getItem("token")
+        }
+       })
+        .then(res => res.json())
+        .then(
+          result => {
+            let blockedConnections = [];
+            for(var i = 0; i < result[1]; i++){
+               if(result[0][i].status == "blocked"){
+                   //console.log(result[0][i])
+                   blockedConnections.push(result[0][i])
+               }
+            }
+            //This prints the correct result
+            console.log(blockedConnections)
+            this.setState({
+                isLoaded: true,
+                connections: blockedConnections
+            });
+          },
+          error => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        );
+    }
+
+  //active users
+   loadActiveUsers() {
+      //gets all the active users
+      fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+sessionStorage.getItem("token")
+        }
+       })
+        .then(res => res.json())
+        .then(
+          result => {
+            let activeConnections = [];
+            for(var i = 0; i < result[1]; i++){
+               if(result[0][i].status == "active"){
+                   //console.log(result[0][i])
+                   activeConnections.push(result[0][i])
+               }
+            }
+            //This prints the correct result
+            console.log(activeConnections)
+            this.setState({
+                isLoaded: true,
+                connections: activeConnections
+            });
+          },
+          error => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        );
+    }
+
   componentDidMount() {
+  //this.loadBlockedUsers();
+  this.loadActiveUsers();
+
   //gets all the connections(friends) related to the user
   fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
     method: "GET",
