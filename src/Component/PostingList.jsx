@@ -6,7 +6,6 @@ export default class PostingList extends React.Component {
     super(props);
     this.state = {
       error: null,
-      url: "",
       isLoaded: false,
       posts: [],
       connections: [],
@@ -120,26 +119,23 @@ export default class PostingList extends React.Component {
   }
 
   loadPosts() {
+    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
     if(this.props.filter == 1){
-      this.setState({
-        url: "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-      });
+      url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
       
     }
-    else if (this.props.filter == 2){
-      this.setState({
-        url: "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-      });
+    else if(this.props.filter == 2){
+      url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
+      
     }
     else{
-      this.setState({
-        url: "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-      });
+      url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
+      
     }
 
-    if(this.state.url != "")
+    if(url != "")
     {
-      fetch(this.state.url, {
+      fetch(url, {
         method: "get",
         headers: {
           'Content-Type': 'application/json',
