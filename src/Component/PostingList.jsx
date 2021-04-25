@@ -9,10 +9,18 @@ export default class PostingList extends React.Component {
       isLoaded: false,
       posts: [],
       connections: [],
-      listType: props.listType
+      filter: this.props.filter
     };
     this.postingList = React.createRef();
     this.loadPosts = this.loadPosts.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.filter !== prevProps.filter) {
+      this.setState({ filter: this.props.filter });  
+      this.loadPosts();
+    }
   }
 
   //blocked users
@@ -119,50 +127,69 @@ export default class PostingList extends React.Component {
   }
 
   loadPosts() {
-    let url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-    if(this.props.filter == 1){
-      url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-      
+    let urls=[]; 
+    urls[0]="https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user");
+
+    if(this.props.filter == 2){
+      if(this.state.connections){
+        for(var key in this.state.connections){
+          if (this.state.connections.hasOwnProperty(key)) {
+            var val = this.state.connections[key];
+            console.log(val);
+          }
+        } 
+      }
     }
-    else if(this.props.filter == 2){
-      url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-      
-    }
-    else{
-      url = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
+    else if(this.props.filter==3){
+      urls[0] = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
       
     }
 
-    if(url != "")
+    if(urls)
     {
-      fetch(url, {
+      var headerOptions = {
+        method: "get",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+sessionStorage.getItem("token")}
+        };
+
+      
+
+        var promises = urls.map(url => fetch(url).then(y => y));
+        Promise.all(promises).then(results => {
+            console.log(results);
+        });
+
+
+      fetch(urls[0], {
         method: "get",
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer '+sessionStorage.getItem("token")
         },
 
-    })
-      .then(res => res.json())
-      .then(
-        result => {
-          if (result) {
+      })
+        .then(res => res.json())
+        .then(
+          result => {
+            if (result) {
+              this.setState({
+                isLoaded: true,
+                posts: result[0]
+              });
+              console.log("Got Posts");
+              console.log(this.state.posts);
+            }
+          },
+          error => {
             this.setState({
               isLoaded: true,
-              posts: result[0]
+              error
             });
-            console.log("Got Posts");
-            console.log(this.state.posts);
+            console.log("ERROR loading Posts")
           }
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-          console.log("ERROR loading Posts")
-        }
-      );
+        );
     }
   }
 
