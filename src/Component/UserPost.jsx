@@ -56,7 +56,7 @@ export default class UserPost extends React.Component {
                     </label>
                     <label id="radioLabel">
                     <input type="radio" name="friendPosts" value={2} checked={this.state.chosenFilter == 2} onChange={(event) => this.applyFilter(event)}/> 
-                    Friends
+                    Following
                     </label>
                     <label id="radioLabel">
                     <input type="radio" name="similarPosts" value={3} checked={this.state.chosenFilter == 3} onChange={(event) => this.applyFilter(event)}/> 

@@ -132,10 +132,11 @@ export default class PostingList extends React.Component {
 
     if(this.props.filter == 2){
       if(this.state.connections){
+        urls = [];
         for(var key in this.state.connections){
           if (this.state.connections.hasOwnProperty(key)) {
             var val = this.state.connections[key];
-            console.log(val);
+            urls.push("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + val["connectedUser"]["id"]);
           }
         } 
       }
@@ -156,39 +157,39 @@ export default class PostingList extends React.Component {
 
       
 
-        var promises = urls.map(url => fetch(url).then(y => y));
-        Promise.all(promises).then(results => {
-            console.log(results);
-        });
-
-
-      fetch(urls[0], {
-        method: "get",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer '+sessionStorage.getItem("token")
-        },
-
-      })
-        .then(res => res.json())
-        .then(
-          result => {
-            if (result) {
-              this.setState({
-                isLoaded: true,
-                posts: result[0]
-              });
-              console.log("Got Posts");
-              console.log(this.state.posts);
+        Promise.all(urls.map(url => fetch(url,headerOptions)))
+        .then(resp => Promise.all( resp.map(r => r.json())))
+        .then(result => {
+          var postList = [];
+          var val;
+          for(var key in result){
+            if (result.hasOwnProperty(key)) {
+              if(key != 0)
+              {
+                val = result[0][0].concat(result[key][0]);
+              }
+              else{
+                val = result[0][0];
+              }
+              postList[0] = val;
             }
-          },
-          error => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-            console.log("ERROR loading Posts")
+            //If the postList is more than one entry, iterate over it and put all posts in position 0
+          
           }
+          this.setState({
+            isLoaded: true,
+            posts: postList[0]
+          });
+          console.log("Got Posts");
+          console.log(this.state.posts);
+        },
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+          console.log("ERROR loading Posts")
+        }
         );
     }
   }
