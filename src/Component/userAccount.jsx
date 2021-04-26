@@ -19,7 +19,9 @@ class userAccount extends Component {
             status : "",
             responseMessage: "",
             friendsCount: 0,
-            followersCount: 0
+            followersCount: 0,
+            form_data : new FormData(),
+            pictureAsFile:""
         };
         this.fieldChangeHandler.bind(this);
         this.loadFollowers.bind(this);
@@ -92,6 +94,35 @@ class userAccount extends Component {
             }
           );
       }
+     loadProfilePicture(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+sessionStorage.getItem("user"), {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    if (result) {
+                        console.log(result);
+                        console.log("it was here");
+                        console.log(this.state.profile_picture + result[0][0].url);
+                        this.setState({
+                            profile_picture : this.state.profile_picture + result[0][0].url || ""
+                        });
+                    }
+                },
+
+                error => {
+                    alert("error!");
+                }
+
+            );
+
+    }
+
 
     componentDidMount() {
         this.loadFollowers();
@@ -131,6 +162,46 @@ class userAccount extends Component {
 
 
     }
+    
+    
+    uploadPicture = (e) => {
+
+            this.state.pictureAsFile = e.target.files[0];
+
+
+    };
+
+
+     changeProfilePicture = event => {
+         event.preventDefault();
+         var formData = new FormData();
+
+         formData.append("file",(this.state.pictureAsFile));
+
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts/1/upload", {
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer '+sessionStorage.getItem("token"),
+
+
+            },
+            body:formData
+
+
+
+        })
+            .then(
+                result => {
+                    // this.loadProfilePicture();
+                    console.log("it was here");
+                    alert("Profile picture updated!");
+                },
+                error => {
+                    alert("error!"+error);
+                }
+            );
+    };
 
     submitHandler = event => {
         //keep the form from actually submitting
@@ -173,7 +244,7 @@ class userAccount extends Component {
         <div className="App_Settings">
 
         <header className="Header_app">
-            <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
+            <img id="profile_picture" src = {this.state.profile_picture} alt="profile" width="200" height="200" />
             <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
 
             </label> </h2>
@@ -206,6 +277,10 @@ class userAccount extends Component {
                 <Link className="secondaryButton" id="editSettings" to = "/usersettings">
                 Edit User Settings
                 </Link>
+             <form onSubmit={this.changeProfilePicture}>
+                <input type="file" id="image_upload" name="filename" onChange={this.uploadPicture}/>
+                <input type="submit" value="Submit" />
+            </form>
 
         </div>
 
