@@ -44,6 +44,11 @@ export default class UserPost extends React.Component {
         }
     }
 
+    //Leftover Radio Label Code Just in Case
+    //<label id="radioLabel">
+    //<input type="radio" name="similarPosts" value={3} checked={this.state.chosenFilter == 3} onChange={(event) => this.applyFilter(event)}/> 
+    //Similar 
+    //</label>
 
     render() {
     return (
@@ -57,10 +62,6 @@ export default class UserPost extends React.Component {
                     <label id="radioLabel">
                     <input type="radio" name="friendPosts" value={2} checked={this.state.chosenFilter == 2} onChange={(event) => this.applyFilter(event)}/> 
                     Following
-                    </label>
-                    <label id="radioLabel">
-                    <input type="radio" name="similarPosts" value={3} checked={this.state.chosenFilter == 3} onChange={(event) => this.applyFilter(event)}/> 
-                    Similar 
                     </label>
                     </div>
         <div className="SongInfo">
