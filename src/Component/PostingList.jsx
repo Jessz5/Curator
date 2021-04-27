@@ -136,7 +136,10 @@ export default class PostingList extends React.Component {
         for(var key in this.state.connections){
           if (this.state.connections.hasOwnProperty(key)) {
             var val = this.state.connections[key];
-            urls.push("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + val["connectedUser"]["id"]);
+            if(val.status != "blocked")
+            {
+              urls.push("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + val["connectedUser"]["id"]);
+            }
           }
         } 
       }
