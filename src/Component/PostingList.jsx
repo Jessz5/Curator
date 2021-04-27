@@ -144,10 +144,6 @@ export default class PostingList extends React.Component {
         } 
       }
     }
-    else if(this.props.filter==3){
-      urls[0] = "https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?sort=newest&type=Post&authorID=" + sessionStorage.getItem("user")
-      
-    }
 
     if(urls)
     {
@@ -176,7 +172,6 @@ export default class PostingList extends React.Component {
               }
               postList[0] = val;
             }
-            //If the postList is more than one entry, iterate over it and put all posts in position 0
           
           }
           this.setState({
@@ -221,7 +216,7 @@ export default class PostingList extends React.Component {
       return (<div> No Posts Found </div>);
     }
     } else {
-      return <div> Please Log In... </div>;
+      return <div> No Posts Found </div>;
     }
   }
 }
