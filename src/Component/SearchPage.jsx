@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import Navbar from "./Navbar";
-
-import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router';
 
 export default class SearchPage extends React.Component {
     constructor(props) {
@@ -14,7 +13,8 @@ export default class SearchPage extends React.Component {
             uris: [],
             authToken: document.cookie.match('(^|)+' + sessionStorage.getItem("user") + '+=([^;]+)')?.pop() || '',
             result: {},
-            isHidden: true
+            isHidden: true,
+            redirect: false
 
         };
 
@@ -113,11 +113,19 @@ export default class SearchPage extends React.Component {
                 error => {
                     alert("error!");
                 }
-            );
+            )
+            .then(() => this.setState({ redirect: true }));
+            
+           
          
              
     };
     render() {
+        const { redirect } = this.state;
+
+     if (redirect) {
+       return <Redirect to='/UserPost'/>;
+     }
         return (
             <div className="search-page">
                 <div className="search-container">
