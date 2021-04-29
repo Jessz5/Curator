@@ -20,6 +20,16 @@
   border-radius: 10px;
   margin-bottom: 150px;
 }
+#PostHeader{
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 5%;
+}
+#radioLabel{
+  height: 5%;
+  float: left;
+}
 #heart {
   position: absolute;
   top: 362px;

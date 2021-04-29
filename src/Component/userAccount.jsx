@@ -19,11 +19,17 @@ class userAccount extends Component {
             status : "",
             responseMessage: "",
             friendsCount: 0,
-            followersCount: 0
+            followersCount: 0,
+            form_data : new FormData(),
+            pictureAsFile:"",
+            id:0
         };
         this.fieldChangeHandler.bind(this);
         this.loadFollowers.bind(this);
         this.loadFriends.bind(this);
+        this.loadProfilePicture.bind(this);
+        this.getUserArtifact.bind(this);
+        this.create_userArtifact.bind(this);
     }
 
     fieldChangeHandler(field, e) {
@@ -92,10 +98,161 @@ class userAccount extends Component {
             }
           );
       }
+    
+    loadProfilePicture(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+sessionStorage.getItem("user"), {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    console.log(result);
+                    if (result[0].length !== 0) {
+                        console.log("it was here 154");
+                        this.getUserArtifact();
+                        this.setState({
+                            profile_picture: this.state.profile_picture + result[0][0].url || ""
+                        });
+
+
+
+
+                    }
+                    else {
+                        console.log("it was here else statement");
+                        this.create_userArtifact();
+                    }
+                },
+
+                error => {
+                    alert("error!");
+                }
+
+            );
+
+    }
+    create_userArtifact(){
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                "ownerID":sessionStorage.getItem("user") ,
+                "type": "ProfilePicture",
+                "url": "",
+                "category": "string"
+
+            })
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    console.log("it was here4");
+                    this.getUserArtifact();
+
+                    this.setState({
+                        responseMessage: result.Status
+                    });
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+
+
+    }
+
+
+    getUserArtifact(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+ sessionStorage.getItem("user"), {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    console.log("it was here192");
+                    console.log(result);
+                    if (result[0].length > 0) {
+                        // console.log(result);
+                        // console.log("line194");
+                        // console.log("it was here189");
+                        // console.log(result);
+                        this.setState({
+                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
+                            // try and make the form component uncontrolled, which plays havoc with react
+                            id:result[0][0].id || ""
+
+                        });
+                        console.log("it was here189");
+                        console.log(this.state.id);
+
+                    }
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+    }
+
+    changeProfilePicture = event => {
+        event.preventDefault();
+        // this.getUserArtifact();
+
+        var formData = new FormData();
+
+        formData.append("file",(this.state.pictureAsFile));
+
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts/"+ this.state.id +"/upload", {
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer '+sessionStorage.getItem("token"),
+
+            },
+            body:formData
+
+
+
+        })
+            .then(
+                result => {
+
+                    alert("Profile picture updated!");
+                },
+                error => {
+                    alert("error!"+error);
+                }
+            );
+
+
+
+    };
+    uploadPicture = (e) => {
+
+        this.state.pictureAsFile = e.target.files[0];
+
+
+    };
+
+
+
+  
 
     componentDidMount() {
         this.loadFollowers();
         this.loadFriends();
+        this.loadProfilePicture();
         console.log("In profile");
         console.log(this.props);
 
@@ -131,6 +288,9 @@ class userAccount extends Component {
 
 
     }
+    
+    
+   
 
     submitHandler = event => {
         //keep the form from actually submitting
@@ -173,7 +333,7 @@ class userAccount extends Component {
         <div className="App_Settings">
 
         <header className="Header_app">
-            <img id="profile_picture" src = {profile_photo} alt="profile" width="200" height="200" />
+            <img id="profile_picture" src = {this.state.profile_picture} alt="profile" width="200" height="200" />
             <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
 
             </label> </h2>
@@ -206,6 +366,10 @@ class userAccount extends Component {
                 <Link className="secondaryButton" id="editSettings" to = "/usersettings">
                 Edit User Settings
                 </Link>
+             <form onSubmit={this.changeProfilePicture}>
+                <input type="file" id="image_upload" name="filename" onChange={this.uploadPicture}/>
+                <input type="submit" value="Submit" />
+            </form>
 
         </div>
 

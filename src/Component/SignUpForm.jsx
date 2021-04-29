@@ -99,7 +99,7 @@ export default class SignUpForm extends React.Component {
               <input
                   className="Username"
                      type="text"
-                     placeholder = "Enter Username"
+                     placeholder = "Enter Email"
                   onChange={this.myChangeHandler}
               />
               </label>

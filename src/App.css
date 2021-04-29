@@ -13,8 +13,13 @@ form.comment-form {
   position: relative;
   top: -45px;
 }
-input.commentButton{
+#forgotPasswordLink{
+  color: #1db954;
+  position: relative;
+  left: 41%;
 
+}
+input.commentButton {
 }
 .grid-container {
   display: grid;
@@ -309,10 +314,10 @@ input[type="password"] {
   font-family: Quicksand;
   font-size: 18px;
 }
-header.Content{
+header.Content {
   position: relative;
-top: -200px;
-left: -30vw;
+  top: -200px;
+  left: -30vw;
 }
 .secondaryButton {
   width: 125px;
@@ -420,24 +425,24 @@ h2#profile_info {
   position: relative;
   left: -31%;
 }
-.Followers{
+.Followers {
   position: absolute;
-margin-left: unset;
-margin-right: unset;
-width: 15em;
-font-size: 35px;
-left: 53%;
-text-align: center;
+  margin-left: unset;
+  margin-right: unset;
+  width: 15em;
+  font-size: 35px;
+  left: 53%;
+  text-align: center;
 }
 
 .Following {
   position: absolute;
-margin-left: unset;
-margin-right: unset;
-width: 15em;
-font-size: 35px;
-left: 71%;
-text-align: center;
+  margin-left: unset;
+  margin-right: unset;
+  width: 15em;
+  font-size: 35px;
+  left: 71%;
+  text-align: center;
 }
 .Tracks {
   position: absolute;
@@ -446,7 +451,6 @@ text-align: center;
   width: 15em;
   font-size: 35px;
   top: 17%;
-
 }
 
 .My-tracks {
@@ -458,10 +462,10 @@ text-align: center;
   top: 29%;
   text-align: center;
 }
-img#profile_picture{
+img#profile_picture {
   position: relative;
-top: 50px;
-left: 270px;
+  top: 50px;
+  left: 270px;
 }
 .playlist {
   position: absolute;
@@ -636,7 +640,7 @@ a#editSettings.secondaryButton {
 }
 
 @media only screen and (max-width: 1440px) {
-  .App{
+  .App {
     overflow-x: hidden;
   }
   .search-page {
@@ -644,16 +648,15 @@ a#editSettings.secondaryButton {
     height: 100vh;
     position: relative;
   }
-  img#profile_picture { 
+  img#profile_picture {
     position: relative;
     top: 30px;
     left: 170px;
-}
-  button.show-comment{
+  }
+  button.show-comment {
     float: right;
   }
-  input.commentButton{
-  
+  input.commentButton {
   }
   form.comment-form {
     position: relative;
@@ -810,24 +813,24 @@ a#editSettings.secondaryButton {
     top: 40px;
   }
 
-  .Followers{
+  .Followers {
     position: absolute;
-margin-left: unset;
-margin-right: unset;
-width: 15em;
-font-size: 35px;
-left: 53%;
-text-align: center;
+    margin-left: unset;
+    margin-right: unset;
+    width: 15em;
+    font-size: 35px;
+    left: 53%;
+    text-align: center;
   }
 
   .Following {
     position: absolute;
-margin-left: unset;
-margin-right: unset;
-width: 15em;
-font-size: 35px;
-left: 71%;
-text-align: center;
+    margin-left: unset;
+    margin-right: unset;
+    width: 15em;
+    font-size: 35px;
+    left: 71%;
+    text-align: center;
   }
   .Tracks {
     position: absolute;
@@ -836,7 +839,6 @@ text-align: center;
     width: 15em;
     font-size: 35px;
     top: 17%;
-
   }
 
   .My-tracks {
@@ -965,7 +967,7 @@ text-align: center;
     grid-row: 1 / 3;
     grid-column: 2/3;
     position: relative;
-    left: 8vw;
+    left: 9vw;
   }
   .LoginSignupBody {
     text-align: center;
@@ -1105,7 +1107,7 @@ text-align: center;
   #LoginHeader {
     width: max-content;
     position: relative;
-    left: 1vw;
+    left: 2vw;
     margin-left: auto;
     margin-right: auto;
     top: -64px;
@@ -1219,11 +1221,10 @@ a#editSettings.secondaryButton {
     position: relative;
     top: -45px;
   }
-  button.show-comment{
+  button.show-comment {
     float: right;
   }
-  input.commentButton{
-  
+  input.commentButton {
   }
   .cancel {
     color: #33cc66;
@@ -1664,12 +1665,12 @@ a#editSettings.secondaryButton {
     position: relative;
     top: -45px;
   }
-  .header.Content{
+  .header.Content {
     position: relative;
-left: -20px;
-top: -80px;
+    left: -20px;
+    top: -80px;
   }
-  .Header_app{
+  .Header_app {
     position: relative;
     top: 110px;
   }
@@ -1689,14 +1690,14 @@ top: -80px;
     top: 5.5%;
     left: 44%;
     margin: unset;
-}
-.Following {
-  position: absolute !important;
-  width: max-content;
-  font-size: 35px;
-  left: 73%;
-  margin: unset;
-}
+  }
+  .Following {
+    position: absolute !important;
+    width: max-content;
+    font-size: 35px;
+    left: 73%;
+    margin: unset;
+  }
   .My-tracks {
     position: absolute;
     margin-left: 10px;
@@ -1704,32 +1705,31 @@ top: -80px;
     font-size: 20px;
     top: 28%;
     text-align: center;
-}
-.playlist {
-  position: absolute;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 20px;
-  top: 43%;
-  text-align: center;
-}
+  }
+  .playlist {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 43%;
+    text-align: center;
+  }
   img#profile_picture {
     position: relative;
     top: 30px;
     left: 90px;
     width: 150px;
     height: 150px;
-}
-.myTracks {
-  position: relative;
-  top: 110px;
-}
-  button.show-comment{
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
+  }
+  button.show-comment {
     float: right;
   }
-  
-  input.commentButton{
-  
+
+  input.commentButton {
   }
   .search-page {
     background-color: white;
@@ -1866,7 +1866,7 @@ top: -80px;
   .bookmark {
     top: 9px;
   }
-  
+
   #LoginLogo {
     grid-row: 1 / 3;
     grid-column: 2/3;
@@ -2085,12 +2085,12 @@ top: -80px;
     left: 98px;
     top: 40px;
     height: 14.61px;
-}
-h2#profile_info {
-  text-align: center;
-  position: relative;
-  left: -34%;
-}
+  }
+  h2#profile_info {
+    text-align: center;
+    position: relative;
+    left: -34%;
+  }
 }
 @media only screen and (max-width: 834px) {
   .search-page {
@@ -2102,16 +2102,15 @@ h2#profile_info {
     text-align: center;
     position: relative;
     left: -34%;
-}
-  button.show-comment{
+  }
+  button.show-comment {
     float: right;
   }
   .myTracks {
     position: relative;
     top: 110px;
   }
-  input.commentButton{
-  
+  input.commentButton {
   }
   form.comment-form {
     position: relative;
@@ -2193,12 +2192,12 @@ h2#profile_info {
     width: 100vw;
     height: 100vh;
   }
-  .header.Content{
+  .header.Content {
     position: relative;
-left: -20px;
-top: -80px;
+    left: -20px;
+    top: -80px;
   }
-  .Header_app{
+  .Header_app {
     position: relative;
     top: 110px;
   }
@@ -2218,41 +2217,41 @@ top: -80px;
     top: 5.5%;
     left: 44%;
     margin: unset;
-}
-.Following {
-  position: absolute !important;
-  width: max-content;
-  font-size: 35px;
-  left: 73%;
-  margin: unset;
-}
+  }
+  .Following {
+    position: absolute !important;
+    width: max-content;
+    font-size: 35px;
+    left: 73%;
+    margin: unset;
+  }
   .My-tracks {
     position: absolute;
-margin-left: 10px;
-margin-right: 10px;
-font-size: 20px;
-top: 38%;
-text-align: center;
-}
-.playlist {
-  position: absolute;
-margin-left: 10px;
-margin-right: 10px;
-font-size: 20px;
-top: 59%;
-text-align: center;
-}
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 38%;
+    text-align: center;
+  }
+  .playlist {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 59%;
+    text-align: center;
+  }
   img#profile_picture {
     position: relative;
     top: 30px;
     left: 90px;
     width: 150px;
     height: 150px;
-}
-.myTracks {
-  position: relative;
-  top: 110px;
-}
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
+  }
   .grid-container-settings {
     display: grid;
     grid-template-columns: 0.6fr 1.4fr;
@@ -2473,13 +2472,13 @@ text-align: center;
   }
   a#editSettings.secondaryButton {
     position: relative;
-width: 145px;
-padding: 0 8px 10px 8px;
-display: inline-block;
-left: 50px;
-top: 40px;
-height: 14.61px;
-}
+    width: 145px;
+    padding: 0 8px 10px 8px;
+    display: inline-block;
+    left: 50px;
+    top: 40px;
+    height: 14.61px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .search-page {
@@ -2489,19 +2488,18 @@ height: 14.61px;
   }
   h2#profile_info {
     text-align: center;
-position: relative;
-left: -31%;
-font-size: 19px;
-}
-  button.show-comment{
+    position: relative;
+    left: -31%;
+    font-size: 19px;
+  }
+  button.show-comment {
     float: right;
   }
   .myTracks {
     position: relative;
     top: 110px;
   }
-  input.commentButton{
-  
+  input.commentButton {
   }
   form.comment-form {
     position: relative;
@@ -2583,12 +2581,12 @@ font-size: 19px;
     width: 100vw;
     height: 100vh;
   }
-  .header.Content{
+  .header.Content {
     position: relative;
-left: -20px;
-top: -80px;
+    left: -20px;
+    top: -80px;
   }
-  .Header_app{
+  .Header_app {
     position: relative;
     top: 110px;
   }
@@ -2608,41 +2606,41 @@ top: -80px;
     top: 5.5%;
     left: 44%;
     margin: unset;
-}
-.Following {
-  position: absolute !important;
-  width: max-content;
-  font-size: 35px;
-  left: 73%;
-  margin: unset;
-}
+  }
+  .Following {
+    position: absolute !important;
+    width: max-content;
+    font-size: 35px;
+    left: 73%;
+    margin: unset;
+  }
   .My-tracks {
     position: absolute;
-margin-left: 10px;
-margin-right: 10px;
-font-size: 20px;
-top: 38%;
-text-align: center;
-}
-.playlist {
-  position: absolute;
-margin-left: 10px;
-margin-right: 10px;
-font-size: 20px;
-top: 59%;
-text-align: center;
-}
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 38%;
+    text-align: center;
+  }
+  .playlist {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 59%;
+    text-align: center;
+  }
   img#profile_picture {
     position: relative;
     top: 30px;
     left: 90px;
     width: 150px;
     height: 150px;
-}
-.myTracks {
-  position: relative;
-  top: 110px;
-}
+  }
+  .myTracks {
+    position: relative;
+    top: 110px;
+  }
   .grid-container-settings {
     display: grid;
     grid-template-columns: 0.6fr 1.4fr;
@@ -2867,7 +2865,7 @@ text-align: center;
     left: 67px;
     top: 40px;
     height: 14.61px;
-}
+  }
 }
 @media only screen and (max-width: 414px) {
   .songCover {
@@ -2880,32 +2878,31 @@ text-align: center;
     left: 21px;
     top: -209px;
     height: 14.61px;
-}
-span#playlistTitle{
-  float: right;
-position: relative;
-top: 159px;
-left: -54%;
-}
+  }
+  span#playlistTitle {
+    float: right;
+    position: relative;
+    top: 159px;
+    left: -54%;
+  }
   button.Post {
     position: relative;
     display: block;
     top: -21px;
     left: 92px;
   }
-  input.commentButton{
-  
+  input.commentButton {
   }
   button.show-comment {
     float: right;
     position: relative;
     left: -32vw;
-}
-form.comment-form {
-  position: relative;
-  top: -45px;
-  left: -60px;
-}
+  }
+  form.comment-form {
+    position: relative;
+    top: -45px;
+    left: -60px;
+  }
   .search-page {
     background-color: white;
     height: 100vh;
@@ -3008,9 +3005,9 @@ form.comment-form {
     position: relative;
     left: 14%;
   }
-  header.content{
+  header.content {
     position: relative;
-top: -150px;
+    top: -150px;
   }
   .DarkBackground {
     background-color: #010423;
@@ -3019,18 +3016,18 @@ top: -150px;
   }
   .Header_app {
     position: relative;
-top: 140px;
-left: -150px;
-text-align: center;
-}
-#TopNavbar {
-  position: relative;
-  width: 100vw;
-  background-color: unset;
-  z-index: 0;
-  top: -20px;
-  height: unset;
-}
+    top: 140px;
+    left: -150px;
+    text-align: center;
+  }
+  #TopNavbar {
+    position: relative;
+    width: 100vw;
+    background-color: unset;
+    z-index: 1;
+    top: -20px;
+    height: unset;
+  }
   #SearchTitle {
     float: left;
     position: relative;
@@ -3068,11 +3065,11 @@ text-align: center;
     top: 92.5vh;
     z-index: unset;
     z-index: 0;
-}
-header.content{
-  position: relative;
-top: -250px;
-}
+  }
+  header.content {
+    position: relative;
+    top: -250px;
+  }
   li {
     list-style-type: none;
     padding: 0px;
@@ -3303,14 +3300,14 @@ top: -250px;
     top: -51.6%;
     left: 75%;
     margin: unset;
-}
+  }
   .Following {
     position: relative !important;
     width: max-content;
-    top: -176px;
-    left: 191px;
+    top: -86px;
+    left: 51vh;
     font-size: 33px;
-}
+  }
   img#myTracks {
     width: 100px;
     height: 100px;
@@ -3324,15 +3321,15 @@ top: -250px;
     font-size: 20px;
     top: 28%;
     text-align: center;
-}
-.playlist {
-  position: absolute;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 20px;
-  top: 54%;
-  text-align: center;
-}
+  }
+  .playlist {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    top: 54%;
+    text-align: center;
+  }
   img#playlist {
     width: 100px;
     height: 100px;
@@ -3463,7 +3460,7 @@ top: -250px;
     resize: none;
     width: 230px;
     height: 100px;
-}
+  }
 }
 @media only screen and (max-width: 337px) {
   .songCover {
@@ -3475,15 +3472,15 @@ top: -250px;
     top: -84px;
     left: 160px;
     font-size: 33px;
-}
-h2#profile_info {
-  position: relative;
-  top: -110px;
-  font-size: 13px;
-  left: -98px;
-  width: auto;
-  text-align: center;
-}
+  }
+  h2#profile_info {
+    position: relative;
+    top: -110px;
+    font-size: 13px;
+    left: -98px;
+    width: auto;
+    text-align: center;
+  }
   a#editSettings.secondaryButton {
     position: relative;
     width: 145px;
@@ -3492,20 +3489,19 @@ h2#profile_info {
     left: 98px;
     top: 40px;
     height: 14.61px;
-}
+  }
   form.comment-form {
     position: relative;
     top: -45px;
     left: -60px;
   }
-  input.commentButton{
-  
+  input.commentButton {
   }
   button.show-comment {
     float: right;
     position: relative;
     left: -32vw;
-}
+  }
   button.Post {
     position: relative;
     display: block;
@@ -3594,7 +3590,7 @@ h2#profile_info {
     top: -20px;
     height: 90px;
   }
-  button.show-comment{
+  button.show-comment {
     float: right;
   }
   #SearchTitle {
@@ -3634,7 +3630,7 @@ h2#profile_info {
     top: 92.5vh;
     z-index: unset;
     z-index: 0;
-}
+  }
   li {
     list-style-type: none;
     padding: 0px;
@@ -3998,5 +3994,5 @@ h2#profile_info {
     resize: none;
     width: 230px;
     height: 100px;
-}
+  }
 }
