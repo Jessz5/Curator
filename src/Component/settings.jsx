@@ -19,9 +19,16 @@ class settings extends Component {
             spotify_email: "",
             spotify_username: "",
             spotToken: "",
+            form_data : new FormData(),
+            pictureAsFile:"",
+            profile_picture : "https://webdev.cse.buffalo.edu",
+            id:0,
             fetchOptions: {method: '', headers: ''}
         };
         this.fieldChangeHandler.bind(this);
+        this.loadProfilePicture.bind(this);
+        this.getUserArtifact.bind(this);
+        this.create_userArtifact.bind(this);
 
         //If there's cookies to extract
         if(document.cookie != ''){
@@ -64,6 +71,7 @@ class settings extends Component {
         });
     }
     componentDidMount() {
+        this.loadProfilePicture();
         console.log("In profile");
         console.log(this.props);
 
@@ -122,7 +130,9 @@ class settings extends Component {
             );
 
     };
-  deleteHandler = event => {
+
+
+    deleteHandler = event => {
 
         event.preventDefault();
         //make the api call to the user controller
@@ -145,6 +155,153 @@ class settings extends Component {
 
 
     };
+
+
+    loadProfilePicture(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+sessionStorage.getItem("user"), {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    console.log(result);
+                    if (result[0].length !== 0) {
+
+                        this.getUserArtifact();
+                        this.setState({
+                            profile_picture: this.state.profile_picture + result[0][0].url || ""
+                        });
+
+                    }
+                    else {
+                        this.create_userArtifact();
+                    }
+                },
+
+                error => {
+                    alert("error!");
+                }
+
+            );
+
+    }
+    create_userArtifact(){
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                "ownerID":sessionStorage.getItem("user") ,
+                "type": "ProfilePicture",
+                "url": "",
+                "category": "string"
+
+            })
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    console.log("it was here4");
+                    this.getUserArtifact();
+
+                    this.setState({
+                        responseMessage: result.Status
+                    });
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+
+
+    }
+
+
+    getUserArtifact(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+ sessionStorage.getItem("user"), {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    console.log("it was here192");
+                    console.log(result);
+                    if (result[0].length > 0) {
+                        // console.log(result);
+                        // console.log("line194");
+                        // console.log("it was here189");
+                        // console.log(result);
+                        this.setState({
+                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
+                            // try and make the form component uncontrolled, which plays havoc with react
+                            id:result[0][0].id || ""
+
+                        });
+                        console.log("it was here189");
+                        console.log(this.state.id);
+
+                    }
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+    }
+
+    changeProfilePicture = event => {
+        event.preventDefault();
+        // this.getUserArtifact();
+
+        var formData = new FormData();
+
+        formData.append("file",(this.state.pictureAsFile));
+
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts/"+ this.state.id +"/upload", {
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer '+sessionStorage.getItem("token"),
+
+            },
+            body:formData
+
+
+
+        })
+            .then(
+                result => {
+
+                    alert("Profile picture updated!");
+
+                },
+                error => {
+                    alert("error!"+error);
+                }
+            );
+
+
+
+    };
+    uploadPicture = (e) => {
+
+        this.state.pictureAsFile = e.target.files[0];
+
+
+    };
+
+
+
     render() {
         return (
             <header className="settings_list">
@@ -184,7 +341,14 @@ class settings extends Component {
                             value={this.state.status}
                         />
                     </label>
+                    <form onSubmit={this.changeProfilePicture}>
+                        <input id="settingButton" className="" type="file" onChange={this.uploadPicture}/>
+                        <input id="settingButton" className="MainButton" type="submit" value="Change Profile Picture" />
+                    </form>
+
                     <input id="settingButton" className="MainButton" type="submit" value="Submit" />
+
+
                 </form>
                 <input id= "deleteButtonSettings"className ="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler} />
             </header>

@@ -22,11 +22,13 @@ class userAccount extends Component {
             followersCount: 0,
             form_data : new FormData(),
             pictureAsFile:"",
+            profile_picture : "https://webdev.cse.buffalo.edu",
             id:0
         };
         this.fieldChangeHandler.bind(this);
         this.loadFollowers.bind(this);
         this.loadFriends.bind(this);
+        this.uploadPicture.bind(this);
         this.loadProfilePicture.bind(this);
         this.getUserArtifact.bind(this);
         this.create_userArtifact.bind(this);
@@ -98,7 +100,8 @@ class userAccount extends Component {
             }
           );
       }
-    
+
+
     loadProfilePicture(){
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+sessionStorage.getItem("user"), {
             method: "GET",
@@ -112,18 +115,14 @@ class userAccount extends Component {
                 result => {
                     console.log(result);
                     if (result[0].length !== 0) {
-                        console.log("it was here 154");
+
                         this.getUserArtifact();
                         this.setState({
                             profile_picture: this.state.profile_picture + result[0][0].url || ""
                         });
 
-
-
-
                     }
                     else {
-                        console.log("it was here else statement");
                         this.create_userArtifact();
                     }
                 },
@@ -229,6 +228,7 @@ class userAccount extends Component {
                 result => {
 
                     alert("Profile picture updated!");
+
                 },
                 error => {
                     alert("error!"+error);
@@ -244,10 +244,6 @@ class userAccount extends Component {
 
 
     };
-
-
-
-  
 
     componentDidMount() {
         this.loadFollowers();
@@ -369,6 +365,7 @@ class userAccount extends Component {
              <form onSubmit={this.changeProfilePicture}>
                 <input type="file" id="image_upload" name="filename" onChange={this.uploadPicture}/>
                 <input type="submit" value="Submit" />
+
             </form>
 
         </div>
