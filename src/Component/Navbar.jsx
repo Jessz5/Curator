@@ -6,8 +6,8 @@ import {
 // pull in the images for the menu items
 import searchIcon from "../assets/search.svg";
 import homeIcon from "../assets/home.svg";
-import settingIcon from "../assets/bookmark.svg";
-import ProfileIcon from "../assets/ProfilePic.svg";
+import settingIcon from "../assets/settings.svg";
+import ProfileIcon from "../assets/user.svg";
 import addIcon from "../assets/addSong.png";
 
 /* The Navbar class provides navigation through react router links.  Note the callback
@@ -50,8 +50,8 @@ class Navbar extends React.Component {
          
         </li>
         <li className="pm admin bookmark">
-          <Link to="/userSettings">
-            <img
+          <Link className="settingsIcon" to="/userSettings">
+            <img 
               src={settingIcon}
               className="sidenav-icon"
               alt="Settings"
@@ -60,10 +60,10 @@ class Navbar extends React.Component {
           </Link>
         </li>
         <li className="pm admin account">
-          <Link to = "/userAccount"> 
+          <Link to= "/userAccount"> 
             <img
               src={ProfileIcon}
-              className="sidenav-icon"
+              className="sidenav-icon userIcon"
               alt="Settings"
               title="Settings"
             />
