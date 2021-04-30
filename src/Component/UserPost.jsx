@@ -1,3 +1,4 @@
+import { ThumbUpSharp } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../UserPost.css";
@@ -7,6 +8,7 @@ export default class UserPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            chosenFilter: 1
         };
 
     }
@@ -22,13 +24,48 @@ export default class UserPost extends React.Component {
         });
     };
 
+    applyFilter = (event) => {
+        if(event.target.value == 1)
+        {
+            this.setState({
+                chosenFilter: 1
+            });
+        }
+        else if (event.target.value == 2)
+        {
+            this.setState({
+                chosenFilter: 2
+            });
+        }
+        else{
+            this.setState({
+                chosenFilter: 3
+            });
+        }
+    }
+
+    //Leftover Radio Label Code Just in Case
+    //<label id="radioLabel">
+    //<input type="radio" name="similarPosts" value={3} checked={this.state.chosenFilter == 3} onChange={(event) => this.applyFilter(event)}/> 
+    //Similar 
+    //</label>
 
     render() {
     return (
       <div id="PostGrid">
-          <Navbar/> 
+        <Navbar/> 
+        <div id="PostHeader">
+                    <label id="radioLabel">
+                    <input type="radio" name="selfPosts" value={1} checked={this.state.chosenFilter == 1} onChange={(event) => this.applyFilter(event)} /> 
+                    My Posts
+                    </label>
+                    <label id="radioLabel">
+                    <input type="radio" name="friendPosts" value={2} checked={this.state.chosenFilter == 2} onChange={(event) => this.applyFilter(event)}/> 
+                    Following
+                    </label>
+                    </div>
         <div className="SongInfo">
-            <PostingList/>
+            <PostingList filter={this.state.chosenFilter}/>
         </div>
 
 

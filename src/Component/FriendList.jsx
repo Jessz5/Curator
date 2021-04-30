@@ -45,6 +45,33 @@ export default class FriendList extends React.Component {
       );
   }
 
+  unFollowConnection(id){
+      //delete an existing connection
+      fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections/"+id, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+sessionStorage.getItem("token")
+        },
+      })
+        .then(
+          result => {
+            alert("You have successfully unfollowed this user")
+            this.loadFriends();
+          },
+          error => {
+            alert("error!");
+          }
+        );
+    }
+  unfollow(id){
+      return(
+      <button onClick={e => this.unFollowConnection(id)}>
+        Unfollow
+      </button>
+    )
+  }
+
   updateConnection(id, status){
     //patch updates/modify an existing connection
     fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections/"+id, {
@@ -74,24 +101,31 @@ export default class FriendList extends React.Component {
   conditionalAction(status, id){
     if (status == "active"){
       return(
+       <button onClick={e => this.updateConnection(id, "blocked")}>
+                Block
+       </button>
 
-      <img
-        src={blockIcon}
-        className="sidenav-icon deleteIcon"
-        alt="Block User"
-        title="Block User"
-        onClick={e => this.updateConnection(id, "blocked")}
-      />
+//       <img
+//         src={blockIcon}
+//         className="sidenav-icon deleteIcon"
+//         alt="Block User"
+//         title="Block User"
+//         onClick={e => this.updateConnection(id, "blocked")}
+//       />
     )
     }else{
       return(
-      <img
-        src={unblockIcon}
-        className="sidenav-icon deleteIcon"
-        alt="Unblock User"
-        title="Unblock User"
-        onClick={e => this.updateConnection(id, "active")}
-      />
+      <button onClick={e => this.updateConnection(id, "active")}>
+                Unblock
+      </button>
+
+//       <img
+//         src={unblockIcon}
+//         className="sidenav-icon deleteIcon"
+//         alt="Unblock User"
+//         title="Unblock User"
+//         onClick={e => this.updateConnection(id, "active")}
+//       />
     )
     }
   }
@@ -112,6 +146,9 @@ export default class FriendList extends React.Component {
                 {connection.connectedUser.username} - {connection.status}
                 <div className="deletePost">
                 {this.conditionalAction(connection.status, connection.id)}
+                </div>
+                <div className="unfollow">
+                {this.unfollow(connection.id)}
                 </div>
               </div>
             ))}
