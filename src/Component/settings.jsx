@@ -4,6 +4,8 @@ import './user_account_style.css'
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Navbar from "./Navbar";
+import {Redirect} from 'react-router';
+import RedirectHandler from "./RedirectHandler";
 
 
 class settings extends Component {
@@ -29,6 +31,7 @@ class settings extends Component {
         this.getUserArtifact.bind(this);
         this.create_userArtifact.bind(this);
         this.uploadPicture.bind(this);
+        this.deleteUserArtifact.bind(this);
 
         //If there's cookies to extract
         if(document.cookie != ''){
@@ -86,8 +89,17 @@ class settings extends Component {
             .then(res => res.json())
             .then(
                 result => {
+
                     if (result) {
                         console.log(result);
+                        console.log("it was here 95");
+                       this.setState({
+                           username: result.username || "",
+                           firstname: result.firstname || "",
+                           lastname: result.lastname|| "",
+                           status: result.status|| ""
+
+                       })
                     }
                 },
                 error => {
@@ -111,10 +123,10 @@ class settings extends Component {
             },
             body: JSON.stringify({
 
-                username: this.state.username,
-                firstName: this.state.firstname,
-                lastName: this.state.lastname,
-                status: this.state.status,
+                username: this.state.username || "",
+                firstName: this.state.firstname || "",
+                lastName: this.state.lastname|| "",
+                status: this.state.status|| ""
             })
         })
             .then(res => res.json())
@@ -130,12 +142,12 @@ class settings extends Component {
             );
 
     };
-    deleteHandler = event => {
+    deleteUserArtifact= event => {
 
-        event.preventDefault();
+        // event.preventDefault();
         //make the api call to the user controller
 
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+ this.state.id, {
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts/"+this.state.id, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
@@ -144,12 +156,49 @@ class settings extends Component {
         })
             .then(
                 result => {
-                    console.log("deleted");
+                    // if(result['status']===204){
+                    //     this.deleteHandler();
+                    // }
+
+
                 },
                 error => {
                     alert("error!"+error);
                 }
             );
+
+
+    };
+
+    deleteHandler = event => {
+
+        // event.preventDefault();
+        //make the api call to the user controller
+        this.deleteUserArtifact();
+
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+sessionStorage.getItem("user"), {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+            }
+        })
+            .then(
+                result => {
+                    alert("User successfully deleted");
+                    console.log("deleted");
+
+                    if (result['status']===204){
+                        sessionStorage.clear();
+
+                    }
+
+                },
+                error => {
+                    alert("error!"+error);
+                }
+            );
+
 
 
     };
@@ -166,8 +215,7 @@ class settings extends Component {
             .then(res => res.json())
             .then(
                 result => {
-                    console.log("it was here192");
-                    console.log(result);
+
                     if (result[0].length > 0) {
 
                         this.setState({
@@ -176,8 +224,6 @@ class settings extends Component {
                             id:result[0][0].id || ""
 
                         });
-                        console.log("it was here189");
-                        console.log(this.state.id);
 
                     }
                     else{
@@ -241,20 +287,19 @@ class settings extends Component {
 
             },
             body:formData
-            
+
         })
             .then(
                 result => {
-                       if (result['status'] === 400) {
+                    if (result['status'] === 400) {
                         alert("Wrong format of the file please upload one of these types png, jpg, jpeg, gif, webp, svg, wav, mp3, wma, mov, mp4, avi, wmv, webm.");
                     }else {
-                        console.log("251");
+
                         alert("Profile picture updated!");
                     }
                 },
                 error => {
-                    console.log(error);
-                    console.log("256");
+
                     alert("error!"+error);
                 }
             );
@@ -298,7 +343,7 @@ class settings extends Component {
                         <input
                             type="text"
                             onChange={e => this.fieldChangeHandler("lastname", e)}
-                            value={this.state.lastname}
+                            value={this.state.lastName}
                         />
                     </label>
                     <label className="settingLable">
@@ -312,15 +357,16 @@ class settings extends Component {
                     <input id="settingButton" className="MainButton" type="submit" value="Submit" />
                 </form>
                 <form id="imageForm" onSubmit={this.changeProfilePicture}>
-                <label id="imageLable"for="image_upload">Choose images to upload</label>
+                    <label id="imageLable" htmlFor="image_upload">Choose images to upload</label>
                     <input type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
-                    <input id="uploadImageButton" type="submit" value="Upload Image"  className="MainButton"/>
+                    <input id="uploadImageButton" type="submit" value="Upload Image" className="MainButton"/>
                 </form>
 
-                <input id= "deleteButtonSettings" className ="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler} />
+                <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account"
+                       onClick={this.deleteHandler}/>
             </header>
         );
-    } 
+    }
 
 }
 
