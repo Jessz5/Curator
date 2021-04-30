@@ -349,7 +349,7 @@ export default class Post extends React.Component {
     if (this.props.post.author.id == sessionStorage.getItem("user")) {
       return(
       <button
-        className="sidenav-icon deleteIcon"
+        className="sidenav-icon deleteIcon secondaryButton"
         onClick={e => this.deletePost(this.props.post.id)}
       >Delete Post</button>
     );
@@ -395,7 +395,7 @@ export default class Post extends React.Component {
         <div key={this.props.post.id} className={[this.props.type, "postbody"].join(" ")}>
           {this.displayContent()}
           {this.showDelete()}
-          <button className="show-comment" onClick={this.showCommentBlock}>Show/Hide Comments</button>
+          <button className="show-comment MainButton" onClick={this.showCommentBlock}>Show/Hide Comments</button>
           {this.conditionalDisplay()}
         </div>
       </div>
