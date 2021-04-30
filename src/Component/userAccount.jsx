@@ -364,14 +364,6 @@ class userAccount extends Component {
                         {this.state.friendsCount}
                     </header>
                 </header>
-                <header className="My-tracks">
-                    <img src={my_tracks} alt="profile" width="150" height="150" />
-                    <p>My Tracks</p>
-                </header>
-                <header className="playlist">
-                    <img src={playlist} alt="profile" width="150" height="150" />
-                    <span id="playlistTitle">My Playlist's</span>
-                </header>
                 <Link className="secondaryButton" id="editSettings" to = "/usersettings">
                     Edit User Settings
                 </Link>

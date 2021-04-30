@@ -70,10 +70,9 @@ h6 {
   font-weight: normal;
 }
 div.comment-block{
-  float: right;
-position: relative;
-top: 56px;
-left: -100px;
+  position: relative;
+  top: -260px;
+  left: 22.4vw;
 }
 .deleteIcon {
   top: 0px;

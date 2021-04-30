@@ -311,15 +311,16 @@ class settings extends Component {
                     </label>
                     <input id="settingButton" className="MainButton" type="submit" value="Submit" />
                 </form>
-                <form onSubmit={this.changeProfilePicture}>
-                    <input type="file" id="image_upload" name="filename" onChange={this.uploadPicture}/>
-                    <input type="submit" value="Submit" />
+                <form id="imageForm" onSubmit={this.changeProfilePicture}>
+                <label id="imageLable"for="image_upload">Choose images to upload</label>
+                    <input type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
+                    <input id="uploadImageButton" type="submit" value="Upload Image"  className="MainButton"/>
                 </form>
 
-                <input id= "deleteButtonSettings"className ="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler} />
+                <input id= "deleteButtonSettings" className ="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler} />
             </header>
         );
-    }
+    } 
 
 }
 

@@ -13,13 +13,19 @@ form.comment-form {
   position: relative;
   top: -45px;
 }
+#imageLable{
+
+}
 #forgotPasswordLink{
   color: #1db954;
   position: relative;
   left: 41%;
 
 }
-input.commentButton {
+input.MainButton.imageUpload {
+  position: relative;
+  top: 25px;
+  display: inherit;
 }
 .grid-container {
   display: grid;
@@ -283,7 +289,17 @@ form {
   position: relative;
   left: 19%;
 }
+
 input[type="email"] {
+  width: 319px;
+  height: 41.61px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  background: #f2f2f2;
+  border-radius: 26px;
+  border: 0px;
+}
+input[type="text"] {
   width: 319px;
   height: 41.61px;
   flex: 0 0 200px;
@@ -645,13 +661,24 @@ a#editSettings.secondaryButton {
   top: 40px;
   height: 14.61px;
 }
+label#imageLable{
+  position: relative;
+  left: -120px;
+  }
 
 @media only screen and (max-width: 1440px) {
   .App {
     overflow-x: hidden;
   }
-  .postbody{
-    
+label#imageLable{
+  position: relative;
+  left: -120px;
+  }
+  #uploadImageButton{
+    display: inherit;
+  }
+  div.postbody{
+    max-height: 350px;
   }
   .settingsIcon{
     width: 44px;
@@ -857,20 +884,19 @@ a#editSettings.secondaryButton {
 
   .My-tracks {
     position: absolute;
-    margin-left: 10px;
-    margin-right: 10px;
-    /*width: 0em;*/
-    font-size: 20px;
-    top: 59%;
-    text-align: center;
+margin-left: 20%;
+margin-right: 10px;
+font-size: 20px;
+top: 100%;
+text-align: center;
+
   }
   .playlist {
     position: absolute;
-    margin-left: 10px;
+    margin-left: 60%;
     margin-right: 10px;
-    /*width: 0em;*/
     font-size: 20px;
-    top: 85%;
+    top: 105%;
     text-align: center;
   }
   .profile_photo {
@@ -878,7 +904,9 @@ a#editSettings.secondaryButton {
   }
   .App_Settings {
     color: black;
-  }
+    position: relative;
+    top: 130px;
+}
 
   .spotifyInfo {
     color: black;
@@ -1025,6 +1053,18 @@ a#editSettings.secondaryButton {
     border-radius: 26px;
     border: 0px;
   }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  
+  
+
   input[type="password"] {
     width: 319px;
     height: 41.61px;
@@ -1232,6 +1272,15 @@ a#editSettings.secondaryButton {
 @media only screen and (max-width: 1025px) {
   .songCover {
   }
+form#imageForm{
+  position: relative;
+  left: 20px;
+  top: 68px;
+  }
+  label#imageLable{
+    position: relative;
+    left: -120px;
+    }
   .settingsIcon{
     width: 44px;
   height: 43px;
@@ -1561,6 +1610,16 @@ a#editSettings.secondaryButton {
     border-radius: 26px;
     border: 0px;
   }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  
   input[type="password"] {
     width: 319px;
     height: 41.61px;
@@ -1926,6 +1985,15 @@ a#editSettings.secondaryButton {
     left: 19%;
   }
   input[type="email"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="text"] {
     width: 319px;
     height: 41.61px;
     flex: 0 0 200px;
@@ -2362,6 +2430,15 @@ a#editSettings.secondaryButton {
     border-radius: 26px;
     border: 0px;
   }
+  input[type="text"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
   input[type="password"] {
     width: 319px;
     height: 41.61px;
@@ -2743,6 +2820,15 @@ a#editSettings.secondaryButton {
     left: 19%;
   }
   input[type="email"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="text"] {
     width: 319px;
     height: 41.61px;
     flex: 0 0 200px;
@@ -3184,6 +3270,15 @@ a#editSettings.secondaryButton {
     left: 20%;
   }
   input[type="email"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="text"] {
     width: 319px;
     height: 41.61px;
     flex: 0 0 200px;
@@ -3745,6 +3840,15 @@ a#editSettings.secondaryButton {
     left: 20%;
   }
   input[type="email"] {
+    width: 319px;
+    height: 41.61px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    border-radius: 26px;
+    border: 0px;
+  }
+  input[type="text"] {
     width: 319px;
     height: 41.61px;
     flex: 0 0 200px;
