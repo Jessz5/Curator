@@ -257,12 +257,6 @@ class settings extends Component {
                     console.log("256");
                     alert("error!"+error);
                 }
-                },
-                error => {
-                    console.log(error);
-                    console.log("256");
-                    alert("error!"+error);
-                }
             );
 
 
