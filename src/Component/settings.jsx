@@ -245,12 +245,18 @@ class settings extends Component {
         })
             .then(
                 result => {
-                    if (result['status'] === 201) {
-                        alert("Profile picture updated!");
+                       if (result['status'] === 400) {
+                        alert("Wrong format of the file please upload one of these types png, jpg, jpeg, gif, webp, svg, wav, mp3, wma, mov, mp4, avi, wmv, webm.");
                     }else {
                         console.log("251");
-                        alert("Wrong format of the file please upload one of these types png, jpg, jpeg, gif, webp, svg, wav, mp3, wma, mov, mp4, avi, wmv, webm.");
+                        alert("Profile picture updated!");
                     }
+                },
+                error => {
+                    console.log(error);
+                    console.log("256");
+                    alert("error!"+error);
+                }
                 },
                 error => {
                     console.log(error);
