@@ -665,7 +665,6 @@ label#imageLable{
   position: relative;
   left: -120px;
   }
-
 @media only screen and (max-width: 1440px) {
   .App {
     overflow-x: hidden;
@@ -678,7 +677,15 @@ label#imageLable{
     display: inherit;
   }
   div.postbody{
-    max-height: 350px;
+    background: rgba(196, 196, 196, 0.3);
+    width: 839px;
+    border-radius: 18px;
+    height: 372px;
+  }
+  iframe{
+    border-radius: 18px;
+position: relative;
+top: 40px;
   }
   .settingsIcon{
     width: 44px;
