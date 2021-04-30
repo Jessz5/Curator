@@ -22,16 +22,16 @@ class userAccount extends Component {
             followersCount: 0,
             form_data : new FormData(),
             pictureAsFile:"",
-            profile_picture : "https://webdev.cse.buffalo.edu",
+            profile_picture:"https://webdev.cse.buffalo.edu",
             id:0
         };
         this.fieldChangeHandler.bind(this);
         this.loadFollowers.bind(this);
         this.loadFriends.bind(this);
-        this.uploadPicture.bind(this);
         this.loadProfilePicture.bind(this);
         this.getUserArtifact.bind(this);
         this.create_userArtifact.bind(this);
+        this.uploadPicture.bind(this);
     }
 
     fieldChangeHandler(field, e) {
@@ -55,54 +55,54 @@ class userAccount extends Component {
     }
     loadFollowers(){
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/connections?connectedUserID="+sessionStorage.getItem("user"), {
-          method: "GET",
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+sessionStorage.getItem("token")
-          }
-         })
-          .then(res => res.json())
-          .then(
-            result => {
-              if (result) {
-              console.log(result);
-                this.setState({
-                    followersCount: result[1]
-                });
-              }
-            },
-            error => {
-              alert("error!");
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
             }
-          );
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    if (result) {
+                        console.log(result);
+                        this.setState({
+                            followersCount: result[1]
+                        });
+                    }
+                },
+                error => {
+                    alert("error!");
+                }
+            );
     }
     loadFriends() {
         //gets all the connections(friends) related to the user
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api"+"/connections?userID="+sessionStorage.getItem("user"), {
-          method: "GET",
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+sessionStorage.getItem("token")
-          }
-         })
-          .then(res => res.json())
-          .then(
-            result => {
-              if (result) {
-              //console.log(result[1])
-                this.setState({
-                    friendsCount: result[1]
-                });
-              }
-            },
-            error => {
-              alert("error!");
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+sessionStorage.getItem("token")
             }
-          );
-      }
-
+        })
+            .then(res => res.json())
+            .then(
+                result => {
+                    if (result) {
+                        //console.log(result[1])
+                        this.setState({
+                            friendsCount: result[1]
+                        });
+                    }
+                },
+                error => {
+                    alert("error!");
+                }
+            );
+    }
 
     loadProfilePicture(){
+        console.log("it was here 104");
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+sessionStorage.getItem("user"), {
             method: "GET",
             headers: {
@@ -114,15 +114,23 @@ class userAccount extends Component {
             .then(
                 result => {
                     console.log(result);
+                    console.log(this.state.profile_picture);
+                    console.log("line121");
                     if (result[0].length !== 0) {
-
+                        console.log("it was here 154");
                         this.getUserArtifact();
                         this.setState({
                             profile_picture: this.state.profile_picture + result[0][0].url || ""
                         });
+                        console.log(this.state.profile_picture);
+
+                        console.log(this.state.id);
+
+
 
                     }
                     else {
+                        console.log("it was here else statement");
                         this.create_userArtifact();
                     }
                 },
@@ -183,10 +191,7 @@ class userAccount extends Component {
                     console.log("it was here192");
                     console.log(result);
                     if (result[0].length > 0) {
-                        // console.log(result);
-                        // console.log("line194");
-                        // console.log("it was here189");
-                        // console.log(result);
+
                         this.setState({
                             // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
                             // try and make the form component uncontrolled, which plays havoc with react
@@ -212,6 +217,10 @@ class userAccount extends Component {
 
         formData.append("file",(this.state.pictureAsFile));
 
+        if (this.state.pictureAsFile.endsWith('.jpg')){
+            console.log("it was here223, jpg file.!")
+        }
+
 
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts/"+ this.state.id +"/upload", {
             method: "POST",
@@ -228,7 +237,6 @@ class userAccount extends Component {
                 result => {
 
                     alert("Profile picture updated!");
-
                 },
                 error => {
                     alert("error!"+error);
@@ -244,6 +252,11 @@ class userAccount extends Component {
 
 
     };
+
+
+
+
+
 
     componentDidMount() {
         this.loadFollowers();
@@ -284,9 +297,9 @@ class userAccount extends Component {
 
 
     }
-    
-    
-   
+
+
+
 
     submitHandler = event => {
         //keep the form from actually submitting
@@ -326,49 +339,43 @@ class userAccount extends Component {
 
     render() {
         return (
-        <div className="App_Settings">
+            <div className="App_Settings">
 
-        <header className="Header_app">
-            <img id="profile_picture" src = {this.state.profile_picture} alt="profile" width="200" height="200" />
-            <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
+                <header className="Header_app">
+                    <img id="profile_picture" src = {this.state.profile_picture} alt="profile" width="200" height="200" />
+                    <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
 
-            </label> </h2>
+                    </label> </h2>
 
-        </header>
-        <header className="Content">
-            <header className="Followers">
-                <Link className="secondaryButton" id = "allFollowers" to = "/allFollowers">
-                    Followers
-                </Link>
-               <br/>
-               {this.state.followersCount}
-            </header>
-            <header className="Following">
-                <Link  className ="secondaryButton" to = "/allFriends">
-                    Following
-                </Link>
-                <br/>
-                {this.state.friendsCount}
-            </header>
-        </header>
-        <header className="My-tracks">
-            <img src={my_tracks} alt="profile" width="150" height="150" />
-            <p>My Tracks</p>
-        </header>
-        <header className="playlist">
-            <img src={playlist} alt="profile" width="150" height="150" />
-                <span id="playlistTitle">My Playlist's</span>
-        </header>
+                </header>
+                <header className="Content">
+                    <header className="Followers">
+                        <Link className="secondaryButton" id = "allFollowers" to = "/allFollowers">
+                            Followers
+                        </Link>
+                        <br/>
+                        {this.state.followersCount}
+                    </header>
+                    <header className="Following">
+                        <Link  className ="secondaryButton" to = "/allFriends">
+                            Following
+                        </Link>
+                        <br/>
+                        {this.state.friendsCount}
+                    </header>
+                </header>
+                <header className="My-tracks">
+                    <img src={my_tracks} alt="profile" width="150" height="150" />
+                    <p>My Tracks</p>
+                </header>
+                <header className="playlist">
+                    <img src={playlist} alt="profile" width="150" height="150" />
+                    <span id="playlistTitle">My Playlist's</span>
+                </header>
                 <Link className="secondaryButton" id="editSettings" to = "/usersettings">
-                Edit User Settings
+                    Edit User Settings
                 </Link>
-             <form onSubmit={this.changeProfilePicture}>
-                <input type="file" id="image_upload" name="filename" onChange={this.uploadPicture}/>
-                <input type="submit" value="Submit" />
-
-            </form>
-
-        </div>
+            </div>
 
         );
     }

@@ -21,14 +21,14 @@ class settings extends Component {
             spotToken: "",
             form_data : new FormData(),
             pictureAsFile:"",
-            profile_picture : "https://webdev.cse.buffalo.edu",
+            profile_picture:"https://webdev.cse.buffalo.edu",
             id:0,
             fetchOptions: {method: '', headers: ''}
         };
         this.fieldChangeHandler.bind(this);
-        this.loadProfilePicture.bind(this);
         this.getUserArtifact.bind(this);
         this.create_userArtifact.bind(this);
+        this.uploadPicture.bind(this);
 
         //If there's cookies to extract
         if(document.cookie != ''){
@@ -39,17 +39,17 @@ class settings extends Component {
             }
             catch{console.log("No matching cookie for current user")};
         }
-        
-    } 
+
+    }
 
     getSpotifyInfo(){
         fetch('https://api.spotify.com/v1/me', this.state.fetchOptions)
-        .then(function (response) {
-        return response.json();})
-        .then(json => {this.setState({spotify_email: json.email, spotify_username: json.display_name})})
-        .then( function (json) {console.log(json);})
-        .catch(function (error) {console.log(error);});
-      };
+            .then(function (response) {
+                return response.json();})
+            .then(json => {this.setState({spotify_email: json.email, spotify_username: json.display_name})})
+            .then( function (json) {console.log(json);})
+            .catch(function (error) {console.log(error);});
+    };
 
     fieldChangeHandler(field, e) {
         console.log("field change");
@@ -71,9 +71,9 @@ class settings extends Component {
         });
     }
     componentDidMount() {
-        this.loadProfilePicture();
         console.log("In profile");
         console.log(this.props);
+        this.getUserArtifact();
 
         // first fetch the user data to allow update of username
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/"+"users/"+ sessionStorage.getItem("user"), {
@@ -94,10 +94,10 @@ class settings extends Component {
                     alert("error!");
                 }
             );
-            
-            //Next Fetch the SpotifyInfo from the SpotifyAPI
-            this.getSpotifyInfo();
-        }
+
+        //Next Fetch the SpotifyInfo from the SpotifyAPI
+        this.getSpotifyInfo();
+    }
     submitHandler = event => {
         //keep the form from actually submitting
         event.preventDefault();
@@ -130,8 +130,6 @@ class settings extends Component {
             );
 
     };
-
-
     deleteHandler = event => {
 
         event.preventDefault();
@@ -157,38 +155,43 @@ class settings extends Component {
     };
 
 
-    loadProfilePicture(){
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+sessionStorage.getItem("user"), {
-            method: "GET",
+    getUserArtifact(){
+        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+ sessionStorage.getItem("user"), {
+            method: "get",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer '+sessionStorage.getItem("token")
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
             }
         })
             .then(res => res.json())
             .then(
                 result => {
+                    console.log("it was here192");
                     console.log(result);
-                    if (result[0].length !== 0) {
+                    if (result[0].length > 0) {
 
-                        this.getUserArtifact();
                         this.setState({
-                            profile_picture: this.state.profile_picture + result[0][0].url || ""
+                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
+                            // try and make the form component uncontrolled, which plays havoc with react
+                            id:result[0][0].id || ""
+
                         });
+                        console.log("it was here189");
+                        console.log(this.state.id);
 
                     }
-                    else {
+                    else{
                         this.create_userArtifact();
+                        this.getUserArtifact();
+
                     }
                 },
-
                 error => {
                     alert("error!");
                 }
-
             );
-
     }
+
     create_userArtifact(){
 
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts", {
@@ -208,8 +211,6 @@ class settings extends Component {
             .then(res => res.json())
             .then(
                 result => {
-                    console.log("it was here4");
-                    this.getUserArtifact();
 
                     this.setState({
                         responseMessage: result.Status
@@ -223,42 +224,6 @@ class settings extends Component {
 
     }
 
-
-    getUserArtifact(){
-        fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts?ownerID="+ sessionStorage.getItem("user"), {
-            method: "get",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
-            }
-        })
-            .then(res => res.json())
-            .then(
-                result => {
-                    console.log("it was here192");
-                    console.log(result);
-                    if (result[0].length > 0) {
-                        // console.log(result);
-                        // console.log("line194");
-                        // console.log("it was here189");
-                        // console.log(result);
-                        this.setState({
-                            // IMPORTANT!  You need to guard against any of these values being null.  If they are, it will
-                            // try and make the form component uncontrolled, which plays havoc with react
-                            id:result[0][0].id || ""
-
-                        });
-                        console.log("it was here189");
-                        console.log(this.state.id);
-
-                    }
-                },
-                error => {
-                    alert("error!");
-                }
-            );
-    }
-
     changeProfilePicture = event => {
         event.preventDefault();
         // this.getUserArtifact();
@@ -268,6 +233,7 @@ class settings extends Component {
         formData.append("file",(this.state.pictureAsFile));
 
 
+
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/user-artifacts/"+ this.state.id +"/upload", {
             method: "POST",
             headers: {
@@ -275,17 +241,20 @@ class settings extends Component {
 
             },
             body:formData
-
-
-
+            
         })
             .then(
                 result => {
-
-                    alert("Profile picture updated!");
-
+                    if (result['status'] === 201) {
+                        alert("Profile picture updated!");
+                    }else {
+                        console.log("251");
+                        alert("Wrong format of the file please upload one of these types png, jpg, jpeg, gif, webp, svg, wav, mp3, wma, mov, mp4, avi, wmv, webm.");
+                    }
                 },
                 error => {
+                    console.log(error);
+                    console.log("256");
                     alert("error!"+error);
                 }
             );
@@ -301,15 +270,14 @@ class settings extends Component {
     };
 
 
-
     render() {
         return (
             <header className="settings_list">
                 <Navbar/>
                 <p className="spotifyInfo">{this.state.spotify_email}</p>
-                <p className="spotifyInfo">{this.state.spotify_username}</p>             
+                <p className="spotifyInfo">{this.state.spotify_username}</p>
                 <form onSubmit={this.submitHandler} className="profileform">
-                    <label className="settingLable"> 
+                    <label className="settingLable">
                         Username
                         <input
                             type="text"
@@ -341,21 +309,18 @@ class settings extends Component {
                             value={this.state.status}
                         />
                     </label>
-                    <form onSubmit={this.changeProfilePicture}>
-                        <input id="settingButton" className="" type="file" onChange={this.uploadPicture}/>
-                        <input id="settingButton" className="MainButton" type="submit" value="Change Profile Picture" />
-                    </form>
-
                     <input id="settingButton" className="MainButton" type="submit" value="Submit" />
-
-
                 </form>
+                <form onSubmit={this.changeProfilePicture}>
+                    <input type="file" id="image_upload" name="filename" onChange={this.uploadPicture}/>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 <input id= "deleteButtonSettings"className ="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler} />
             </header>
-    );
+        );
     }
 
 }
 
 export default settings;
-
