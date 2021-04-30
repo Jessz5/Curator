@@ -96,7 +96,7 @@ export default class LogInBanner extends React.Component {
                   
                     <form className="filler" onSubmit={this.submitHandler}>
                         <label className="login">
-                            <input id="UserName" className="login" type="text" placeholder="Username"
+                            <input id="UserName" className="login" type="email" placeholder="Email"
                                 onChange={this.myChangeHandler}/>
                         </label>
                         <label className="login1">

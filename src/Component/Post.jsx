@@ -392,7 +392,7 @@ export default class Post extends React.Component {
   render() {
     return (
       <div>
-        <div key={this.props.post.id}className={[this.props.type, "postbody"].join(" ")}>
+        <div key={this.props.post.id} className={[this.props.type, "postbody"].join(" ")}>
           {this.displayContent()}
           {this.showDelete()}
           <button className="show-comment" onClick={this.showCommentBlock}>Show/Hide Comments</button>
