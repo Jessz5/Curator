@@ -52,8 +52,8 @@ h6 {
 }
 .SongInfo {
   position: absolute;
-  top: 173px;
-  left: 37vw;
+top: 173px;
+left: 30vw;
 }
 #SongName {
   position: relative;
@@ -71,17 +71,18 @@ h6 {
 }
 div.comment-block{
   position: relative;
-  top: -260px;
-  left: 22.4vw;
+top: -229px;
+left: 22.4vw;
 }
 .deleteIcon {
-  top: 0px;
+  top: 20px;
   position: relative;
   left: 20px;
 }
 button.show-comment{
-  position: absolute;
-  left: 318px;
+  position: relative;
+left: -202px;
+top: -276px;
 }
 .posts > * {
  padding-bottom: 16px;
