@@ -669,6 +669,9 @@ label#imageLable{
   .App {
     overflow-x: hidden;
   }
+   div.posts{
+    overflow-x: hidden;
+  }
 label#imageLable{
   position: relative;
   left: -120px;
