@@ -95,8 +95,8 @@ class settings extends Component {
                         console.log("it was here 95");
                        this.setState({
                            username: result.username || "",
-                           firstname: result.firstname || "",
-                           lastname: result.lastname|| "",
+                           firstname: result.firstName || "",
+                           lastname: result.lastName|| "",
                            status: result.status|| ""
 
                        })
@@ -317,6 +317,7 @@ class settings extends Component {
 
     render() {
         return (
+             <div>
             <header className="settings_list">
                 <Navbar/>
                 <p className="spotifyInfo">{this.state.spotify_email}</p>
@@ -356,15 +357,15 @@ class settings extends Component {
                     </label>
                     <input id="settingButton" className="MainButton" type="submit" value="Submit" />
                 </form>
+               
+            </header>
+                <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler}/>
                 <form id="imageForm" onSubmit={this.changeProfilePicture}>
-                    <label id="imageLable" htmlFor="image_upload">Choose images to upload</label>
+                   
                     <input type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
                     <input id="uploadImageButton" type="submit" value="Upload Image" className="MainButton"/>
                 </form>
-
-                <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account"
-                       onClick={this.deleteHandler}/>
-            </header>
+            </div>
         );
     }
 
