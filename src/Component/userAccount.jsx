@@ -22,7 +22,7 @@ class userAccount extends Component {
             followersCount: 0,
             form_data : new FormData(),
             pictureAsFile:"",
-            profile_picture:"https://webdev.cse.buffalo.edu",
+            profile_picture:profile_photo,
             id:0
         };
         this.fieldChangeHandler.bind(this);
@@ -119,9 +119,11 @@ class userAccount extends Component {
                     if (result[0].length !== 0) {
                         console.log("it was here 154");
                         this.getUserArtifact();
-                        this.setState({
-                            profile_picture: this.state.profile_picture + result[0][0].url || ""
-                        });
+                      if(result[0][0].url!=="") {
+                            this.setState({
+                                profile_picture: "https://webdev.cse.buffalo.edu" + result[0][0].url || ""
+                            });
+                        }
                         console.log(this.state.profile_picture);
 
                         console.log(this.state.id);
