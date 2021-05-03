@@ -141,7 +141,7 @@ export default class FriendForm extends React.Component {
             <Autocomplete suggestions={this.state.users} selectAutocomplete={e => this.selectAutocomplete(e)} />
           </div>
         </label>
-        <input type="submit" value="submit" />
+        <input className="MainButton" id="friendSubmit" type="submit" value="submit" />
         {this.state.responseMessage}
         <br /><br /><br />
         <div>
