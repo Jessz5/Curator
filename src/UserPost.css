@@ -79,10 +79,10 @@ left: 22.4vw;
 position: relative;
 left: 107px;
 }
-button.show-comment{
-  position: relative;
-  left: -107px;
-  top: -276px;
+button.show-comment {
+    position: relative;
+    left: -107px;
+    top: 40px;
 }
 .posts > * {
  padding-bottom: 16px;
