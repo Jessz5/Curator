@@ -665,6 +665,12 @@ label#imageLable{
   position: relative;
   left: -120px;
   }
+  iframe{
+    border-radius: 18px;
+    position: relative;
+    top: 40px;
+    left: 56px;
+  }
 @media only screen and (max-width: 1440px) {
   .App {
     overflow-x: hidden;
@@ -687,8 +693,9 @@ label#imageLable{
   }
   iframe{
     border-radius: 18px;
-position: relative;
-top: 40px;
+    position: relative;
+    top: 40px;
+    left: 56px;
   }
   .settingsIcon{
     width: 44px;

@@ -75,14 +75,14 @@ top: -229px;
 left: 22.4vw;
 }
 .deleteIcon {
-  top: 20px;
-  position: relative;
-  left: 20px;
+  top: 24px;
+position: relative;
+left: 107px;
 }
 button.show-comment{
   position: relative;
-left: -202px;
-top: -276px;
+  left: -107px;
+  top: -276px;
 }
 .posts > * {
  padding-bottom: 16px;
