@@ -65,6 +65,8 @@ height: 43px;
   top: 99px;
   left: 160px;
 }
+a:link {color:#1db954;}    
+a:visited {color:#1db954;}
 .sidenav-icon.userIcon{
   width: 40px;
   height: 40px;
