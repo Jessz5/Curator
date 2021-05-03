@@ -19,6 +19,19 @@ form.comment-form {
   left: 41%;
 
 }
+.secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
 #settings_list{
   overflow: hidden;
   clear: both;
@@ -677,6 +690,19 @@ label#imageLable{
   .App {
     overflow-x: hidden;
   }
+  .secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
    div.posts{
     overflow-x: hidden;
   }
@@ -1093,7 +1119,19 @@ text-align: center;
     font-family: Quicksand;
     font-size: 18px;
   }
-
+.secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
 
   #LogInButton {
     position: relative;
@@ -1238,7 +1276,19 @@ text-align: center;
 @media only screen and (max-width: 1025px) {
 
 
-
+.secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
   label#imageLable{
     position: relative;
     left: -120px;
@@ -1666,6 +1716,19 @@ text-align: center;
     position: relative;
     top: -45px;
   }
+  .secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
   .header.Content {
     position: relative;
     left: -20px;
@@ -2067,6 +2130,19 @@ text-align: center;
     height: 100vh;
     position: relative;
   }
+.secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
   h2#profile_info {
     text-align: center;
     position: relative;
@@ -2767,7 +2843,19 @@ text-align: center;
 
 }
 @media only screen and (max-width: 414px) {
-
+.secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
   span#playlistTitle {
     float: right;
     position: relative;
@@ -3355,7 +3443,19 @@ text-align: center;
     top: -45px;
     left: -60px;
   }
-
+.secondaryButton {
+  width: 125px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
+}
   button.show-comment {
     float: right;
     position: relative;
