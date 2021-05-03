@@ -318,53 +318,53 @@ class settings extends Component {
     render() {
         return (
              <div>
-            <header className="settings_list">
+            <header>
                 <Navbar/>
-                <p className="spotifyInfo">{this.state.spotify_email}</p>
-                <p className="spotifyInfo">{this.state.spotify_username}</p>
-                <form onSubmit={this.submitHandler} className="profileform">
-                    <label className="settingLable">
-                        Username
-                        <input
-                            type="text"
-                            onChange={e => this.fieldChangeHandler("username", e)}
-                            value={this.state.username}
-                        />
-                    </label>
-                    <label className="settingLable">
-                        First Name
-                        <input
-                            type="text"
-                            onChange={e => this.fieldChangeHandler("firstname", e)}
-                            value={this.state.firstname}
-                        />
-                    </label>
-                    <label className="settingLable">
-                        Last Name
-                        <input
-                            type="text"
-                            onChange={e => this.fieldChangeHandler("lastname", e)}
-                            value={this.state.lastname}
-                        />
-                    </label>
-                    <label className="settingLable">
-                        Edit User Bio
-                        <input
-                            type="text"
-                            onChange={e => this.fieldChangeHandler("status", e)}
-                            value={this.state.status}
-                        />
-                    </label>
-                    <input id="settingButton" className="MainButton" type="submit" value="Submit" />
-                </form>
-               
             </header>
-                <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler}/>
-                <form id="imageForm" onSubmit={this.changeProfilePicture}>
-                   
-                    <input type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
-                    <input id="uploadImageButton" type="submit" value="Upload Image" className="MainButton"/>
-                </form>
+                <div  id="settings_list">
+                    <p className="spotifyInfo1">Spotify Email: {this.state.spotify_email}</p>
+                        <p className="spotifyInfo2">Spotify Username: {this.state.spotify_username}</p>
+                        <form onSubmit={this.submitHandler} className="profile-form">
+                            <label className="settingLable">
+                                Username
+                                <input
+                                    type="text"
+                                    onChange={e => this.fieldChangeHandler("username", e)}
+                                    value={this.state.username}
+                                />
+                            </label>
+                            <label className="settingLable">
+                                First Name
+                                <input
+                                    type="text"
+                                    onChange={e => this.fieldChangeHandler("firstname", e)}
+                                    value={this.state.firstname}
+                                />
+                            </label>
+                            <label className="settingLable">
+                                Last Name
+                                <input
+                                    type="text"
+                                    onChange={e => this.fieldChangeHandler("lastname", e)}
+                                    value={this.state.lastname}
+                                />
+                            </label>
+                            <label className="settingLable">
+                                Edit User Bio
+                                <input
+                                    type="text"
+                                    onChange={e => this.fieldChangeHandler("status", e)}
+                                    value={this.state.status}
+                                />
+                            </label>
+                            <input id="settingButton" className="MainButton" type="submit" value="Submit" />
+                        </form>
+                    <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler}/>
+                </div>  
+                    <form id="image-form" onSubmit={this.changeProfilePicture}>
+                        <input id="chooseImageButton" type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
+                        <input id="uploadImageButton" type="submit" value="Upload Image" className="MainButton"/>
+                    </form>
             </div>
         );
     }

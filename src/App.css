@@ -13,19 +13,28 @@ form.comment-form {
   position: relative;
   top: -45px;
 }
-#imageLable{
-
-}
 #forgotPasswordLink{
   color: #1db954;
   position: relative;
   left: 41%;
 
 }
+#settings_list{
+  overflow: hidden;
+  clear: both;
+  width: 100%;
+  height: 50%;
+
+}
 input.MainButton.imageUpload {
   position: relative;
   top: 25px;
   display: inherit;
+}
+.profile-form{
+  position: absolute;
+  top: 20%;
+  right: 20%;
 }
 .grid-container {
   display: grid;
@@ -149,9 +158,6 @@ button.MainButton.login {
   color: black;
 }
 
-.spotifyInfo {
-  color: black;
-}
 #SearchTitle {
   float: left;
   position: relative;
@@ -285,10 +291,6 @@ label {
   width: 319px;
   height: 41.61px;
 }
-form {
-  position: relative;
-  left: 19%;
-}
 
 input[type="email"] {
   width: 319px;
@@ -342,19 +344,7 @@ header.Content {
   top: -200px;
   left: -30vw;
 }
-.secondaryButton {
-  width: 125px;
-  height: 44.61px;
-  border-radius: 50px;
-  border: 0px;
-  background-color: #fff;
-  font-family: Quicksand;
-  font-size: 18px;
-  border: 2px solid #000;
-  padding: 10px;
-  border-radius: 25px;
-  text-decoration: unset;
-}
+
 .songCover {
   position: relative;
   width: 70px;
@@ -373,10 +363,27 @@ button.Post {
   font-family: Quicksand;
   font-size: 18px;
 }
+#image-form{
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
 #deleteButtonSettings {
-  position: relative;
-  left: 50.7vw;
-  top: 202px;
+  position: absolute;
+  right: 19%;
+  bottom: 20%;
+  width: 325px;
+  height: 44.61px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #fff;
+  color: black;
+  font-family: Quicksand;
+  font-size: 18px;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 25px;
+  text-decoration: unset;
 }
 #LogInButton {
   position: relative;
@@ -506,9 +513,6 @@ img#profile_picture {
   color: black;
 }
 
-.spotifyInfo {
-  color: black;
-}
 .search-page {
   background-color: white;
   height: 100vh;
@@ -620,16 +624,19 @@ a.spotLinkText {
 label.settingLable {
   text-align: left !important;
 }
-.spotifyInfo {
+.spotifyInfo1 {
   color: black;
-  position: relative;
-  top: 232px;
-  left: 32vw;
+  position: absolute;
+  float: left;
+  top: 55%;
+  left: 20%;
 }
-form.profileform {
-  position: relative;
-  left: 50vw;
-  top: 152px;
+.spotifyInfo2 {
+  color: black;
+  position: absolute;
+  float: left;
+  top: 50%;
+  left: 20%;
 }
 #settingButton {
   position: relative;
@@ -652,15 +659,8 @@ form.profileform {
   position: relative;
   left: 2vw;
 }
-a#editSettings.secondaryButton {
-  position: relative;
-  width: 145px;
-  padding: 0 8px 10px 8px;
-  display: inline-block;
-  left: 98px;
-  top: 40px;
-  height: 14.61px;
-}
+
+
 label#imageLable{
   position: relative;
   left: -120px;
@@ -713,8 +713,6 @@ label#imageLable{
   }
   button.show-comment {
     float: right;
-  }
-  input.commentButton {
   }
   form.comment-form {
     position: relative;
@@ -805,12 +803,6 @@ label#imageLable{
   #loginLogo {
     position: relative;
     left: 41vw;
-  }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 232px;
-    left: 32vw;
   }
   .grid-container {
     display: grid;
@@ -925,9 +917,6 @@ text-align: center;
     top: 130px;
 }
 
-  .spotifyInfo {
-    color: black;
-  }
   #TopNavbar {
     position: fixed;
     width: 100vw;
@@ -1057,10 +1046,6 @@ text-align: center;
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 5.1vw;
-  }
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -1106,25 +1091,8 @@ text-align: center;
     font-family: Quicksand;
     font-size: 18px;
   }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 166px;
-  }
+
+
   #LogInButton {
     position: relative;
     left: 1.2%;
@@ -1258,42 +1226,17 @@ text-align: center;
   label.settingLable {
     text-align: left !important;
   }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 232px;
-    left: 32vw;
-  }
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 116px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
     left: 0.7vw;
   }
 }
-a#editSettings.secondaryButton {
-  position: relative;
-  width: 145px;
-  padding: 0 8px 10px 8px;
-  display: inline-block;
-  left: 15vw;
-  top: -70px;
-  height: 14.61px;
-  color: black;
-}
 
 @media only screen and (max-width: 1025px) {
-  .songCover {
-  }
-form#imageForm{
-  position: relative;
-  left: 20px;
-  top: 68px;
-  }
+
+
+
   label#imageLable{
     position: relative;
     left: -120px;
@@ -1308,8 +1251,6 @@ form#imageForm{
   }
   button.show-comment {
     float: right;
-  }
-  input.commentButton {
   }
   .cancel {
     color: #33cc66;
@@ -1379,12 +1320,6 @@ form#imageForm{
     font-size: 18px;
     position: relative;
     left: 2vw;
-  }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 232px;
-    left: 32vw;
   }
   #addSongIcon {
     width: 44px;
@@ -1614,10 +1549,7 @@ form#imageForm{
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 19%;
-  }
+
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -1660,25 +1592,7 @@ form#imageForm{
     font-family: Quicksand;
     font-size: 18px;
   }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 99px;
-  }
+
   #LogInButton {
     position: relative;
     left: 2.4%;
@@ -1739,14 +1653,6 @@ form#imageForm{
   label.settingLable {
     text-align: left !important;
   }
-  #userInformation {
-  }
-
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 41px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
@@ -1754,8 +1660,6 @@ form#imageForm{
   }
 }
 @media only screen and (max-width: 1024px) {
-  .songCover {
-  }
   form.comment-form {
     position: relative;
     top: -45px;
@@ -1878,12 +1782,6 @@ form#imageForm{
     position: relative;
     left: 2vw;
   }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 232px;
-    left: 32vw;
-  }
   #addSongIcon {
     width: 44px;
     position: relative;
@@ -1997,10 +1895,6 @@ form#imageForm{
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 19%;
-  }
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -2058,25 +1952,7 @@ form#imageForm{
     font-family: Quicksand;
     font-size: 18px;
   }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 171px;
-  }
+
   #LogInButton {
     position: relative;
     left: 2.4%;
@@ -2153,11 +2029,6 @@ form#imageForm{
   label.settingLable {
     text-align: left !important;
   }
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 121px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
@@ -2181,15 +2052,7 @@ form#imageForm{
     text-decoration-color: #1db954;
     color: #1db954;
   }
-  a#editSettings.secondaryButton {
-    position: relative;
-    width: 145px;
-    padding: 0 8px 10px 8px;
-    display: inline-block;
-    left: 98px;
-    top: 40px;
-    height: 14.61px;
-  }
+
   h2#profile_info {
     text-align: center;
     position: relative;
@@ -2214,8 +2077,6 @@ form#imageForm{
     position: relative;
     top: 110px;
   }
-  input.commentButton {
-  }
   form.comment-form {
     position: relative;
     top: -45px;
@@ -2434,10 +2295,6 @@ form#imageForm{
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 19%;
-  }
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -2486,25 +2343,7 @@ form#imageForm{
     font-family: Quicksand;
     font-size: 18px;
   }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 232px;
-  }
+
   #LogInButton {
     position: relative;
     left: 2.4%;
@@ -2565,33 +2404,12 @@ form#imageForm{
   label.settingLable {
     text-align: left !important;
   }
-  #userInformation {
-  }
-
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 181px;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 232px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
     left: 0.7vw;
   }
-  a#editSettings.secondaryButton {
-    position: relative;
-    width: 145px;
-    padding: 0 8px 10px 8px;
-    display: inline-block;
-    left: 50px;
-    top: 40px;
-    height: 14.61px;
-  }
+
 }
 @media only screen and (max-width: 768px) {
   .search-page {
@@ -2612,8 +2430,6 @@ form#imageForm{
     position: relative;
     top: 110px;
   }
-  input.commentButton {
-  }
   form.comment-form {
     position: relative;
     top: -45px;
@@ -2832,10 +2648,6 @@ form#imageForm{
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 19%;
-  }
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -2884,25 +2696,7 @@ form#imageForm{
     font-family: Quicksand;
     font-size: 18px;
   }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 232px;
-  }
+
   #LogInButton {
     position: relative;
     left: 2.4%;
@@ -2963,44 +2757,15 @@ form#imageForm{
   label.settingLable {
     text-align: left !important;
   }
-
-  form.profileform {
-    position: relative;
-    left: 50vw;
-    top: 181px;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 50.7vw;
-    top: 232px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
     left: 0.7vw;
   }
-  a#editSettings.secondaryButton {
-    position: relative;
-    width: 145px;
-    padding: 0 8px 10px 8px;
-    display: inline-block;
-    left: 67px;
-    top: 40px;
-    height: 14.61px;
-  }
+
 }
 @media only screen and (max-width: 414px) {
-  .songCover {
-  }
-  a#editSettings.secondaryButton {
-    position: relative;
-    width: 145px;
-    padding: 0 8px 10px 8px;
-    display: inline-block;
-    left: 21px;
-    top: -209px;
-    height: 14.61px;
-  }
+
   span#playlistTitle {
     float: right;
     position: relative;
@@ -3012,8 +2777,6 @@ form#imageForm{
     display: block;
     top: -21px;
     left: 92px;
-  }
-  input.commentButton {
   }
   button.show-comment {
     float: right;
@@ -3282,10 +3045,7 @@ form#imageForm{
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 20%;
-  }
+
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -3514,39 +3274,14 @@ form#imageForm{
     height: 20px;
   }
   form.profileform {
-    position: relative;
-    left: 6vw;
-    top: 121px;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 6.7vw;
-    top: 241px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
   }
   #settingButton {
     position: relative;
     top: 28px;
     left: 0.7vw;
-  }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 2px;
-    left: 38vw;
   }
   p.SpotifyText {
     position: relative;
@@ -3612,22 +3347,13 @@ form#imageForm{
     width: auto;
     text-align: center;
   }
-  a#editSettings.secondaryButton {
-    position: relative;
-    width: 145px;
-    padding: 0 8px 10px 8px;
-    display: inline-block;
-    left: 98px;
-    top: 40px;
-    height: 14.61px;
-  }
+
   form.comment-form {
     position: relative;
     top: -45px;
     left: -60px;
   }
-  input.commentButton {
-  }
+
   button.show-comment {
     float: right;
     position: relative;
@@ -3852,10 +3578,6 @@ form#imageForm{
     width: 319px;
     height: 41.61px;
   }
-  form {
-    position: relative;
-    left: 20%;
-  }
   input[type="email"] {
     width: 319px;
     height: 41.61px;
@@ -4068,40 +3790,10 @@ form#imageForm{
     width: 20px;
     height: 20px;
   }
-  form.profileform {
-    position: relative;
-    left: 6vw;
-    top: 121px;
-  }
-  #deleteButtonSettings {
-    position: relative;
-    left: 6.7vw;
-    top: 241px;
-  }
   #settingButton {
     position: relative;
     top: 28px;
     left: 0.7vw;
-  }
-  .secondaryButton {
-    width: 325px;
-    height: 44.61px;
-    border-radius: 50px;
-    border: 0px;
-    background-color: #fff;
-    color: black;
-    font-family: Quicksand;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: unset;
-  }
-  .spotifyInfo {
-    color: black;
-    position: relative;
-    top: 2px;
-    left: 38vw;
   }
   p.SpotifyText {
     position: relative;
@@ -4114,8 +3806,6 @@ form#imageForm{
   #loginLogo {
     position: relative;
     left: 17vw;
-  }
-  div.searchResults {
   }
   a.spotLinkText {
     position: relative;
@@ -4135,53 +3825,4 @@ form#imageForm{
     width: 230px;
     height: 100px;
   }
-}
-
-/* Friend Form Css */
-.no-suggestions {
-  color: #999;
-  padding: 0.5rem;
-}
-
-.autocomplete input {
-  width: calc(300px + 1rem);
-}
-
-.autocomplete {
-  min-height: 165px;
-}
-
-.suggestions {
-  border: 1px solid #999;
-  border-top-width: 0;
-  list-style: none;
-  margin-top: 0;
-  max-height: 143px;
-  overflow-y: auto;
-  padding-left: 0;
-  width: calc(300px + 1rem);
-
-  display: inline-block;
-  position: relative;
-}
-
-.suggestions li {
-  padding: 0.5rem;
-}
-
-.suggestion-active,
-.suggestions li:hover {
-  background-color: #ffffff;
-  color: #33cc66;
-  cursor: pointer;
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
-}
-
-#friendSubmit{
-    margin-top: 100px;
 }
