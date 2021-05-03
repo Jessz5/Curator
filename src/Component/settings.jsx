@@ -344,7 +344,7 @@ class settings extends Component {
                         <input
                             type="text"
                             onChange={e => this.fieldChangeHandler("lastname", e)}
-                            value={this.state.lastName}
+                            value={this.state.lastname}
                         />
                     </label>
                     <label className="settingLable">
