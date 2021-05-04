@@ -10,6 +10,11 @@
   top: 30px;
   left: 50px;
 }
+button.show-comment {
+  position: relative;
+  left: -10px;
+  top: -231px;
+}
 #post {
   position: relative;
   top: 140px;
@@ -69,20 +74,10 @@ left: 30vw;
   font-size: 14px;
   font-weight: normal;
 }
-div.comment-block{
-  position: relative;
-top: -229px;
-left: 22.4vw;
-}
 .deleteIcon {
-  top: 24px;
-position: relative;
-left: 107px;
-}
-button.show-comment {
-    position: relative;
-    left: -107px;
-    top: 40px;
+  top: 20px;
+  position: relative;
+  left: 116px;
 }
 .posts > * {
  padding-bottom: 16px;
@@ -93,7 +88,23 @@ button.show-comment {
   top: 7px;
   left: 331px;
 }
-
+@media only screen and (max-width: 1440px){
+  div.comment-block {
+    position: relative;
+    top: -229px;
+    left: 26.4vw;
+}
+button.show-comment {
+  position: relative;
+  left: -108px;
+  top: -274px;
+}
+  .deleteIcon {
+    top: 25px;
+    position: relative;
+    left: 106px;
+}
+}
 @media only screen and (max-width: 834px){
   .SongInfo {
     position: absolute;
