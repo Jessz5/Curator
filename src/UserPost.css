@@ -95,9 +95,9 @@ left: 30vw;
     left: 26.4vw;
 }
 button.show-comment {
-  position: relative;
-  left: -108px;
-  top: -274px;
+    position: relative;
+    left: -108px;
+    top: 39px;
 }
   .deleteIcon {
     top: 25px;
