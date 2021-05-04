@@ -6,6 +6,18 @@
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
+div.postbody {
+  background: hsla(0,0%,76.9%,.3);
+  width: 839px;
+  border-radius: 18px;
+  height: 372px;
+}
+iframe {
+  border-radius: 18px;
+  position: relative;
+  top: 40px;
+  left: 56px;
+}
 textarea {
   resize: none;
 }
