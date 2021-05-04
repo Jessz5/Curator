@@ -190,6 +190,11 @@ button.MainButton.login {
   position: relative;
   top: -14px;
 }
+div.comment-block{
+  position: relative;
+top: -230px;
+left: 415px;
+}
 #TopNavbar {
   position: fixed;
   width: 100vw;
@@ -756,8 +761,8 @@ label#imageLable{
   }
   form.comment-form {
     position: relative;
-    top: -45px;
-  }
+    top: -25px;
+}
   button.Post {
     position: relative;
     display: block;
