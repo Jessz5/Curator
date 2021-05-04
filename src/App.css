@@ -6,6 +6,12 @@
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
+ul.suggestions{
+position: relative;
+left: 341px;
+color: green;
+top: -58px;
+}
 div.postbody {
   background: hsla(0,0%,76.9%,.3);
   width: 839px;
