@@ -129,7 +129,7 @@ a:visited {color:#1db954;}
 }
 .stats {
   position: relative;
-}
+} 
 .StatsContainer {
   position: relative;
   top: 34px;
@@ -713,6 +713,12 @@ label#imageLable{
   .App {
     overflow-x: hidden;
   }
+  em ul.suggestions{
+position: relative;
+left: 341px;
+color: green;
+top: -58px;
+}
   .secondaryButton {
   width: 125px;
   height: 44.61px;
