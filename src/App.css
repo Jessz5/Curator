@@ -23,7 +23,7 @@ textarea {
 }
 form.comment-form {
   position: relative;
-  top: -45px;
+  top: -25px;
 }
 #forgotPasswordLink{
   color: #1db954;
