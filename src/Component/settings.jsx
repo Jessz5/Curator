@@ -25,7 +25,9 @@ class settings extends Component {
             pictureAsFile:"",
             profile_picture:"https://webdev.cse.buffalo.edu",
             id:0,
-            fetchOptions: {method: '', headers: ''}
+            fetchOptions: {method: '', headers: ''},
+            redirect:false,
+            redirect_to :""
         };
         this.fieldChangeHandler.bind(this);
         this.getUserArtifact.bind(this);
@@ -139,7 +141,12 @@ class settings extends Component {
                 error => {
                     alert("error!");
                 }
-            );
+            )
+          .then(() => this.setState(
+                    {redirect:true,
+                        redirect_to:"/useraccount"
+
+                    }))
 
     };
     deleteUserArtifact= event => {
@@ -156,9 +163,9 @@ class settings extends Component {
         })
             .then(
                 result => {
-                    // if(result['status']===204){
-                    //     this.deleteHandler();
-                    // }
+                    if(result['status']===204){
+                        this.deleteHandler();
+                    }
 
 
                 },
@@ -166,6 +173,7 @@ class settings extends Component {
                     alert("error!"+error);
                 }
             );
+        
 
 
     };
@@ -174,7 +182,7 @@ class settings extends Component {
 
         // event.preventDefault();
         //make the api call to the user controller
-        this.deleteUserArtifact();
+       
 
         fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/users/"+sessionStorage.getItem("user"), {
             method: "DELETE",
@@ -197,7 +205,10 @@ class settings extends Component {
                 error => {
                     alert("error!"+error);
                 }
-            );
+            )
+         .then(() => this.setState({redirect:true,
+                redirect_to:"/"
+            }))
 
 
 
@@ -302,7 +313,10 @@ class settings extends Component {
 
                     alert("error!"+error);
                 }
-            );
+            )
+        .then(() => this.setState({redirect:true,
+                redirect_to:"/useraccount"
+            }));
 
 
 
@@ -316,6 +330,15 @@ class settings extends Component {
 
 
     render() {
+        const {redirect,redirect_to} = this.state;
+        if (redirect) {
+            if (redirect_to === "/") {
+                return (<Redirect to="/"/>)
+            }
+            if (redirect_to === "/useraccount") {
+                return (<Redirect to="/useraccount"/>)
+            }
+        }
         return (
              <div>
             <header>
@@ -359,7 +382,7 @@ class settings extends Component {
                             </label>
                             <input id="settingButton" className="MainButton" type="submit" value="Submit" />
                         </form>
-                    <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account" onClick={this.deleteHandler}/>
+                    <input id="deleteButtonSettings" className="secondaryButton" type="submit" value="Delete account" onClick={this.deleteUserArtifact}/>
                 </div>  
                     <form id="image-form" onSubmit={this.changeProfilePicture}>
                         <input id="chooseImageButton" type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
