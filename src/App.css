@@ -6,6 +6,9 @@
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
+.unfollow{
+  margin-top: 20px;
+}
 #findFriends{
   position: relative;
 left: -73px;
