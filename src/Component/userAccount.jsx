@@ -342,30 +342,27 @@ class userAccount extends Component {
     render() {
         return (
             <div className="App_Settings">
-
-                <header className="Header_app">
+                <div className="Header_app">
                     <img id="profile_picture" src = {this.state.profile_picture} alt="profile" width="200" height="200" />
                     <h2 id="profile_info"> Hey {this.state.username}! Welcome!<br/> User Bio: {this.state.status}  <label>
-
-                    </label> </h2>
-
-                </header>
-                <header className="Content">
-                    <header className="Followers">
-                        <Link className="secondaryButton" id = "allFollowers" to = "/allFollowers">
-                            Followers
-                        </Link>
-                        <br/>
-                        {this.state.followersCount}
-                    </header>
-                    <header className="Following">
-                        <Link  className ="secondaryButton" to = "/allFriends">
-                            Following
-                        </Link>
-                        <br/>
-                        {this.state.friendsCount}
-                    </header>
-                </header>
+                    </label> 
+                    </h2>
+                    <div className="connections">
+                        <div className="followers">
+                            <Link className="secondaryButton" id = "allFollowers" to = "/allFollowers">
+                                Followers
+                            </Link>
+                            {this.state.followersCount}
+                        </div>
+                        
+                        <div className="following">
+                            <Link  className ="secondaryButton" to = "/allFriends">
+                                Following
+                            </Link>
+                            {this.state.friendsCount}
+                        </div>
+                    </div>
+                </div>
                 <Link className="secondaryButton" id="editSettings" to = "/usersettings">
                     Edit User Settings
                 </Link>

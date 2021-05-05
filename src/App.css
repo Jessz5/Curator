@@ -29,9 +29,9 @@ top: 40px;
   display: block; 
 }
 a#editSettings.secondaryButton{
-  position: relative;
-left: 180px;
-margin-top: auto;
+  position: absolute;
+  top:50%;
+  left: 10%;
 }
 
 .autocomplete input {
@@ -252,18 +252,12 @@ button.MainButton.login {
   position: fixed;
 }
 
-.App_Settings {
-  color: black;
-}
-
 #SearchTitle {
   float: left;
   position: relative;
   top: -14px;
 }
-div.comment-block{
 
-}
 #TopNavbar {
   position: fixed;
   width: 100vw;
@@ -555,28 +549,34 @@ a#SignInTitle.TitleOn {
   width: max-content;
 }
 h2#profile_info {
-  text-align: center;
-position: relative;
-left: -31%;
-margin-top: auto;
-}
-.Followers {
   position: absolute;
+  top: 40%;
+  left: 10%;
+}
+.connections{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  top: 20%;
+  left: 50%;
+}
+.followers {
   margin-left: unset;
   margin-right: unset;
-  width: 15em;
+  height: 50px;
   font-size: 35px;
-  left: 53%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
-
-.Following {
-  position: absolute;
+.following {
   margin-left: unset;
   margin-right: unset;
-  width: 15em;
+  height: 50px;
   font-size: 35px;
-  left: 71%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 .Tracks {
@@ -598,9 +598,9 @@ margin-top: auto;
   text-align: center;
 }
 img#profile_picture {
-  position: relative;
-  top: 50px;
-  left: 270px;
+  position: absolute;
+  top: 15%;
+  left: 10%;
 }
 .playlist {
   position: absolute;
@@ -615,7 +615,14 @@ img#profile_picture {
 }
 
 .App_Settings {
+  display: flex;
+  flex-direction: column;
   color: black;
+}
+.Header_app {
+  display: flex;
+  flex-direction: row;
+  
 }
 
 .search-page {
@@ -1821,10 +1828,7 @@ text-align: center;
     left: -20px;
     top: -80px;
   }
-  .Header_app {
-    position: relative;
-    top: 110px;
-  }
+
   .Tracks {
     position: fixed;
     margin-left: unset;
@@ -2323,10 +2327,7 @@ text-align: center;
     left: -20px;
     top: -80px;
   }
-  .Header_app {
-    position: relative;
-    top: 110px;
-  }
+
   .Tracks {
     position: fixed;
     margin-left: unset;
@@ -2674,7 +2675,7 @@ text-align: center;
     left: -20px;
     top: -80px;
   }
-  .Header_app {
+  #Header_app {
     position: relative;
     top: 110px;
   }
@@ -3065,12 +3066,6 @@ text-align: center;
     background-color: #010423;
     width: 100vw;
     height: 100vh;
-  }
-  .Header_app {
-    position: relative;
-    top: 140px;
-    left: -150px;
-    text-align: center;
   }
   #TopNavbar {
     position: relative;

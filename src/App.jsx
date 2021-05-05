@@ -31,10 +31,11 @@ import ResetPassword from './Component/resetPassword';
 
 
 var querystring = require('querystring');
-
+//https://webdev.cse.buffalo.edu/hci/gme/spotifyAuth - remote
+//http://localhost:3000/spotifyAuth - local
 const client_id = '1b71fce4cd2040b6bc601f0901189e58'; //Spotify App Client ID
 const client_secret = 'ebc54bd1ef494fecace8bdefcb834d88'; // Spotify App Secret ID
-const redirect_uri = 'https://webdev.cse.buffalo.edu/hci/gme/spotifyAuth'; // Or Your redirect uri
+const redirect_uri = '//https://webdev.cse.buffalo.edu/hci/gme/spotifyAuth'; // Or Your redirect uri
 const scope = 'user-read-private user-read-email'; //The scope defining the client information we want from Spotify
 
 
