@@ -386,7 +386,7 @@ class settings extends Component {
                 </div>  
                     <form id="image-form" onSubmit={this.changeProfilePicture}>
                         <input id="chooseImageButton" type="file" id="image_upload" name="image_uploads" onChange={this.uploadPicture}/>
-                        <input id="uploadImageButton" type="submit" value="Upload Image" className="MainButton"/>
+                        <input id="uploadImageButton" type="submit" value="Upload Profile Picture" className="MainButton"/>
                     </form>
             </div>
         );
