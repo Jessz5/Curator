@@ -6,6 +6,11 @@
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
+#findFriends{
+  position: relative;
+left: -73px;
+top: 40px;
+}
 #followingList{
   margin-top: 90px;
 }
