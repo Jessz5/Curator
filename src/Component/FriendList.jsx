@@ -66,7 +66,7 @@ export default class FriendList extends React.Component {
     }
   unfollow(id){
       return(
-      <button onClick={e => this.unFollowConnection(id)}>
+      <button className="MainButton"  onClick={e => this.unFollowConnection(id)}>
         Unfollow
       </button>
     )
