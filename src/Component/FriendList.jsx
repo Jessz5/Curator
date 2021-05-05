@@ -154,6 +154,7 @@ export default class FriendList extends React.Component {
               </div>
             ))}
           </li>
+ <br/>
           </ul>
           <Link className="secondaryButton" to = "/findFriends">
                               Find Friends
