@@ -101,7 +101,7 @@ export default class FriendList extends React.Component {
   conditionalAction(status, id){
     if (status == "active"){
       return(
-       <button onClick={e => this.updateConnection(id, "blocked")}>
+       <button  className="MainButton" onClick={e => this.updateConnection(id, "blocked")}>
                 Block
        </button>
 
@@ -115,7 +115,7 @@ export default class FriendList extends React.Component {
     )
     }else{
       return(
-      <button onClick={e => this.updateConnection(id, "active")}>
+      <button className="MainButton" onClick={e => this.updateConnection(id, "active")}>
                 Unblock
       </button>
 
@@ -145,10 +145,10 @@ export default class FriendList extends React.Component {
           {connections.map(connection => (
               <div key={connection.id} className="userlist">
                 {connection.connectedUser.username} - {connection.status}
-                <div className="deletePost MainButton">
+                <div className="deletePost">
                 {this.conditionalAction(connection.status, connection.id)}
                 </div>
-                <div className="unfollow MainButton">
+                <div className="unfollow">
                 {this.unfollow(connection.id)}
                 </div>
               </div>
