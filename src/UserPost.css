@@ -11,9 +11,7 @@
   left: 50px;
 }
 button.show-comment {
-  position: relative;
-  left: -10px;
-  top: -231px;
+
 }
 #post {
   position: relative;
@@ -55,6 +53,11 @@ top: 18px;
 h6 {
   margin: unset;
 }
+.authorName{
+  position: relative;
+  width: fit-content;
+  left: 15%;
+}
 .SongInfo {
   position: absolute;
 top: 173px;
@@ -75,9 +78,7 @@ left: 30vw;
   font-weight: normal;
 }
 .deleteIcon {
-  top: 20px;
-  position: relative;
-  left: 116px;
+  margin-top: auto;
 }
 .posts > * {
  padding-bottom: 16px;
@@ -94,15 +95,9 @@ left: 30vw;
     top: -229px;
     left: 26.4vw;
 }
-button.show-comment {
-    position: relative;
-    left: -108px;
-    top: 39px;
-}
+
   .deleteIcon {
-    top: 25px;
-    position: relative;
-    left: 106px;
+
 }
 }
 @media only screen and (max-width: 834px){

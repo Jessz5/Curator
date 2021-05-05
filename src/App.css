@@ -60,16 +60,17 @@ margin-top: auto;
     margin-top: 100px;
 }
 div.postbody {
+  display: flex;
+  flex-direction: row;
   background: hsla(0,0%,76.9%,.3);
   width: 839px;
   border-radius: 18px;
   height: 372px;
 }
-iframe {
-  border-radius: 18px;
-  position: relative;
-  top: 40px;
-  left: 56px;
+div.postChild{
+  flex: 0 50%;
+  display: flex;
+  flex-direction: column;
 }
 textarea {
   resize: none;
@@ -244,9 +245,7 @@ button.MainButton.login {
   top: -14px;
 }
 div.comment-block{
-  position: relative;
-top: -230px;
-left: 415px;
+
 }
 #TopNavbar {
   position: fixed;
@@ -274,6 +273,9 @@ ul {
 }
 .bookmark {
   top: 18px;
+}
+.embedFrame{
+  float:left;
 }
 li {
   list-style-type: none;
@@ -754,7 +756,6 @@ label#imageLable{
   iframe{
     border-radius: 18px;
     position: relative;
-    top: 40px;
     left: 56px;
   }
 @media only screen and (max-width: 1440px) {
@@ -790,17 +791,13 @@ label#imageLable{
   #uploadImageButton{
     display: inherit;
   }
-  div.postbody{
-    background: rgba(196, 196, 196, 0.3);
+  div.postbody {
+    display: flex;
+    flex-direction: row;
+    background: hsla(0,0%,76.9%,.3);
     width: 839px;
     border-radius: 18px;
     height: 372px;
-  }
-  iframe{
-    border-radius: 18px;
-    position: relative;
-    top: 40px;
-    left: 56px;
   }
   .settingsIcon{
     width: 44px;
@@ -816,9 +813,7 @@ label#imageLable{
     top: 30px;
     left: 170px;
   }
-  button.show-comment {
-    float: right;
-  }
+
   form.comment-form {
     position: relative;
     top: -25px;
@@ -1378,9 +1373,7 @@ text-align: center;
     position: relative;
     top: -45px;
   }
-  button.show-comment {
-    float: right;
-  }
+
   .cancel {
     color: #33cc66;
     position: relative;
@@ -1866,9 +1859,7 @@ text-align: center;
     position: relative;
     top: 110px;
   }
-  button.show-comment {
-    float: right;
-  }
+
 
   input.commentButton {
   }
@@ -2225,9 +2216,7 @@ text-align: center;
     position: relative;
     left: -34%;
   }
-  button.show-comment {
-    float: right;
-  }
+
   .myTracks {
     position: relative;
     top: 110px;
@@ -2578,9 +2567,7 @@ text-align: center;
     left: -31%;
     font-size: 19px;
   }
-  button.show-comment {
-    float: right;
-  }
+
   .myTracks {
     position: relative;
     top: 110px;
@@ -2945,11 +2932,7 @@ text-align: center;
     top: -21px;
     left: 92px;
   }
-  button.show-comment {
-    float: right;
-    position: relative;
-    left: -32vw;
-  }
+
   form.comment-form {
     position: relative;
     top: -45px;
@@ -3533,11 +3516,7 @@ text-align: center;
   border-radius: 25px;
   text-decoration: unset;
 }
-  button.show-comment {
-    float: right;
-    position: relative;
-    left: -32vw;
-  }
+
   button.Post {
     position: relative;
     display: block;
@@ -3626,9 +3605,7 @@ text-align: center;
     top: -20px;
     height: 90px;
   }
-  button.show-comment {
-    float: right;
-  }
+
   #SearchTitle {
     float: left;
     position: relative;
@@ -3995,6 +3972,9 @@ text-align: center;
   }
   .comment-block {
     float: right;
+  }
+  #comments{
+    position: inherit;
   }
   .comment-form {
     position: relative;

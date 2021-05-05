@@ -195,33 +195,20 @@ export default class Post extends React.Component {
           alert("error!"+error);
         }
       );
-
-    //make the api call to delete the comments of the current post as well
-    fetch("https://webdev.cse.buffalo.edu/hci/gme/api/api/posts?type=comment&parentID=" + this.props.post.id, {
-      method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer '+sessionStorage.getItem("token")
-      }
-      })
-      .then(
-        result => {
-          this.props.loadPosts();
-        },
-        error => {
-          
-        }
-      );
-
       
   }
 
   displayContent(){
     if(this.props.post.type == "Post"){
-          return <iframe id="test" src={this.props.post.content} width="300" height="300" frameBorder="0" allowTransparency="true" allow="encrypted-media" />
+          return (
+          <div className="postChild">
+          <p className="authorName"> Author: {this.props.post.author.username}</p>
+          <iframe id="embedFrame" src={this.props.post.content} width="300" height="300" frameBorder="0" allowTransparency="true" allow="encrypted-media" />
+          </div>
+          )
     }
     else{
-          return (this.props.post.content)
+          return (<div>{this.props.post.content} - Author: {this.props.post.author.username}</div>)
     }
 
   }
@@ -286,6 +273,10 @@ export default class Post extends React.Component {
     }
   }
 
+  flipComments = () => {
+    this.loadCommentPosts();
+  }
+
   // we only want to display comment information if this is a post that accepts comments
   conditionalDisplay() {
     console.log("Comment count is " + this.props.post.commentCount);
@@ -294,31 +285,7 @@ export default class Post extends React.Component {
       return "";
       }
     else {
-      if(this.props.post.type != "Post"){
-        return (
-          <div className="comment-block">
-            <div className="comment-indicator">
-              <div className="comment-indicator-text">
-                {this.getCommentCount()} Comments
-              </div>
-            </div>
-            <br />
-            {this.displayLikeButton()}
-            {this.displayDislikeButton()}
-            {this.checkInput()}
-              <CommentForm
-                onAddComment={this.setCommentCount}
-                parent={this.props.post.id}
-                commentCount={this.getCommentCount()}
-                loadPosts={this.props.loadPosts}
-              />
-            {this.maybeDisplayComments()}
-            </div>
-        );
-      }
-      else{
         return(
-          
           <div className="comment-block">
           <div className="comment-indicator">
             <div className="comment-indicator-text">
@@ -329,30 +296,47 @@ export default class Post extends React.Component {
           {this.displayLikeButton()}
           {this.displayDislikeButton()}
           {this.checkInput()}
-            <CommentForm
-              onAddComment={this.setCommentCount}
-              parent={this.props.post.id}
-              commentCount={this.getCommentCount()}
-              loadPosts={this.props.loadPosts}
-            />
+          <CommentForm
+                onAddComment={this.setCommentCount}
+                parent={this.props.post.id}
+                commentCount={this.getCommentCount()}
+                flipComments={this.flipComments}
+          />
           {this.maybeDisplayComments()}
           </div>
         );
-      }
+
 
     }
 
   }
+
+  onDelete(event){
+    console.log("Deleting Comment");
+    this.deletePost(this.props.post.id); 
+  }
+
   // we only want to expose the delete post functionality if the user is
   // author of the post
   showDelete(){
     if (this.props.post.author.id == sessionStorage.getItem("user")) {
-      return(
+      if(this.props.post.type == "Post"){
+            return(
       <button
         className="sidenav-icon deleteIcon secondaryButton"
         onClick={e => this.deletePost(this.props.post.id)}
       >Delete Post</button>
-    );
+      );
+      }
+      else{
+        return(
+          <button
+            className="deleteComment"
+            onClick={e => this.onDelete(e)}
+          >Delete Post</button>
+          );
+      }
+
     }
     return "";
   }
@@ -389,15 +373,39 @@ export default class Post extends React.Component {
         }
       );
   }
+
+  displayPostOrComment(){
+    if(this.props.post.type == "Post"){
+      return (
+        <div>
+          <div key={this.props.post.id} className={[this.props.type, "postbody"].join(" ")}>
+            {this.displayContent()}
+            <div className="postChild">
+            <button className="show-comment MainButton" onClick={this.showCommentBlock}>Show/Hide Comments</button>
+            {this.conditionalDisplay()}
+            {this.showDelete()}
+            </div>
+          </div>
+        </div>
+      );
+    }
+    else{
+      return (
+        <div>
+          <div key={this.props.post.id} className="CommentBody">
+            {this.displayContent()}
+            {this.showDelete()}
+            {this.conditionalDisplay()}
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div>
-        <div key={this.props.post.id} className={[this.props.type, "postbody"].join(" ")}>
-          {this.displayContent()}
-          {this.showDelete()}
-          <button className="show-comment MainButton" onClick={this.showCommentBlock}>Show/Hide Comments</button>
-          {this.conditionalDisplay()}
-        </div>
+        {this.displayPostOrComment()}
       </div>
     );
   }
