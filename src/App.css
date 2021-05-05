@@ -11,6 +11,9 @@
   color: #999;
   padding: 0.5rem;
 }
+#friendList{
+  display: block; 
+}
 a#editSettings.secondaryButton{
   position: relative;
 left: 180px;
