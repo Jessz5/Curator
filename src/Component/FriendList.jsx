@@ -141,7 +141,8 @@ export default class FriendList extends React.Component {
       return (
         <div className="post">
           <ul>
-            {connections.map(connection => (
+            <li> 
+          {connections.map(connection => (
               <div key={connection.id} className="userlist">
                 {connection.connectedUser.username} - {connection.status}
                 <div className="deletePost">
@@ -152,6 +153,7 @@ export default class FriendList extends React.Component {
                 </div>
               </div>
             ))}
+          </li>
           </ul>
           <Link className="secondaryButton" to = "/findFriends">
                               Find Friends
