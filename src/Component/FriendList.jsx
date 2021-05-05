@@ -145,10 +145,10 @@ export default class FriendList extends React.Component {
           {connections.map(connection => (
               <div key={connection.id} className="userlist">
                 {connection.connectedUser.username} - {connection.status}
-                <div className="deletePost">
+                <div className="deletePost MainButton">
                 {this.conditionalAction(connection.status, connection.id)}
                 </div>
-                <div className="unfollow">
+                <div className="unfollow MainButton">
                 {this.unfollow(connection.id)}
                 </div>
               </div>
