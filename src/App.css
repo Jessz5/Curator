@@ -11,6 +11,11 @@
   color: #999;
   padding: 0.5rem;
 }
+a#editSettings.secondaryButton{
+  position: relative;
+left: 180px;
+margin-top: auto;
+}
 
 .autocomplete input {
   width: calc(300px + 1rem);
