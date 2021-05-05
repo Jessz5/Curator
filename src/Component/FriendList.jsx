@@ -140,7 +140,7 @@ export default class FriendList extends React.Component {
     } else {
       return (
         <div className="post">
-          <ul>
+          <ul id="followingList">
             <li> 
           {connections.map(connection => (
               <div key={connection.id} className="userlist">
