@@ -537,8 +537,9 @@ a#SignInTitle.TitleOn {
 }
 h2#profile_info {
   text-align: center;
-  position: relative;
-  left: -31%;
+position: relative;
+left: -31%;
+margin-top: auto;
 }
 .Followers {
   position: absolute;
