@@ -56,10 +56,11 @@ export default class FriendList extends React.Component {
         <div className="post">
          <ul id="friendList">
             {followers.map(connection => (
+              <li> 
               <div key={connection.id} className="userlist">
                 {connection.user.username} - {connection.user.status}
-                <br />
               </div>
+              </li>
             ))}
           </ul>
           <br /><br /><br />
